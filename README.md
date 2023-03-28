@@ -1,3 +1,2 @@
-# BPA
-## Bike, Pedestrian, and Accessibility
-### Hello World!
+# Bike, Pedestrian, and Accessibility
+
