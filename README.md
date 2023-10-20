@@ -29,7 +29,7 @@ How do I contribute?
 # Working Group
 In development - check back soon for updates!
 
-# Frequently Asked Questions :question:
+# Frequently Asked Questions
 We have collected frequently asked questions here (coming soon!). Please use GitHub [Discussions](https://github.com/dotbts/BPA/discussions) to ask more questions and get answers from others.
 
 
