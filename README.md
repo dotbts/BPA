@@ -27,7 +27,7 @@ How do I contribute?
 - Review and provide feedback on update issues/discussions/pull requests created by other users.
 
 # Working Group
-In development - check back soon for updates!
+We are hosting a meeting to investigate interest in establishing a bike, pedestrian, and accessibility infrastructure data working group at the end of November. Materials from that meeting will be stored in this repository.
 
 # Frequently Asked Questions
 We have collected frequently asked questions here (coming soon!). Please use GitHub [Discussions](https://github.com/dotbts/BPA/discussions) to ask more questions and get answers from others.
