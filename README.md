@@ -27,21 +27,7 @@ How do I contribute?
 - Review and provide feedback on update issues/discussions/pull requests created by other users.
 
 # Working Group
-We are hosting a virtual meeting on __Friday, December 1, 2023 from 1-3pm ET__ to investigate interest in establishing a bike, pedestrian, and accessibility infrastructure data working group. Materials from that meeting will be stored in this repository. The meeting details are below. Please join during the meeting time:
-
-Microsoft Teams meeting  
-__Join on your computer, mobile app or room device__  
-[Click here to join the meeting](https://teams.microsoft.com/l/meetup-join/19%3ameeting_NDI5NGEzZDQtN2Y0NS00Njg1LWIzNTgtMjRkYWE2N2ZhZWY2%40thread.v2/0?context=%7b%22Tid%22%3a%22c4cd245b-44f0-4395-a1aa-3848d258f78b%22%2c%22Oid%22%3a%22ab52f690-7a57-457d-8a25-2f7025a81547%22%7d)  
-Meeting ID: 236 554 746 171  
-Passcode: 3LyHnW  
-[Download Teams](https://www.microsoft.com/en-us/microsoft-teams/download-app) | [Join on the web](https://www.microsoft.com/microsoft-teams/join-a-meeting)  
-
-Or call in (audio only)  
-+1 509-931-1572,,48792449#   United States, Spokane  
-Phone Conference ID: 487 924 49#  
-[Find a local number](https://dialin.teams.microsoft.com/989331a8-d3e3-40a4-b706-8cf41671b2d3?id=48792449) | [Reset PIN](https://dialin.teams.microsoft.com/usp/pstnconferencing) 
-
-
+We hosted a virtual meeting on __Friday, December 1, 2023 from 1-3pm ET__ to investigate interest in establishing a bike, pedestrian, and accessibility infrastructure data working group. You can view details on this meeting, including the [recording](https://www.youtube.com/watch?v=wNxqvG_knTs) on the [wiki](https://github.com/dotbts/BPA/wiki/2023-12-01-Situation-Assessment-Meeting).
 
 # Frequently Asked Questions
 We have collected frequently asked questions here (coming soon!). Please use GitHub [Discussions](https://github.com/dotbts/BPA/discussions) to ask more questions and get answers from others.
