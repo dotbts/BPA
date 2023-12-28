@@ -27,7 +27,11 @@ How do I contribute?
 - Review and provide feedback on update issues/discussions/pull requests created by other users.
 
 # Working Group
-We hosted a virtual meeting on __Friday, December 1, 2023 from 1-3pm ET__ to investigate interest in establishing a bike, pedestrian, and accessibility infrastructure data working group. You can view details on this meeting, including the [recording](https://www.youtube.com/watch?v=wNxqvG_knTs) on the [wiki](https://github.com/dotbts/BPA/wiki/2023-12-01-Situation-Assessment-Meeting).
+
+We are hosting our next meeting virtually on __Thursday, January 18, 2024 from 1-2pm ET__. We will share details on joining the virtual meeting here.
+
+### Recent Working Group Meetings
+- [2023-12-01 Situation Assessment Meeting](https://github.com/dotbts/BPA/wiki/2023-12-01-Situation-Assessment-Meeting)
 
 # Frequently Asked Questions
 We have collected frequently asked questions here (coming soon!). Please use GitHub [Discussions](https://github.com/dotbts/BPA/discussions) to ask more questions and get answers from others.
