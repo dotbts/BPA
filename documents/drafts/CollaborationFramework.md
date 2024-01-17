@@ -19,6 +19,20 @@ The XXXXX Working Group shall
 
 XXXXX Working Group activities support the objectives presented above by  
 
+## Principled Engagement
+
+The XXXXX Working Group utilizes a framework called Principled Engagement that utilizes a set of prinicples to navigate the complexities of human interaction with integrity and purpose. 
+The framework's principles include:
+  Ethical Conduct
+  Respect for Others
+  Collaboration and Cooperation
+  Social Responsibility
+  Long-Term Perspective
+  Adaptability and Learning
+  Communication
+  Conflict Resolution
+  Personal and Organizational Development
+
 ## MEMBERSHIP 
 
 The XXXXX is open to federal, state, local, tribal, academic, and private agencies, organizations, and institutions. Members are expected to …………………………. Each member organization should designate one representative as their primary point of contact and inform the XXXXX Chair. 
