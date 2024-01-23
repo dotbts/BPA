@@ -27,23 +27,10 @@ How do I contribute?
 - Review and provide feedback on update issues/discussions/pull requests created by other users.
 
 # Working Group
+We are working on setting up a periodic schedule for meeting. Please fill out this [poll](https://forms.office.com/g/LXV3LW6R0c) by Thursday, January 25th to provide input on the meeting time and frequency.
 
-We are hosting our next meeting virtually on __Thursday, January 18, 2024 from 1-2pm ET__. Below are the details you need to access the meeting via Microsoft Teams:  
-
-__Join on your computer, mobile app or room device__  
-[Click here to join the meeting](https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZmYwNzAwMTctZmQ5Ni00YmNkLWEyOWItMGI3NTM0OGU5ZjUw%40thread.v2/0?context=%7b%22Tid%22%3a%22c4cd245b-44f0-4395-a1aa-3848d258f78b%22%2c%22Oid%22%3a%22ab52f690-7a57-457d-8a25-2f7025a81547%22%7d)  
-
-Meeting ID: 212 716 407 381  
-Passcode: FKfRgt  
-[Download Teams](https://www.microsoft.com/en-us/microsoft-teams/download-app) | [Join on the web](https://www.microsoft.com/microsoft-teams/join-a-meeting)  
-
-__Or call in (audio only)__  
-[+1 509-931-1572,,619106909#](tel:+15099311572,,619106909#)   United States, Spokane  
-Phone Conference ID: 619 106 909#  
-[Find a local number](https://dialin.teams.microsoft.com/989331a8-d3e3-40a4-b706-8cf41671b2d3?id=619106909) | [Reset PIN](https://dialin.teams.microsoft.com/usp/pstnconferencing)  
-
-
-### Recent Working Group Meetings
+### Recent Collaboration Meetings
+- [2024-01-18 Follow-Up Meeting](https://github.com/dotbts/BPA/wiki/2024-01-18-Follow%E2%80%90Up-Meeting)
 - [2023-12-01 Situation Assessment Meeting](https://github.com/dotbts/BPA/wiki/2023-12-01-Situation-Assessment-Meeting)
 
 # Frequently Asked Questions
