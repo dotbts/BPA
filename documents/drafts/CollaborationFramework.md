@@ -49,7 +49,7 @@ The BPAID co-chairs may establish subgroups to accomplish the goals, objectives,
 2. Meetings may be held virtually or in-person.
 3. Agenda items will be coordinated with other members and will be available at least several days in advance of proposed meeting dates.
 4. This document shall be reviewed and updated, as needed, on a regular basis.
-5. Co-chairs may approve and implement minor changes (e.g., grammatical updates) to any document the collaboration authors.
+5. Co-chairs may approve and implement non-normative changes (e.g., grammatical updates) to any document the collaboration authors.
 6. Editing rights to the BPAID GitHub site will be granted to appropriate co-chairs at the beginning of each update cycle.
 7. The BPAID co-chairs are responsible for overseeing subgroup activities and retain the right to veto changes to the subgroup Guides.
 8. The BPAID may establish additional rules and procedures for conducting business.
