@@ -1,66 +1,87 @@
-# Bike, Pedestrian, and Active Transportation Data Collaboration Framework
+# Collaboration Framework
+The __National Collaboration on Bicycle, Pedestrian, and Accessibility Infrastructure Data (NC-BPAID)__ is organized under the [Federal Geographic Data Committee (FGDC)](https://www.fgdc.gov/) [Geospatial Transportation Subcommittee](https://www.fgdc.gov/organization/working-groups-subcommittees/tsc/index_html). The FGDC Geospatial Transportation Subcommittee provides leadership, direction, and administrative support in the use and development of geospatial information across national, tribal, subnational, academia, nonprofit, and private sector organizations. This document - the collaboration framework - details the structures and processes that the members of the collaboration agree to use in working together. This document is always subject to modification by NC-BPAID members. If you would like suggest a change to this document, create a pull request with the proposed change.
+
+The NC-BPAID is not an advisory body. It accomplishes work which could not be achieved separately by its individual participants. This collaboration is necessary because of the complexities surrounding the creation, collection, processing, publication, integration, visualization, analysis, and curation of bicycle, pedestrian, and accessibility infrastructure data from all levels of government, across all jurisdictions, and among government, private, nonprofit, and academic organizations.
 
 ## PURPOSE 
-The Geospatial Transportation Subcommittee’s (GTS) National Collaboration on Bike, Pedestrian, and Accessibility Infrastructure Data (NC-BPAID or BPAID) improves the utility and value of bike, pedestrian, and accessibility infrastructure data through the application of [FAIR Data Principles](https://www.nist.gov/itl/ssd/information-systems-group/configurable-data-curation-system-cdcs/cdcs-help-and-resources-1) (detailed below).  The application of FAIR Principles improves the data’s Findability, Accessibility, Interoperability, and Reusability.  
+The purpose of the NC-BPAID is to advance comprehensive, public domain, interoperable data on bike, pedestrian, and accessibility infrastructure that informs decision-making on the part of individual travelers, as well as the government, private, nonprofit, and academic sectors.​
 
-This national collaboration is not an advisory body. This collaboration fosters collective action for the benefit all participants and citizens. It accomplishes work which could not be achieved separately by its individual participants. This collaboration is necessary because of the complexities surrounding the creation, collection, processing, publication, integration, visualization, analysis, and curation of bike, pedestrian, and accessibility data from all scales of government, across all jurisdictions, and among government, private, and nonprofit organizations. 
+## SCOPE
+The scope of the NC-BPAID is limited to promoting the findability, accessibility, interoperability, and reusability<sup>1</sup> of bicycle, pedestrian, and accessibility infrastructure data through the development or endorsement, adoption, and widespread implementation of open standards and practices that support the efficient collection, exchange, and portability of these types of data<sup>2</sup>.  
 
-## SCOPE 
-The NC-BPAID is accountable to its membership. The FGDC Geospatial Transportation Subcommittee provides leadership, direction, and administrative support in the use and development of geospatial information across national, tribal, subnational, academia, nonprofit, and private sector organizations.  
+Ultimately, the NC-BPAID should foster an independent and sustainable bicycle, pedestrian, and accessibility infrastructure data governance organization that will eventually lead the work of maintaining the specifications, soliciting representative involvement from the broad spectrum of stakeholders.
 
-The scope of the BPAID is limited to… 
+1. [FAIR Data Principles](https://www.go-fair.org/fair-principles/)
+2. [Mobility Data Interoperability Principles](https://www.interoperablemobility.org/)
 
 ## OBJECTIVES 
-The NC-BPAID  shall  
+The NC-BPAID  shall:
+
+* Objective 1
+* Objective 2
+* Objective 3
 
 ## ACTIVITIES 
 
-NC-BPAID activities support the objectives presented above by  
+The NC-BPAID activities support the objectives presented above by:
+
+* Activity 1
+* Activity 2
+* Activity 3
 
 ## MEMBERSHIP 
-The National Collaboration of Bike, Pedestrian, and Accessibility Infrastructure Data is open to national, tribal, subnational, academic, non-profit and for-profit agencies, organizations, and institutions. Each member organization shall designate a primary point of contact and inform the NC-BPAID administrative team (currently FGDC Geospatial Transportation Subcommittee). 
+Membership in the NC-BPAID is open to national, tribal, subnational, academic, non-profit and for-profit agencies, organizations, and institutions. Members are expected to be active in the creation, collection, processing, publication, integration, visualization, analysis, and curation of bike, pedestrian, and accessibility infrastructure data within their organization or community.
 
-## VOTING MEMBERS 
-BPAID membership is open to the community. Members are expected to be active in the creation, collection, processing, publication, integration, visualization, analysis, and curation of bike, pedestrian, and accessibility infrastructure data within their community. Voting members must be in a position where they are publishing or consuming bike, pedestrian, and accessibility infrastructure data.  
+### Voting Members
+The NC-BPAID is committed to collaborative decision-making. In order to reduce power asymetry between members in this process, each organization must have only one vote, and therefore only one voting member. Each member organization shall designate their voting member and inform the NC-BPAID administrative team via email. Only voting members may vote.
 
-Only one vote per each voting organization will be accepted on each of the requests put forth for the BPAID to review, and in the election of co-chairs of the BPAID or its subgroups. In addition to attending two BPAID meetings a year, voting members may volunteer for membership in related subgroups and attend monthly touch-base meetings to monitor progress and provide updates on subgroup activities.  
+Voting members and their affiliations are listed in this repository: [to be created]().
 
-The ideal participant from each organization is a senior leader with direct or delegated decision-making authority who is intimately familiar with their organization’s bike, pedestrian, and accessibility infrastructure data assets, needs, and challenges. They should have a deep level of technical acumen, commensurate with the level of specific data sets used by their organization. They will ideally be in a position to drive adoption (e.g., establishing data feeds or standards) within their organization. 
+### Non-Voting Members
+Any member of NC-BPAID who is not a voting member is a non-voting member. Non-voting members shall not vote, but they may co-chair NC-BPAID, chair a subgroup, and provide input or influence the discussion and direction of NC-BPAID in other ways.
 
-## NON-VOTING MEMBERS 
-BPAID membership is open to all. However, organizations deemed ineligible to vote are categorized as observers or friends and will receive a general invitation to the BPAID. These organizations will not be selected as BPAID co-chairs and will not have voting rights. However, their feedback and inputs are documented as part of BPAID summary reports. 
+### Co-Chairs
+The NC-BPAID is led by three co-chairs elected from the membership. There shall not be more than one co-chair from a single organization. The co-chair term is one year. If a co-chair exits their term early, a new co-chair will be elected for the remainder of the vacated term. These responsibilities of a co-chair are expected to fill approximately five hours per month. The responsibilities of a co-chair are:
+* Strategic leadership of NC-BPAID
+* Guide the formation of NC-BPAID's objectives and activities
+* Co-host meetings with the administrative team
+* Advise subgroups
 
-## CO-CHAIRS 
-The NC-BPAID is led by two co-chairs elected from national, tribal, subnational, academic, non-profit, or for-profit agencies, organizations, or institutions active in the development and application of policies related to the creation, collection, processing, publication, integration, visualization, analysis, and curation of bike, pedestrian, and accessibility infrastructure data.
+Ideally, co-chairs are leaders with direct or delegated decision-making authority who are familiar with their organization’s bike, pedestrian, or accessibility infrastructure data assets, needs, and challenges. They should have a deep level of technical acumen, commensurate with the level of specific data sets used by their organization. They will ideally be in a position to drive adoption (e.g., establishing data feeds or standards) within their organization.
 
-## SUBGROUPS 
-The BPAID co-chairs may establish subgroups to accomplish the goals, objectives, and activities defined by the collaboration. 
+## DECISION-MAKING PROCEDURES
+Voting happens online, via a GitHub Discussion. The voting period is one week, started by a co-chair or a member of the administrative team.
 
-## COLLABORATIVE DECISION MAKING 
-1. For significant activities, such as the adoption of changes to a specification, the collaboration shall reach decisions via consensus.
-2. The collaboration shall reach consensus by achieving agreement among 75% of voting members or by meeting unanimity minus three votes.
-3. The collaboration will use the hardest method when reaching consensus.
-4. Abstentions or stand-asides shall not count towards the consensus.
-5. The collaboration shall capture and document all dissenting votes.
-6. The collaboration allots one vote for each member organization. 
+### Vote Type
+| Vote Type  | Description |
+| ------------- | ------------- |
+| +1  | "Yes," "Agree," or "the action should be performed." |
+| -1  | “No,” “Disagree,” or “the action should not be performed.”  On issues where consensus is required, this vote counts as a veto. All vetoes must contain an explanation of why the veto is appropriate. Vetoes with no explanation are void. It may also be appropriate for a -1 vote to include an alternative course of action. |
+| Abstain  | People can abstain from voting. They can either remain silent or express their reason. Abstentions do not count towards the total votes. |
 
-## PROCEDURES
-1. BPAID meetings shall be held through an announcement of the co-chairs and conducted according to a schedule determined by the collaboration.
-2. Meetings may be held virtually or in-person.
-3. Agenda items will be coordinated with other members and will be available at least several days in advance of proposed meeting dates.
-4. This document shall be reviewed and updated, as needed, on a regular basis.
-5. Co-chairs may approve and implement non-normative changes (e.g., grammatical updates) to any document the collaboration authors.
-6. Editing rights to the BPAID GitHub site will be granted to appropriate co-chairs at the beginning of each update cycle.
-7. The BPAID co-chairs are responsible for overseeing subgroup activities and retain the right to veto changes to the subgroup Guides.
-8. The BPAID may establish additional rules and procedures for conducting business.
-9. Unresolved issues will be referred promptly to the Geospatial Transportation Subcommittee Chair for resolution.
-10. The GTS’s decision may be appealed to the FGDC Office of the Secretariat. 
+### Approval Types
+Matching the the appropriate approval type to the decision being made shall continue to be clarified as the NC-BPAID makes progress.
+| Vote Type  | Description | Hypothetical Example
+| ------------- | ------------- | ------------- |
+| Consensus  | 75% majority and no vetoes | Change to specification |
+| Majority  | Simple majority | Co-chair election  |
+| Consensus  | Implicit allowance unless a veto is received, at which time, depending on the type of action, either majority or consensus approval must be obtained.​ | Change to documentation  |
 
-## COORDINATION RESPONSIBILITIES 
-The BPAID will employ the tools and mediums best suited to meet its responsibilities such as online webinars, teleconferences, national user forums, annual research initiatives, and cooperative venues, pursuant to the availability of resources. The co-chairs will coordinate working group activities with other working groups and subcommittees, FGDC coordination groups, and other appropriate parties that are relevant to accomplishing key activities and effectively growing the geospatial community.
+## ADMINISTRATIVE PROCEDURES
+1. Co-chairs shall announce meetings, according to a schedule determined by the collaboration. Meetings may be virtual or in-person.  
+2. Co-chairs shall coordinate agenda items and make an agenda available at least two days in advance of a meeting.  
+3. Co-chairs shall be granted editing rights to the GitHub repository when elected.
+5. Co-chairs may implement grammatical changes to any document the collaboration authors.
+6. Co-chairs may establish a subgroup via majority vote to accomplish the objectives and activities. By default, subgroups adopt this collaboration framework for their decision-making procedure.
+7. Co-chairs shall oversee subgroup activities and subgroup plans are subject to co-chair approval. ​
+8. Members shall review and update this collaboration framework as needed, at least annually. The framework shall be adopted by majority vote.
+9. Members shall refer unresolvable conflicts to the FGDC Geospatial Transportation Subcommittee Chair for resolution. Members may appeal the chair’s resolution to the FGDC Office of the Secretariat. 
+
+## COORDINATION
+The NC-BPAID may employ the tools and mediums best suited to meet its responsibilities such as online webinars, teleconferences, national user forums, annual research initiatives, and cooperative venues, pursuant to the availability of resources. The co-chairs shall coordinate activities with other working groups and subcommittees, FGDC coordination groups, and other appropriate parties that are relevant to accomplishing key activities.
 
 ## CONDUCT - PRINCIPLED ENGAGEMENT
-Participants in the collaboration will interact with each other according to the concept of principled engagement. The concept of principled engagement guides individuals, organizations, and communities in their relationships, ensuring that they adhere to ethical standards, respect diversity, and contribute positively to the overall well-being of society. By adhering to these principles, individuals and organizations can contribute to a more ethical, inclusive, and sustainable world. Principled engagement is not a one-size-fits-all concept; rather, it provides a framework for navigating the complexities of human interaction with integrity and purpose. Below are some key aspects of principled engagement:
+Participants in the collaboration shall interact with each other according to the concept of principled engagement. The concept of principled engagement guides individuals, organizations, and communities in their relationships, ensuring that they adhere to ethical standards, respect diversity, and contribute positively to the overall well-being of society. By adhering to these principles, individuals and organizations can contribute to a more ethical, inclusive, and sustainable world. Principled engagement is not a one-size-fits-all concept; rather, it provides a framework for navigating the complexities of human interaction with integrity and purpose. Below are some key aspects of principled engagement:
 
 **Ethical Conduct:** Principled engagement involves behaving ethically in all interactions. This includes honesty, integrity, and transparency. Individuals and organizations commit to making decisions and taking actions that align with moral and ethical principles.
 
@@ -79,38 +100,9 @@ Participants in the collaboration will interact with each other according to the
 **Conflict Resolution:** In situations where conflicts arise, principled engagement encourages the use of constructive and fair conflict resolution mechanisms. This could involve dialogue, mediation, or other approaches that seek mutually agreeable solutions.
 
 **Personal and Organizational Development:** Individuals and organizations committed to principled engagement often prioritize ongoing personal and organizational development. This involves continuous learning, reflection, and improvement to better align with their principles.
-
-## FAIR DATA PRINCIPLES 
-As mentioned above, the NC-BPAID improves the utility and value of bike, pedestrian, and accessibility infrastructure data through the application of FAIR Data Principles. The FAIR Data Principles, listeed below, were detailed in Wilkenson et al.'s article [The FAIR Guiding Principles for scientific data management and stewardship](https://www.nature.com/articles/sdata201618) which was published in Scientific Data in 2016.
-
-  To be Findable:  
-  F1. (meta)data are assigned a globally unique and persistent identifier  
-  F2. data are described with rich metadata (defined by R1 below)  
-  F3. metadata clearly and explicitly include the identifier of the data it describes  
-  F4. (meta)data are registered or indexed in a searchable resource  
-  
-  To be Accessible:  
-  A1. (meta)data are retrievable by their identifier using a standardized communications protocol  
-  A1.1 the protocol is open, free, and universally implementable  
-  A1.2 the protocol allows for an authentication and authorization procedure, where necessary  
-  A2. metadata are accessible, even when the data are no longer available  
-  
-  To be Interoperable:  
-  I1. (meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.  
-  I2. (meta)data use vocabularies that follow FAIR principles  
-  I3. (meta)data include qualified references to other (meta)data  
-  
-  To be Reusable:  
-  R1. meta(data) are richly described with a plurality of accurate and relevant attributes  
-  R1.1. (meta)data are released with a clear and accessible data usage license  
-  R1.2. (meta)data are associated with detailed provenance  
-  R1.3. (meta)data meet domain-relevant community standards
   
 ## REPORTS 
-The BPAID shall develop an annual summary of accomplishments and planned activities, presenting this summary to the GTS Chair for acceptance. The GTS Chair may request the BPAID to prepare special reports, white papers, technical papers, briefings and the like to address pertinent issues, cross-cutting activities, and/or urgent matters consistent with larger FGDC community needs. These requests may come from the FGDC Office of the Secretariat, FGDC Coordination Group, or FGDC member agencies. The BPAID, through its co-chairs, will submit content for the FGDC Annual Report each year, as requested by the FGDC Secretariat. The BPAID will maintain information about its activities on the GitHub web site at [https://github.com/dotbts/BPA](https://github.com/dotbts/BPA).  A reference to the GitHub site shall be established on [fgdc.gov](fgdc.gov).
+The NC-BPAID shall develop an annual summary of accomplishments and planned activities, presenting this summary to the GTS Chair for acceptance. The GTS Chair may request the NC-BPAID to prepare special reports, white papers, technical papers, briefings and the like to address pertinent issues, cross-cutting activities, and/or urgent matters consistent with larger FGDC community needs. These requests may come from the FGDC Office of the Secretariat, FGDC Coordination Group, or FGDC member agencies. The NC-BPAID, through its co-chairs, will submit content for the FGDC Annual Report each year, as requested by the FGDC Secretariat. The BPAID will maintain information about its activities on the GitHub web site at [https://github.com/dotbts/BPA](https://github.com/dotbts/BPA).  A reference to the GitHub site shall be established on [fgdc.gov](fgdc.gov).
 
 ## AUTHORITIES
 The NC-BPAID is established under the Geospatial Transportation Subcommittee. The GTS is chartered under the Federal Geographic Data Committee’s Steering Committee (FGDC-SC) and supported by the FGDC Office of the Secretariat (FGDC-OS) which is granted authority through the Office of Management and Budget (OMB) Circular A-16, Executive Order 12906, E-Gov Act of 2002, and Geospatial Data Act of 2018. In addition, other OMB guidance or policies may apply, including Circulars A-11, A-119, or A- 130, the Digital Government Strategy, the Open Data Policy, the Evidence Act, and the Federal Data Strategy, as appropriate.
-
-## APPROVALS 
-This Guide will remain in effect until amended or replaced or until terminated by the GTS Chair, the FGDC Steering Committee, or FGDC Office of the Secretariat. The Guide shall be reviewed and, if necessary, amended yearly. This Guide will be posted on the BPAID web site.
