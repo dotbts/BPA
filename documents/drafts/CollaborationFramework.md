@@ -41,7 +41,7 @@ Voting members and their affiliations are listed in this repository: [to be crea
 Any member of NC-BPAID who is not a voting member is a non-voting member. Non-voting members shall not vote, but they may co-chair NC-BPAID, chair a subgroup, and provide input or influence the discussion and direction of NC-BPAID in other ways.
 
 ### Co-Chairs
-The NC-BPAID is led by three co-chairs elected from the membership. There shall not be more than one co-chair from a single organization. The co-chair term is one year. If a co-chair exits their term early, a new co-chair will be elected for the remainder of the vacated term. These responsibilities of a co-chair are expected to fill approximately five hours per month. The responsibilities of a co-chair are:
+The NC-BPAID is led by three co-chairs elected from the membership. There shall not be more than one co-chair from a single organization. The co-chair term is one year. If a co-chair exits their term early, a new co-chair will be elected for the remainder of the vacated term. The responsibilities of a co-chair are expected to fill approximately five hours per month. The responsibilities of a co-chair are:
 * Strategic leadership of NC-BPAID
 * Guide the formation of NC-BPAID's objectives and activities
 * Co-host meetings with the administrative team
@@ -65,7 +65,7 @@ Matching the the appropriate approval type to the decision being made shall cont
 | ------------- | ------------- | ------------- |
 | Consensus  | 75% majority and no vetoes | Change to specification |
 | Majority  | Simple majority | Co-chair election  |
-| Consensus  | Implicit allowance unless a veto is received, at which time, depending on the type of action, either majority or consensus approval must be obtained.​ | Change to documentation  |
+| "Lazy" Approval  | Implicit allowance unless a veto is received, at which time, depending on the type of action, either majority or consensus approval must be obtained.​ | Change to documentation  |
 
 ## ADMINISTRATIVE PROCEDURES
 1. Co-chairs shall announce meetings, according to a schedule determined by the collaboration. Meetings may be virtual or in-person.  
