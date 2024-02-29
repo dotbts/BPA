@@ -33,12 +33,12 @@ The NC-BPAID activities support the objectives presented above by:
 Membership in the NC-BPAID is open to national, tribal, subnational, academic, non-profit and for-profit agencies, organizations, and institutions. Members are expected to be active in the creation, collection, processing, publication, integration, visualization, analysis, and curation of bike, pedestrian, and accessibility infrastructure data within their organization or community.
 
 ### Voting Members
-The NC-BPAID is committed to collaborative decision-making. In order to reduce power asymetry between members in this process, each organization must have only one vote, and therefore only one voting member. Each member organization shall designate their voting member and inform the NC-BPAID administrative team via email. Only voting members may vote.
+The NC-BPAID is committed to collaborative decision-making. In order to reduce power asymetry between members in this process, each organization must have only one vote, and therefore only one voting member. Each member organization shall designate their voting member and inform the NC-BPAID administrative team via email. Only voting members may vote, become a co-chair, or chair a subgroup.
 
 Voting members and their affiliations are listed in this repository: [to be created]().
 
 ### Non-Voting Members
-Any member of NC-BPAID who is not a voting member is a non-voting member. Non-voting members shall not vote, but they may co-chair NC-BPAID, chair a subgroup, and provide input or influence the discussion and direction of NC-BPAID in other ways.
+Any member of NC-BPAID who is not a voting member is a non-voting member. Non-voting members shall not vote, but they may provide input or influence the discussion and direction of NC-BPAID in other ways.
 
 ### Co-Chairs
 The NC-BPAID is led by three co-chairs elected from the membership. There shall not be more than one co-chair from a single organization. The co-chair term is one year. If a co-chair exits their term early, a new co-chair will be elected for the remainder of the vacated term. The responsibilities of a co-chair are expected to fill approximately five hours per month. The responsibilities of a co-chair are:
