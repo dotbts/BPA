@@ -28,7 +28,7 @@ How do I contribute?
 
 # National Collaboration on Bicycle, Pedestrian, and Accessibility Infrastructure Data
 
-If you would like to nominate yourself or someone else to be a co-chair of this group, please fill out the [nomination form](https://forms.office.com/Pages/ResponsePage.aspx?id=WyTNxPBElUOhqjhI0lj3i5D2UqtXen1FiiUvcCWoFUdUN1VVQVUwWEhVTU45MkVKTlVaQTNHQVdQNi4u) by the end of the day on March 7th.
+If you would like to nominate yourself or someone else to be a co-chair of this group, please fill out the [nomination form](https://forms.office.com/Pages/ResponsePage.aspx?id=WyTNxPBElUOhqjhI0lj3i5D2UqtXen1FiiUvcCWoFUdUN1VVQVUwWEhVTU45MkVKTlVaQTNHQVdQNi4u) by the end of the day on March 8th.
 
 ### Recent Collaboration Meetings
 - [2024-02-29](https://github.com/dotbts/BPA/wiki/2024-02-29)
