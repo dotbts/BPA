@@ -28,24 +28,11 @@ How do I contribute?
 
 # National Collaboration on Bicycle, Pedestrian, and Accessibility Infrastructure Data
 
-Information to join the next call (Thursday, March 28th @ 3pm-4:30pm ET) is below:
-
-__Microsoft Teams meeting__  
-Join on your computer, mobile app or room device  
-[Click here to join the meeting](https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZjE2Zjc5N2QtZDZiOC00N2VhLWI5MmYtNjJhYzgwZTVhYzI1%40thread.v2/0?context=%7b%22Tid%22%3a%22c4cd245b-44f0-4395-a1aa-3848d258f78b%22%2c%22Oid%22%3a%22ab52f690-7a57-457d-8a25-2f7025a81547%22%7d)  
-Meeting ID: 296 273 848 067  
-Passcode: rHPVmT  
-[Download Teams](https://www.microsoft.com/en-us/microsoft-teams/download-app) | [Join on the web](https://www.microsoft.com/microsoft-teams/join-a-meeting)  
-Or call in (audio only)  
-[+1 509-931-1572,,774086296#](tel:+15099311572,,774086296# )   United States, Spokane  
-Phone Conference ID: 774 086 296#  
-[Find a local number](https://dialin.teams.microsoft.com/989331a8-d3e3-40a4-b706-8cf41671b2d3?id=774086296) | [Reset PIN](https://dialin.teams.microsoft.com/usp/pstnconferencing) 
 
 
 ### Recent Collaboration Meetings
-- [2024-02-29](https://github.com/dotbts/BPA/wiki/2024-02-29)
-- [2024-01-18 Follow-Up Meeting](https://github.com/dotbts/BPA/wiki/2024-01-18-Follow%E2%80%90Up-Meeting)
-- [2023-12-01 Situation Assessment Meeting](https://github.com/dotbts/BPA/wiki/2023-12-01-Situation-Assessment-Meeting)
+You can find information about all previous meetings on the [wiki](https://github.com/dotbts/BPA/wiki).
+- [2024-03-28](https://github.com/dotbts/BPA/wiki/2024-03-28)
 
 # Frequently Asked Questions
 We have collected frequently asked questions here (coming soon!). Please use GitHub [Discussions](https://github.com/dotbts/BPA/discussions) to ask more questions and get answers from others.
