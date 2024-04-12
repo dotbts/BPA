@@ -27,12 +27,20 @@ How do I contribute?
 - Review and provide feedback on update issues/discussions/pull requests created by other users.
 
 # National Collaboration on Bicycle, Pedestrian, and Accessibility Infrastructure Data
+### Next Meeting
+Thursday, April 25 @ 3:30pm ET on Microsoft Teams:  
+- [Agenda](https://github.com/dotbts/BPA/wiki/2024-04-25)  
 
-
+- [Join the meeting now](https://teams.microsoft.com/l/meetup-join/19%3ameeting_MzJhNzQ4OGItN2I2MC00Y2FjLWFmNGYtZDVhMTY1NGFiZjMz%40thread.v2/0?context=%7b%22Tid%22%3a%22c4cd245b-44f0-4395-a1aa-3848d258f78b%22%2c%22Oid%22%3a%22ab52f690-7a57-457d-8a25-2f7025a81547%22%7d)  
+  Meeting ID: 257 712 118 865  
+  Passcode: z7xV2H  
+  Dial-in by phone  
+  [+1 509-931-1572,,967288560#](tel:+15099311572,,967288560) United States, Spokane  
+  [Find a local number](https://dialin.teams.microsoft.com/989331a8-d3e3-40a4-b706-8cf41671b2d3?id=967288560)  
+  Phone conference ID: 967 288 560#  
 
 ### Recent Collaboration Meetings
 You can find information about all previous meetings on the [wiki](https://github.com/dotbts/BPA/wiki).
-- [2024-03-28](https://github.com/dotbts/BPA/wiki/2024-03-28)
 
 # Frequently Asked Questions
 We have collected frequently asked questions here (coming soon!). Please use GitHub [Discussions](https://github.com/dotbts/BPA/discussions) to ask more questions and get answers from others.
