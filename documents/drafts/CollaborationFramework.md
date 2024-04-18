@@ -4,15 +4,17 @@ The __National Collaboration on Bicycle, Pedestrian, and Accessibility Infrastru
 The NC-BPAID is not an advisory body. It accomplishes work which could not be achieved separately by its individual participants. This collaboration is necessary because of the complexities surrounding the creation, collection, processing, publication, integration, visualization, analysis, and curation of bicycle, pedestrian, and accessibility infrastructure data from all levels of government, across all jurisdictions, and among government, private, nonprofit, and academic organizations.
 
 ## PURPOSE 
-The purpose of the NC-BPAID is to advance comprehensive, public domain, interoperable data on bike, pedestrian, and accessibility infrastructure that informs decision-making on the part of individual travelers, as well as the government, private, nonprofit, and academic sectors.​
+The purpose of NC-BPAID is to advance a state of comprehensive, interoperable, and routable data on bike, pedestrian, and physical accessibility infrastructure that informs decision-making for individual travelers—as well as the government, private, nonprofit, and academic sectors—through the mechanism of open data standards.
 
 ## SCOPE
-The scope of the NC-BPAID is limited to promoting the findability, accessibility, interoperability, and reusability<sup>1</sup> of bicycle, pedestrian, and accessibility infrastructure data through the development or endorsement, adoption, and widespread implementation of open standards and practices that support the efficient collection, exchange, and portability of these types of data<sup>2</sup>.  
+The scope of the NC-BPAID is limited to: 
+- Developing or endorsing open standards and practices that support the objective collection, exchange, portability, and refutability of high-quality data. 
+- Facilitating adoption of these standards and practices by data producers and consumers. 
+- Promoting the findability, accessibility, interoperability, and reusability of bicycle, pedestrian, and physical accessibility infrastructure datasets.
 
-Ultimately, the NC-BPAID should foster an independent and sustainable bicycle, pedestrian, and accessibility infrastructure data governance organization that will eventually lead the work of maintaining the specifications, soliciting representative involvement from the broad spectrum of stakeholders.
+NC-BPAID—as an entity—will not collect or publish data. 
 
-1. [FAIR Data Principles](https://www.go-fair.org/fair-principles/)
-2. [Mobility Data Interoperability Principles](https://www.interoperablemobility.org/)
+Ultimately, the NC-BPAID should designate an independent and sustainable bicycle, pedestrian, and physical accessibility infrastructure data governance organization that will lead the work of maintaining and adapting the standards over time to reflect evolving real world conditions and soliciting representative involvement from the broad spectrum of stakeholders.
 
 ## OBJECTIVES 
 The NC-BPAID  shall:
