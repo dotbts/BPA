@@ -28,9 +28,9 @@ How do I contribute?
 
 # National Collaboration on Bicycle, Pedestrian, and Accessibility Infrastructure Data
 ### Next Meeting
-Thursday, June 27 @ 3:00pm ET on Microsoft Teams:  
+Thursday, July 25 @ 3:00pm ET on Microsoft Teams:  
 
-[Agenda](https://github.com/dotbts/BPA/wiki/2024-06-27-Meeting)  
+[Agenda](https://github.com/dotbts/BPA/wiki/2024-07-25-Meeting)  
 
 ### Recent Collaboration Meetings
 You can find information about all previous meetings on the [wiki](https://github.com/dotbts/BPA/wiki).
