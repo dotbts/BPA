@@ -30,7 +30,7 @@ How do I contribute?
 ### Next Meeting
 Thursday, July 25 @ 3:00pm ET on Microsoft Teams:  
 
-[Agenda](https://github.com/dotbts/BPA/wiki/2024-07-25-Meeting)  
+[Agenda](https://github.com/dotbts/BPA/wiki/2024-07-25)  
 
 ### Recent Collaboration Meetings
 You can find information about all previous meetings on the [wiki](https://github.com/dotbts/BPA/wiki).
