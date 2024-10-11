@@ -13,6 +13,7 @@ Your participation in this collaboration is welcome. Anyone can join, whether yo
 To contact us or ask a question, please fill out this form. 
 
 ## Upcoming Meetings
+All meetings are held on Microsoft Teams. Please join the list to have the invites sent to you. The next collaboration meetings will be held:
 - Thursday, October 24, 2024 @ 3:00pm ET ; [Agenda](https://github.com/dotbts/BPA/wiki/2024-10-24)  
 - Thursday, November 21, 2024 @ 3:00pm ET
 - Thursday, December 19, 2024 @ 3:00pm ET
