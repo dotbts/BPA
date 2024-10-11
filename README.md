@@ -7,7 +7,7 @@ The National Collaboration on Bike, Pedestrian, and Accessibility Infrastructure
 Your participation in this collaboration is welcome. Anyone can join, whether you’re with a government agency, university, for-profit, nonprofit or a private citizen. Here are some ways to get involved:
 1.	Join our mailing list to receive invitations to upcoming collaboration meetings and major announcements. 
 2.	Attend an upcoming meeting of the collaboration (listed below).
-3.	Contribute your knowledge by [joining a subgroup](https://tinyurl.com/4sjckj97 ) (meeting times listed below).
+3.	Contribute your knowledge by [joining a subgroup](https://forms.office.com/Pages/ResponsePage.aspx?id=WyTNxPBElUOhqjhI0lj3i2kiSGH_4l5MuKXImYxBW4NUQUpDVUZYVE5HSDNMS1g2VFdFRDZXMFlUSS4u) (meeting times listed below).
 4.	Engage with us here on Github by posting a GitHub [Issue](https://github.com/dotbts/BPA/issues) or [Discussion](https://github.com/dotbts/BPA/discussions), or making suggested changes using a  [Pull Request](https://github.com/dotbts/BPA/pulls). Learn about using GitHub as a [tool for collaboration and support](#contribute).
 
 To contact us or ask a question, please fill out this form. 
