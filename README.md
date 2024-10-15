@@ -5,16 +5,16 @@ The National Collaboration on Bike, Pedestrian, and Accessibility Infrastructure
 
 ## Get Involved
 Your participation in this collaboration is welcome. Anyone can join, whether you’re with a government agency, university, for-profit, nonprofit or a private citizen. Here are some ways to get involved:
-1.	Join our mailing list to receive invitations to upcoming collaboration meetings and major announcements. 
+1.	Join our [mailing list](https://forms.office.com/g/34975BEAkF) to receive invitations to upcoming collaboration meetings and major announcements. 
 2.	Attend an upcoming meeting of the collaboration (listed below).
 3.	Contribute your knowledge by [joining a subgroup](https://forms.office.com/Pages/ResponsePage.aspx?id=WyTNxPBElUOhqjhI0lj3i2kiSGH_4l5MuKXImYxBW4NUQUpDVUZYVE5HSDNMS1g2VFdFRDZXMFlUSS4u) (meeting times listed below).
 4.	Engage with us here on Github by posting a GitHub [Issue](https://github.com/dotbts/BPA/issues) or [Discussion](https://github.com/dotbts/BPA/discussions), or making suggested changes using a  [Pull Request](https://github.com/dotbts/BPA/pulls). Learn about using GitHub as a [tool for collaboration and support](#contribute).
 
-To contact us or ask a question, please fill out this form. 
+To contact us or ask a question, please fill out [this form](https://forms.office.com/g/c6gsQbB2VH). 
 
 ## Upcoming Meetings
 All meetings are held on Microsoft Teams. Please join the list to have the invites sent to you. The next collaboration meetings will be held:
-- Thursday, October 24, 2024 @ 3:00pm ET ; [Agenda](https://github.com/dotbts/BPA/wiki/2024-10-24)  
+- Thursday, October 24, 2024 @ 3:30pm ET ; [Agenda](https://github.com/dotbts/BPA/wiki/2024-10-24)  
 - Thursday, November 21, 2024 @ 3:00pm ET
 - Thursday, December 19, 2024 @ 3:00pm ET
 
