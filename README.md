@@ -27,9 +27,7 @@ You can find information about all previous meetings, including agendas and slid
 ## Background
 Nationwide, there is a data gap for people walking, biking, and rolling: the location and attributes of the infrastructure that allows for safe and comfortable travel – like sidewalks, bike lanes, and curb ramps – is often unmapped or unknown. Data may exist for this infrastructure, but it can be fragmented across geography, unstandardized in structure and content, and vary in its openness to the public. 
 
-The objective of the [Bureau of Transportation Statistics](https://www.bts.gov/)' is to help fill that data gap with nationwide geospatial data layers for the extent, connectivity, and condition of bicycle, pedestrian, and accessibility infrastructure in public rights of way and transportation terminals.
-
-There are many organizations who have recognized and are working towards filling this data gap across government, academic, nonprofit, or private sectors. Coordinating this work - the intent of this community - will progress the field towards widespread, interoperable geospatial data. Standardization and synthetization of the data across jurisdictions is the first step to making the data available, easy to access and easy to use.
+The objective of the [Bureau of Transportation Statistics](https://www.bts.gov/) is to help fill that data gap with nationwide geospatial data layers for the extent, connectivity, and condition of bicycle, pedestrian, and accessibility infrastructure in public rights of way and transportation terminals. Standardization and synthetization of the data across jurisdictions is the first step to making the data available, easy to access and easy to use.
 
 There are many organizations who have recognized and are working towards filling this data gap across the government, academic, nonprofit, and private sectors. NC-BPAID is coordinating this work to help the field progress towards widespread, interoperable geospatial data.
 
