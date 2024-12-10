@@ -14,7 +14,6 @@ To contact us or ask a question, please fill out [this form](https://forms.offic
 
 ## Upcoming Meetings
 All meetings are held on Microsoft Teams. Please join the list to have the invites sent to you. The next collaboration meetings will be held:  
-- Thursday, December 19, 2024 @ 3:00pm ET
 - Thursday, January 30, 2025 @ 3:00pm ET
 
 We also have two subgroups that meet regularly and have opportunities to work asynchronously, too. To get connected with these groups, please fill out this form:
