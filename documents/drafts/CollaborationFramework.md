@@ -87,11 +87,11 @@ The NC-BPAID MAY employ the tools and mediums best suited to meet its responsibi
 Participants are asked to help build and sustain positive interactions and relationships within the collaboration. The following concepts can be useful:  
 
 * __Ethical Conduct:__ Behave ethically in all interactions, with honesty, integrity, and transparency.  
-* __Respect for Diversity and Inclusion:__ Promote and embrace inclusive practices that value and incorporate the contributions of individuals from a wide range of different perspectives, backgrounds, and experiences.
+* __Respect:__ Promote and embrace practices that value and incorporate the contributions of individuals from a wide range of perspectives and experiences.
 * __Collaboration and Cooperation:__ Encourage collaboration and cooperation, and emphasize working together towards shared goals, even when there are differing opinions.
 * __Social Responsibility:__ Consider broader social implications and strive to contribute positively to the collaboration and keep those impacted by its work in mind.
 * __Long-Term Perspective:__ Take a long-term perspective on relationships and outcomes and prioritize sustainable and enduring solutions.
-* __Adaptability and Learning:__ Be willing to adapt and learn and recognize that your beliefs or ideas may need to be refined or adjusted over time as circumstances change, new information emerges, or societal norms evolve.
+* __Adaptability and Learning:__ Be willing to adapt and learn, and recognize that your ideas may need to be refined or adjusted over time as circumstances change, new information emerges, or societal norms evolve.
 * __Communication:__ Engage in clear and open communication that can help build trust and understanding among individuals and groups, fostering more constructive relationships.
 * __Conflict Resolution:__ In situations where conflicts arise, try to resolve them using constructive and fair approaches, such as dialogue, mediation, or some other mutually agreeable solution.
 * __Personal and Organizational Development:__ Prioritize ongoing personal and organizational development, including continuous learning and reflection.  
