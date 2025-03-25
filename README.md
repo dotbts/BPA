@@ -12,8 +12,8 @@ Your participation in this collaboration is welcome. Anyone can join, whether yo
 To contact us or ask a question, please fill out [this form](https://forms.office.com/g/c6gsQbB2VH). 
 
 ## Upcoming Meetings
-We typically meet every other month. All meetings are held on Microsoft Teams. Please join the list to have the invites sent to you. The next collaboration meetings will be held:  
-- Thursday, March 27, 2025 @ 3:00pm ET
+We typically meet every other month. All meetings are held on Microsoft Teams. Please [join the list](https://forms.office.com/g/34975BEAkF) to have the invites sent to you. The next collaboration meetings will be held:  
+- Tuesday, April 1, 2025 @ 4:00pm ET
 - Thursday, May 29, 2025 @ 3:00pm ET
 
 We also have three subgroups that meet regularly and have opportunities to work asynchronously, too. To get connected with these groups, please fill out [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=WyTNxPBElUOhqjhI0lj3i2kiSGH_4l5MuKXImYxBW4NUQUpDVUZYVE5HSDNMS1g2VFdFRDZXMFlUSS4u):
