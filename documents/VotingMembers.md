@@ -23,6 +23,6 @@ If you would like to add (or remove) your information to this list outside the c
 * University of North Carolina (@KristaNordback)
 * University of Southern Mississippi - Yuanyuan Zhang
 * University of Washington - Anat Caspi 
-* US Department of Transportation (USDOT) - Jonah Chiarenza
+* US Department of Transportation (USDOT) - Jonah Chiarenza (@JonahChiarenza)
 * Wasatch Front Regional Council (WFRC) (@bert-granberg)
 
