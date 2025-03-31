@@ -1,28 +1,13 @@
 # Voting Members
-This is the list of NC-BPAID [voting members](https://github.com/dotbts/BPA/blob/main/documents/drafts/CollaborationFramework.md#voting-members). 
-If you vote and nobody from your organization has previously voted, then you are the default voting member for your organization and the BTS team will add your information to this list.
-If you vote and someone from your organization is already a designated voting member, the BTS team will contact you to identify the correct voting member.
-If you would like to add (or remove) your information to this list outside the context of a vote, open a pull request or contact the BTS team.
+Here is the most recent list of NC-BPAID voting members:
 
-* California Integrated Travel Project (@KatrinaMKaiser) 
-* Centers for Disease Control and Prevention (CDC) (@gpwhitfield)
-* Citian (@RyanWestrom)
-* Ecopia AI (@abigailcoholic)
-* Envirmental Protection Agency (EPA) (@jvthomasEPA)
-* EvariLABS (@SDGIS)
-* Go Systems and Solutions (@Polly-Okunieff)
-* Illinois DOT (@WendySheppard)
-* Mark Fenton (@MarkFenton13)
-* Montgomery Planning (@Jpryder)
-* Olivier Leroy (@defuneste)
-* PeopleForBikes (@beckymasond)
-* Purdue University (@rvanxer)
-* Texas A&M University - Bahar Dadashova
-* TransSystems (@talllguy)
-* University of Florida (@Mwende39)
-* University of North Carolina (@KristaNordback)
-* University of Southern Mississippi - Yuanyuan Zhang
-* University of Washington - Anat Caspi 
-* US Department of Transportation (USDOT) - Jonah Chiarenza (@JonahChiarenza)
-* Wasatch Front Regional Council (WFRC) (@bert-granberg)
+**[Voting Members - March 31, 2025](https://github.com/dotbts/BPA/blob/main/documents/main-documents/NC-BPAID_Voting_Members.csv)**
 
+
+Please see the [Collaboration Framework](https://github.com/dotbts/BPA/blob/main/documents/drafts/CollaborationFramework.md#voting-members) to learn more about voting members and the voting process.
+
+If you vote and nobody from your organization has previously voted, or if you are the only member of NC-BPAID from your organization, then you are the default voting member for your organization, and the BTS team will add your information to this list. 
+
+This list may be missing some voting members or not be perfectly up to date for your organization. If information about an organization is unclear or confusing, it has been left off. **When in doubt, vote!** The BTS team will check who voted against this list and our records, and we will reach out with any questions.
+
+If you would like to add (or remove) your information, contact the BTS team.
