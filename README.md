@@ -1,11 +1,11 @@
 # National Collaboration on Bike, Pedestrian, and Accessibility Infrastructure Data
 
 ## Objective
-The National Collaboration on Bike, Pedestrian, and Accessibility Infrastructure Data (NC-BPAID) is working across sectors to develop shared data specifications for geospatial bicycle, pedestrian and accessibility infrastructure data across the United States, to enable data sharing and coordination at a national scale. If you are developing, standardizing or using these kinds of data, [join the collaboration](https://forms.office.com/g/34975BEAkF) and help to shape the specifications. 
+The National Collaboration on Bike, Pedestrian, and Accessibility Infrastructure Data (NC-BPAID) is working across sectors to develop shared data specifications for geospatial bicycle, pedestrian and accessibility infrastructure data across the United States, to enable data sharing and coordination at a national scale. If you are developing, standardizing or using these kinds of data, <a href="https://forms.office.com/g/34975BEAk" target="_blank">join the collaboration</a> and help to shape the specifications. 
 
 ## Get Involved
 Your participation in this collaboration is welcome. Anyone can join, whether you’re with a government agency, university, for-profit, nonprofit or a private citizen. Here are some ways to get involved:
-1.	Join our [mailing list](https://forms.office.com/g/34975BEAkF){:target="_blank"} to receive invitations to upcoming collaboration meetings and major announcements. 
+1.	Join our [mailing list](https://forms.office.com/g/34975BEAkF) to receive invitations to upcoming collaboration meetings and major announcements. 
 2.	Attend an upcoming meeting of the collaboration (listed below).
 3.	Contribute your knowledge by [joining a subgroup](https://forms.office.com/Pages/ResponsePage.aspx?id=WyTNxPBElUOhqjhI0lj3i2kiSGH_4l5MuKXImYxBW4NUQUpDVUZYVE5HSDNMS1g2VFdFRDZXMFlUSS4u) (meeting times listed below).
 
