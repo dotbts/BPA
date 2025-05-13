@@ -1,4 +1,5 @@
 # Attribute Tracker
+The `attributes.csv` and `references.csv` spreadsheets aggregate bike, pedestrian, and accessibility data from state, regional, and local government open data hubs by scraping ArcGIS REST or Socrata API endpoints. Note, not all of the datasets in `references.csv` have been scraped.
 
 The purpose of this resource is to compile existing practices for tracking bicycle, pedestrian, and accessibility in geospatial databases. This resource serves as inspiration for developing the specification and for others in looking how to track attributes that might not be covered by the specification.
 
