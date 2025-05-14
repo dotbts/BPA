@@ -3,6 +3,8 @@ The `attributes.csv` and `references.csv` spreadsheets aggregate bike, pedestria
 
 The purpose of this resource is to compile existing practices for tracking bicycle, pedestrian, and accessibility in geospatial databases. This resource serves as inspiration for developing the specification and for others in looking how to track attributes that might not be covered by the specification.
 
+**These documents will be updated periodically as new data sources are added.**
+
 ## Attributes Table
 The primary key is `(Attribute Alias, Dataset Alias)`.
 
