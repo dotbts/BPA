@@ -10,5 +10,5 @@ If you’d like a response, please say so and we’ll do our best to respond dir
 When commenting on the draft, please keep our Collaboration Framework in mind, specifically the section that refers to [Building an Effective Collaboration](https://github.com/dotbts/BPA/blob/main/documents/drafts/CollaborationFramework.md#building-an-effective-collaboration). 
 
 Links:
-- [PDF]([https://github.com/dotbts/BPA/tree/main/documents/drafts/BikePed%20(GATIS)%20Specification%20v1 DRAFT_20250701.pdf](https://github.com/dotbts/BPA/blob/main/documents/drafts/BikePed%20(GATIS)%20Specification%20v1%20DRAFT_20250701.pdf))
+- [PDF](https://github.com/dotbts/BPA/tree/main/documents/drafts/BikePed%20(GATIS)%20Specification%20v1 DRAFT_20250701.pdf)
 - [Google Document](https://docs.google.com/document/d/13sJdh-GmfxNb_tfUXKkpZgofuBU60ag6HpqbGVUlsZE/edit?tab=t.0#heading=h.e4f6yl4rf6yf)
