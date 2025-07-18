@@ -6,7 +6,7 @@ The National Collaboration on Bicycle, Pedestrian, and Accessibility Infrastruct
 ## See the Draft Specification
 Draft one of the General Active Transportation Infrastructure Specification (GATIS) (name is tentative) is now available for public review and comment. This draft was developed by the Specification Development Subgroup.  
 
-There are two ways to access the draft, a PDF copy and a Google Document, which allows for comments. 
+There are two ways to access the draft, a PDF copy and a Google Document, which allows for comments.
 
 You do not need to be signed into a Google account to comment. If you are signed into a Google account, your name will be attached to the comment and you will receive notifications if your comment has been responded to. If you are not signed into a Google account, consider adding your name to the comment (optional). Note that you will not receive a notification if your comment has been responded to, so you may need to check in the document periodically. 
 
@@ -17,6 +17,8 @@ When commenting on the draft, please keep our Collaboration Framework in mind, s
 ### Draft 1 Links:
 - [PDF](https://github.com/dotbts/BPA/blob/main/documents/drafts/BikePed%20(GATIS)%20Specification%20v1%20DRAFT_20250701.pdf)
 - [Google Document](https://docs.google.com/document/d/13sJdh-GmfxNb_tfUXKkpZgofuBU60ag6HpqbGVUlsZE/edit?tab=t.0#heading=h.e4f6yl4rf6yf)
+
+In addition, the [GATIS Explorer](https://dotbts.github.io/BPA/) can be used as an interactive companion to the draft specification.
 
 ## Get Involved
 Your participation in this collaboration is welcome. Anyone can join, whether you’re with a government agency, university, for-profit, nonprofit or a private citizen. Here are some ways to get involved:
