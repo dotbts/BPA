@@ -1,0 +1,5 @@
+FeatureType,FileName
+Edge,Edge_types.csv
+Node,Node_types.csv
+Point,Point_types.csv
+Zone,Zone_types.csv

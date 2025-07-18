@@ -1,0 +1,8 @@
+Name,Description,Tier
+virtual,"Used to create nodes for routing in places where specific physical infrastructure doesn’t exist, where edges are split because attributes are different between them, or where other nodes don’t suit the purpose. Nodes are required between edges to build a routable network. ",Tier 3
+curb_ramp,"Indicates a location where a pedestrian must make a decision about which direction to travel, most commonly in locations where a curb ramp does or should exist. Curbs are nodes, connected to the graph network. Where double ramps or other configurations exist, map each ramp as its own curb_ramp node with its own attributes. ",Tier 1
+ramp,"Indicates any type of ramp besides a curb ramp, where the footpath is built to deliberately slope up or down to improve access.  ",Tier 2
+elevator,"Elevators, funiculars or other car- or enclosure-based constructions meant to vertically carry a pedestrian from one level of physical infrastructure to another. NC-BPAID maps outdoor infrastructure; switch to GTFS Pathways or IMDF conventions for indoor infrastructure. ",Tier 3
+transit_stop,A node indicating the location of a transit stop of any kind. ,Tier 3
+issue,A node indicating a particular point that has an issue relevant to routing for some travelers. Issue nodes mark points along an edge that may be of concern; other node types (such as ramps and signals) have their own issue attributes.  ,Tier 3
+traffic_calming,A node indicating a particular point that has an issue relevant to routing for some travelers. Issue nodes mark points along an edge that may be of concern; other node types (such as ramps and signals) have their own issue attributes.  ,Tier 3

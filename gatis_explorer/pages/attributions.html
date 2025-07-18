@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Image Attributions</title>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    
+  <!-- jQuery (required by DataTables) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- DataTables -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+  <link rel="stylesheet" href="../styles.css" />
+
+</head>
+
+<body data-page="attributions">
+  <header>
+  <div class="banner" style="background-color: #282828;">
+    <div class="banner-content">
+      <h1><strong>Image Attributions</strong></h1>
+      <p>
+        This page lists the sources for images used in this website.
+      </p>
+    </div>
+    <div id="banner-image" class="banner-image"></div>
+  </div>  
+  </header>
+    
+  <main>
+
+    <div style="padding-top:20px; padding-left:20px">
+    <a href="../../index.html" class="link-button">Return to main page</a>
+    </div>
+
+    <div style="padding:20px;">
+    <table id="attributions" class="display" style="width:100%">
+    <thead>
+        <tr>
+        <th>Author</th>
+        <th>Link</th>
+        <th>Website</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td>Dan Burden</td>
+        <td><a href="https://www.pedbikeimages.org/details.php?picid=178">https://www.pedbikeimages.org/details.php?picid=178</a></td>
+        <td>PBIC Images</td>
+        </tr>
+        <tr>
+        <td>Selvin Esteban</td>
+        <td><a href="https://www.pexels.com/photo/a-person-in-wheelchair-crossing-the-pedestrian-lane-10316667/">https://www.pexels.com/photo/a-person-in-wheelchair-crossing-the-pedestrian-lane-10316667/</a></td>
+        <td>Pexels</td>
+        </tr>
+        <tr>
+        <td>Dmytro</td>
+        <td><a href="https://stock.adobe.com/images/aerial-people-crowd-on-pedestrian-crosswalk-top-view/272451046?prev_url=detail">https://stock.adobe.com/images/aerial-people-crowd-on-pedestrian-crosswalk-top-view/272451046?prev_url=detail</a></td>
+        <td>Adobe Stock</td>
+        </tr>
+        <tr>
+        <td>Chona Kasinger</td>
+        <td><a href="https://affecttheverb.com/gallery/disabledandhere/portraitwalking/">https://affecttheverb.com/gallery/disabledandhere/portraitwalking/</a></td>
+        <td>Disabled and Here</td>
+        </tr>
+        <tr>
+        <td>Raul</td>
+        <td><a href="https://stock.adobe.com/images/overhead-view-of-a-street/237978308">https://stock.adobe.com/images/overhead-view-of-a-street/237978308</a></td>
+        <td>Adobe Stock</td>
+        </tr>
+        <tr>
+        <td>jStock</td>
+        <td><a href="https://stock.adobe.com/images/two-way-protected-bike-lanes-city-street/179447538">https://stock.adobe.com/images/two-way-protected-bike-lanes-city-street/179447538</a></td>
+        <td>Adobe Stock</td>
+        </tr>
+    </tbody>
+    </table>
+    </div>
+  </main>
+
+  <footer><div id="std_footer" style="margin:auto;"></div></footer>
+
+  <script src="../script.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('#attributions').DataTable({
+        paging: false,
+        responsive: true,
+        sort: false,
+        search: false
+      });
+    });
+  </script>
+  
+</body>
+</html>
