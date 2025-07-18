@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GATIS Explorer</title>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    
+  <!-- jQuery (required by DataTables) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- DataTables -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body data-page="attributes_tables_page">
+  <header>
+  <div class="banner">
+    <div class="banner-content">
+      <h1><strong>GATIS Attributes</strong></h1>
+      <p>
+      This page defines all of the attributes used in GATIS.
+      Use the feature type buttons to inspect feature type attributes.
+      </p>
+    </div>
+    <div id='banner-image' class="banner-image"></div>
+  </div>
+  </header>
+  
+  <main>
+  <div style="padding-top:20px; padding-left:20px">
+    <a href="../../index.html" class="link-button">Return to main page</a>
+  </div>
+
+  <div id="controls" style="padding-left:20px">
+    <h3>Select feature type:</h3>
+    <div id="featureTypeButtons" style="display: flex; gap: 8px; flex-wrap: wrap;"></div>
+  </div>
+
+  <div id="tableContainer" style="padding-left:20px; padding-right:20px">
+    <!-- Attribute table dynamically added here -->
+  </div>
+  </main>
+
+  <footer><div id="std_footer" style="margin:auto;"></div></footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+Node Type,Tier,required,recommended,conditionally_required
+virtual,Tier 3,"node_id, node_type","curb_type, rail_crossing",--
+virtual,Tier 4,"node_id, node_type","curb_type, rail_crossing",--
+curb_ramp,Tier 1,"node_id, node_type",--,--
+curb_ramp,Tier 2,"node_id, node_type","date_built, check_date, ada_compliance, status","ada_compliance_date, ada_compliance_standard"
+curb_ramp,Tier 3,"node_id, node_type, incline, cross_slope, width, detectable_warning, status","date_built, check_date, ada_compliance, ramp_type, impediment, surface_issue","ada_compliance_date, ada_compliance_standard"
+curb_ramp,Tier 4,"node_id, node_type, incline, cross_slope, width, detectable_warning, impediment, surface_issue, status","date_built, check_date, ada_compliance, ramp_type","ada_compliance_date, ada_compliance_standard"
+ramp,Tier 2,"node_id, node_type",ada_compliance,"ada_compliance_date, ada_compliance_standard"
+ramp,Tier 3,"node_id, node_type, incline, cross_slope, width, detectable_warning","date_built, check_date, ada_compliance, impediment, surface_issue, status","ada_compliance_date, ada_compliance_standard"
+ramp,Tier 4,"node_id, node_type, incline, cross_slope, width, detectable_warning, impediment, surface_issue, status","date_built, check_date, ada_compliance","ada_compliance_date, ada_compliance_standard"
+elevator,Tier 3,"node_id, node_type","date_built, check_date, ada_compliance, status","ada_compliance_date, ada_compliance_standard"
+elevator,Tier 4,"node_id, node_type, status","date_built, check_date, ada_compliance","ada_compliance_date, ada_compliance_standard"
+transit_stop,Tier 3,--,stop_id,agency_id
+transit_stop,Tier 4,--,stop_id,agency_id
+issue,Tier 3,"node_id, node_type","check_date, impediment, surface_issue",--
+issue,Tier 4,"node_id, node_type, impediment, surface_issue",check_date,--
+traffic_calming,Tier 3,"node_id, node_type","date_built, check_date, traffic_calming_type",--
+traffic_calming,Tier 4,"node_id, node_type, traffic_calming_type","date_built, check_date",--

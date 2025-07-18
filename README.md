@@ -1,7 +1,7 @@
-# National Collaboration on Bike, Pedestrian, and Accessibility Infrastructure Data
+# National Collaboration on Bicycle, Pedestrian, and Accessibility Infrastructure Data
 
 ## Objective
-The National Collaboration on Bike, Pedestrian, and Accessibility Infrastructure Data (NC-BPAID) is working across sectors to develop shared data specifications for geospatial bicycle, pedestrian and accessibility infrastructure data across the United States, to enable data sharing and coordination at a national scale. If you are developing, standardizing or using these kinds of data, [join the collaboration](https://forms.office.com/g/34975BEAkF) and help to shape the specifications.
+The National Collaboration on Bicycle, Pedestrian, and Accessibility Infrastructure Data (NC-BPAID) is working across sectors to develop shared data specifications for geospatial bicycle, pedestrian and accessibility infrastructure data across the United States, to enable data sharing and coordination at a national scale. If you are developing, standardizing or using these kinds of data, [join the collaboration](https://forms.office.com/g/34975BEAkF) and help to shape the specifications.
 
 ## See the Draft Specification
 Draft one of the General Active Transportation Infrastructure Specification (GATIS) (name is tentative) is now available for public review and comment. This draft was developed by the Specification Development Subgroup.  

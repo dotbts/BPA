@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GATIS Explorer</title>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    
+  <!-- jQuery (required by DataTables) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- DataTables -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+  <link rel="stylesheet" href="../styles.css" />
+
+</head>
+
+<body data-page="presence_tables_page">
+  <header>
+  <div class="banner" style="background-color: #282828;">
+    <div class="banner-content">
+      <h1><strong>GATIS Attribute Presence</strong></h1>
+      <p>This page lists the required, recommended, and 
+        conditionally_required attributes at each tier.
+        First select a feature type, then select a tier.
+        Optionally, filter out the different types
+        with the check boxes.
+      </p>
+    </div>
+    <div id="banner-image" class="banner-image"></div>
+  </div>  
+  </header>
+    
+  <main>
+  <div style="padding-top:20px; padding-left:20px">
+    <a href="../../index.html" class="link-button">Return to main page</a>
+  </div>
+
+  <div id="controls" style="padding-left:20px;">
+      
+      <h3>Select a feature type:</h3>
+      <div id="featureTypeButtons" style="display: flex; gap: 8px; flex-wrap: wrap;"></div>
+      
+      <div id="tierButtons">
+      <h3>Select Tier:</h3>
+        <button data-tier="Tier 1">Tier 1</button>
+        <button data-tier="Tier 2">Tier 2</button>
+        <button data-tier="Tier 3">Tier 3</button>
+        <button data-tier="Tier 4">Tier 4</button>
+        <button data-tier="Show All">Show All</button>
+      </div>
+
+      <h3>Filter by type:</h3>
+      <div id="typeCheckboxes">
+      <!-- Checkboxes will be added dynamically from the first column -->
+      </div>
+
+  </div>
+  
+  <div id="tableContainer" style="padding-left:20px; padding-right:20px"></div>
+    <div id="sidebar">
+    <span id="close-sidebar">&times;</span>
+    <div id="definition-text">Click on a tag to see the definition.</div>
+  </div>
+
+  </main>
+
+  <footer><div id="std_footer" style="margin:auto;"></div></footer>
+
+  <script src="../script.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GATIS Explorer</title>
+  
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <link rel="stylesheet" href="gatis_explorer/styles.css" />
+
+  <style>
+    .homepage-button-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      width: 500px;
+      justify-self: center;
+      align-items: end;
+      padding: 20px;
+    }
+
+    .homepage-button {
+      display: inline-block;
+      padding: 10px 10px;
+      background-color: #d9e021;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      width: 200px;
+      text-align: center;
+    }
+
+    .grid-item {
+      align-items: center;
+      text-align: center;
+      }
+
+    .grid-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    h3 a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    h3 a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+
+<body>
+  
+  <div class="webpage-layout">
+
+  <header>
+  <div class="banner">
+    <div class="banner-content">
+      <h1><strong>GATIS Explorer</strong></h1>
+      <p> Welcome to the <span style="font-weight: bold">General Active Transportation Infrastructure Specification (GATIS)</span> Explorer.</p>
+      <p>This site is for exploring the GATIS specification.</p>
+    </div>
+    <div id="banner-image" class="banner-image"> 
+      <!-- <img src="gatis_explorer/resources/GATIS Explorer Banner Graphic_new photos_72dpi.png" alt="Grid of six images showing people using active transportation infrastructure"> -->
+    </div>
+  </div>
+  </header>
+
+  <main>
+  <div class="homepage-button-container">
+    <div class="grid-item">
+      <img src="gatis_explorer/resources/map_icon.png" alt="icon of map">
+      <h3><a href="gatis_explorer/pages/feature_types.html" class="homepage-button">View feature types</a></h3>
+    </div>
+    <div class="grid-item">
+      <img src="gatis_explorer/resources/csv_icon.png" alt="icon of CSV">
+      <h3><a href="gatis_explorer/pages/attributes_table.html" class="homepage-button">View attributes</a></h3>
+    </div>
+    <div class="grid-item">
+      <img src="gatis_explorer/resources/asterick.png" alt="icon of asterick">
+      <h3><a href="gatis_explorer/pages/presence_tables.html" class="homepage-button">View presence tables</a></h3>
+    </div>
+    <!-- <div class="grid-item">
+      <h3><a href="gatis_explorer/pages/metadata.html" class="homepage-button">View metadata</a></h3>
+    </div> -->
+    <div class="grid-item">
+      <img src="gatis_explorer/resources/github.png" alt="GitHub logo">
+      <h3><a href="https://github.com/dotbts/BPA" class="homepage-button">NC-BPAID GitHub</a></h3>
+    </div>
+  </div>
+  </main>
+  
+  <footer><div id="std_footer" style="margin:auto;"></div></footer>
+  </div>
+  <script src="gatis_explorer/script.js"></script>
+</body>
+</html>
