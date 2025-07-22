@@ -242,7 +242,7 @@ Valid Options:
 yes
 no
 unknown"
-vehicle_traffic_control ,Enum,"Describes how motor vehicle traffic that passes through the crossing space is controlled.  
+vehicle_traffic_control,Enum,"Describes how motor vehicle traffic that passes through the crossing space is controlled.  
 
 Valid Options:
 uncontrolled
@@ -251,7 +251,7 @@ flashing red signal
 flashing yellow signal
 yield sign
 stop sign"
-cross_vehicle_traffic_control ,Array<Enum>,"Describes how motor vehicle traffic coming from cross streets is controlled. This traffic may or may not turn into the crossing space. For intersections with more than one cross street, list all of the control types present. 
+cross_vehicle_traffic_control,Array<Enum>,"Describes how motor vehicle traffic coming from cross streets is controlled. This traffic may or may not turn into the crossing space. For intersections with more than one cross street, list all of the control types present. 
 
 Valid Options:
 uncontrolled
@@ -260,7 +260,7 @@ flashing red signal
 flashing yellow signal
 yield sign
 stop sign"
-ped_traffic_control ,Enum,"Describes the type of signal that controls the timing of pedestrian use of the crossing.  
+ped_traffic_control,Enum,"Describes the type of signal that controls the timing of pedestrian use of the crossing.  
 
 Valid Options:
 Uncontrolled
