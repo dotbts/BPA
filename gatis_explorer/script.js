@@ -13,6 +13,7 @@ let loadedData = [];               // Parsed data from current CSV
 let currentCsvPath = "";           // Current CSV path
 let currentTypeKey = "";           // Name of column used for filtering types
 let currentFeatureType = "";       // Selected feature type
+let order_array = [];              // array that controls the default ordering of features
 
 let types = {};                    // Attribute type map (for sidebar)
 let descriptions = {};             // Attribute descriptions (for sidebar)
@@ -37,7 +38,8 @@ window.addEventListener("DOMContentLoaded", () => {
       csv_fp = "../data/types_index.csv";
       break;
     case "metadata_page":
-      csv_fp = "../data/metadata.csv";
+      csv_fp = "../data/Metadata.csv";
+      order_array = [[4,"asc"]] // order by required/recommended
   }
 
   // determine which filepath to use
@@ -67,6 +69,12 @@ window.addEventListener("DOMContentLoaded", () => {
       `;
   }
   // If metadata, you just need to display the table and have the tier buttons
+  if (page == "metadata_page") {
+    // load tier buttons
+    fetchAndRender(csv_fp);
+    initTierButtons();
+  }
+  
   // page null is homepage
   if (page != null) {
     // Init dynamic elements based on page layout
@@ -293,6 +301,7 @@ function applyFiltersAndRender(containerId, tableId, typeKey) {
   $(`#${tableId}`).DataTable({
     destroy: true,
     paging: false,
+    order: order_array,
     ordering: false,
     info: true,
     searching: true, // enables the filter boxes
@@ -321,7 +330,6 @@ function renderAutoTable(rows, tableId) {
   if (rows.length === 0) return "<p>No required or recommended features for this Tier</p>";
 
   const headers = Object.keys(rows[0]);
-  console.log(headers)
   const headerHtml = headers.map(h => `<th>${capitalizeFirstLetter(h)}</th>`).join("");
   const filterRowHtml = headers.map(() => `<th><input type="text" placeholder="Filter..." /></th>`).join("");
   // creates the rows and turns newline \n into <br> so it's rendered properly
