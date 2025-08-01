@@ -1,86 +1,31 @@
 Name,Type,Description,Tier,presence
 title,Text,The title of the dataset,Tier 1,required
-title,Text,The title of the dataset,Tier 2,required
-title,Text,The title of the dataset,Tier 3,required
-title,Text,The title of the dataset,Tier 4,required
 version,Text,"Version number for the current dataset using semantic versioning.
 Format: MAJOR.MINOR.PATCH",Tier 2,required
-version,Text,"Version number for the current dataset using semantic versioning.
-Format: MAJOR.MINOR.PATCH",Tier 3,required
-version,Text,"Version number for the current dataset using semantic versioning.
-Format: MAJOR.MINOR.PATCH",Tier 4,required
 description,Text,A brief (1-2 sentence or similar) description of what’s in the dataset,Tier 1,required
-description,Text,A brief (1-2 sentence or similar) description of what’s in the dataset,Tier 2,required
-description,Text,A brief (1-2 sentence or similar) description of what’s in the dataset,Tier 3,required
-description,Text,A brief (1-2 sentence or similar) description of what’s in the dataset,Tier 4,required
 publisher,Text,Organization responsible for collecting and maintaining the data,Tier 1,required
-publisher,Text,Organization responsible for collecting and maintaining the data,Tier 2,required
-publisher,Text,Organization responsible for collecting and maintaining the data,Tier 3,required
-publisher,Text,Organization responsible for collecting and maintaining the data,Tier 4,required
 schema_version,Text,The version of the NC-BPAID schema in use. Use current version here as default value.,Tier 1,required
-schema_version,Text,The version of the NC-BPAID schema in use. Use current version here as default value.,Tier 2,required
-schema_version,Text,The version of the NC-BPAID schema in use. Use current version here as default value.,Tier 3,required
-schema_version,Text,The version of the NC-BPAID schema in use. Use current version here as default value.,Tier 4,required
 date_created,Datetime,The date when this dataset was initially created,Tier 1,required
-date_created,Datetime,The date when this dataset was initially created,Tier 2,required
-date_created,Datetime,The date when this dataset was initially created,Tier 3,required
-date_created,Datetime,The date when this dataset was initially created,Tier 4,required
 contact_info,Text,The email address or phone number to reach someone who can answer questions or provide further information about the data,Tier 1,required
-contact_info,Text,The email address or phone number to reach someone who can answer questions or provide further information about the data,Tier 2,required
-contact_info,Text,The email address or phone number to reach someone who can answer questions or provide further information about the data,Tier 3,required
-contact_info,Text,The email address or phone number to reach someone who can answer questions or provide further information about the data,Tier 4,required
 license,URL,The license under which the data is published for use. URL linking to the license agreement; default value https://creativecommons.org/publicdomain/zero/1.0/.,Tier 1,required
-license,URL,The license under which the data is published for use. URL linking to the license agreement; default value https://creativecommons.org/publicdomain/zero/1.0/.,Tier 2,required
-license,URL,The license under which the data is published for use. URL linking to the license agreement; default value https://creativecommons.org/publicdomain/zero/1.0/.,Tier 3,required
-license,URL,The license under which the data is published for use. URL linking to the license agreement; default value https://creativecommons.org/publicdomain/zero/1.0/.,Tier 4,required
 geo_bounding_box,Array<Number>,"Geospatial data describing the upper and lower latitudes and longitudes within which the data falls. Provide in format [min_longitude, min_latitude, max_longitude, max_latitude].",Tier 3,recommended
-geo_bounding_box,Array<Number>,"Geospatial data describing the upper and lower latitudes and longitudes within which the data falls. Provide in format [min_longitude, min_latitude, max_longitude, max_latitude].",Tier 4,recommended
 keywords,Text,"A set of single words or short phrases that describe the content of the data
 For sidewalk network data: ""Sidewalks, sidewalk network, pedestrian infrastructure, accessibility, pedestrian.""
 For bike network data: ""Bicycle lanes, bicycle network, biking, bike infrastructure.""",Tier 1,required
-keywords,Text,"A set of single words or short phrases that describe the content of the data
-For sidewalk network data: ""Sidewalks, sidewalk network, pedestrian infrastructure, accessibility, pedestrian.""
-For bike network data: ""Bicycle lanes, bicycle network, biking, bike infrastructure.""",Tier 2,required
-keywords,Text,"A set of single words or short phrases that describe the content of the data
-For sidewalk network data: ""Sidewalks, sidewalk network, pedestrian infrastructure, accessibility, pedestrian.""
-For bike network data: ""Bicycle lanes, bicycle network, biking, bike infrastructure.""",Tier 3,required
-keywords,Text,"A set of single words or short phrases that describe the content of the data
-For sidewalk network data: ""Sidewalks, sidewalk network, pedestrian infrastructure, accessibility, pedestrian.""
-For bike network data: ""Bicycle lanes, bicycle network, biking, bike infrastructure.""",Tier 4,required
 attribution,Text,"Line of text that a data user can copy to properly cite the dataset. TASL format (Title, Author, Source, License) or academic format (ALA, Chicago) recommended.",Tier 2,recommended
-attribution,Text,"Line of text that a data user can copy to properly cite the dataset. TASL format (Title, Author, Source, License) or academic format (ALA, Chicago) recommended.",Tier 3,recommended
-attribution,Text,"Line of text that a data user can copy to properly cite the dataset. TASL format (Title, Author, Source, License) or academic format (ALA, Chicago) recommended.",Tier 4,recommended
 data_download_url,URL,Direct URL to begin downloading the data; should not require additional clicks or steps besides visiting the URL to begin download,Tier 3,recommended
-data_download_url,URL,Direct URL to begin downloading the data; should not require additional clicks or steps besides visiting the URL to begin download,Tier 4,recommended
 data_docs_url,URL,URL to access a data documentation booklet or site covering methodologies and other technical aspects of the data,Tier 3,recommended
-data_docs_url,URL,URL to access a data documentation booklet or site covering methodologies and other technical aspects of the data,Tier 4,recommended
 data_dictionary_url,URL,"URL to access the data dictionary for the dataset, in PDF, HTML or JSON format",Tier 3,recommended
-data_dictionary_url,URL,"URL to access the data dictionary for the dataset, in PDF, HTML or JSON format",Tier 4,recommended
 data_service_endpoint_url,URL,"URL to access the data via a data service, such as Data.gov (catalog.data.gov/dataset/…), ArcGIS Online (ex. Feature service or feature layer link) or Socrata",Tier 3,recommended
-data_service_endpoint_url,URL,"URL to access the data via a data service, such as Data.gov (catalog.data.gov/dataset/…), ArcGIS Online (ex. Feature service or feature layer link) or Socrata",Tier 4,recommended
 date_modified,Datetime,The date when this dataset was last updated,Tier 1,required
-date_modified,Datetime,The date when this dataset was last updated,Tier 2,required
-date_modified,Datetime,The date when this dataset was last updated,Tier 3,required
-date_modified,Datetime,The date when this dataset was last updated,Tier 4,required
 checksum,Text,"An MD5 sum associated with the dataset in its current state, used to check if the data has changed since last accessed; new checksums should be generated each time the data is updated.",Tier 3,recommended
-checksum,Text,"An MD5 sum associated with the dataset in its current state, used to check if the data has changed since last accessed; new checksums should be generated each time the data is updated.",Tier 4,recommended
 freq_cadence,Enum,"How often the full data is updated – for example, when new lidar is collected or a new field study is conducted; do not use for minor updates (ex. Correcting a few rows). Use values from the Dublin Core frequency specification.",Tier 3,recommended
-freq_cadence,Enum,"How often the full data is updated – for example, when new lidar is collected or a new field study is conducted; do not use for minor updates (ex. Correcting a few rows). Use values from the Dublin Core frequency specification.",Tier 4,recommended
 collection_period_start,Date,"Beginning date of the period during which data was collected; approximation is acceptable. Include at least the month and the year if possible.
 If frequency / cadence = ‘continuous,’ leave blank",Tier 3,recommended
-collection_period_start,Date,"Beginning date of the period during which data was collected; approximation is acceptable. Include at least the month and the year if possible.
-If frequency / cadence = ‘continuous,’ leave blank",Tier 4,recommended
 collection_period_end,Date,"Ending date of the period during which data was collected; approximation is acceptable. Include at least the month and the year if possible.
 If frequency / cadence = ‘continuous,’ leave blank",Tier 3,recommended
-collection_period_end,Date,"Ending date of the period during which data was collected; approximation is acceptable. Include at least the month and the year if possible.
-If frequency / cadence = ‘continuous,’ leave blank",Tier 4,recommended
 collection_method,Array<Enum>,"List of the methods used to collect and extract the data.
 
 Valid Options:
 Satellite / aerial; LIDAR; field survey / manual; GPS survey; hand traced or tagged; AI interpretation; transformation from another format / database",Tier 3,recommended
-collection_method,Array<Enum>,"List of the methods used to collect and extract the data.
-
-Valid Options:
-Satellite / aerial; LIDAR; field survey / manual; GPS survey; hand traced or tagged; AI interpretation; transformation from another format / database",Tier 4,recommended
 source_dataset,Text,"Either a link or a citation (title, publisher and publication date) to the primary dataset used to create the data; in many cases, this data will be satellite or LIDAR data used for extracting transportation elements.",Tier 3,recommended
-source_dataset,Text,"Either a link or a citation (title, publisher and publication date) to the primary dataset used to create the data; in many cases, this data will be satellite or LIDAR data used for extracting transportation elements.",Tier 4,recommended

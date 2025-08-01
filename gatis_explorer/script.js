@@ -13,7 +13,7 @@ let loadedData = [];               // Parsed data from current CSV
 let currentCsvPath = "";           // Current CSV path
 let currentTypeKey = "";           // Name of column used for filtering types
 let currentFeatureType = "";       // Selected feature type
-let order_array = [];              // array that controls the default ordering of features
+let order_array = false;           // Whetther to order by presence column
 
 let types = {};                    // Attribute type map (for sidebar)
 let descriptions = {};             // Attribute descriptions (for sidebar)
@@ -39,7 +39,7 @@ window.addEventListener("DOMContentLoaded", () => {
       break;
     case "metadata_page":
       csv_fp = "../data/Metadata.csv";
-      order_array = [[4,"asc"]] // order by required/recommended
+      order_array = true // order by required/recommended
   }
 
   // determine which filepath to use
@@ -269,6 +269,16 @@ function renderTypeCheckboxes(uniqueTypes, containerId, tableId, typeKey) {
 
 function applyFiltersAndRender(containerId, tableId, typeKey) {
   let filtered = [...loadedData];
+  
+  // order by presnce column
+  if (order_array) {
+    filtered.sort((a, b) => {
+      const presenceA = a.presence;
+      const presenceB = b.presence;
+      if (presenceA < presenceB) return 1;
+      if (presenceA > presenceB) return -1;
+      return 0;
+  })};
 
   // this shows all values
   if (document.getElementById("tierButtons") && currentTierFilter === "Show All") {
@@ -301,9 +311,8 @@ function applyFiltersAndRender(containerId, tableId, typeKey) {
   $(`#${tableId}`).DataTable({
     destroy: true,
     paging: false,
-    order: order_array,
-    ordering: false,
     info: true,
+    ordering: false,
     searching: true, // enables the filter boxes
     autoWidth: false, // set to false so column width is consistent across types/tiers
     initComplete: function () {
@@ -319,7 +328,7 @@ function applyFiltersAndRender(containerId, tableId, typeKey) {
         renderTagsByColumnName(tableId,capitalizeFirstLetter("recommended"));
         renderTagsByColumnName(tableId,capitalizeFirstLetter("conditionally_required"));
       }, 0);
-    }
+    },
   });
 }
 
@@ -332,6 +341,7 @@ function renderAutoTable(rows, tableId) {
   const headers = Object.keys(rows[0]);
   const headerHtml = headers.map(h => `<th>${capitalizeFirstLetter(h)}</th>`).join("");
   const filterRowHtml = headers.map(() => `<th><input type="text" placeholder="Filter..." /></th>`).join("");
+  
   // creates the rows and turns newline \n into <br> so it's rendered properly
   const rowsHtml = rows.map(row =>
     `<tr>${headers.map(h => `<td>${(row[h] || "").toString().replace(/\n/g, "<br>")}</td>`).join("")}</tr>`
