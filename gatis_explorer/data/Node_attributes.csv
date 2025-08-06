@@ -82,4 +82,10 @@ traffic_calming_type,Enum,"Used to identify traffic calming features on a road o
 
 Valid Options:
 chicane, choker, closer, diagonal diverter, lateral shift, median barrier/forced turn island, median island, mini roundabout, raised intersection, realigned intersection, road diet, roundabout"
-,,
+status,Enum,"Most recent operating status of the node. Whether the infrastructure is open and available for use.
+
+Valid Options:
+open
+closed
+under construction
+other"

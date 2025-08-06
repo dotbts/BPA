@@ -1,19 +1,27 @@
 ////////////////////////////////////////////////////////////////////////////////
-// Prompts /////////////////////////////////////////////////////////////////////
+// To-do ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
+/*
+- Generalize the checkbox function
+- Move the record count to the top left of the DataTable
+*/
 
 ////////////////////////////////////////////////////////////////////////////////
 // Globals /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-let featureFileMap = {};           // Maps feature type to CSV file
-let currentTierFilter = "";        // Default tier
-let loadedData = [];               // Parsed data from current CSV
-let currentCsvPath = "";           // Current CSV path
-let currentTypeKey = "";           // Name of column used for filtering types
-let currentFeatureType = "";       // Selected feature type
-let order_array = false;           // Whetther to order by presence column
+let featureFileMap = {};                      // Maps feature type to CSV file
+let currentTierFilter = "";                   // Default tier
+let loadedData = [];                          // Parsed data from current CSV
+let currentCsvPath = "";                      // Current CSV path
+let currentTypeKey = "";                      // Name of column used for filtering types
+let currentColKey = "";                       // Name of column to hide
+let currentFeatureType = "";                  // Selected feature type
+let order_array = false;                      // Whetther to order by presence column
+
+let optional_columns = [];                    // Optional columns to display
+let hide_cols = [];                           // Indeces of optional columns
 
 let types = {};                    // Attribute type map (for sidebar)
 let descriptions = {};             // Attribute descriptions (for sidebar)
@@ -30,6 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
   switch (page) {
     case "presence_tables_page":
       csv_fp = "../data/presence_tables_index.csv";
+      optional_columns = ["optional","forbidden"]
       break;
     case "attributes_tables_page":
       csv_fp = "../data/attributes_tables_index.csv";
@@ -68,6 +77,7 @@ window.addEventListener("DOMContentLoaded", () => {
       <p><a href="${img_fp}/pages/attributions.html" style="color:#d9e021">Image Attributions</a></p>
       `;
   }
+  
   // If metadata, you just need to display the table and have the tier buttons
   if (page == "metadata_page") {
     // load tier buttons
@@ -202,13 +212,14 @@ function fetchAndRender(csvUrl, containerId, tableId) {
       const uniqueTypes = [...new Set(loadedData.map(row => row[currentTypeKey]))].filter(Boolean);
 
       renderTypeCheckboxes(uniqueTypes, containerId, tableId, currentTypeKey);
+      columnCheckboxes(optional_columns, containerId, tableId);
       applyFiltersAndRender(containerId, tableId, currentTypeKey);
     });
 }
 
-function renderTypeCheckboxes(uniqueTypes, containerId, tableId, typeKey) {
+function renderTypeCheckboxes(uniqueTypes, containerId, tableId) {
   const container = document.getElementById("typeCheckboxes");
-  if (!container) return;
+  if (!container) return; // if this element doesn't exist then skip
 
   container.innerHTML = ""; // clears the types out
 
@@ -254,7 +265,7 @@ function renderTypeCheckboxes(uniqueTypes, containerId, tableId, typeKey) {
   allCheckbox.addEventListener("change", () => {
     const checkAll = allCheckbox.checked;
     document.querySelectorAll(".type-filter").forEach(cb => cb.checked = checkAll);
-    applyFiltersAndRender(containerId, tableId, typeKey);
+    applyFiltersAndRender(containerId, tableId, currentTypeKey);
   });
 
   document.querySelectorAll(".type-filter").forEach(cb => {
@@ -262,7 +273,74 @@ function renderTypeCheckboxes(uniqueTypes, containerId, tableId, typeKey) {
       const all = document.querySelectorAll(".type-filter");
       const checked = document.querySelectorAll(".type-filter:checked");
       allCheckbox.checked = all.length === checked.length;
-      applyFiltersAndRender(containerId, tableId, typeKey);
+      applyFiltersAndRender(containerId, tableId, currentTypeKey);
+    });
+  });
+}
+
+function columnCheckboxes(optional_columns, containerId, tableId) {
+  const container = document.getElementById("optionalColumnsCheckboxes");
+  if (!container) return; // if this div doesn't exist then skip
+
+  container.innerHTML = ""; // clears existing content out
+
+  // first is the show both check box
+  const allCheckbox = document.createElement("input");
+  allCheckbox.type = "checkbox";
+  allCheckbox.id = "showAllCols";
+  allCheckbox.checked = false; // don't have checked by default
+
+  const allLabel = document.createElement("label");
+  allLabel.htmlFor = "showAllCols";
+  allLabel.textContent = "Toggle all";
+
+  const allRow = document.createElement("div");
+  allRow.appendChild(allCheckbox);
+  allRow.appendChild(allLabel);
+  container.appendChild(allRow);
+
+  // then the other checkboxes
+  const row = document.createElement("div");
+  row.style.display = "flex";
+  row.style.flexWrap = "wrap";
+  row.style.gap = "10px";
+
+  optional_columns.forEach(col => {
+    const cb = document.createElement("input");
+    cb.type = "checkbox";
+    cb.className = "col-filter";
+    cb.value = col;
+    cb.checked = false;
+    cb.id = `checkbox-${col}`;
+
+    const label = document.createElement("label");
+    label.htmlFor = cb.id;
+    label.textContent = col;
+
+    const wrapper = document.createElement("div");
+    wrapper.appendChild(cb);
+    wrapper.appendChild(label);
+    row.appendChild(wrapper);
+  });
+
+  container.appendChild(row);
+
+  // callback functions
+
+  // if the checkAll checked then apply it's status to all the other checkboxes
+  allCheckbox.addEventListener("change", () => {
+    const checkAll = allCheckbox.checked;
+    document.querySelectorAll(".col-filter").forEach(cb => cb.checked = checkAll);
+    applyFiltersAndRender(containerId, tableId, currentTypeKey);
+  });
+
+  // otherwise just monitor changes in the check boxes
+  document.querySelectorAll(".col-filter").forEach(cb => {
+    cb.addEventListener("change", () => {
+      const all = document.querySelectorAll(".col-filter");
+      const checked = document.querySelectorAll(".col-filter:checked");
+      allCheckbox.checked = all.length === checked.length;
+      applyFiltersAndRender(containerId, tableId, currentTypeKey);
     });
   });
 }
@@ -279,6 +357,28 @@ function applyFiltersAndRender(containerId, tableId, typeKey) {
       if (presenceA > presenceB) return -1;
       return 0;
   })};
+
+  // add or remove optional columns
+  // update hide cols
+  hide_cols = [] // clear hide_cols
+  // retreive from DOM
+  document.querySelectorAll(".col-filter").forEach((cb) => {
+    if (cb.checked === false) {
+      hide_cols.push(cb.value)
+    }
+  });
+
+  // loop through column names to get indeces
+  let hide_cols_idx = [];
+  if (hide_cols.length > 0) {
+    for (let i = 0; i < Object.keys(filtered[0]).length; i++) {
+      for (let z = 0; z < hide_cols.length; z++) {
+        if (hide_cols[z] === Object.keys(filtered[0])[i]) {
+          hide_cols_idx.push(i)
+        }
+      }
+    }
+  };
 
   // this shows all values
   if (document.getElementById("tierButtons") && currentTierFilter === "Show All") {
@@ -315,6 +415,12 @@ function applyFiltersAndRender(containerId, tableId, typeKey) {
     ordering: false,
     searching: true, // enables the filter boxes
     autoWidth: false, // set to false so column width is consistent across types/tiers
+    columnDefs: [
+      {
+        targets: hide_cols_idx,
+        visible: false
+      }
+    ],
     initComplete: function () {
       this.api().columns().every(function () {
         const column = this;
@@ -327,6 +433,8 @@ function applyFiltersAndRender(containerId, tableId, typeKey) {
         renderTagsByColumnName(tableId,capitalizeFirstLetter("required"));
         renderTagsByColumnName(tableId,capitalizeFirstLetter("recommended"));
         renderTagsByColumnName(tableId,capitalizeFirstLetter("conditionally_required"));
+        renderTagsByColumnName(tableId,capitalizeFirstLetter("optional"));
+        renderTagsByColumnName(tableId,capitalizeFirstLetter("forbidden"));
       }, 0);
     },
   });

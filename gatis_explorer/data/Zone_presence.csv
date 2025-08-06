@@ -1,3 +1,3 @@
-Zone Type,Tier,required,recommended,conditionally_required
-pedestrian,Tier 3,"zone_id, zone_type","surface_material, facility_name",--
-pedestrian,Tier 4,"zone_id, zone_type","surface_material, facility_name",--
+Zone Type,Tier,required,recommended,conditionally_required,optional,forbidden
+pedestrian,Tier 3,"zone_id, zone_type","surface_material, facility_name",--,status,--
+pedestrian,Tier 4,"zone_id, zone_type","surface_material, facility_name",--,status,--
