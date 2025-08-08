@@ -30,11 +30,9 @@ To contact us or ask a question, please fill out [this form](https://forms.offic
 
 ## Upcoming Meetings
 We typically meet every other month. All meetings are held on Microsoft Teams. Please [join the list](https://forms.office.com/g/34975BEAkF) to have the invites sent to you. The next collaboration meetings will be held:  
-- Thursday, August 28, 2025 @ 3:00pm ET (Tentative)
 - Thursday, September 25, 2025 @ 3:00pm ET
+- - Thursday, October 30, 2025 @ 3:00pm ET
 <!---
-
-- Thursday, October 30, 2025 @ 3:00pm ET
 - Thursday, December 4, 2025 @ 3:00pm ET
 -->
 
