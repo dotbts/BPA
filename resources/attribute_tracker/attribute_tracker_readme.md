@@ -5,7 +5,7 @@ The purpose of this resource is to compile existing practices for tracking bicyc
 
 **These documents will be updated periodically as new data sources are added.**
 
-## Attributes Table
+## [Attributes Table](https://github.com/dotbts/BPA/blob/main/resources/attribute_tracker/attributes.csv)
 The primary key is `(Attribute Alias, Dataset Alias)`.
 
 | Column Name | Description |
@@ -22,7 +22,7 @@ The primary key is `(Attribute Alias, Dataset Alias)`.
 
 *Values may have been scraped from ArcGIS REST or Socrata
 
-## References Table
+## [References Table](https://github.com/dotbts/BPA/blob/main/resources/attribute_tracker/references.csv)
 The primary key is `Dataset Alias`.
 
 | Column Name | Description |
