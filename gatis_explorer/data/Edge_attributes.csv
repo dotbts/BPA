@@ -5,13 +5,13 @@ road_associated,Boolean,"Specifies if the edge is adjacent or associated to a ro
 Valid Options:
 yes
 no"
-road_reference_id,Text,"Unique identifier for a road segment from another source (ARNOLD, HPMS, TIGER, Census road network, OSM, etc.), used for joining that source to obtain more information about the road segment."
-reference_ids,Array<Object>,"Can be used to add reference IDs to other datasources such as OSM, OpenLR. Should be an array of JSONs with the source name and ID pair. Each JSON should contain an ID field and source field at minimum.
+reference_ids,Array<Object>,"Can be used to add reference IDs to other datasources such as OSM, OpenLR, ARNOLD, HMPS, TIGER, Census road network, OSM, etc.). Should be an array of JSONs with the source name and ID pair. Each JSON should contain an ID field and source field at minimum. Can add other attributes such as the beginning and ending milepost from a linear referencing system.
 
 Example:
 [ 
 { ""source"": ""OpenStreetMap"", ""id"": ""w1234"" }, 
 { ""source"": ""TIGER"", ""id"": ""110739476769"" } 
+{ ""source"": ""ARNOLD"", ""id"": ""140"", ""begin_mi"": 2.3, ""end_mi"": 4.5}
 ] "
 street_name,Text,"Specifies the name of a road or the road associated with the edge, such as the street along which a sidewalk or cycleway runs. In many cases, routing engines can fill in the closest street name for travelers to see. Use this field to specify the associated street explicitly or to correct an error within routing engines. 
 
@@ -45,6 +45,7 @@ backward
 both"
 width,Integer,The width of the edge at most points along its path. Measured in inches and rounded to the nearest inch. Cannot be negative.
 width_min,Integer,The width of the edge at the point where it is narrowest. Measured in inches and rounded to the nearest inch. Cannot be negative.
+,,
 bikeway_type,Text,"Common name used for the bicycle facility type. Should align with the National Bikeway Network, NACTO, or AASHTO facility types.
 
 Recommended Options:
@@ -180,7 +181,11 @@ ada_compliance,Enum,"States whether the piece of infrastructure was considered t
 
 Valid Options:
 yes, no, unknown"
-ada_compliance_date,Date,"Indicates the date when ADA compliance was assessed. Report in ISO 8601 format containing month and year, or just year if month is not available. This field is conditionally required if ""ada_compliance"" is filled out."
+ada_compliance_date,Date,"Indicates the date when ADA compliance was assessed. Report in RFC 3339 format containing month and year, or just year if month is not available. This field is conditionally required if ""ada_compliance"" is filled out.
+
+Example:
+2025-03
+2014"
 ada_compliance_standard,Enum,"The specific ADA guidelines or standards used in the assessment of this infrastructure.  This field is conditionally required if ""ada_compliance_standard"" is filled out.
 
 Valid Options:
@@ -200,8 +205,16 @@ wheel_channel,Boolean,"Whether there is a wheel channel to allow for pushing a b
 
 Valid Options:
 yes, no"
-date_built,Date,"Date containing month and year, or just year if month is not available. Indicates when the facility was officially opened for use. If the facility has had a major remodeling where the structure, shape or another fundamental aspect was changed, the date of remodeling can be placed here."
-check_date,Date,"The date that this infrastructure was last inspected. Report in ISO 8601 format containing month and year, or just year if month is not available."
+date_built,Date,"Indicates when the facility was officially opened for use. If the facility has had a major remodeling where the structure, shape or another fundamental aspect was changed, the date of remodeling can be placed here. Report in RFC 3339 format containing month and year, or just year if month is not available.
+
+Example:
+2025-03
+2014"
+check_date,Date,"The date that this infrastructure was last inspected. Report in RFC 3339 format containing month and year, or just year if month is not available.
+
+Example:
+2025-03
+2014"
 traffic_calming,Array<Text>,"Used to identify traffic calming features along a road or crossing. Implies that feature is present alongside the entirety of the edge. The fields that the traffic calming element(s) affect should be modified (i.e., a road narrowing should reduce the road's width field from its typical value). Recommended values are from https://www.ite.org/pub/?id=2a60c136-b1c0-b231-0522-ccbd075cac84  and https://wiki.openstreetmap.org/wiki/Key:traffic_calming  
 
 Recommended Options:
