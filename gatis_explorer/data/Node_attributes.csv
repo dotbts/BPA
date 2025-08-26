@@ -17,16 +17,8 @@ yes
 no
 missing
 unknown"
-date_built,Date,"When the facility was officially opened for use. If the facility has had a major remodeling where the structure, shape or another fundamental aspect was changed, the date of remodeling can be placed here. Report in RFC 3339 format containing the month and year or just year if month is not available.
-
-Example:
-2025-03
-2014"
-check_date,Date,"The date that this infrastructure was last inspected. Report in RFC 3339 format containing the month and year or just year if month is not available.
-
-Example:
-2025-03
-2014"
+date_built,Date,"When the facility was officially opened for use. If the facility has had a major remodeling where the structure, shape or another fundamental aspect was changed, the date of remodeling can be placed here. In ISO 8601 format containing the month and year or just year if month is not available."
+check_date,Date,The date that this infrastructure was last inspected. Report the month and year or just year if month is not available.
 curb_type,Enum,"The type of curb that is present, if there is not a curb ramp.  
 
 Valid Options:
@@ -42,11 +34,7 @@ Valid Options:
 yes
 no
 unknown"
-ada_compliance_date,Date,"Indicates the date when ADA compliance was assessed. Report in RFC 3339 format containing month and year, or just year if month is not available. This field is conditionally required if ""ada_compliance"" is filled out.
-
-Example:
-2025-03
-2014"
+ada_compliance_date,Date,"Indicates the date when ADA compliance was assessed. Report in ISO 8601 format containing month and year, or just year if month is not available. This field is conditionally required if ""ada_compliance"" is filled out."
 ada_compliance_standard,Enum,"The specific ADA guidelines or standards used in the assessment of this infrastructure.  This field is conditionally required if ""ada_compliance_standard"" is filled out.
 
 Valid Options:
@@ -88,7 +76,8 @@ rail_crossing,Array<Enum>,"Describes the pedestrian traffic warnings and control
 
 Valid Options:
 Gates and flashing lights, flashing lights only, crossbucks or stop sign only, tactile markings, other"
-"An array of objects containing keys for GTFS agency_id and stop_id from an existing GTFS dataset for this transit stop. Represent as string with the format ""{agency_id},{stop_id}"". These IDs can be crosswalked with GTFS and TIDES data to obtain additional stop attributes and connect to the broader transit network. See GTFS documentation for more information.",Array<Object>,#REF!
+stop_id,Integer,The numeric stop_id from GTFS for this transit stop. These IDs can be crosswalked with GTFS and TIDES data to obtain additional stop attributes. May choose between using stop_id and stop_code to identify stops; see the GTFS documentation for more information. agency_id is conditionally required if stop_id is filled out.
+agency_id,Integer,"The numeric agency_id from GTFS for the agency that manages this transit stop. Because stop_ids and stop_codes are not unique across agencies within GTFS and TIDES, agency_id must be used in order to uniquely identify stops. Conditionally required if stop_id or stop_code is filled out."
 traffic_calming_type,Enum,"Used to identify traffic calming features on a road or crossing. Used when it makes more sense to model the traffic calming feature as a node instead of an edge. Recommended values are from https://www.ite.org/pub/?id=2a60c136-b1c0-b231-0522-ccbd075cac84  and https://wiki.openstreetmap.org/wiki/Key:traffic_calming
 
 Valid Options:

@@ -54,7 +54,7 @@ window.addEventListener("DOMContentLoaded", () => {
   // determine which filepath to use
   let img_fp = "..";
   // page null is the homepage and has a different path to the image
-  if (page === "homepage") {
+  if (page === null) {
     img_fp = "gatis_explorer";
   }
 
