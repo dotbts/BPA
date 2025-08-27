@@ -2,9 +2,9 @@ Name,Type,Description
 point_id,ID,"A unique identifier for the point. [NOTE: We will fill in instructions here on how to generate IDs, and we will also provide a data validator that may be capable of validating and helping to fill in these IDs.] "
 point_type,Enum,"Indicates the type of point.
 
-Valid Options:
+Valid options:
 object"
 object_type,Text,"Used to indicate objects that appear near the sidewalk or street space that, depending on the traveler, may be an amenity or an obstruction. Buffers around these points can be used to factor them into routing algorithms. If an object is on the pedestrian way, consider marking it with an issue node instead.
 
-Recommended Options:
+Recommended options:
 Bench, street lamp / lighting, waste basket, accessible restroom, inaccessible restroom, water fountain, parklet / kiosk, pet station "

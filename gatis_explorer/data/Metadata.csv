@@ -26,6 +26,6 @@ collection_period_end,Date,"Ending date of the period during which data was coll
 If frequency / cadence = ‘continuous,’ leave blank",Tier 3,recommended
 collection_method,Array<Enum>,"List of the methods used to collect and extract the data.
 
-Valid Options:
+Valid options:
 Satellite / aerial; LIDAR; field survey / manual; GPS survey; hand traced or tagged; AI interpretation; transformation from another format / database",Tier 3,recommended
 source_dataset,Text,"Either a link or a citation (title, publisher and publication date) to the primary dataset used to create the data; in many cases, this data will be satellite or LIDAR data used for extracting transportation elements.",Tier 3,recommended

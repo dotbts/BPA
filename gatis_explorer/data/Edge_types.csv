@@ -19,4 +19,5 @@ If pedestrian usage is designated then use multi_use_path edge type instead.
 Can use the left/right/both modifiers to represent this edge type on a road edge.",Tier 1
 multi_use_path,A generic link that allows both bike and pedestrian travel. It can take on both sidewalk and cycleway attributes.,Tier 2
 trail,"Any kind of path or trail that allows bicycle or pedestrian travel that wouldn't fall into the multi_use_path designation. Includes official and unofficial unpaved trails, social trails, goatpaths and desire lines.",Tier 2
+ramp,"Indicates any type of ramp besides a curb ramp, where the footpath is built to deliberately slope up or down to improve access.  ",Tier 2
 virtual_link,"Links added for topology, connectivity, or crossing reasons by the analyst. Does not relate to a piece of physical infrastructure in the real world.",Tier 2
