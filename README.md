@@ -20,6 +20,9 @@ When commenting on the draft, please keep our Collaboration Framework in mind, s
 
 In addition, the [GATIS Explorer](https://dotbts.github.io/BPA/) can be used as an interactive companion to the draft specification.
 
+### Draft 1 Specification Files for Field Testers
+The [draft_gatis_specification/dictionary_jsons](https://github.com/dotbts/BPA/tree/main/draft_gatis_specification/dictionary_jsons) folder contains JSON files that describe the the different types and allowed attributes for each GATIS feature type. The [draft_gatis_specification/templates](https://github.com/dotbts/BPA/tree/main/draft_gatis_specification/templates) folder contains GeoJSON files that reflect the recommended and required types and attributes for each feature type at each tier level plus one that inlcudes all optional attributes.
+
 ## Get Involved
 Your participation in this collaboration is welcome. Anyone can join, whether you’re with a government agency, university, for-profit, nonprofit or a private citizen. Here are some ways to get involved:
 1.	Join our [mailing list](https://forms.office.com/g/34975BEAkF) to receive invitations to upcoming collaboration meetings and major announcements. 
