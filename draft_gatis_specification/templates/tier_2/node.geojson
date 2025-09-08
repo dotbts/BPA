@@ -1,0 +1,79 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "node_id": null,
+                "node_type": "virtual"
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "node_id": null,
+                "node_type": "curb_ramp",
+                "date_built": null,
+                "check_date": null,
+                "ada_compliance": null,
+                "ada_compliance_date": null,
+                "ada_compliance_standard": null,
+                "status": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "node_id": null,
+                "node_type": "elevator",
+                "ada_compliance_date": null,
+                "ada_compliance_standard": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "node_id": null,
+                "node_type": "transit_stop"
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "node_id": null,
+                "node_type": "issue"
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "node_id": null,
+                "node_type": "traffic_calming"
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        }
+    ]
+}

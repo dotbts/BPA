@@ -1,0 +1,19 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "zone_id": null,
+                "zone_type": "pedestrian",
+                "surface_material": null,
+                "facility_name": null,
+                "status": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        }
+    ]
+}

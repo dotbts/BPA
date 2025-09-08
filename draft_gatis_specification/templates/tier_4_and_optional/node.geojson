@@ -1,0 +1,103 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "node_id": null,
+                "node_type": "virtual",
+                "curb_type": null,
+                "rail_crossing": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "node_id": null,
+                "node_type": "curb_ramp",
+                "presence": null,
+                "date_built": null,
+                "check_date": null,
+                "ada_compliance": null,
+                "ada_compliance_date": null,
+                "ada_compliance_standard": null,
+                "incline": null,
+                "cross_slope": null,
+                "width": null,
+                "ramp_type": null,
+                "detectable_warning": null,
+                "impediment": null,
+                "surface_issue": null,
+                "status": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "node_id": null,
+                "node_type": "elevator",
+                "presence": null,
+                "date_built": null,
+                "check_date": null,
+                "ada_compliance": null,
+                "ada_compliance_date": null,
+                "ada_compliance_standard": null,
+                "status": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "node_id": null,
+                "node_type": "transit_stop",
+                "gtfs_id": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "node_id": null,
+                "node_type": "issue",
+                "check_date": null,
+                "impediment": null,
+                "surface_issue": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "node_id": null,
+                "node_type": "traffic_calming",
+                "presence": null,
+                "date_built": null,
+                "check_date": null,
+                "traffic_calming_type": null,
+                "status": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        }
+    ]
+}

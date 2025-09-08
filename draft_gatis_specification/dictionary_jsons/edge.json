@@ -1,0 +1,1624 @@
+{
+  "types": {
+    "road": {
+      "description": "A public road primarily intended for automobile travel.\n\nSidewalk and bikeway edges can be represented as part of a road edge using the left/right/both modifiers. See the Specification Document for more information.",
+      "tier": 1,
+      "allowed_on_road": false,
+      "allowed_uses": ["bicycle","motor_vehicle","ebike","scooter"],
+      "prohibited_uses": ["pedestrian"]
+    },
+    "sidewalk": {
+      "description": "A designated pedestrian path along the side of a roadway.\n\nThis edge type includes pedestrian lanes, in which a section of the roadway surface is divided out for pedestrian use; use pedestrian_lane attribute to indicate.\n\nCan use the left/right/both field modifiers to represent this edge type on a road edge.",
+      "tier": 1,
+      "allowed_on_road": true,
+      "allowed_uses": ["pedestrian"],
+      "prohibited_uses": ["bicycle","motor_vehicle","ebike","scooter"]
+    },
+    "footpath": {
+      "description": "A dedicated pedestrian path that does not fall into another category. Primarily used for connecting sidewalks to crossings.",
+      "tier": 2,
+      "allowed_on_road": false,
+      "allowed_uses": ["pedestrian"],
+      "prohibited_uses": ["bicycle","motor_vehicle","ebike","scooter"]
+    },
+    "crossing": {
+      "description": "A location where infrastructure or a designation exists to help pedestrians and/or cyclists cross traffic lanes or other areas designated for traffic. In many locations, a crossing is a crosswalk. ",
+      "tier": 1,
+      "allowed_on_road": false,
+      "allowed_uses": ["pedestrian"],
+      "prohibited_uses": ["bicycle","motor_vehicle","ebike","scooter"]
+    },
+    "traffic_island": {
+      "description": "A median or other raised or protected area between traffic lanes on the road surface meant to provide a safe space for pedestrians to stop. A traffic island may or may not have a midblock entrance. Can be used to indicate transit islands.",
+      "tier": 2,
+      "allowed_on_road": false,
+      "allowed_uses": ["pedestrian"],
+      "prohibited_uses": ["bicycle","motor_vehicle","ebike","scooter"]
+    },
+    "steps": {
+      "description": "Fixed steps or stairs that appear along a pedestrian way. NC-BPAID maps outdoor infrastructure; switch to GTFS Pathways or IMDF conventions for indoor infrastructure.",
+      "tier": 3,
+      "allowed_on_road": false,
+      "allowed_uses": ["pedestrian"],
+      "prohibited_uses": ["bicycle","motor_vehicle","ebike","scooter"]
+    },
+    "escalator": {
+      "description": "Escalators or any other construction of moving stairs meant to carry a pedestrian from one level of physical infrastructure to another. NC-BPAID maps outdoor infrastructure; switch to GTFS Pathways or IMDF conventions for indoor infrastructure.",
+      "tier": 3,
+      "allowed_on_road": false,
+      "allowed_uses": ["pedestrian"],
+      "prohibited_uses": ["bicycle","motor_vehicle","ebike","scooter"]
+    },
+    "bikeway": {
+      "description": "A designated cycling lane or path that can be on, next to or away from a road.\n\nIf pedestrian usage is designated then use multi_use_path edge type instead.\n\nCan use the left/right/both modifiers to represent this edge type on a road edge.",
+      "tier": 1,
+      "allowed_on_road": true,
+      "allowed_uses": ["bicycle"],
+      "prohibited_uses": ["pedestrian","motor_vehicle"]
+    },
+    "multi_use_path": {
+      "description": "A generic link that allows both bike and pedestrian travel. It can take on both sidewalk and cycleway attributes.",
+      "tier": 2,
+      "allowed_on_road": true,
+      "allowed_uses": ["pedestrian","bicycle"],
+      "prohibited_uses": ["motor_vehicle"]
+    },
+    "trail": {
+      "description": "Any kind of path or trail that allows bicycle or pedestrian travel that wouldn't fall into the multi_use_path designation. Includes official and unofficial unpaved trails, social trails, goatpaths and desire lines.",
+      "tier": 2,
+      "allowed_on_road": false,
+      "allowed_uses": ["pedestrian"],
+      "prohibited_uses": ["bicycle","motor_vehicle","ebike","scooter"]
+    },
+    "ramp": {
+      "description": "Indicates any type of ramp besides a curb ramp, where the footpath is built to deliberately slope up or down to improve access.  ",
+      "tier": 2,
+      "allowed_on_road": false,
+      "allowed_uses": ["pedestrian"],
+      "prohibited_uses": ["bicycle","motor_vehicle","ebike","scooter"]
+    },
+    "virtual_link": {
+      "description": "Links added for topology, connectivity, or crossing reasons by the analyst. Does not relate to a piece of physical infrastructure in the real world.",
+      "tier": 2,
+      "allowed_on_road": false,
+      "allowed_uses": ["pedestrian","bicycle"],
+      "prohibited_uses": ["motor_vehicle"]
+    }
+  },
+  "attributes": [
+    {
+      "name": "edge_id",
+      "description": "A unique identifier for the edge. [NOTE: We will fill in instructions here on how to generate IDs, and we will also provide a data validator that may be capable of validating and helping to fill in these IDs.] ",
+      "type": "ID",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "road": ["required",null,null,null],
+        "sidewalk": ["required",null,null,null],
+        "footpath": ["required",null,null,null],
+        "crossing": ["required",null,null,null],
+        "traffic_island": ["required",null,null,null],
+        "steps": ["required",null,null,null],
+        "escalator": ["required",null,null,null],
+        "bikeway": ["required",null,null,null],
+        "multi_use_path": ["required",null,null,null],
+        "trail": ["required",null,null,null],
+        "ramp": ["required",null,null,null],
+        "virtual_link": ["required",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": "OSW",
+        "osm_mapping": "id"
+      }
+    },
+    {
+      "name": "road_associated",
+      "description": "Specifies if the edge is adjacent or associated to a road.",
+      "type": "Boolean",
+      "listed_values": ["yes","no"],
+      "example": null,
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["optional",null,null,null],
+        "footpath": ["optional",null,null,null],
+        "crossing": ["optional",null,null,null],
+        "traffic_island": ["optional",null,null,null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["required",null,null,null],
+        "multi_use_path": ["required",null,null,null],
+        "trail": ["optional",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["required",null,null,null]
+      },
+      "misc": {
+        "notes": "Might be able to be created through spatial analysis but intended to help add road attributes (street name, speeds, traffic volume) to the feature to aid with routing.",
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "reference_ids",
+      "description": "Can be used to add reference IDs to other datasources such as OSM, OpenLR, ARNOLD, HMPS, TIGER, Census road network, OSM, etc.). Should be an array of JSONs with the source name and ID pair. Each JSON should contain an ID field and source field at minimum. Can add other attributes such as the beginning and ending milepost from a linear referencing system.",
+      "type": "Array<Object>",
+      "listed_values": null,
+      "example": "[ \n{ \"source\": \"OpenStreetMap\", \"id\": \"w1234\" }, \n{ \"source\": \"TIGER\", \"id\": \"110739476769\" } \n{ \"source\": \"ARNOLD\", \"id\": \"140\", \"begin_mi\": 2.3, \"end_mi\": 4.5}\n] ",
+      "presence": {
+        "road": ["optional",null,null,null],
+        "sidewalk": ["optional",null,null,null],
+        "footpath": ["optional",null,null,null],
+        "crossing": ["optional",null,null,null],
+        "traffic_island": ["optional",null,null,null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["optional",null,null,null],
+        "multi_use_path": ["optional",null,null,null],
+        "trail": ["optional",null,null,null],
+        "ramp": ["optional",null,null,null],
+        "virtual_link": ["optional",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": "Overture's Source Field",
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "street_name",
+      "description": "Specifies the name of a road or the road associated with the edge, such as the street along which a sidewalk or cycleway runs. In many cases, routing engines can fill in the closest street name for travelers to see. Use this field to specify the associated street explicitly or to correct an error within routing engines. ",
+      "type": "Text",
+      "listed_values": null,
+      "example": "\"Maple Avenue\"",
+      "presence": {
+        "road": ["required",null,null,null],
+        "sidewalk": ["optional","required",null,null],
+        "footpath": ["optional",null,null,null],
+        "crossing": ["optional","required",null,null],
+        "traffic_island": ["optional",null,null,null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["optional","recommended",null,null],
+        "multi_use_path": ["optional","recommended",null,null],
+        "trail": ["optional","recommended",null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "facility_name",
+      "description": "The common name for this edge, by which travelers might recognize it. ",
+      "type": "Text",
+      "listed_values": null,
+      "example": "\"Atlanta Beltline\", \"Washington and Old Dominion Trail\", \"Minutemen Bikeway\", \"Lenape Trail\", \"East Coast Greenway\"",
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["optional",null,null,null],
+        "footpath": ["optional",null,null,null],
+        "crossing": ["optional",null,null,null],
+        "traffic_island": ["optional",null,null,null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["optional","recommended",null,null],
+        "multi_use_path": ["optional","recommended",null,null],
+        "trail": ["optional","recommended",null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": "Makes sense but ill-defined?",
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "edge_type",
+      "description": "Identifies the edge type. Also used for assigning attributes that need to be filled in.",
+      "type": "Enum",
+      "listed_values": ["road","sidewalk","footpath","crossing","traffic_island","steps","escalator","bikeway","multi_use_path","trail","virtual_link"],
+      "example": null,
+      "presence": {
+        "road": ["required",null,null,null],
+        "sidewalk": ["required",null,null,null],
+        "footpath": ["required",null,null,null],
+        "crossing": ["required",null,null,null],
+        "traffic_island": ["required",null,null,null],
+        "steps": ["required",null,null,null],
+        "escalator": ["required",null,null,null],
+        "bikeway": ["required",null,null,null],
+        "multi_use_path": ["required",null,null,null],
+        "trail": ["required",null,null,null],
+        "ramp": ["required",null,null,null],
+        "virtual_link": ["required",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "from_node",
+      "description": "This field is used to identify the node where an edge begins. This information is needed for routing. Value needs to be from the nodes table in the node ID field.",
+      "type": "ID",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "road": ["optional","required",null,null],
+        "sidewalk": ["optional",null,"recommended",null],
+        "footpath": ["optional",null,"recommended",null],
+        "crossing": ["optional",null,"recommended",null],
+        "traffic_island": ["optional",null,"recommended",null],
+        "steps": ["optional",null,"recommended",null],
+        "escalator": ["optional",null,"recommended",null],
+        "bikeway": ["optional","required",null,null],
+        "multi_use_path": ["optional","required",null,null],
+        "trail": ["optional","required",null,null],
+        "ramp": ["optional","required",null,null],
+        "virtual_link": ["optional","required",null,null]
+      },
+      "misc": {
+        "notes": "If not set, implementers should try a spatial join to the nodes table to attempt to resolve.",
+        "provenance": "OSW",
+        "osm_mapping": "node id"
+      }
+    },
+    {
+      "name": "to_node",
+      "description": "This field is used to identify the node where an edge ends. This information is needed for routing. Value needs to be from the nodes table in the node ID field.",
+      "type": "ID",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "road": ["optional","required",null,null],
+        "sidewalk": ["optional",null,"recommended",null],
+        "footpath": ["optional",null,"recommended",null],
+        "crossing": ["optional",null,"recommended",null],
+        "traffic_island": ["optional",null,"recommended",null],
+        "steps": ["optional",null,"recommended",null],
+        "escalator": ["optional",null,"recommended",null],
+        "bikeway": ["optional","required",null,null],
+        "multi_use_path": ["optional","required",null,null],
+        "trail": ["optional","required",null,null],
+        "ramp": ["optional","required",null,null],
+        "virtual_link": ["optional","required",null,null]
+      },
+      "misc": {
+        "notes": "If not set, implementers should try a spatial join to the nodes table to attempt to resolve.",
+        "provenance": "OSW",
+        "osm_mapping": "node id"
+      }
+    },
+    {
+      "name": "directionality",
+      "description": "Specifies the directionality of the edge. If the edge is bidirectional, choose \u201cboth.\u201d Used to help identify when bicycle infrastructure allows traffic in both directions. If left blank, then assumes \"both\".",
+      "type": "Enum",
+      "listed_values": ["forward","backward","both"],
+      "example": null,
+      "presence": {
+        "road": ["required",null,null,null],
+        "sidewalk": ["optional",null,null,null],
+        "footpath": ["optional",null,null,null],
+        "crossing": ["optional",null,null,null],
+        "traffic_island": ["optional",null,null,null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["required",null,null,null],
+        "bikeway": ["required",null,null,null],
+        "multi_use_path": ["optional",null,null,null],
+        "trail": ["optional",null,null,null],
+        "ramp": ["optional",null,null,null],
+        "virtual_link": ["optional",null,null,null]
+      },
+      "misc": {
+        "notes": "Could also just adapt OSM's oneway=yes/no/-1 but I don't like the -1 for backward (JM: totally agree, -1 is bad)",
+        "provenance": "OSM",
+        "osm_mapping": "oneway"
+      }
+    },
+    {
+      "name": "width",
+      "description": "The width of the edge at most points along its path. Measured in inches and rounded to the nearest inch. Cannot be negative.",
+      "type": "Integer",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "road": ["optional",null,null,null],
+        "sidewalk": ["optional","required",null,null],
+        "footpath": ["optional",null,"required",null],
+        "crossing": ["optional","required",null,null],
+        "traffic_island": ["optional",null,"required",null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["optional","required",null,null],
+        "multi_use_path": ["optional","required",null,null],
+        "trail": ["optional",null,"required",null],
+        "ramp": ["optional",null,"required",null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": "OSW",
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "width_min",
+      "description": "The width of the edge at the point where it is narrowest. Measured in inches and rounded to the nearest inch. Cannot be negative.",
+      "type": "Integer",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "road": ["optional",null,null,null],
+        "sidewalk": ["optional",null,"recommended",null],
+        "footpath": ["optional",null,"recommended",null],
+        "crossing": ["optional",null,"recommended",null],
+        "traffic_island": ["optional",null,"recommended",null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["optional",null,"required",null],
+        "multi_use_path": ["optional",null,"recommended",null],
+        "trail": ["optional",null,"recommended",null],
+        "ramp": ["optional",null,"recommended",null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "width_tolerance",
+      "description": "Used to specify the tolerance of the width measurement in inches. Everything along the edge should be within +/- of this width.",
+      "type": "Integer",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "road": ["optional",null,null,null],
+        "sidewalk": ["optional",null,null,null],
+        "footpath": ["optional",null,null,null],
+        "crossing": ["optional",null,null,null],
+        "traffic_island": ["optional",null,null,null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["optional",null,null,null],
+        "multi_use_path": ["optional",null,null,null],
+        "trail": ["optional",null,null,null],
+        "ramp": ["optional",null,null,null],
+        "virtual_link": ["optional",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "bikeway_type",
+      "description": "Common name used for the bicycle facility type. Should align with the National Bikeway Network, NACTO, or AASHTO facility types.",
+      "type": "Text",
+      "listed_values": ["Bike Lane","Buffered Bike Lane","Separated Bike Lane","Counter-Flow Bike Lane","Paved Shoulder","Shared Lane"],
+      "example": null,
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["forbidden",null,null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["forbidden",null,null,null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["required",null,null,null],
+        "multi_use_path": ["forbidden",null,null,null],
+        "trail": ["forbidden",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "bikeway_grade_separation",
+      "description": "The vertical level of the bikeway with respect to the road. Not meant for bikeways that are not road associated.",
+      "type": "Enum",
+      "listed_values": ["at_grade","raised","sidewalk_level"],
+      "example": null,
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["forbidden",null,null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["forbidden",null,null,null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["optional","recommended","required",null],
+        "multi_use_path": ["forbidden",null,null,null],
+        "trail": ["forbidden",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "separation_elements",
+      "description": "The materials used to separate the cycleway or footpath from motor vehicle traffic -- for example, as part of a buffer.",
+      "type": "Array<Text>",
+      "listed_values": ["bollards","concrete barrier","parking","median","trees"],
+      "example": "[\"bollards\",\"concrete barrier\"]",
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["optional",null,"recommended",null],
+        "footpath": ["optional",null,"recommended",null],
+        "crossing": ["optional",null,null,null],
+        "traffic_island": ["optional",null,null,null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["recommended","required",null,null],
+        "multi_use_path": ["optional",null,null,null],
+        "trail": ["optional",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "separation_permeable_car",
+      "description": "Can a vehicle easily access this edge? Primarily intended for bikeways but could be used for pedestrian facilities.",
+      "type": "Enum",
+      "listed_values": ["hard separator \u2013 the separator cannot be easily bypassed by motor vehicles (jersey barriers","curbs)","soft separator \u2013 the separator can be easily bypassed by motor vehicles (flex posts","k-rail)","none \u2013 no separator is present (just paint separation)"],
+      "example": null,
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["optional",null,null,null],
+        "footpath": ["optional",null,null,null],
+        "crossing": ["optional",null,null,null],
+        "traffic_island": ["optional",null,null,null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["recommended","required",null,null],
+        "multi_use_path": ["optional",null,null,null],
+        "trail": ["optional",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "buffer_width",
+      "description": "Distance between the edge of the motor vehicle travel lane and the bike lane or sidewalk. Measured in feet and rounded to the nearest half foot. Cannot be negative.",
+      "type": "Float",
+      "listed_values": null,
+      "example": 4,
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["optional",null,"recommended",null],
+        "footpath": ["optional",null,"recommended",null],
+        "crossing": ["optional",null,null,null],
+        "traffic_island": ["optional",null,null,null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["optional",null,"recommended",null],
+        "multi_use_path": ["optional",null,null,null],
+        "trail": ["optional",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "street_parking",
+      "description": "Field intended to indicate orientation of street parking in relation to a bike facility. Floating street parking is also referred to as parking protected.",
+      "type": "Enum",
+      "listed_values": ["parallel","angled","floating \u2013 Also known as parking protected. Put this value if present regardless if parking is parallel/angled parking."],
+      "example": null,
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["optional",null,null,null],
+        "footpath": ["optional",null,null,null],
+        "crossing": ["optional",null,null,null],
+        "traffic_island": ["optional",null,null,null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["optional",null,"recommended",null],
+        "multi_use_path": ["optional",null,null,null],
+        "trail": ["optional",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "street_parking_buffer",
+      "description": "The space between a bicycle facility and the street parking. Measured in feet and rounded to the nearest half foot. Cannot be negative.",
+      "type": "Float",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["optional",null,null,null],
+        "footpath": ["optional",null,null,null],
+        "crossing": ["optional",null,null,null],
+        "traffic_island": ["optional",null,null,null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["optional","recommended",null,null],
+        "multi_use_path": ["optional",null,null,null],
+        "trail": ["optional",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "traffic_volume",
+      "description": "Measures the motor vehicle annual average daily traffic (AADT) for the edge. Reported with no more than two significant figures. Cannot be negative.",
+      "type": "Integer",
+      "listed_values": null,
+      "example": "1,540 would be 1,500",
+      "presence": {
+        "road": ["optional",null,null,"recommended"],
+        "sidewalk": ["forbidden",null,null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["forbidden",null,null,null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["forbidden",null,null,null],
+        "trail": ["forbidden",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": "Might be nice to have metadata about the source",
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "posted_speed_limit",
+      "description": "Used to indicate the posted speed limit. Measured in miles per hour. Cannot be negative. If used on bikeway, multi-use path, or trail, it's assumed that is the speed limit for non-motorized users.",
+      "type": "Integer",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "road": ["optional",null,null,"recommended"],
+        "sidewalk": ["forbidden",null,null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["forbidden",null,null,null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["optional",null,null,null],
+        "multi_use_path": ["optional",null,null,null],
+        "trail": ["optional",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": "I this would be an extension? Can put in 85th percentile speed or a generic prevailing speed value to detail the actual speed of cars on a road if they differ from the speed limit?\n\nKeep source in metadata",
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "car_freeflow_speed",
+      "description": "Used to indicate the free-flow motor vehicle speed. Suggest using the 85th percentile. Measured in miles per hour. Cannot be negative.",
+      "type": "Integer",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "road": ["optional",null,null,"recommended"],
+        "sidewalk": ["forbidden",null,null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["forbidden",null,null,null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["forbidden",null,null,null],
+        "trail": ["forbidden",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": "Keep source in metadata",
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "thru_lanes",
+      "description": "Describes the number of vehicle thru lanes on an edge. Does not include turn lanes or shoulders. Cannot be negative.",
+      "type": "Integer",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "road": ["optional",null,null,"recommended"],
+        "sidewalk": ["forbidden",null,null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["forbidden",null,null,null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["forbidden",null,null,null],
+        "trail": ["forbidden",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "aux_lanes",
+      "description": "Describes the number of temporary vehicle lanes like turn lanes. Cannot be negative.",
+      "type": "Integer",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "road": ["optional",null,null,"recommended"],
+        "sidewalk": ["forbidden",null,null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["forbidden",null,null,null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["forbidden",null,null,null],
+        "trail": ["forbidden",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "shoulder_width",
+      "description": "Width of the paved shoulder that can be used by pedestrians or cyclists. Measured in feet with one decimal point of precision. Cannot be negative.",
+      "type": "Float",
+      "listed_values": null,
+      "example": 1.5,
+      "presence": {
+        "road": ["optional",null,null,"recommended"],
+        "sidewalk": ["forbidden",null,null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["forbidden",null,null,null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["forbidden",null,null,null],
+        "trail": ["forbidden",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "roadway_centerline",
+      "description": "Indicates if there is a painted road centerline. Might be a useful attribute to track for finding low-stress streets.",
+      "type": "Boolean",
+      "listed_values": ["yes","no"],
+      "example": null,
+      "presence": {
+        "road": ["optional",null,null,"recommended"],
+        "sidewalk": ["forbidden",null,null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["forbidden",null,null,null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["forbidden",null,null,null],
+        "trail": ["forbidden",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": " Montgomery County uses center line presence in their LTS methodology (https://montgomeryplanning.org/wp-content/uploads/2017/11/Appendix-D.pdf)",
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "bridge",
+      "description": "Indicates if the edge is or is on a bridge. Can be used for any bridge type, including road bridges and pedestrian bridges. Reccomend marking roads with bike lanes that are bridges.",
+      "type": "Boolean",
+      "listed_values": ["yes","no"],
+      "example": null,
+      "presence": {
+        "road": ["optional","recommended","required",null],
+        "sidewalk": ["optional",null,"recommended",null],
+        "footpath": ["optional",null,"recommended",null],
+        "crossing": ["optional",null,null,null],
+        "traffic_island": ["optional",null,null,null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["optional",null,null,null],
+        "multi_use_path": ["optional",null,null,null],
+        "trail": ["optional",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": "Could this be inferred if altitude is set to anything > 0? Do we want to track clearance, e.g. under the bridge?",
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "mup_modal_delineation",
+      "description": "Designates whether bikes and pedestrians have designated spaces on a multi-use/shared-use path, or whether all travelers use the same space.",
+      "type": "Boolean",
+      "listed_values": ["yes","no"],
+      "example": false,
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["forbidden",null,null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["forbidden",null,null,null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["optional","recommended",null,null],
+        "trail": ["forbidden",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": "Need help with attribute name",
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "prohibited_uses",
+      "description": "Specifies which types of users are legally prohibited from using the facility, based on the laws, policy, or signage on a facility (ex. \u201cE-bikes prohibited on this trail\u201d). Can provide one or multiple in list form.",
+      "type": "Array<Enum>",
+      "listed_values": ["walk","bike","ebike","scooter","motor_vehicle"],
+      "example": null,
+      "presence": {
+        "road": ["optional",null,null,null],
+        "sidewalk": ["optional",null,null,null],
+        "footpath": ["optional",null,null,null],
+        "crossing": ["optional",null,null,null],
+        "traffic_island": ["optional",null,null,null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["optional",null,null,null],
+        "multi_use_path": ["optional",null,null,null],
+        "trail": ["optional",null,null,null],
+        "ramp": ["optional",null,null,null],
+        "virtual_link": ["optional",null,null,null]
+      },
+      "misc": {
+        "notes": "Changed to prohibited uses. These should be really general. We can have another field to describe more specific restrictions like Class 1 ebikes only. Time based uses could be implemented in an extension file in a future version to account for regularly scheduled closed streets.",
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "allowed_uses",
+      "description": "Specifies exceptions to the usually prohibited users. Intended for designating whether bikes are allowed to use sidewalks, footpaths, and crossings for routing purposes.",
+      "type": "Array<Enum>",
+      "listed_values": ["walk","bike","ebike","scooter","motor_vehicle"],
+      "example": "Bicycles normally prohibited from using the sidewalk but the sidewalk is a critical edge for connectivity.",
+      "presence": {
+        "road": ["optional",null,null,null],
+        "sidewalk": ["optional",null,null,null],
+        "footpath": ["optional",null,null,null],
+        "crossing": ["optional",null,null,null],
+        "traffic_island": ["optional",null,null,null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["optional",null,null,null],
+        "multi_use_path": ["optional",null,null,null],
+        "trail": ["optional",null,null,null],
+        "ramp": ["optional",null,null,null],
+        "virtual_link": ["optional",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "surface_material",
+      "description": "Specifies the material used for the surface of the segment. ",
+      "type": "Enum",
+      "listed_values": ["asphalt","concrete","gravel","grass","dirt","paved","unpaved","grass_paver","paving_stones","other"],
+      "example": null,
+      "presence": {
+        "road": ["optional",null,null,null],
+        "sidewalk": ["optional","required",null,null],
+        "footpath": ["optional",null,"required",null],
+        "crossing": ["optional","required",null,null],
+        "traffic_island": ["optional",null,"required",null],
+        "steps": ["optional",null,"required",null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["optional","required",null,null],
+        "multi_use_path": ["optional","required",null,null],
+        "trail": ["optional","required",null,null],
+        "ramp": ["optional","required",null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": "too many values? too complex?",
+        "provenance": "OSM, OSW",
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "surface_issue",
+      "description": "Description of surface quality issues for the segment. If the quality is good, leave blank. Use the issue node to indicate quality issues at a single point, and this field to indicate quality issues that span the majority of the segment.",
+      "type": "Text",
+      "listed_values": ["yes","no","cracking","scaling","spalling","overgrowth","uneven/displacement","frequent water pooling","heaving","missing bricks / stones","grates / utility covers / other surface impediments","potholes / holes","slickness","uneven joints","markings worn / missing","detectable warning surface damage","other"],
+      "example": null,
+      "presence": {
+        "road": ["optional",null,null,null],
+        "sidewalk": ["optional",null,"recommended","required"],
+        "footpath": ["optional",null,"recommended","required"],
+        "crossing": ["optional",null,"recommended","required"],
+        "traffic_island": ["optional",null,"recommended","required"],
+        "steps": ["optional",null,"recommended","required"],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["optional",null,null,null],
+        "multi_use_path": ["optional",null,"recommended","required"],
+        "trail": ["optional",null,"recommended","required"],
+        "ramp": ["optional",null,"recommended","required"],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "status",
+      "description": "Most recent operating status of the segment. Whether the infrastructure is open and available for use.",
+      "type": "Enum",
+      "listed_values": ["open","closed","under construction","unknown"],
+      "example": null,
+      "presence": {
+        "road": ["optional",null,null,null],
+        "sidewalk": ["optional","recommended","required",null],
+        "footpath": ["optional","recommended","required",null],
+        "crossing": ["optional","recommended","required",null],
+        "traffic_island": ["optional","recommended","required",null],
+        "steps": ["optional","recommended","required",null],
+        "escalator": ["optional","recommended","required",null],
+        "bikeway": ["optional","recommended","required",null],
+        "multi_use_path": ["optional","recommended","required",null],
+        "trail": ["optional","recommended","required",null],
+        "ramp": ["optional","recommended","required",null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "seasonal",
+      "description": "Indicates whether the segment is commonly affected by seasonal issues. Use this field for recurring (ex. yearly flooding) and not one-time (ex. single flood) events. Include both the seasonal concern and the season when it occurs as a JSON String.",
+      "type": "Array<Object>",
+      "listed_values": ["season: spring","summer","fall","winter","seasonal issues: flooding","ice","snow","heavy rain","heat / lack of shade","low visibility","fog","wind"],
+      "example": "{\"flooding\":\"spring\",\"fall\"}; {\"ice\":\"winter\",\"heavy rain\":\"summer\"}",
+      "presence": {
+        "road": ["optional",null,null,null],
+        "sidewalk": ["optional",null,null,null],
+        "footpath": ["optional",null,null,null],
+        "crossing": ["optional",null,null,null],
+        "traffic_island": ["optional",null,null,null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["optional",null,null,null],
+        "multi_use_path": ["optional",null,null,null],
+        "trail": ["optional",null,null,null],
+        "ramp": ["optional",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "pedestrian_lane",
+      "description": "Indicates whether the stretch of sidewalk is a pedestrian lane, in which a section of the roadway surface is divided out for pedestrian use.",
+      "type": "Boolean",
+      "listed_values": ["true","false"],
+      "example": null,
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["optional","recommended",null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["forbidden",null,null,null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["forbidden",null,null,null],
+        "trail": ["forbidden",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "incline",
+      "description": "The running slope of the full segment. Assume the given incline is in the forward direction of the edge, regardless of edge directionality. Report as percentage of the slope, with two decimal points of precision. Cannot be negative.",
+      "type": "Float",
+      "listed_values": null,
+      "example": 3.25,
+      "presence": {
+        "road": ["optional","required",null,null],
+        "sidewalk": ["optional","required",null,null],
+        "footpath": ["optional",null,"required",null],
+        "crossing": ["optional","required",null,null],
+        "traffic_island": ["optional",null,"required",null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["optional","required",null,null],
+        "multi_use_path": ["optional","required",null,null],
+        "trail": ["optional",null,null,null],
+        "ramp": ["optional",null,"required",null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": "Probably need a source field to go alongside this? Or a metadata thing?",
+        "provenance": "OSM, OSW",
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "cross_slope",
+      "description": "The cross slope of the edge at most points along its path. Cross slope is never reported in negative numbers. Report as percentage of the slope, with two decimal points of precision. Cannot be negative.",
+      "type": "Float",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "road": ["optional",null,null,null],
+        "sidewalk": ["optional","required",null,null],
+        "footpath": ["optional",null,"required",null],
+        "crossing": ["optional","required",null,null],
+        "traffic_island": ["optional",null,"recommended",null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["optional",null,null,null],
+        "multi_use_path": ["optional",null,"recommended",null],
+        "trail": ["optional",null,"recommended",null],
+        "ramp": ["optional",null,"recommended",null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "cross_slope_max",
+      "description": "The cross slope of the edge at the point along its path where there is the greatest slope. Report as percentage of the slope, with two decimal points of precision. Cannot be negative.",
+      "type": "Float",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "road": ["optional",null,null,null],
+        "sidewalk": ["optional",null,"recommended",null],
+        "footpath": ["optional",null,"recommended",null],
+        "crossing": ["optional",null,"recommended",null],
+        "traffic_island": ["optional",null,"recommended",null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["optional",null,null,null],
+        "multi_use_path": ["optional",null,"recommended",null],
+        "trail": ["optional",null,null,null],
+        "ramp": ["optional",null,"recommended",null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "ada_compliance",
+      "description": "States whether the piece of infrastructure was considered to be ADA compliant the last time it was officially assessed. This attribute should come from formal assessments and not be created using other available data (ex. Width, cross slope, etc.), since compliance status is based on many detailed, interacting factors. If ada_compliance is filled out, ada_compliance_date and ada_compliance_standard should also be filled out.",
+      "type": "Enum",
+      "listed_values": ["yes","no","unknown"],
+      "example": null,
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["optional","recommended",null,null],
+        "footpath": ["optional","recommended",null,null],
+        "crossing": ["optional","recommended",null,null],
+        "traffic_island": ["optional","recommended",null,null],
+        "steps": ["optional","recommended",null,null],
+        "escalator": ["optional","recommended",null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["optional","recommended",null,null],
+        "trail": ["optional","recommended",null,null],
+        "ramp": ["optional","recommended",null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "ada_compliance_date",
+      "description": "Indicates the date when ADA compliance was assessed. Report in RFC 3339 format containing month and year, or just year if month is not available. This field is conditionally required if \"ada_compliance\" is filled out.",
+      "type": "Date",
+      "listed_values": null,
+      "example": "2025-03\n2014",
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["conditionally_required",null,null,null],
+        "footpath": ["conditionally_required",null,null,null],
+        "crossing": ["conditionally_required",null,null,null],
+        "traffic_island": ["conditionally_required",null,null,null],
+        "steps": ["conditionally_required",null,null,null],
+        "escalator": ["conditionally_required",null,null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["conditionally_required",null,null,null],
+        "trail": ["conditionally_required",null,null,null],
+        "ramp": ["conditionally_required",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "ada_compliance_standard",
+      "description": "The specific ADA guidelines or standards used in the assessment of this infrastructure.  This field is conditionally required if \"ada_compliance_standard\" is filled out.",
+      "type": "Enum",
+      "listed_values": ["2010","PROWAG","other"],
+      "example": null,
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["conditionally_required",null,null,null],
+        "footpath": ["conditionally_required",null,null,null],
+        "crossing": ["conditionally_required",null,null,null],
+        "traffic_island": ["conditionally_required",null,null,null],
+        "steps": ["conditionally_required",null,null,null],
+        "escalator": ["conditionally_required",null,null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["conditionally_required",null,null,null],
+        "trail": ["conditionally_required",null,null,null],
+        "ramp": ["conditionally_required",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "impediment",
+      "description": "Description of surface quality issues for the segment. If the quality is good, leave blank. In levels 1-2, use this field for any surface quality issues. In level 3, use the issue node to indicate quality issues at a single point, and this field to indicate quality issues that span the majority of the segment. ",
+      "type": "Array<Text>",
+      "listed_values": ["yes","no","horizontal overgrowth","vertical overgrowth","fixed vertical obstruction","solid fixed object","flexible fixed object","protrusion","turning space missing or issue","detectable warning not aligned with crossing","push button not working","other"],
+      "example": null,
+      "presence": {
+        "road": ["optional",null,null,null],
+        "sidewalk": ["optional",null,"recommended","required"],
+        "footpath": ["optional",null,"recommended","required"],
+        "crossing": ["optional",null,"recommended","required"],
+        "traffic_island": ["optional",null,"recommended","required"],
+        "steps": ["optional",null,"recommended","required"],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["optional",null,null,null],
+        "multi_use_path": ["optional",null,"recommended","required"],
+        "trail": ["optional",null,"recommended","required"],
+        "ramp": ["optional",null,"recommended","required"],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "step_count",
+      "description": "The number of steps that make up this set of stairs. Must be greater than zero.",
+      "type": "Integer",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["forbidden",null,null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["forbidden",null,null,null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["optional",null,"recommended","required"],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["forbidden",null,null,null],
+        "trail": ["forbidden",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "handrail",
+      "description": "Whether a handrail is available on this set of stairs.",
+      "type": "Boolean",
+      "listed_values": ["yes","no"],
+      "example": null,
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["forbidden",null,null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["forbidden",null,null,null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["optional",null,"recommended","required"],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["forbidden",null,null,null],
+        "trail": ["forbidden",null,null,null],
+        "ramp": ["optional",null,"recommended","required"],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "wheel_channel",
+      "description": "Whether there is a wheel channel to allow for pushing a bicycle up the stairs.",
+      "type": "Boolean",
+      "listed_values": ["yes","no"],
+      "example": null,
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["forbidden",null,null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["forbidden",null,null,null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["optional",null,"recommended","required"],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["forbidden",null,null,null],
+        "trail": ["forbidden",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": "Only valid on stairs?",
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "date_built",
+      "description": "Indicates when the facility was officially opened for use. If the facility has had a major remodeling where the structure, shape or another fundamental aspect was changed, the date of remodeling can be placed here. Report in RFC 3339 format containing month and year, or just year if month is not available.",
+      "type": "Date",
+      "listed_values": null,
+      "example": "2025-03\n2014",
+      "presence": {
+        "road": ["optional",null,null,null],
+        "sidewalk": ["optional",null,"recommended",null],
+        "footpath": ["optional",null,"recommended",null],
+        "crossing": ["optional",null,"recommended",null],
+        "traffic_island": ["optional",null,"recommended",null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["optional",null,"recommended",null],
+        "multi_use_path": ["optional",null,"recommended",null],
+        "trail": ["optional",null,"recommended",null],
+        "ramp": ["optional",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "check_date",
+      "description": "The date that this infrastructure was last inspected. Report in RFC 3339 format containing month and year, or just year if month is not available.",
+      "type": "Date",
+      "listed_values": null,
+      "example": "2025-03\n2014",
+      "presence": {
+        "road": ["optional",null,null,null],
+        "sidewalk": ["optional",null,"recommended",null],
+        "footpath": ["optional",null,"recommended",null],
+        "crossing": ["optional",null,"recommended",null],
+        "traffic_island": ["optional",null,"recommended",null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["optional",null,"recommended",null],
+        "multi_use_path": ["optional",null,"recommended",null],
+        "trail": ["optional",null,"recommended",null],
+        "ramp": ["optional",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "traffic_calming",
+      "description": "Used to identify traffic calming features along a road or crossing. Implies that feature is present alongside the entirety of the edge. The fields that the traffic calming element(s) affect should be modified (i.e., a road narrowing should reduce the road's width field from its typical value). Recommended values are from https://www.ite.org/pub/?id=2a60c136-b1c0-b231-0522-ccbd075cac84  and https://wiki.openstreetmap.org/wiki/Key:traffic_calming  ",
+      "type": "Array<Text>",
+      "listed_values": ["for road edge type:","corner extension / bulb out","choker","narrowed road","chicane","closure","mini roundabout","diagonal diverter","lateral shift","median barrier/forced turn island","raised intersection","realigned intersection","road narrowing","speed hump","speed table","traffic circle","for crossing edge type:","raised crossing"],
+      "example": null,
+      "presence": {
+        "road": ["optional",null,"recommended",null],
+        "sidewalk": ["forbidden",null,null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["optional",null,"recommended",null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["forbidden",null,null,null],
+        "trail": ["forbidden",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "curb_height",
+      "description": "Indicates typical height of the curb along this segment of the road; can be used in deciding whether to route specific pedestrians off the sidewalk when there are obstructions or discontinuities. Measured and rounded to the nearest inch. Cannot be negative.",
+      "type": "Integer",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "road": ["optional",null,"recommended",null],
+        "sidewalk": ["forbidden",null,null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["forbidden",null,null,null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["forbidden",null,null,null],
+        "trail": ["forbidden",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "official",
+      "description": "Indicates whether a trail has been officially designated by a government body or other recognized organization.",
+      "type": "Boolean",
+      "listed_values": ["yes","no"],
+      "example": null,
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["forbidden",null,null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["forbidden",null,null,null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["forbidden",null,null,null],
+        "trail": ["optional",null,"recommended",null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "presence",
+      "description": "Indicates whether the piece of infrastructure exists or is present. When other attributes are provided, the existence of the infrastructure can be assumed. This attribute is useful for identifying where a sidewalk or a crossing might be missing or where its presence is unknown. Conditionally required if no other identfiying fields supplied.",
+      "type": "Enum",
+      "listed_values": ["yes","no","missing","unknown"],
+      "example": "cycleway:left:presence=yes, cycleway:right:buffer:presence=yes",
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["optional",null,null,null],
+        "footpath": ["optional",null,null,null],
+        "crossing": ["optional",null,null,null],
+        "traffic_island": ["optional",null,null,null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["optional",null,null,null],
+        "multi_use_path": ["optional",null,null,null],
+        "trail": ["optional",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "rail",
+      "description": "Used to indicate if a pedestrian or bicycle crossing is a railroad crossing. Use generic nodes to connect a rail crossing to the rest of the network. ",
+      "type": "Boolean",
+      "listed_values": ["yes","no"],
+      "example": null,
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["forbidden",null,null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["optional",null,"recommended",null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["forbidden",null,null,null],
+        "trail": ["forbidden",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "visual_markings",
+      "description": "The way the crossing is marked within the roadway space. \u201cStandard\u201d means two solid parallel lines that indicate the outline, \u201cdashed lines\u201d means two dashed parallel lines that indicate the outline, \u201czebra\u201d means regularly spaced diagonal bars along its length, \u201ccontinental\u201d means regularly spaced horizontal bars along its length, and \u201cladder\u201d means standard plus either zebra or continental.  ",
+      "type": "Text",
+      "listed_values": ["yes","no","dashed lines","zebra","continental","ladder","transverse","other"],
+      "example": null,
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["optional",null,"recommended",null],
+        "footpath": ["optional",null,"recommended",null],
+        "crossing": ["optional","recommended","required",null],
+        "traffic_island": ["optional",null,"recommended",null],
+        "steps": ["optional",null,"recommended",null],
+        "escalator": ["optional",null,"recommended",null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["optional",null,"recommended",null],
+        "trail": ["optional",null,"recommended",null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "detectable_warning",
+      "description": "Indicates when tactile guidestrips or other markings are present to help identify the edge of a crosswalk or traffic island, the beginning or end of steps, or the presence of other infrastructure nearby, such as bike lanes. It is recommended to segment the edge so that this field is only equal to \u201cyes\u201d for the segment where the detectable warning appears. Do not use this field for tactile markings on curb ramps; instead, use the detectable_warning field for curb ramps.  ",
+      "type": "Enum",
+      "listed_values": ["yes","no","unknown"],
+      "example": null,
+      "presence": {
+        "road": ["optional",null,null,null],
+        "sidewalk": ["optional","recommended","required",null],
+        "footpath": ["optional","recommended","required",null],
+        "crossing": ["optional","recommended","required",null],
+        "traffic_island": ["optional","recommended","required",null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["optional",null,null,null],
+        "multi_use_path": ["optional",null,null,null],
+        "trail": ["optional",null,null,null],
+        "ramp": ["optional",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "vehicle_traffic_control ",
+      "description": "Describes how motor vehicle traffic that passes through the crossing space is controlled.  ",
+      "type": "Enum",
+      "listed_values": ["uncontrolled","standard signal","flashing red signal","flashing yellow signal","yield sign","stop sign"],
+      "example": null,
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["forbidden",null,null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["optional",null,"recommended",null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["forbidden",null,null,null],
+        "trail": ["forbidden",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "cross_vehicle_traffic_control ",
+      "description": "Describes how motor vehicle traffic coming from cross streets is controlled. This traffic may or may not turn into the crossing space. For intersections with more than one cross street, list all of the control types present. ",
+      "type": "Array<Enum>",
+      "listed_values": ["uncontrolled","standard signal","flashing red signal","flashing yellow signal","yield sign","stop sign"],
+      "example": null,
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["forbidden",null,null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["optional",null,"recommended",null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["forbidden",null,null,null],
+        "trail": ["forbidden",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "ped_traffic_control ",
+      "description": "Describes the type of signal that controls the timing of pedestrian use of the crossing.  ",
+      "type": "Enum",
+      "listed_values": ["Uncontrolled","standard signal","flashing red signal","flashing yellow signal","pedestrian hybrid beacon / HAWK","rectangular rapid flashing beacon","yield sign","stop sign"],
+      "example": null,
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["forbidden",null,null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["optional",null,"required",null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["forbidden",null,null,null],
+        "trail": ["forbidden",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "ped_protection",
+      "description": "Lists any features of traffic control that are intended to improve the protection of pedestrians while crossing. ",
+      "type": "Array<Enum>",
+      "listed_values": ["scramble / all pedestrian","leading pedestrian interval","no right on red","none","unknown"],
+      "example": null,
+      "presence": {
+        "road": ["forbidden",null,null,null],
+        "sidewalk": ["forbidden",null,null,null],
+        "footpath": ["forbidden",null,null,null],
+        "crossing": ["optional",null,"recommended",null],
+        "traffic_island": ["forbidden",null,null,null],
+        "steps": ["forbidden",null,null,null],
+        "escalator": ["forbidden",null,null,null],
+        "bikeway": ["forbidden",null,null,null],
+        "multi_use_path": ["forbidden",null,null,null],
+        "trail": ["forbidden",null,null,null],
+        "ramp": ["forbidden",null,null,null],
+        "virtual_link": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "measured_length",
+      "description": "The measured length of the edge. Note that geospatial data also contains a length attribute by default that may be useful in some cases. Measuring the traversable length of the segment is preferable.",
+      "type": "Float",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "road": ["optional",null,null,null],
+        "sidewalk": ["optional","recommended",null,null],
+        "footpath": ["optional",null,"recommended",null],
+        "crossing": ["optional","recommended",null,null],
+        "traffic_island": ["optional",null,"recommended",null],
+        "steps": ["optional",null,null,null],
+        "escalator": ["optional",null,null,null],
+        "bikeway": ["optional",null,null,null],
+        "multi_use_path": ["optional",null,"recommended",null],
+        "trail": ["optional",null,"recommended",null],
+        "ramp": ["optional",null,null,null],
+        "virtual_link": ["optional",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    }
+  ]
+}

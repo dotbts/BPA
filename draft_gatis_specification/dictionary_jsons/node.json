@@ -1,0 +1,430 @@
+{
+  "types": {
+    "virtual": {
+      "description": "Used to create nodes for routing in places where specific physical infrastructure doesn\u2019t exist, where edges are split because attributes are different between them, or where other nodes don\u2019t suit the purpose. Nodes are required between edges to build a routable network. ",
+      "tier": 3
+    },
+    "curb_ramp": {
+      "description": "Indicates a location where a pedestrian must make a decision about which direction to travel, most commonly in locations where a curb ramp does or should exist. Curbs are nodes, connected to the graph network. Where double ramps or other configurations exist, map each ramp as its own curb_ramp node with its own attributes. ",
+      "tier": 1
+    },
+    "elevator": {
+      "description": "Elevators, funiculars or other car- or enclosure-based constructions meant to vertically carry a pedestrian from one level of physical infrastructure to another. NC-BPAID maps outdoor infrastructure; switch to GTFS Pathways or IMDF conventions for indoor infrastructure. ",
+      "tier": 3
+    },
+    "transit_stop": {
+      "description": "A node indicating the location of a transit stop of any kind. ",
+      "tier": 3
+    },
+    "issue": {
+      "description": "A node indicating a particular point that has an issue relevant to routing for some travelers. Issue nodes mark points along an edge that may be of concern; other node types (such as ramps and signals) have their own issue attributes.  ",
+      "tier": 3
+    },
+    "traffic_calming": {
+      "description": "A node indicating a particular point that has an issue relevant to routing for some travelers. Issue nodes mark points along an edge that may be of concern; other node types (such as ramps and signals) have their own issue attributes.  ",
+      "tier": 3
+    }
+  },
+  "attributes": [
+    {
+      "name": "node_id",
+      "description": "A unique identifier for the node. [NOTE: We will fill in instructions here on how to generate IDs, and we will also provide a data validator that may be capable of validating and helping to fill in these IDs.] ",
+      "type": "ID",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "virtual": ["required",null,null,null],
+        "curb_ramp": ["required",null,null,null],
+        "elevator": ["required",null,null,null],
+        "transit_stop": ["required",null,null,null],
+        "issue": ["required",null,null,null],
+        "traffic_calming": ["required",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "node_type",
+      "description": "Indicates the type of node.",
+      "type": "Enum",
+      "listed_values": ["virtual","curb_ramp","ramp","elevator","transit_stop","issue","traffic_calming"],
+      "example": null,
+      "presence": {
+        "virtual": ["required",null,null,null],
+        "curb_ramp": ["required",null,null,null],
+        "elevator": ["required",null,null,null],
+        "transit_stop": ["required",null,null,null],
+        "issue": ["required",null,null,null],
+        "traffic_calming": ["required",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "presence",
+      "description": "Indicates whether the piece of infrastructure exists or is present. When other attributes are provided, the existence of the infrastructure can be assumed. This attribute is useful for identifying where a curb ramp or other infrastructure might be missing or where its presence is unknown. Conditionally required if no other identifying attributes provided.",
+      "type": "Enum",
+      "listed_values": ["yes","no","missing","unknown"],
+      "example": null,
+      "presence": {
+        "virtual": ["forbidden",null,null,null],
+        "curb_ramp": ["optional",null,null,null],
+        "elevator": ["optional",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "traffic_calming": ["optional",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "date_built",
+      "description": "When the facility was officially opened for use. If the facility has had a major remodeling where the structure, shape or another fundamental aspect was changed, the date of remodeling can be placed here. Report in RFC 3339 format containing the month and year or just year if month is not available.",
+      "type": "Date",
+      "listed_values": null,
+      "example": "2025-03\n2014",
+      "presence": {
+        "virtual": ["forbidden",null,null,null],
+        "curb_ramp": ["optional","recommended",null,null],
+        "elevator": ["optional",null,"recommended",null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "traffic_calming": ["optional",null,"recommended",null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "check_date",
+      "description": "The date that this infrastructure was last inspected. Report in RFC 3339 format containing the month and year or just year if month is not available.",
+      "type": "Date",
+      "listed_values": null,
+      "example": "2025-03\n2014",
+      "presence": {
+        "virtual": ["forbidden",null,null,null],
+        "curb_ramp": ["optional","recommended",null,null],
+        "elevator": ["optional",null,"recommended",null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["optional",null,"recommended",null],
+        "traffic_calming": ["optional",null,"recommended",null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "curb_type",
+      "description": "The type of curb that is present, if there is not a curb ramp.  ",
+      "type": "Enum",
+      "listed_values": ["raised","rolled","flush","generic","driveway","other"],
+      "example": null,
+      "presence": {
+        "virtual": ["optional",null,"recommended",null],
+        "curb_ramp": ["forbidden",null,null,null],
+        "elevator": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "ada_compliance",
+      "description": "States whether the piece of infrastructure was considered to be ADA compliant the last time it was officially assessed. This attribute should come from formal assessments and not be created using other available data (ex. Width, cross slope, etc.), since compliance status is based on many detailed, interacting factors. If ada_compliance is filled out, ada_compliance_date and ada_compliance_standard should also be filled out.",
+      "type": "Enum",
+      "listed_values": ["yes","no","unknown"],
+      "example": null,
+      "presence": {
+        "virtual": ["forbidden",null,null,null],
+        "curb_ramp": ["optional","recommended",null,null],
+        "elevator": ["optional",null,"recommended",null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "ada_compliance_date",
+      "description": "Indicates the date when ADA compliance was assessed. Report in RFC 3339 format containing month and year, or just year if month is not available. This field is conditionally required if \"ada_compliance\" is filled out.",
+      "type": "Date",
+      "listed_values": null,
+      "example": "2025-03\n2014",
+      "presence": {
+        "virtual": ["forbidden",null,null,null],
+        "curb_ramp": ["conditionally_required",null,null,null],
+        "elevator": ["conditionally_required",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "ada_compliance_standard",
+      "description": "The specific ADA guidelines or standards used in the assessment of this infrastructure.  This field is conditionally required if \"ada_compliance_standard\" is filled out.",
+      "type": "Enum",
+      "listed_values": ["2010","PROWAG","other"],
+      "example": null,
+      "presence": {
+        "virtual": ["forbidden",null,null,null],
+        "curb_ramp": ["conditionally_required",null,null,null],
+        "elevator": ["conditionally_required",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "incline",
+      "description": "Indicates the incline or running slope of the ramp, following the possible directions of travel. Reported as a decimal number describing the percentage of the slope, with two points of precision.",
+      "type": "Float",
+      "listed_values": null,
+      "example": 0.0325,
+      "presence": {
+        "virtual": ["forbidden",null,null,null],
+        "curb_ramp": ["optional",null,"required",null],
+        "elevator": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "cross_slope",
+      "description": "Indicates the cross slope of the ramp, which runs perpendicular to the incline / directions of travel. Reported as a decimal number describing the percentage of the slope, with two points of precision. Cannot be negative.",
+      "type": "Float",
+      "listed_values": null,
+      "example": 0.0325,
+      "presence": {
+        "virtual": ["forbidden",null,null,null],
+        "curb_ramp": ["optional",null,"required",null],
+        "elevator": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "width",
+      "description": "Indicates the minimum width of the ramp, measured between the handrails if handrails are provided. Reported as a whole number rounded to the nearest inch.",
+      "type": "Float",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "virtual": ["forbidden",null,null,null],
+        "curb_ramp": ["optional",null,"required",null],
+        "elevator": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "ramp_type",
+      "description": "Indicates the orientation of the ramp in relation to the pedestrian direction of travel at the location. Where a double curb ramp exists, map each ramp as a separate curb_ramp node.",
+      "type": "Text",
+      "listed_values": ["diagonal","parallel","perpendicular","unknown"],
+      "example": null,
+      "presence": {
+        "virtual": ["forbidden",null,null,null],
+        "curb_ramp": ["optional",null,"recommended",null],
+        "elevator": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "detectable_warning",
+      "description": "Describes whether tactile paving is present, and whether or not it has a constrasting color (which should meet ADA guidelines for the amount of contrast). ",
+      "type": "Enum",
+      "listed_values": ["tactile and contrasted","tactile and not contrasted","not tactile and contrasted","no"],
+      "example": null,
+      "presence": {
+        "virtual": ["forbidden",null,null,null],
+        "curb_ramp": ["optional",null,"required",null],
+        "elevator": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "impediment",
+      "description": "Identifies the type of object that may pose a challenge for travelers passing through the area. Mark an issue with a node only if it is close enough to the footpath or pedestrian way to potentially pose a challenge. \u201cHorizontal overgrowth\u201d refers to temporary obstruction at ground level, such as bushes or plants. \u201cVertical overgrowth\u201d refers to temporary obstruction between 25-80\" high, such as a branch or limb. \u201cFixed vertical obstruction\u201d refers to a permanent obstruction between 25-80\" high, such as a sign. \u201cSolid fixed object\u201d includes street furniture, planters and other objects that cannot be difficult to navigate around and are within the pedestrian way. \u201cFlexible fixed object\u201d refers to bollards and other objects that some travelers may be able to navigate around and that are within the pedestrian way. \u201cProtrusion\u201d refers to objects of any type that are primarily located out of the pedestrian way but have some portion of them that sticks out into the pedestrian space.",
+      "type": "Array<Enum>",
+      "listed_values": ["yes","no","horizontal overgrowth","vertical overgrowth","fixed vertical obstruction","solid fixed object","flexible fixed object","protrusion","turning space missing or issue","detectable warning not aligned with crossing","push button not working","other"],
+      "example": null,
+      "presence": {
+        "virtual": ["forbidden",null,null,null],
+        "curb_ramp": ["optional",null,"recommended","required"],
+        "elevator": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["optional",null,"recommended","required"],
+        "traffic_calming": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "surface_issue",
+      "description": "Identifies the type of damage or surface quality issue that may pose a challenge for travelers.  ",
+      "type": "Array<Enum>",
+      "listed_values": ["Cracking","scaling","spalling","uneven / displacement","frequent water pooling","heaving","missing bricks / stones","grates / utility covers / other surface impediments","potholes / holes","slickness","uneven joints","markings worn / missing","detectable warning surface damage","other"],
+      "example": null,
+      "presence": {
+        "virtual": ["forbidden",null,null,null],
+        "curb_ramp": ["optional",null,"recommended","required"],
+        "elevator": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["optional",null,"recommended","required"],
+        "traffic_calming": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "rail_crossing",
+      "description": "Describes the pedestrian traffic warnings and controls in the approach to the rail crossing. The nodes mark the location of the controls on each side of the tracks. Mark the crossing itself as a virtual link (edge).",
+      "type": "Array<Enum>",
+      "listed_values": ["Gates and flashing lights","flashing lights only","crossbucks or stop sign only","tactile markings","other"],
+      "example": null,
+      "presence": {
+        "virtual": ["optional",null,"recommended",null],
+        "curb_ramp": ["forbidden",null,null,null],
+        "elevator": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "gtfs_id",
+      "description": "An array of objects containing keys for GTFS agency_id and stop_id from an existing GTFS dataset for this transit stop. Represent as string with the format \"{agency_id},{stop_id}\". These IDs can be crosswalked with GTFS and TIDES data to obtain additional stop attributes and connect to the broader transit network. See GTFS documentation for more information.",
+      "type": "Array<Object>",
+      "listed_values": null,
+      "example": "[{\"agency_id\": \"1234\", \"stop_id\":\"5678\"}]",
+      "presence": {
+        "virtual": ["forbidden",null,null,null],
+        "curb_ramp": ["forbidden",null,null,null],
+        "elevator": ["forbidden",null,null,null],
+        "transit_stop": ["optional",null,"recommended",null],
+        "issue": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "traffic_calming_type",
+      "description": "Used to identify traffic calming features on a road or crossing. Used when it makes more sense to model the traffic calming feature as a node instead of an edge. Recommended values are from https://www.ite.org/pub/?id=2a60c136-b1c0-b231-0522-ccbd075cac84  and https://wiki.openstreetmap.org/wiki/Key:traffic_calming",
+      "type": "Enum",
+      "listed_values": ["chicane","choker","closer","diagonal diverter","lateral shift","median barrier/forced turn island","median island","mini roundabout","raised intersection","realigned intersection","road diet","roundabout"],
+      "example": null,
+      "presence": {
+        "virtual": ["forbidden",null,null,null],
+        "curb_ramp": ["forbidden",null,null,null],
+        "elevator": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "traffic_calming": ["optional",null,"recommended","required"]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "status",
+      "description": "Most recent operating status of the node. Whether the infrastructure is open and available for use.",
+      "type": "Enum",
+      "listed_values": ["open","closed","under construction","other"],
+      "example": null,
+      "presence": {
+        "virtual": ["forbidden",null,null,null],
+        "curb_ramp": ["optional","recommended","required",null],
+        "elevator": ["optional",null,"recommended","required"],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "traffic_calming": ["optional",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    }
+  ]
+}
