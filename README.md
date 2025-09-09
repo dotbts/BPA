@@ -1,5 +1,5 @@
 # General Active Transportation Infrastructure Specification (GATIS)
-Draft one of the General Active Transportation Infrastructure Specification (GATIS) (name is tentative) is now available for public review and comment. This draft was developed by the Specification Development Subgroup of the [National Collaboration on Bicycle, Pedestrian, and Accessibility Infrastructure Data (NC-BPAID)](https://github.com/dotbts/BPA/edit/main/README.md#the-national-collaboration-on-bicycle-pedestrian-and-accessibility-infrastructure-data-nc-bpaid)
+Draft one of the General Active Transportation Infrastructure Specification (GATIS) (name is tentative) is now available for public review and comment. This draft was developed by the Specification Development Subgroup of the [National Collaboration on Bicycle, Pedestrian, and Accessibility Infrastructure Data (NC-BPAID)](https://github.com/dotbts/BPA?tab=readme-ov-file#the-national-collaboration-on-bicycle-pedestrian-and-accessibility-infrastructure-data-nc-bpaid)
 
 ## Draft Specification Links
 - [PDF of Draft 1](https://github.com/dotbts/BPA/blob/main/documents/drafts/BikePed%20(GATIS)%20Specification%20v1%20DRAFT_20250701.pdf)
