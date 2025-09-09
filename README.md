@@ -1,12 +1,16 @@
-# National Collaboration on Bicycle, Pedestrian, and Accessibility Infrastructure Data
+# General Active Transportation Infrastructure Specification (GATIS)
+Draft one of the General Active Transportation Infrastructure Specification (GATIS) (name is tentative) is now available for public review and comment. This draft was developed by the Specification Development Subgroup of the [National Collaboration on Bicycle, Pedestrian, and Accessibility Infrastructure Data (NC-BPAID)](https://github.com/dotbts/BPA/edit/main/README.md#the-national-collaboration-on-bicycle-pedestrian-and-accessibility-infrastructure-data-nc-bpaid)
 
-## Objective
-The National Collaboration on Bicycle, Pedestrian, and Accessibility Infrastructure Data (NC-BPAID) is working across sectors to develop shared data specifications for geospatial bicycle, pedestrian and accessibility infrastructure data across the United States, to enable data sharing and coordination at a national scale. If you are developing, standardizing or using these kinds of data, [join the collaboration](https://forms.office.com/g/34975BEAkF) and help to shape the specifications.
+## Draft Specification Links
+- [PDF of Draft 1](https://github.com/dotbts/BPA/blob/main/documents/drafts/BikePed%20(GATIS)%20Specification%20v1%20DRAFT_20250701.pdf)
+- [Google Document of Draft 1](https://docs.google.com/document/d/13sJdh-GmfxNb_tfUXKkpZgofuBU60ag6HpqbGVUlsZE/edit?tab=t.0#heading=h.e4f6yl4rf6yf)
+- [GATIS Explorer (a companion website for navigating the specification)](https://dotbts.github.io/BPA/)
 
-## See the Draft Specification
-Draft one of the General Active Transportation Infrastructure Specification (GATIS) (name is tentative) is now available for public review and comment. This draft was developed by the Specification Development Subgroup.  
+## Draft Specification Files
+The [draft_gatis_specification/dictionary_jsons](https://github.com/dotbts/BPA/tree/main/draft_gatis_specification/dictionary_jsons) folder contains JSON files that describe the different types and allowed attributes for each GATIS feature type. The [draft_gatis_specification/templates](https://github.com/dotbts/BPA/tree/main/draft_gatis_specification/templates) folder contains GeoJSON files that reflect the recommended and required types and attributes for each feature type at each tier level plus one that inlcudes all optional attributes.
 
-There are two ways to access the draft, a PDF copy and a Google Document, which allows for comments.
+## Providing Feedback on the Draft Specification
+There are two ways to access the draft, a PDF copy and a Google Document, which allows for comments (both are linked above).
 
 You do not need to be signed into a Google account to comment. If you are signed into a Google account, your name will be attached to the comment and you will receive notifications if your comment has been responded to. If you are not signed into a Google account, consider adding your name to the comment (optional). Note that you will not receive a notification if your comment has been responded to, so you may need to check in the document periodically. 
 
@@ -14,14 +18,9 @@ If you’d like a response, please say so and we’ll do our best to respond dir
 
 When commenting on the draft, please keep our Collaboration Framework in mind, specifically the section that refers to [Building an Effective Collaboration](https://github.com/dotbts/BPA/blob/main/documents/drafts/CollaborationFramework.md#building-an-effective-collaboration). 
 
-### Draft 1 Links:
-- [PDF](https://github.com/dotbts/BPA/blob/main/documents/drafts/BikePed%20(GATIS)%20Specification%20v1%20DRAFT_20250701.pdf)
-- [Google Document](https://docs.google.com/document/d/13sJdh-GmfxNb_tfUXKkpZgofuBU60ag6HpqbGVUlsZE/edit?tab=t.0#heading=h.e4f6yl4rf6yf)
-
-In addition, the [GATIS Explorer](https://dotbts.github.io/BPA/) can be used as an interactive companion to the draft specification.
-
-### Draft 1 Specification Files for Field Testers
-The [draft_gatis_specification/dictionary_jsons](https://github.com/dotbts/BPA/tree/main/draft_gatis_specification/dictionary_jsons) folder contains JSON files that describe the the different types and allowed attributes for each GATIS feature type. The [draft_gatis_specification/templates](https://github.com/dotbts/BPA/tree/main/draft_gatis_specification/templates) folder contains GeoJSON files that reflect the recommended and required types and attributes for each feature type at each tier level plus one that inlcudes all optional attributes.
+---
+# The National Collaboration on Bicycle, Pedestrian, and Accessibility Infrastructure Data (NC-BPAID)
+The National Collaboration on Bicycle, Pedestrian, and Accessibility Infrastructure Data (NC-BPAID) is working across sectors to develop shared data specifications for geospatial bicycle, pedestrian and accessibility infrastructure data across the United States, to enable data sharing and coordination at a national scale. If you are developing, standardizing or using these kinds of data, [join the collaboration](https://forms.office.com/g/34975BEAkF) and help to shape the specifications.
 
 ## Get Involved
 Your participation in this collaboration is welcome. Anyone can join, whether you’re with a government agency, university, for-profit, nonprofit or a private citizen. Here are some ways to get involved:
@@ -44,7 +43,6 @@ We also have three subgroups that meet regularly and have opportunities to work 
 - Subgroup on Outreach: Working to ensure the specifications are increasingly adopted/recognized by data producers and consumers. Meets every first Thursday @ 4:00pm ET.
 - Subgroup on Specification Development: Working on drafting the specifications and guiding them through review. Meets every other Wednesday @ 4:00pm ET.
 
-## Previous Collaboration Meetings
 You can find information about all previous meetings, including agendas and slides, on the [wiki](https://github.com/dotbts/BPA/wiki).
 
 ## Background
@@ -54,6 +52,7 @@ The objective of the [Bureau of Transportation Statistics](https://www.bts.gov/)
 
 There are many organizations who have recognized and are working towards filling this data gap across the government, academic, nonprofit, and private sectors. NC-BPAID is coordinating this work to help the field progress towards widespread, interoperable geospatial data.
 
+---
 # License
 The project is a public domain work and is not subject to domestic or international copyright protection. See the [license file](./LICENSE.md) for additional information.
 
