@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Image Attributions</title>
+  <title>GATIS Explorer: Image Attributions</title>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     
   <!-- jQuery (required by DataTables) -->
@@ -32,11 +32,9 @@
     
   <main>
 
-    <div style="padding-top:20px; padding-left:20px">
-    <a href="../../index.html" class="link-button">Return to main page</a>
-    </div>
-
-    <div style="padding:20px;">
+    <div id="return_to_main_page"></div>
+    
+    <div>
     <table id="attributions" class="display" style="width:100%">
     <thead>
         <tr>
@@ -76,25 +74,19 @@
         <td><a href="https://stock.adobe.com/images/two-way-protected-bike-lanes-city-street/179447538">https://stock.adobe.com/images/two-way-protected-bike-lanes-city-street/179447538</a></td>
         <td>Adobe Stock</td>
         </tr>
+        <tr>
+        <td>Icon Lauk from the Noun Project</td>
+        <td><a href="https://thenounproject.com/icon/open-book-2238057/">https://thenounproject.com/icon/open-book-2238057/</a></td>
+        <td>The Noun Project</td>
+        </tr>
     </tbody>
     </table>
     </div>
   </main>
 
-  <footer><div id="std_footer" style="margin:auto;"></div></footer>
+  <footer><div id="std_footer"></div></footer>
 
   <script src="../script.js"></script>
-
-  <script>
-    $(document).ready(function () {
-      $('#attributions').DataTable({
-        paging: false,
-        responsive: true,
-        sort: false,
-        search: false
-      });
-    });
-  </script>
   
 </body>
 </html>

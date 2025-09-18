@@ -15,7 +15,7 @@
       gap: 10px;
       width: 500px;
       justify-self: center;
-      align-items: end;
+      align-items: top;
       padding: 20px;
     }
 
@@ -58,8 +58,6 @@
 </head>
 
 <body data-page="homepage">
-  
-  <div class="webpage-layout">
 
   <header>
   <div class="banner">
@@ -68,9 +66,7 @@
       <p> Welcome to the <span style="font-weight: bold">General Active Transportation Infrastructure Specification (GATIS)</span> Explorer.</p>
       <p>This site is for exploring the GATIS specification.</p>
     </div>
-    <div id="banner-image" class="banner-image"> 
-      <!-- <img src="gatis_explorer/resources/GATIS Explorer Banner Graphic_new photos_72dpi.png" alt="Grid of six images showing people using active transportation infrastructure"> -->
-    </div>
+    <div id="banner-image" class="banner-image"></div>
   </div>
   </header>
 
@@ -90,18 +86,23 @@
       <h3><a href="gatis_explorer/pages/presence_tables.html" class="homepage-button">View presence tables</a></h3>
     </div>
     <div class="grid-item">
-      <img src="gatis_explorer/resources/metadata i.png" alt="information icon">
+      <img src="gatis_explorer/resources/metadata_i.png" alt="information icon">
       <h3><a href="gatis_explorer/pages/metadata.html" class="homepage-button">View metadata</a></h3>
+    </div>
+    <div class="grid-item">
+      <img src="gatis_explorer/resources/db_icon.png" alt="database icon">
+      <h3><a href="gatis_explorer/pages/sample_datasets.html" class="homepage-button">View sample datasets</a></h3>
     </div>
     <div class="grid-item">
       <img src="gatis_explorer/resources/github.png" alt="GitHub logo">
       <h3><a href="https://github.com/dotbts/BPA" class="homepage-button">NC-BPAID GitHub</a></h3>
     </div>
   </div>
+  
   </main>
   
-  <footer><div id="std_footer" style="margin:auto;"></div></footer>
-  </div>
+  <footer><div id="std_footer"></div></footer>
+
   <script src="gatis_explorer/script.js"></script>
 </body>
 </html>

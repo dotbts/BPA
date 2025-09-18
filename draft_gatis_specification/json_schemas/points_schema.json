@@ -1,0 +1,28 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "points.geojson",
+    "description": "Schema for GATIS Points",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "point_id": {
+            "type": "string"
+        },
+        "point_type": {
+            "type": "string",
+            "enum": [
+                "object"
+            ]
+        },
+        "object_type": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        }
+    }
+}

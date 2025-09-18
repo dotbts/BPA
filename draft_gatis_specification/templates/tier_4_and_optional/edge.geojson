@@ -362,9 +362,9 @@
                 "rail": null,
                 "visual_markings": null,
                 "detectable_warning": null,
-                "vehicle_traffic_control ": null,
-                "cross_vehicle_traffic_control ": null,
-                "ped_traffic_control ": null,
+                "vehicle_traffic_control": null,
+                "cross_vehicle_traffic_control": null,
+                "ped_traffic_control": null,
                 "ped_protection": null,
                 "measured_length": null
             },

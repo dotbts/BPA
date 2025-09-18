@@ -1,0 +1,5 @@
+FeatureType,FileName
+Edges,presence_tables/edges_presence.csv
+Nodes,presence_tables/nodes_presence.csv
+Points,presence_tables/points_presence.csv
+Zones,presence_tables/zones_presence.csv

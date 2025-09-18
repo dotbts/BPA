@@ -1,0 +1,55 @@
+{
+  "types": {
+    "object": {
+      "description": "A physical object that is likely to be of interest to travelers. Depending on the traveler, an object may be an amenity or an obstruction. Objects are represented as points and are not connected to the graph network. A buffer may be drawn around objects relevant to routing to create a node in the network at their location.",
+      "tier": 3
+    }
+  },
+  "attributes": [
+    {
+      "name": "point_id",
+      "description": "A unique identifier for the point. [NOTE: We will fill in instructions here on how to generate IDs, and we will also provide a data validator that may be capable of validating and helping to fill in these IDs.] ",
+      "type": "ID",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "object": ["required",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "point_type",
+      "description": "Indicates the type of point.",
+      "type": "Enum",
+      "listed_values": ["object"],
+      "example": null,
+      "presence": {
+        "object": ["required",null,null,null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    },
+    {
+      "name": "object_type",
+      "description": "Used to indicate objects that appear near the sidewalk or street space that, depending on the traveler, may be an amenity or an obstruction. Buffers around these points can be used to factor them into routing algorithms. If an object is on the pedestrian way, consider marking it with an issue node instead.",
+      "type": "Text",
+      "listed_values": ["Bench","street lamp / lighting","waste basket","accessible restroom","inaccessible restroom","water fountain","parklet / kiosk","pet station"],
+      "example": null,
+      "presence": {
+        "object": ["optional",null,"recommended",null]
+      },
+      "misc": {
+        "notes": null,
+        "provenance": null,
+        "osm_mapping": null
+      }
+    }
+  ]
+}

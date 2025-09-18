@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GATIS Explorer: Sample Datasets</title>
+
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+
+    .map-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .map-frame {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      height: 50vh;
+      border: 0;
+      display: none;        /* only selected map will be shown */
+      background: none;
+    }
+    /* visible map */
+    .map-frame.visible {
+      display: block;
+    }
+    /* description styling */
+    .description-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .description {
+      display: none;
+    }
+    .description.visible {
+      display: block;
+    }
+
+  </style>
+</head>
+
+<body data-page="sample_data">
+  
+  <header>
+  <div class="banner">
+    <div class="banner-content">
+      <h1><strong>GATIS Sample Datasets</strong></h1>
+      <p>This page shows "snapshots" of some GATIS sample datasets. Use the drop down menu to view one of the locations. A description will describe how the dataset was made.</p>
+    </div>
+      <div id="banner-image" class="banner-image"></div>
+  </div>  
+  </header>
+    
+  <main>
+
+    <div id="return_to_main_page"></div>
+    
+    <div style="padding-top:20px">
+      <label for="mapSelect" id="mapLabel">Choose map:</label>
+      <select id="mapSelect" aria-label="Select folium map">
+        <!-- options will be populated by maps.json -->
+      </select>
+      <div class="description-container" id="mapsDescription">
+        <!-- this will be injected with a description based on the maps.json selected -->
+      </div>
+      <div class="map-container" id="mapsContainer" >
+        <!-- Iframes will be injected/filled based on maps.json -->
+      </div>
+    </div>
+
+  </main>
+
+  <footer><div id="std_footer"></div></footer>
+
+  <script src="../script.js"></script>
+
+  <script>
+    (function() {
+      const select = document.getElementById('mapSelect');
+      const mapsContainer = document.getElementById('mapsContainer');
+      const mapsDescription = document.getElementById('mapsDescription')
+
+      // Fetch maps.json which should contain an array of { key, label, path, description }
+      function loadMapsIndex() {
+        return fetch('../../draft_gatis_specification/sample_data/maps/maps.json')
+          .then(res => {
+            if (!res.ok) throw new Error('Failed to load maps.json');
+            return res.json();
+          });
+      }
+
+      function buildDescriptions(maps) {
+        // Clear existing
+        mapsDescription.innerHTML = '';
+        // Create a paragraph description for each map entry
+        maps.forEach((m, idx) => {
+          const description = document.createElement('p');
+          description.id = m.key;
+          description.innerHTML = m.description;
+          description.className = 'description';
+          mapsDescription.appendChild(description);
+        });
+      }
+
+      function buildFrames(maps) {
+        // Clear existing
+        mapsContainer.innerHTML = '';
+        // Create an <iframe> for each map entry
+        maps.forEach((m, idx) => {
+          const frame = document.createElement('iframe');
+          frame.id = m.key;
+          frame.className = 'map-frame';
+          frame.src = m.path;
+          frame.title = m.label;
+          mapsContainer.appendChild(frame);
+        });
+      }
+
+      function populateDropdown(maps) {
+        // Clear existing options
+        select.innerHTML = '';
+        maps.forEach((m, idx) => {
+          const opt = document.createElement('option');
+          opt.value = m.key;
+          opt.textContent = m.label;
+          select.appendChild(opt);
+        });
+      }
+
+      function showMap(key) {
+        const frames = mapsContainer.querySelectorAll('iframe');
+        frames.forEach(f => {
+          if (f.id === key) {
+            f.classList.add('visible');
+          } else {
+            f.classList.remove('visible');
+          }
+        });
+      }
+
+      function showDescription(key) {
+        const frames = mapsDescription.querySelectorAll('p');
+        frames.forEach(f => {
+          if (f.id === key) {
+            f.classList.add('visible');
+          } else {
+            f.classList.remove('visible');
+          }
+        });
+      }
+
+      // Initialize
+      loadMapsIndex()
+        .then(maps => {
+          if (!Array.isArray(maps) || maps.length === 0) {
+            console.warn('No maps found in maps.json');
+            return;
+          }
+          // Build frames and dropdown
+          buildDescriptions(maps);
+          buildFrames(maps);
+          populateDropdown(maps);
+
+          // Show initial map based on first dropdown value
+          const firstKey = maps[0].key;
+          showDescription(firstKey);
+          showMap(firstKey);
+          // If user changes selection, switch visible map
+          select.addEventListener('change', (ev) => showDescription(ev.target.value));
+          select.addEventListener('change', (ev) => showMap(ev.target.value));
+          // Ensure initial visible frame matches current selection
+          // (in case user re-loads page)
+          const currentKey = select.value || maps[0].key;
+          showDescription(currentKey);
+          showMap(currentKey);
+        })
+        .catch(err => {
+          console.error('Error loading maps:', err);
+        });
+    })();
+  </script>
+  
+</body>
+</html>

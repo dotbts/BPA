@@ -37,17 +37,17 @@ window.addEventListener("DOMContentLoaded", () => {
   // Determine CSV index based on page
   switch (page) {
     case "presence_tables_page":
-      csv_fp = "../data/presence_tables_index.csv";
+      csv_fp = "../data/presence_index.csv";
       optional_columns = ["optional","forbidden"]
       break;
     case "attributes_tables_page":
-      csv_fp = "../data/attributes_tables_index.csv";
+      csv_fp = "../data/attributes_index.csv";
       break;
     case "types_page":
       csv_fp = "../data/types_index.csv";
       break;
     case "metadata_page":
-      csv_fp = "../data/Metadata.csv";
+      csv_fp = "../data/metadata.csv";
       order_array = true // order by required/recommended
   }
 
@@ -67,6 +67,15 @@ window.addEventListener("DOMContentLoaded", () => {
       `;
   }
   
+  // add a return to main page button
+    if (document.getElementById("return_to_main_page")) {
+      document.getElementById('return_to_main_page').innerHTML = `
+        <div style="padding-top:20px;">  
+          <a href="../../index.html" class="link-button">Return to main page</a>
+        </div>
+        `;
+    }
+    
   // add the footer
   if (document.getElementById("std_footer")) {
     document.getElementById('std_footer').innerHTML = `
@@ -474,7 +483,7 @@ function load_info() {
   types = {};
   descriptions = {};
 
-  fetch(`../data/${currentFeatureType}_attributes.csv`)
+  fetch(`../data/attribute_tables/${currentFeatureType}_attributes.csv`)
     .then(response => response.text())
     .then(csvText => {
       const data = Papa.parse(csvText, { header: true, skipEmptyLines: true }).data;

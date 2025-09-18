@@ -1,11 +1,32 @@
-.webpage-layout {
-  display: flex;
-  flex-direction: column;
+body {
+  overflow-x: hidden;
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  font-family: Arial, sans-serif;
 }
 
 main {
-  flex: 1;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+header {
+  min-height: 50px;
+}
+
+footer {
+    color: #D9E021;
+    background-color: #282828;
+    min-height: 75px;
+    margin-top: 2em;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .banner {
@@ -27,8 +48,6 @@ main {
 
 .banner-image {
   max-width: 45vw; /* Or your preferred content width */
-  /* padding-right: 20px; Add some padding for content readability */
-  /* flex-shrink: 1; */
 }
 
 .banner-image img {
@@ -38,19 +57,20 @@ main {
   /* display: block; */
 }
 
-footer {
-    color: #D9E021;
-    background-color: #282828;
-    height: 75px;
-    margin-top: 2em;
-    text-align: center;
-    padding-top: 1em;
-    padding-bottom: 1em;
-}
-
 table { border-collapse: collapse; width: 100%; margin-top: 1em;}
 th, td { border: 1px solid #ccc; padding: 8px; }
-select { margin: 5px; }
+
+select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+label {
+  font-weight: 600;
+  margin-right: 8px;
+}
 
 table.dataTable {
   table-layout: fixed;
@@ -78,14 +98,6 @@ button.active {
     background-color: #007bff;
     color: white;
     font-weight: bold;
-}
-
-body {
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-  font-family: Arial, sans-serif;
 }
 
 #data-table {
@@ -168,21 +180,43 @@ body {
 }
 
 .link-button {
-    display: inline-block;
-    padding: 10px 10px;
-    background-color: #d9e021;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    width: 200px;
-    text-align: center;
+  display: inline-block;
+  padding: 10px 10px;
+  background-color: #d9e021;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  width: 200px;
+  text-align: center;
 }
-  
-  
-  
-  
-  
-  
+
+details {
+  font:
+    16px "Open Sans",
+    Calibri,
+    sans-serif;
+  width: 620px;
+}
+
+details > summary {
+  padding: 2px 6px;
+  width: 15em;
+  background-color: #e4e2e2;
+  border: none;
+  cursor: pointer;
+}
+
+/* details > p {
+  border-radius: 0 0 10px 10px;
+  background-color: #dddddd;
+  padding: 2px 6px;
+  margin: 0;
+  box-shadow: 3px 3px 4px black;
+} */
+
+details:open > summary {
+  background-color: #ccccff;
+}

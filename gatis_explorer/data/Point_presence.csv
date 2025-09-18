@@ -1,3 +1,0 @@
-Point Type,Tier,required,recommended,conditionally_required,optional,forbidden
-object,Tier 3,"point_id, point_type",object_type,--,--,--
-object,Tier 4,"point_id, point_type",object_type,--,--,--

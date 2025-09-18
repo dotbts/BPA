@@ -1,0 +1,21 @@
+Name,Type,Description
+zone_id,ID,"A unique identifier for the zone. [NOTE: We will fill in instructions here on how to generate IDs, and we will also provide a data validator that may be capable of validating and helping to fill in these IDs.] "
+zone_type,Enum,"Indicates the type of zone.
+
+Valid options:
+pedestrian"
+surface_material,Text,"Specifies the surface type. Select only one. Where the surface material changes, create a new zone.
+
+Recommended options:
+Asphalt; concrete; gravel; grass; dirt; paved; unpaved; grass_paver; paving_stones"
+facility_name,Text,"Common or formal name for the zone. Can also include descriptions of a portion of a larger pedestrian zone if the zone is being segmented.  
+
+Example:
+""Market Square"", ""21st Street Promenade"", ""Echo Park - West Side"""
+status,Enum,"Most recent operating status of the zone. Whether the infrastructure is open and available for use.
+
+Valid options:
+open
+closed
+under construction
+other"

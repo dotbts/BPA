@@ -6,6 +6,7 @@ description,Text,A brief (1-2 sentence or similar) description of what’s in th
 publisher,Text,Organization responsible for collecting and maintaining the data,Tier 1,required
 schema_version,Text,The version of the NC-BPAID schema in use. Use current version here as default value.,Tier 1,required
 date_created,Datetime,The date when this dataset was initially created,Tier 1,required
+contact_name,Text,The name of a person who can be contacted with questions or for further information about the data,Tier 4,optional
 contact_info,Text,The email address or phone number to reach someone who can answer questions or provide further information about the data,Tier 1,required
 license,URL,The license under which the data is published for use. URL linking to the license agreement; default value https://creativecommons.org/publicdomain/zero/1.0/.,Tier 1,required
 geo_bounding_box,Array<Number>,"Geospatial data describing the upper and lower latitudes and longitudes within which the data falls. Provide in format [min_longitude, min_latitude, max_longitude, max_latitude].",Tier 3,recommended
@@ -17,9 +18,12 @@ data_download_url,URL,Direct URL to begin downloading the data; should not requi
 data_docs_url,URL,URL to access a data documentation booklet or site covering methodologies and other technical aspects of the data,Tier 3,recommended
 data_dictionary_url,URL,"URL to access the data dictionary for the dataset, in PDF, HTML or JSON format",Tier 3,recommended
 data_service_endpoint_url,URL,"URL to access the data via a data service, such as Data.gov (catalog.data.gov/dataset/…), ArcGIS Online (ex. Feature service or feature layer link) or Socrata",Tier 3,recommended
+rights_usage_limits_restricts,Text or URL,"Text or a URL providing greater detail on how the data can and should be used, what rights are reserved, the scope of the data and any other useful information. Populate with either a text statement or with a URL linking to a text statement or policy",Tier 4,optional
+quality_validation,Text or URL,"Statement describing the methods used to ensure quality and to validate the data, providing quantitative results where possible; can be a link to a web page or tool containing more information.",Tier 4,optional
 date_modified,Datetime,The date when this dataset was last updated,Tier 1,required
 checksum,Text,"An MD5 sum associated with the dataset in its current state, used to check if the data has changed since last accessed; new checksums should be generated each time the data is updated.",Tier 3,recommended
 freq_cadence,Enum,"How often the full data is updated – for example, when new lidar is collected or a new field study is conducted; do not use for minor updates (ex. Correcting a few rows). Use values from the Dublin Core frequency specification.",Tier 3,recommended
+modification_notes,Text,Text statement describing recent updates or modifications that regular users might want to know about.,Tier 4,optional
 collection_period_start,Date,"Beginning date of the period during which data was collected; approximation is acceptable. Include at least the month and the year if possible.
 If frequency / cadence = ‘continuous,’ leave blank",Tier 3,recommended
 collection_period_end,Date,"Ending date of the period during which data was collected; approximation is acceptable. Include at least the month and the year if possible.
@@ -28,4 +32,19 @@ collection_method,Array<Enum>,"List of the methods used to collect and extract t
 
 Valid options:
 Satellite / aerial; LIDAR; field survey / manual; GPS survey; hand traced or tagged; AI interpretation; transformation from another format / database",Tier 3,recommended
+collection_notes,Text,"Text statement providing additional detail about data collection methods and approach, including selection, tools and data processing.",Tier 4,optional
+conforms_to,Array<URL>,List of the URLs of other specifications to which attributes within the data also conform.,Tier 4,optional
 source_dataset,Text,"Either a link or a citation (title, publisher and publication date) to the primary dataset used to create the data; in many cases, this data will be satellite or LIDAR data used for extracting transportation elements.",Tier 3,recommended
+source_dataset_type,Enum,"The type of dataset listed under Primary Source Dataset URL or Citation.
+
+Valid options:
+aerial / satellite
+LIDAR
+GPS
+field / manual
+other",Tier 4,optional
+addl_sources,Text,"List of URLs or citations for additional data sources used besides the primary data source – ie for blending, for extracting additional features, etc.",Tier 4,optional
+source_notes,Text,"Text note describing any additional information about data sources, including how they were collected, any known issues and cleaning and processing.",Tier 4,optional
+contributor_consulted,Text,Text statement acknowledging people or organizations who contributed or who were consulted in creation of the dataset.,Tier 4,optional
+used_by,Text,"Text statement describing related datasets or projects – for example, if another organization takes this data and layers on additional features. Include URLs where possible.",Tier 4,optional
+funding_organization,Text,Name of the organization(s) who provided funding to enable any part of the effort to produce the dataset.,Tier 4,optional

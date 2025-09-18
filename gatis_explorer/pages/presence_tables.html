@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GATIS Explorer</title>
+  <title>GATIS Explorer: Presence Tables</title>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     
   <!-- jQuery (required by DataTables) -->
@@ -34,17 +34,16 @@
   </header>
     
   <main>
-  <div style="padding-top:20px; padding-left:20px">
-    <a href="../../index.html" class="link-button">Return to main page</a>
-  </div>
+  
+  <div id="return_to_main_page"></div>
 
-  <div id="controls" style="padding-left:20px;">
+  <div id="controls">
       
       <h3>Select a feature type:</h3>
       <div id="featureTypeButtons" style="display: flex; gap: 8px; flex-wrap: wrap;"></div>
       
       <div id="tierButtons">
-      <h3>Select Tier:</h3>
+      <h3>Select tier:</h3>
         <button data-tier="Tier 1">Tier 1</button>
         <button data-tier="Tier 2">Tier 2</button>
         <button data-tier="Tier 3">Tier 3</button>
@@ -64,7 +63,7 @@
 
   </div>
   
-  <div id="tableContainer" style="padding-left:20px; padding-right:20px"></div>
+  <div id="tableContainer"></div>
     <div id="sidebar">
     <span id="close-sidebar">&times;</span>
     <div id="definition-text">Click on a tag to see the definition.</div>
@@ -72,7 +71,7 @@
 
   </main>
 
-  <footer><div id="std_footer" style="margin:auto;"></div></footer>
+  <footer><div id="std_footer"></div></footer>
 
   <script src="../script.js"></script>
   

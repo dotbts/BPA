@@ -1,0 +1,47 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "zones.geojson",
+    "description": "Schema for GATIS Zones",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "zone_id": {
+            "type": "string"
+        },
+        "zone_type": {
+            "type": "string",
+            "enum": [
+                "pedestrian"
+            ]
+        },
+        "surface_material": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "facility_name": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "open",
+                "closed",
+                "under construction",
+                "other"
+            ]
+        }
+    }
+}

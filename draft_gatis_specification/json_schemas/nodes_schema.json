@@ -1,0 +1,224 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "nodes.geojson",
+    "description": "Schema for GATIS Nodes",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "node_id": {
+            "type": "string"
+        },
+        "node_type": {
+            "type": "string",
+            "enum": [
+                "virtual",
+                "curb_ramp",
+                "ramp",
+                "elevator",
+                "transit_stop",
+                "issue",
+                "traffic_calming"
+            ]
+        },
+        "presence": {
+            "type": "string",
+            "enum": [
+                "yes",
+                "no",
+                "missing",
+                "unknown"
+            ]
+        },
+        "date_built": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "format": "date"
+                },
+                {
+                    "type": "string",
+                    "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
+                },
+                {
+                    "type": "string",
+                    "pattern": "^[1-9]\\d{3}$"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "check_date": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "format": "date"
+                },
+                {
+                    "type": "string",
+                    "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
+                },
+                {
+                    "type": "string",
+                    "pattern": "^[1-9]\\d{3}$"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "curb_type": {
+            "type": "string",
+            "enum": [
+                "raised",
+                "rolled",
+                "flush",
+                "generic",
+                "driveway",
+                "other"
+            ]
+        },
+        "ada_compliance": {
+            "type": "string",
+            "enum": [
+                "yes",
+                "no",
+                "unknown"
+            ]
+        },
+        "ada_compliance_date": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "format": "date"
+                },
+                {
+                    "type": "string",
+                    "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
+                },
+                {
+                    "type": "string",
+                    "pattern": "^[1-9]\\d{3}$"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "ada_compliance_standard": {
+            "type": "string",
+            "enum": [
+                "2010",
+                "PROWAG",
+                "other"
+            ]
+        },
+        "incline": {
+            "type": "number"
+        },
+        "cross_slope": {
+            "type": "number"
+        },
+        "width": {
+            "type": "number"
+        },
+        "ramp_type": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "detectable_warning": {
+            "type": "string",
+            "enum": [
+                "tactile and contrasted",
+                "tactile and not contrasted",
+                "not tactile and contrasted",
+                "no"
+            ]
+        },
+        "impediment": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "Gates and flashing lights",
+                    "flashing lights only",
+                    "crossbucks or stop sign only",
+                    "tactile markings",
+                    "other"
+                ]
+            }
+        },
+        "surface_issue": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "Gates and flashing lights",
+                    "flashing lights only",
+                    "crossbucks or stop sign only",
+                    "tactile markings",
+                    "other"
+                ]
+            }
+        },
+        "rail_crossing": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "Gates and flashing lights",
+                    "flashing lights only",
+                    "crossbucks or stop sign only",
+                    "tactile markings",
+                    "other"
+                ]
+            }
+        },
+        "gtfs_id": {
+            "oneOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "traffic_calming_type": {
+            "type": "string",
+            "enum": [
+                "chicane",
+                "choker",
+                "closer",
+                "diagonal diverter",
+                "lateral shift",
+                "median barrier/forced turn island",
+                "median island",
+                "mini roundabout",
+                "raised intersection",
+                "realigned intersection",
+                "road diet",
+                "roundabout"
+            ]
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "open",
+                "closed",
+                "under construction",
+                "other"
+            ]
+        }
+    }
+}

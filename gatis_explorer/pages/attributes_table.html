@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GATIS Explorer</title>
+  <title>GATIS Explorer: Attributes</title>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     
   <!-- jQuery (required by DataTables) -->
@@ -31,22 +31,22 @@
   </header>
   
   <main>
-  <div style="padding-top:20px; padding-left:20px">
-    <a href="../../index.html" class="link-button">Return to main page</a>
-  </div>
+  
+  <div id="return_to_main_page"></div>
 
-  <div id="controls" style="padding-left:20px">
+  <div id="controls">
     <h3>Select feature type:</h3>
     <div id="featureTypeButtons" style="display: flex; gap: 8px; flex-wrap: wrap;"></div>
   </div>
 
-  <div id="tableContainer" style="padding-left:20px; padding-right:20px">
+  <div id="tableContainer">
     <!-- Attribute table dynamically added here -->
   </div>
   </main>
 
-  <footer><div id="std_footer" style="margin:auto;"></div></footer>
+  <footer><div id="std_footer"></div></footer>
 
   <script src="../script.js"></script>
+  
 </body>
 </html>

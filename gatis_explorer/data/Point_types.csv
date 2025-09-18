@@ -1,2 +1,0 @@
-Name,Description,Tier
-object,"A physical object that is likely to be of interest to travelers. Depending on the traveler, an object may be an amenity or an obstruction. Objects are represented as points and are not connected to the graph network. A buffer may be drawn around objects relevant to routing to create a node in the network at their location.",Tier 3

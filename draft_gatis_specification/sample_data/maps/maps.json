@@ -1,0 +1,14 @@
+[
+    {
+        "key": "austin_1",
+        "label": "Austin, TX 1 (City of Austin)",
+        "description": "This sample dataset was created from Austin's existing municipal data of streets, trails, sidewalks, crosswalks, and curb ramps. In terms of GATIS' tier structure, this data is Tier 2, though it contains some additional attributes above Tier 2. Note, this is only a clipped sample of the complete dataset; the full dataset can be downloaded using the following links:\n\n    <ul>\n        <li><a href='https://usdot.maps.arcgis.com/home/item.html?id=936f374afa8d4612ba1fafaf3eedc000'>Sample GATIS Edges (Austin, TX) Feature Layer</a></li>\n        <li><a href='https://usdot.maps.arcgis.com/home/item.html?id=bd0e32d7b09e4cd6a9cb41a6ac8b8864'>Sample GATIS Edges (Austin, TX) GeoJSON Download</a></li>\n        <li><a href='https://usdot.maps.arcgis.com/home/item.html?id=1c563a62a83244ba9edbeaa6eafee6a2'>Sample GATIS Nodes (Austin, TX) Feature Layer</a></li>\n        <li><a href='https://usdot.maps.arcgis.com/home/item.html?id=5b63f3dd5adf4503a756c2c0e9738a2c'>Sample GATIS Nodes (Austin, TX) GeoJSON Download</a></li>\n    </ul>\n\n    See the full process <a href='https://github.com/dotbts/BPA/blob/main/draft_gatis_specification/sample_data/Austin_GATIS_Conversion.ipynb'>here</a>.\n    ",
+        "path": "../../draft_gatis_specification/sample_data/maps/austin_1.html"
+    },
+    {
+        "key": "austin_2",
+        "label": "Austin, TX 2 (City of Austin)",
+        "description": "This sample dataset was created from Austin's existing municipal data of streets, trails, sidewalks, crosswalks, and curb ramps. In terms of GATIS' tier structure, this data is Tier 2, though it contains some additional attributes above Tier 2. Note, this is only a clipped sample of the complete dataset; the full dataset can be downloaded using the following links:\n\n    <ul>\n        <li><a href='https://usdot.maps.arcgis.com/home/item.html?id=936f374afa8d4612ba1fafaf3eedc000'>Sample GATIS Edges (Austin, TX) Feature Layer</a></li>\n        <li><a href='https://usdot.maps.arcgis.com/home/item.html?id=bd0e32d7b09e4cd6a9cb41a6ac8b8864'>Sample GATIS Edges (Austin, TX) GeoJSON Download</a></li>\n        <li><a href='https://usdot.maps.arcgis.com/home/item.html?id=1c563a62a83244ba9edbeaa6eafee6a2'>Sample GATIS Nodes (Austin, TX) Feature Layer</a></li>\n        <li><a href='https://usdot.maps.arcgis.com/home/item.html?id=5b63f3dd5adf4503a756c2c0e9738a2c'>Sample GATIS Nodes (Austin, TX) GeoJSON Download</a></li>\n    </ul>\n\n    See the full process <a href='https://github.com/dotbts/BPA/blob/main/draft_gatis_specification/sample_data/Austin_GATIS_Conversion.ipynb'>here</a>.\n    ",
+        "path": "../../draft_gatis_specification/sample_data/maps/austin_2.html"
+    }
+]

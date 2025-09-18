@@ -1,2 +1,0 @@
-Name,Description,Tier
-pedestrian,"Indicates a zone where pedestrians may travel freely in a range of paths they choose. Common areas to represent as pedestrian zones include parks and plazas. Pedestrian zones are represented as polygons that show the physical space taken up by the zone. If sidewalks or footpaths are present, map them separately as edges.",Tier 3
