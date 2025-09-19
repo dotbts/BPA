@@ -1,0 +1,233 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "edge_id": null,
+                "street_name": null,
+                "edge_type": "road",
+                "from_node": null,
+                "to_node": null,
+                "directionality": null,
+                "bridge": null,
+                "incline": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "edge_id": null,
+                "street_name": null,
+                "edge_type": "sidewalk",
+                "width": null,
+                "surface_material": null,
+                "status": null,
+                "pedestrian_lane": null,
+                "incline": null,
+                "cross_slope": null,
+                "ada_compliance": null,
+                "ada_compliance_date": null,
+                "ada_compliance_standard": null,
+                "detectable_warning": null,
+                "measured_length": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "edge_id": null,
+                "edge_type": "footpath",
+                "status": null,
+                "ada_compliance": null,
+                "ada_compliance_date": null,
+                "ada_compliance_standard": null,
+                "detectable_warning": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "edge_id": null,
+                "street_name": null,
+                "edge_type": "crossing",
+                "width": null,
+                "surface_material": null,
+                "status": null,
+                "incline": null,
+                "cross_slope": null,
+                "ada_compliance": null,
+                "ada_compliance_date": null,
+                "ada_compliance_standard": null,
+                "visual_markings": null,
+                "detectable_warning": null,
+                "measured_length": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "edge_id": null,
+                "edge_type": "traffic_island",
+                "status": null,
+                "ada_compliance": null,
+                "ada_compliance_date": null,
+                "ada_compliance_standard": null,
+                "detectable_warning": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "edge_id": null,
+                "edge_type": "steps",
+                "status": null,
+                "ada_compliance": null,
+                "ada_compliance_date": null,
+                "ada_compliance_standard": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "edge_id": null,
+                "edge_type": "escalator",
+                "directionality": null,
+                "status": null,
+                "ada_compliance": null,
+                "ada_compliance_date": null,
+                "ada_compliance_standard": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "edge_id": null,
+                "road_associated": null,
+                "street_name": null,
+                "facility_name": null,
+                "edge_type": "bikeway",
+                "from_node": null,
+                "to_node": null,
+                "directionality": null,
+                "width": null,
+                "bikeway_type": null,
+                "bikeway_grade_separation": null,
+                "separation_elements": null,
+                "separation_permeable_car": null,
+                "street_parking_buffer": null,
+                "surface_material": null,
+                "status": null,
+                "incline": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "edge_id": null,
+                "road_associated": null,
+                "street_name": null,
+                "facility_name": null,
+                "edge_type": "multi_use_path",
+                "from_node": null,
+                "to_node": null,
+                "width": null,
+                "mup_modal_delineation": null,
+                "surface_material": null,
+                "status": null,
+                "incline": null,
+                "ada_compliance": null,
+                "ada_compliance_date": null,
+                "ada_compliance_standard": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "edge_id": null,
+                "street_name": null,
+                "facility_name": null,
+                "edge_type": "trail",
+                "from_node": null,
+                "to_node": null,
+                "surface_material": null,
+                "status": null,
+                "ada_compliance": null,
+                "ada_compliance_date": null,
+                "ada_compliance_standard": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "edge_id": null,
+                "edge_type": "ramp",
+                "from_node": null,
+                "to_node": null,
+                "surface_material": null,
+                "status": null,
+                "ada_compliance": null,
+                "ada_compliance_date": null,
+                "ada_compliance_standard": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "edge_id": null,
+                "road_associated": null,
+                "edge_type": "virtual_link",
+                "from_node": null,
+                "to_node": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        }
+    ]
+}

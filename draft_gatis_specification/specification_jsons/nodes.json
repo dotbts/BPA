@@ -39,11 +39,6 @@
         "transit_stop": ["required",null,null,null],
         "issue": ["required",null,null,null],
         "traffic_calming": ["required",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -59,11 +54,6 @@
         "transit_stop": ["required",null,null,null],
         "issue": ["required",null,null,null],
         "traffic_calming": ["required",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -79,11 +69,6 @@
         "transit_stop": ["forbidden",null,null,null],
         "issue": ["forbidden",null,null,null],
         "traffic_calming": ["optional",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -99,11 +84,6 @@
         "transit_stop": ["forbidden",null,null,null],
         "issue": ["forbidden",null,null,null],
         "traffic_calming": ["optional",null,"recommended",null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -119,11 +99,6 @@
         "transit_stop": ["forbidden",null,null,null],
         "issue": ["optional",null,"recommended",null],
         "traffic_calming": ["optional",null,"recommended",null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -139,11 +114,6 @@
         "transit_stop": ["forbidden",null,null,null],
         "issue": ["forbidden",null,null,null],
         "traffic_calming": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -159,11 +129,6 @@
         "transit_stop": ["forbidden",null,null,null],
         "issue": ["forbidden",null,null,null],
         "traffic_calming": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -179,11 +144,6 @@
         "transit_stop": ["forbidden",null,null,null],
         "issue": ["forbidden",null,null,null],
         "traffic_calming": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -199,11 +159,6 @@
         "transit_stop": ["forbidden",null,null,null],
         "issue": ["forbidden",null,null,null],
         "traffic_calming": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -219,11 +174,6 @@
         "transit_stop": ["forbidden",null,null,null],
         "issue": ["forbidden",null,null,null],
         "traffic_calming": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -239,11 +189,6 @@
         "transit_stop": ["forbidden",null,null,null],
         "issue": ["forbidden",null,null,null],
         "traffic_calming": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -259,11 +204,6 @@
         "transit_stop": ["forbidden",null,null,null],
         "issue": ["forbidden",null,null,null],
         "traffic_calming": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -279,11 +219,6 @@
         "transit_stop": ["forbidden",null,null,null],
         "issue": ["forbidden",null,null,null],
         "traffic_calming": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -299,11 +234,6 @@
         "transit_stop": ["forbidden",null,null,null],
         "issue": ["forbidden",null,null,null],
         "traffic_calming": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -319,11 +249,6 @@
         "transit_stop": ["forbidden",null,null,null],
         "issue": ["optional",null,"recommended","required"],
         "traffic_calming": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -339,11 +264,6 @@
         "transit_stop": ["forbidden",null,null,null],
         "issue": ["optional",null,"recommended","required"],
         "traffic_calming": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -359,11 +279,6 @@
         "transit_stop": ["forbidden",null,null,null],
         "issue": ["forbidden",null,null,null],
         "traffic_calming": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -379,11 +294,6 @@
         "transit_stop": ["optional",null,"recommended",null],
         "issue": ["forbidden",null,null,null],
         "traffic_calming": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -399,11 +309,6 @@
         "transit_stop": ["forbidden",null,null,null],
         "issue": ["forbidden",null,null,null],
         "traffic_calming": ["optional",null,"recommended","required"]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -419,11 +324,6 @@
         "transit_stop": ["forbidden",null,null,null],
         "issue": ["forbidden",null,null,null],
         "traffic_calming": ["optional",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     }
   ]

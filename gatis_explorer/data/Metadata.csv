@@ -9,7 +9,7 @@ date_created,Datetime,The date when this dataset was initially created,Tier 1,re
 contact_name,Text,The name of a person who can be contacted with questions or for further information about the data,Tier 4,optional
 contact_info,Text,The email address or phone number to reach someone who can answer questions or provide further information about the data,Tier 1,required
 license,URL,The license under which the data is published for use. URL linking to the license agreement; default value https://creativecommons.org/publicdomain/zero/1.0/.,Tier 1,required
-geo_bounding_box,Array<Number>,"Geospatial data describing the upper and lower latitudes and longitudes within which the data falls. Provide in format [min_longitude, min_latitude, max_longitude, max_latitude].",Tier 3,recommended
+geo_bounding_box,Array<Float>,"Geospatial data describing the upper and lower latitudes and longitudes within which the data falls. Provide in format [min_longitude, min_latitude, max_longitude, max_latitude].",Tier 3,recommended
 keywords,Text,"A set of single words or short phrases that describe the content of the data
 For sidewalk network data: ""Sidewalks, sidewalk network, pedestrian infrastructure, accessibility, pedestrian.""
 For bike network data: ""Bicycle lanes, bicycle network, biking, bike infrastructure.""",Tier 1,required
@@ -18,8 +18,8 @@ data_download_url,URL,Direct URL to begin downloading the data; should not requi
 data_docs_url,URL,URL to access a data documentation booklet or site covering methodologies and other technical aspects of the data,Tier 3,recommended
 data_dictionary_url,URL,"URL to access the data dictionary for the dataset, in PDF, HTML or JSON format",Tier 3,recommended
 data_service_endpoint_url,URL,"URL to access the data via a data service, such as Data.gov (catalog.data.gov/dataset/…), ArcGIS Online (ex. Feature service or feature layer link) or Socrata",Tier 3,recommended
-rights_usage_limits_restricts,Text or URL,"Text or a URL providing greater detail on how the data can and should be used, what rights are reserved, the scope of the data and any other useful information. Populate with either a text statement or with a URL linking to a text statement or policy",Tier 4,optional
-quality_validation,Text or URL,"Statement describing the methods used to ensure quality and to validate the data, providing quantitative results where possible; can be a link to a web page or tool containing more information.",Tier 4,optional
+rights_usage_limits_restricts,Text,"Text or a URL providing greater detail on how the data can and should be used, what rights are reserved, the scope of the data and any other useful information. Populate with either a text statement or with a URL linking to a text statement or policy",Tier 4,optional
+quality_validation,Text,"Statement describing the methods used to ensure quality and to validate the data, providing quantitative results where possible; can be a link to a web page or tool containing more information.",Tier 4,optional
 date_modified,Datetime,The date when this dataset was last updated,Tier 1,required
 checksum,Text,"An MD5 sum associated with the dataset in its current state, used to check if the data has changed since last accessed; new checksums should be generated each time the data is updated.",Tier 3,recommended
 freq_cadence,Enum,"How often the full data is updated – for example, when new lidar is collected or a new field study is conducted; do not use for minor updates (ex. Correcting a few rows). Use values from the Dublin Core frequency specification.",Tier 3,recommended

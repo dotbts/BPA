@@ -14,11 +14,6 @@
       "example": null,
       "presence": {
         "pedestrian": ["required",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -29,11 +24,6 @@
       "example": null,
       "presence": {
         "pedestrian": ["required",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -44,11 +34,6 @@
       "example": null,
       "presence": {
         "pedestrian": ["optional",null,"recommended",null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -59,11 +44,6 @@
       "example": "\"Market Square\", \"21st Street Promenade\", \"Echo Park - West Side\"",
       "presence": {
         "pedestrian": ["optional",null,"recommended",null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -74,11 +54,6 @@
       "example": null,
       "presence": {
         "pedestrian": ["optional",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     }
   ]

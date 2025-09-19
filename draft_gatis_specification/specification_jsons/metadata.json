@@ -65,7 +65,7 @@
   "geo_bounding_box": {
     "presence": ["optional",null,"recommended",null],
     "description": "Geospatial data describing the upper and lower latitudes and longitudes within which the data falls. Provide in format [min_longitude, min_latitude, max_longitude, max_latitude].",
-    "type": "Array<Number>",
+    "type": "Array<Float>",
     "listed_values": null,
     "example": null
   },
@@ -114,14 +114,14 @@
   "rights_usage_limits_restricts": {
     "presence": ["optional",null,null,null],
     "description": "Text or a URL providing greater detail on how the data can and should be used, what rights are reserved, the scope of the data and any other useful information. Populate with either a text statement or with a URL linking to a text statement or policy",
-    "type": "Text or URL",
+    "type": "Text",
     "listed_values": null,
     "example": null
   },
   "quality_validation": {
     "presence": ["optional",null,null,null],
     "description": "Statement describing the methods used to ensure quality and to validate the data, providing quantitative results where possible; can be a link to a web page or tool containing more information.",
-    "type": "Text or URL",
+    "type": "Text",
     "listed_values": null,
     "example": null
   },

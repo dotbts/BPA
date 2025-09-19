@@ -7,33 +7,11 @@
                 "edge_id": null,
                 "street_name": null,
                 "edge_type": "road",
-                "directionality": null,
-                "sidewalk:left:presence": null,
-                "sidewalk:left:ada_compliance_date": null,
-                "sidewalk:left:ada_compliance_standard": null,
-                "sidewalk:right:presence": null,
-                "sidewalk:right:ada_compliance_date": null,
-                "sidewalk:right:ada_compliance_standard": null,
-                "bikeway:left:presence": null,
-                "bikeway:left:directionality": null,
-                "bikeway:left:bikeway_type": null,
-                "bikeway:left:separation_elements": null,
-                "bikeway:left:separation_permeable_car": null,
-                "bikeway:right:presence": null,
-                "bikeway:right:directionality": null,
-                "bikeway:right:bikeway_type": null,
-                "bikeway:right:separation_elements": null,
-                "bikeway:right:separation_permeable_car": null,
-                "multi_use_path:left:presence": null,
-                "multi_use_path:left:ada_compliance_date": null,
-                "multi_use_path:left:ada_compliance_standard": null,
-                "multi_use_path:right:presence": null,
-                "multi_use_path:right:ada_compliance_date": null,
-                "multi_use_path:right:ada_compliance_standard": null
+                "directionality": null
             },
             "geometry": {
                 "coordinates": null,
-                "type": "LineString"
+                "type": "Point"
             }
         },
         {
@@ -46,7 +24,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "LineString"
+                "type": "Point"
             }
         },
         {
@@ -59,7 +37,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "LineString"
+                "type": "Point"
             }
         },
         {
@@ -72,7 +50,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "LineString"
+                "type": "Point"
             }
         },
         {
@@ -85,7 +63,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "LineString"
+                "type": "Point"
             }
         },
         {
@@ -98,7 +76,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "LineString"
+                "type": "Point"
             }
         },
         {
@@ -112,7 +90,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "LineString"
+                "type": "Point"
             }
         },
         {
@@ -128,7 +106,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "LineString"
+                "type": "Point"
             }
         },
         {
@@ -142,7 +120,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "LineString"
+                "type": "Point"
             }
         },
         {
@@ -155,7 +133,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "LineString"
+                "type": "Point"
             }
         },
         {
@@ -168,7 +146,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "LineString"
+                "type": "Point"
             }
         },
         {
@@ -180,7 +158,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "LineString"
+                "type": "Point"
             }
         }
     ]

@@ -1,47 +1,141 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "title": "zones.geojson",
-    "description": "Schema for GATIS Zones",
+    "$id": "https://github.com/dotbts/BPA/tree/main/draft_gatis_specification/zones_schema.json",
+    "title": "Draft GATIS zones.geojson JSON-Schema",
     "type": "object",
-    "additionalProperties": false,
+    "required": [
+        "type",
+        "features"
+    ],
     "properties": {
-        "zone_id": {
-            "type": "string"
-        },
-        "zone_type": {
+        "type": {
             "type": "string",
             "enum": [
-                "pedestrian"
+                "FeatureCollection"
             ]
         },
-        "surface_material": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
+        "features": {
+            "type": "array",
+            "items": {
+                "title": "GeoJSON Feature",
+                "type": "object",
+                "required": [
+                    "type",
+                    "properties",
+                    "geometry"
+                ],
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "Feature"
+                        ]
+                    },
+                    "id": {
+                        "oneOf": [
+                            {
+                                "type": "number"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "properties": {
+                        "zone_id": {
+                            "type": "string"
+                        },
+                        "zone_type": {
+                            "type": "string",
+                            "enum": [
+                                "pedestrian"
+                            ]
+                        },
+                        "surface_material": {
+                            "oneOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
+                        },
+                        "facility_name": {
+                            "oneOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
+                        },
+                        "status": {
+                            "type": "string",
+                            "enum": [
+                                "open",
+                                "closed",
+                                "under construction",
+                                "other"
+                            ]
+                        }
+                    },
+                    "geometry": {
+                        "title": "GeoJSON Polygon",
+                        "type": "object",
+                        "required": [
+                            "type",
+                            "coordinates"
+                        ],
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "Polygon"
+                                ]
+                            },
+                            "coordinates": {
+                                "type": "array",
+                                "items": {
+                                    "type": "array",
+                                    "minItems": 4,
+                                    "items": {
+                                        "type": "array",
+                                        "minItems": 2,
+                                        "items": {
+                                            "type": "number"
+                                        }
+                                    }
+                                }
+                            },
+                            "bbox": {
+                                "type": "array",
+                                "minItems": 4,
+                                "items": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "bbox": {
+                        "type": "array",
+                        "minItems": 4,
+                        "items": {
+                            "type": "number"
+                        }
+                    }
                 }
-            ]
+            }
         },
-        "facility_name": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "status": {
-            "type": "string",
-            "enum": [
-                "open",
-                "closed",
-                "under construction",
-                "other"
-            ]
+        "bbox": {
+            "type": "array",
+            "minItems": 4,
+            "items": {
+                "type": "number"
+            }
         }
-    }
+    },
+    "description": "Draft JSON-Schema for GATIS zones",
+    "additionalProperties": false
 }

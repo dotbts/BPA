@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
   switch (page) {
     case "presence_tables_page":
       csv_fp = "../data/presence_index.csv";
-      optional_columns = ["optional","forbidden"]
+      optional_columns = ["optional","forbidden","conditionally_required","conditionally_forbidden"]
       break;
     case "attributes_tables_page":
       csv_fp = "../data/attributes_index.csv";

@@ -2,51 +2,90 @@
   "types": {
     "road": {
       "description": "A public road primarily intended for automobile travel.\n\nSidewalk and bikeway edges can be represented as part of a road edge using the left/right/both modifiers. See the Specification Document for more information.",
-      "tier": 1
+      "tier": 1,
+      "allowed_on_road": false,
+      "allowed_uses": ["bicycle","motor_vehicle","ebike","scooter"],
+      "prohibited_uses": ["pedestrian"]
     },
     "sidewalk": {
       "description": "A designated pedestrian path along the side of a roadway.\n\nThis edge type includes pedestrian lanes, in which a section of the roadway surface is divided out for pedestrian use; use pedestrian_lane attribute to indicate.\n\nCan use the left/right/both field modifiers to represent this edge type on a road edge.",
-      "tier": 1
+      "tier": 1,
+      "allowed_on_road": true,
+      "forbidden_field_if_allowed_on_road": ["edge_id","edge_type","street_name","from_node","to_node","bridge","road_associated"],
+      "allowed_uses": ["pedestrian"],
+      "prohibited_uses": ["bicycle","motor_vehicle","ebike","scooter"]
     },
     "footpath": {
       "description": "A dedicated pedestrian path that does not fall into another category. Primarily used for connecting sidewalks to crossings.",
-      "tier": 2
+      "tier": 2,
+      "allowed_on_road": false,
+      "allowed_uses": ["pedestrian"],
+      "prohibited_uses": ["bicycle","motor_vehicle","ebike","scooter"]
     },
     "crossing": {
       "description": "A location where infrastructure or a designation exists to help pedestrians and/or cyclists cross traffic lanes or other areas designated for traffic. In many locations, a crossing is a crosswalk. ",
-      "tier": 1
+      "tier": 1,
+      "allowed_on_road": false,
+      "allowed_uses": ["pedestrian"],
+      "prohibited_uses": ["bicycle","motor_vehicle","ebike","scooter"]
     },
     "traffic_island": {
       "description": "A median or other raised or protected area between traffic lanes on the road surface meant to provide a safe space for pedestrians to stop. A traffic island may or may not have a midblock entrance. Can be used to indicate transit islands.",
-      "tier": 2
+      "tier": 2,
+      "allowed_on_road": false,
+      "allowed_uses": ["pedestrian"],
+      "prohibited_uses": ["bicycle","motor_vehicle","ebike","scooter"]
     },
     "steps": {
       "description": "Fixed steps or stairs that appear along a pedestrian way. NC-BPAID maps outdoor infrastructure; switch to GTFS Pathways or IMDF conventions for indoor infrastructure.",
-      "tier": 3
+      "tier": 3,
+      "allowed_on_road": false,
+      "allowed_uses": ["pedestrian"],
+      "prohibited_uses": ["bicycle","motor_vehicle","ebike","scooter"]
     },
     "escalator": {
       "description": "Escalators or any other construction of moving stairs meant to carry a pedestrian from one level of physical infrastructure to another. NC-BPAID maps outdoor infrastructure; switch to GTFS Pathways or IMDF conventions for indoor infrastructure.",
-      "tier": 3
+      "tier": 3,
+      "allowed_on_road": false,
+      "allowed_uses": ["pedestrian"],
+      "prohibited_uses": ["bicycle","motor_vehicle","ebike","scooter"]
     },
     "bikeway": {
       "description": "A designated cycling lane or path that can be on, next to or away from a road.\n\nIf pedestrian usage is designated then use multi_use_path edge type instead.\n\nCan use the left/right/both modifiers to represent this edge type on a road edge.",
-      "tier": 1
+      "tier": 1,
+      "allowed_on_road": true,
+      "forbidden_field_if_allowed_on_road": ["edge_id","edge_type","street_name","from_node","to_node","bridge","road_associated"],
+      "allowed_uses": ["bicycle"],
+      "prohibited_uses": ["pedestrian","motor_vehicle"]
     },
     "multi_use_path": {
       "description": "A generic link that allows both bike and pedestrian travel. It can take on both sidewalk and cycleway attributes.",
-      "tier": 2
+      "tier": 2,
+      "allowed_on_road": true,
+      "forbidden_field_if_allowed_on_road": ["edge_id","edge_type","street_name","from_node","to_node","bridge","road_associated"],
+      "allowed_uses": ["pedestrian","bicycle"],
+      "prohibited_uses": ["motor_vehicle"]
     },
     "trail": {
       "description": "Any kind of path or trail that allows bicycle or pedestrian travel that wouldn't fall into the multi_use_path designation. Includes official and unofficial unpaved trails, social trails, goatpaths and desire lines.",
-      "tier": 2
+      "tier": 2,
+      "allowed_on_road": false,
+      "allowed_uses": ["pedestrian"],
+      "prohibited_uses": ["bicycle","motor_vehicle","ebike","scooter"]
     },
     "ramp": {
       "description": "Indicates any type of ramp besides a curb ramp, where the footpath is built to deliberately slope up or down to improve access.  ",
-      "tier": 2
+      "tier": 2,
+      "allowed_on_road": false,
+      "allowed_uses": ["pedestrian"],
+      "prohibited_uses": ["bicycle","motor_vehicle","ebike","scooter"]
     },
     "virtual_link": {
       "description": "Links added for topology, connectivity, or crossing reasons by the analyst. Does not relate to a piece of physical infrastructure in the real world.",
-      "tier": 2
+      "tier": 2,
+      "allowed_on_road": false,
+      "allowed_uses": ["pedestrian","bicycle"],
+      "prohibited_uses": ["motor_vehicle"]
     }
   },
   "attributes": [
@@ -69,11 +108,6 @@
         "trail": ["required",null,null,null],
         "ramp": ["required",null,null,null],
         "virtual_link": ["required",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": "OSW",
-        "osm_mapping": "id"
       }
     },
     {
@@ -95,11 +129,6 @@
         "trail": ["optional",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["required",null,null,null]
-      },
-      "misc": {
-        "notes": "Might be able to be created through spatial analysis but intended to help add road attributes (street name, speeds, traffic volume) to the feature to aid with routing.",
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -121,11 +150,6 @@
         "trail": ["optional",null,null,null],
         "ramp": ["optional",null,null,null],
         "virtual_link": ["optional",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": "Overture's Source Field",
-        "osm_mapping": null
       }
     },
     {
@@ -147,11 +171,6 @@
         "trail": ["optional","recommended",null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -173,11 +192,6 @@
         "trail": ["optional","recommended",null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": "Makes sense but ill-defined?",
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -199,11 +213,6 @@
         "trail": ["required",null,null,null],
         "ramp": ["required",null,null,null],
         "virtual_link": ["required",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -225,11 +234,6 @@
         "trail": ["optional","required",null,null],
         "ramp": ["optional","required",null,null],
         "virtual_link": ["optional","required",null,null]
-      },
-      "misc": {
-        "notes": "If not set, implementers should try a spatial join to the nodes table to attempt to resolve.",
-        "provenance": "OSW",
-        "osm_mapping": "node id"
       }
     },
     {
@@ -251,11 +255,6 @@
         "trail": ["optional","required",null,null],
         "ramp": ["optional","required",null,null],
         "virtual_link": ["optional","required",null,null]
-      },
-      "misc": {
-        "notes": "If not set, implementers should try a spatial join to the nodes table to attempt to resolve.",
-        "provenance": "OSW",
-        "osm_mapping": "node id"
       }
     },
     {
@@ -277,11 +276,6 @@
         "trail": ["optional",null,null,null],
         "ramp": ["optional",null,null,null],
         "virtual_link": ["optional",null,null,null]
-      },
-      "misc": {
-        "notes": "Could also just adapt OSM's oneway=yes/no/-1 but I don't like the -1 for backward (JM: totally agree, -1 is bad)",
-        "provenance": "OSM",
-        "osm_mapping": "oneway"
       }
     },
     {
@@ -303,11 +297,6 @@
         "trail": ["optional",null,"required",null],
         "ramp": ["optional",null,"required",null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": "OSW",
-        "osm_mapping": null
       }
     },
     {
@@ -329,11 +318,6 @@
         "trail": ["optional",null,"recommended",null],
         "ramp": ["optional",null,"recommended",null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -355,11 +339,6 @@
         "trail": ["optional",null,null,null],
         "ramp": ["optional",null,null,null],
         "virtual_link": ["optional",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -381,11 +360,6 @@
         "trail": ["forbidden",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -407,11 +381,6 @@
         "trail": ["forbidden",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -433,11 +402,6 @@
         "trail": ["optional",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -459,11 +423,6 @@
         "trail": ["optional",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -485,11 +444,6 @@
         "trail": ["optional",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -511,11 +465,6 @@
         "trail": ["optional",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -537,11 +486,6 @@
         "trail": ["optional",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -563,11 +507,6 @@
         "trail": ["forbidden",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": "Might be nice to have metadata about the source",
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -589,11 +528,6 @@
         "trail": ["optional",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": "I this would be an extension? Can put in 85th percentile speed or a generic prevailing speed value to detail the actual speed of cars on a road if they differ from the speed limit?\n\nKeep source in metadata",
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -615,11 +549,6 @@
         "trail": ["forbidden",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": "Keep source in metadata",
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -641,11 +570,6 @@
         "trail": ["forbidden",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -667,11 +591,6 @@
         "trail": ["forbidden",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -693,11 +612,6 @@
         "trail": ["forbidden",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -719,11 +633,6 @@
         "trail": ["forbidden",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": " Montgomery County uses center line presence in their LTS methodology (https://montgomeryplanning.org/wp-content/uploads/2017/11/Appendix-D.pdf)",
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -745,11 +654,6 @@
         "trail": ["optional",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": "Could this be inferred if altitude is set to anything > 0? Do we want to track clearance, e.g. under the bridge?",
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -771,11 +675,6 @@
         "trail": ["forbidden",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": "Need help with attribute name",
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -797,11 +696,6 @@
         "trail": ["optional",null,null,null],
         "ramp": ["optional",null,null,null],
         "virtual_link": ["optional",null,null,null]
-      },
-      "misc": {
-        "notes": "Changed to prohibited uses. These should be really general. We can have another field to describe more specific restrictions like Class 1 ebikes only. Time based uses could be implemented in an extension file in a future version to account for regularly scheduled closed streets.",
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -823,11 +717,6 @@
         "trail": ["optional",null,null,null],
         "ramp": ["optional",null,null,null],
         "virtual_link": ["optional",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -849,11 +738,6 @@
         "trail": ["optional","required",null,null],
         "ramp": ["optional","required",null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": "too many values? too complex?",
-        "provenance": "OSM, OSW",
-        "osm_mapping": null
       }
     },
     {
@@ -875,11 +759,6 @@
         "trail": ["optional",null,"recommended","required"],
         "ramp": ["optional",null,"recommended","required"],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -901,11 +780,6 @@
         "trail": ["optional","recommended","required",null],
         "ramp": ["optional","recommended","required",null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -927,11 +801,6 @@
         "trail": ["optional",null,null,null],
         "ramp": ["optional",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -953,11 +822,6 @@
         "trail": ["forbidden",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -979,11 +843,6 @@
         "trail": ["optional",null,null,null],
         "ramp": ["optional",null,"required",null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": "Probably need a source field to go alongside this? Or a metadata thing?",
-        "provenance": "OSM, OSW",
-        "osm_mapping": null
       }
     },
     {
@@ -1005,11 +864,6 @@
         "trail": ["optional",null,"recommended",null],
         "ramp": ["optional",null,"recommended",null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1031,11 +885,6 @@
         "trail": ["optional",null,null,null],
         "ramp": ["optional",null,"recommended",null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1057,11 +906,6 @@
         "trail": ["optional","recommended",null,null],
         "ramp": ["optional","recommended",null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1083,11 +927,6 @@
         "trail": ["conditionally_required",null,null,null],
         "ramp": ["conditionally_required",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1109,11 +948,6 @@
         "trail": ["conditionally_required",null,null,null],
         "ramp": ["conditionally_required",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1135,11 +969,6 @@
         "trail": ["optional",null,"recommended","required"],
         "ramp": ["optional",null,"recommended","required"],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1161,11 +990,6 @@
         "trail": ["forbidden",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1187,11 +1011,6 @@
         "trail": ["forbidden",null,null,null],
         "ramp": ["optional",null,"recommended","required"],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1213,11 +1032,6 @@
         "trail": ["forbidden",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": "Only valid on stairs?",
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1239,11 +1053,6 @@
         "trail": ["optional",null,"recommended",null],
         "ramp": ["optional",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1265,11 +1074,6 @@
         "trail": ["optional",null,"recommended",null],
         "ramp": ["optional",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1291,11 +1095,6 @@
         "trail": ["forbidden",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1317,11 +1116,6 @@
         "trail": ["forbidden",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1343,11 +1137,6 @@
         "trail": ["optional",null,"recommended",null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1369,11 +1158,6 @@
         "trail": ["optional",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1395,11 +1179,6 @@
         "trail": ["forbidden",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1421,11 +1200,6 @@
         "trail": ["optional",null,"recommended",null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1447,11 +1221,6 @@
         "trail": ["optional",null,null,null],
         "ramp": ["optional",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1473,11 +1242,6 @@
         "trail": ["forbidden",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1499,11 +1263,6 @@
         "trail": ["forbidden",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1525,11 +1284,6 @@
         "trail": ["forbidden",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1551,11 +1305,6 @@
         "trail": ["forbidden",null,null,null],
         "ramp": ["forbidden",null,null,null],
         "virtual_link": ["forbidden",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     },
     {
@@ -1577,11 +1326,6 @@
         "trail": ["optional",null,"recommended",null],
         "ramp": ["optional",null,null,null],
         "virtual_link": ["optional",null,null,null]
-      },
-      "misc": {
-        "notes": null,
-        "provenance": null,
-        "osm_mapping": null
       }
     }
   ]
