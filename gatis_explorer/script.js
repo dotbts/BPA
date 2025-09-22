@@ -482,8 +482,8 @@ function renderAutoTable(rows, tableId) {
 function load_info() {
   types = {};
   descriptions = {};
-
-  fetch(`../data/attribute_tables/${currentFeatureType}_attributes.csv`)
+  // bug fix: lowercase the current feature type so it find the right file name
+  fetch(`../data/attribute_tables/${currentFeatureType.toLowerCase()}_attributes.csv`)
     .then(response => response.text())
     .then(csvText => {
       const data = Papa.parse(csvText, { header: true, skipEmptyLines: true }).data;
