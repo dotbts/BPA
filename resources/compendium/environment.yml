@@ -1,0 +1,11 @@
+name: attribute-scraper
+channels:
+  - conda-forge
+dependencies:
+  - pandas
+  - openpyxl
+  - jsonschema
+  - notebook
+  - tqdm
+  - requests
+  - pyprojroot

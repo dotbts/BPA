@@ -1,0 +1,23 @@
+[
+    {
+        "dataset_id": "San Francisco Traffic Signals",
+        "entity": [
+            "San Francisco Municipal Transportation Agency"
+        ],
+        "tags": [
+            "bike",
+            "pedestrian"
+        ],
+        "city": [
+            "San Francisco"
+        ],
+        "state": [
+            "CA"
+        ],
+        "info_url": [
+            "https://data.sfgov.org/Transportation/Traffic-Signals/ybh5-27n2/about_data"
+        ],
+        "api_endpoint": "https://data.sfgov.org/api/v3/views/ybh5-27n2.json",
+        "api_id": "tyler"
+    }
+]

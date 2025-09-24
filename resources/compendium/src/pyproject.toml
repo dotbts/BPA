@@ -1,0 +1,5 @@
+[project]
+name = "attribute_scraper"
+version = "0.1.0"
+authors = [{name = "Reid Passmore", email = "tanner.passmore.ctr@dot.gov"}]
+description = "Code for scraping ArcGIS REST or Tyler Technologies API Endpoints for NC-BPAID"

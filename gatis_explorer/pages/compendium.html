@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>GATIS Explorer: Active Transportation Infrastructure Data Compendium</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    .table-wrap { margin-bottom: 28px; position: relative; background:#fff; border-radius:8px;}
+    .controls { display:flex; gap:8px; align-items:center; margin-top:6px; }
+    .controls .left { display:flex; gap:8px; align-items:center; }
+    .pager { margin-left: auto; display:flex; gap:6px; align-items:center; }
+    .pager button, .controls button { padding:6px 8px; border-radius:4px; border:1px solid #ddd; background:#fff; }
+    table { border-collapse: collapse; width: 100%; background:#fff; table-layout: fixed; }
+    th, td { padding: 8px 10px; border: 1px solid #eee; text-align: left; font-size:0.95rem; vertical-align:middle; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    th { cursor: pointer; user-select: none; background: #fafafa; position: relative; }
+    th .sort-ind { font-size: 0.8em; margin-left: 6px; color: #666; }
+    th.filtered { background-color: #fff6d6; box-shadow: inset 0 -3px 0 #f0b429; }
+    .dt-right { text-align: right; }
+    .small { font-size:0.85rem; color:#555; }
+    .no-data { padding: 12px; color: #666; }
+    .col-filter { position: absolute; z-index: 2000; background: #fff; border: 1px solid #ccc; box-shadow: 0 8px 30px rgba(0,0,0,0.10); padding: 10px 12px; max-height: 420px; overflow: auto; min-width: 320px; border-radius: 6px; }
+    .col-filter h4 { margin: 4px 0 6px 0; font-size: 0.95em; }
+    .col-filter .vals { display:flex; flex-direction:column; gap:4px; max-height:220px; overflow:auto; margin-bottom:8px; }
+    .col-filter .actions { display:flex; gap:6px; justify-content: space-between; align-items:center; margin-top:6px; }
+    .col-filter label { display:flex; gap:8px; align-items:center; cursor: pointer; }
+    .col-filter .small { font-size:0.85em; color:#666; }
+    .num-input { width: 100%; padding:6px; box-sizing: border-box; margin-top:6px; border:1px solid #ddd; border-radius:4px; }
+    .hint { font-size:0.8em; color:#666; margin-top:6px; white-space: pre-wrap; }
+    .filter-close { position: absolute; right: 8px; top: 8px; border: none; background: transparent; font-size: 16px; line-height: 1; cursor: pointer; color: #666; padding: 2px 6px; border-radius: 3px; }
+    .filter-close:hover { background: #f0f0f0; color: #222; }
+    .col-search { width:100%; padding:6px 8px; box-sizing:border-box; border:1px solid #eee; border-radius:4px; margin-bottom:8px; }
+    .cols-menu { position:absolute; z-index:2000; background:#fff; border:1px solid #ddd; padding:8px; border-radius:6px; box-shadow:0 8px 20px rgba(0,0,0,0.06); max-height: 60vh; overflow:auto; }
+    .hidden { display:none !important; }
+    .val-count { color:#666; font-size:0.85em; margin-left:6px; }
+    .desc-preview { max-height: 3.2em; overflow: hidden; position: relative; cursor: pointer; white-space: normal; line-height: 1.6em; transition: max-height 160ms ease; }
+    .desc-preview::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1.2em; pointer-events: none; }
+    .desc-preview.expanded { max-height: 1000px; }
+    .desc-preview.expanded::after { display:none; }
+    .desc-hint { display:inline-block; margin-left:8px; color:#1a73e8; font-size:0.85rem; user-select:none; }
+    a.cell-link { color: #1a73e8; text-decoration: none; display: inline-block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    a.cell-link:hover { text-decoration: underline; }
+    .cols-menu label { display:flex; align-items:center; gap:8px; padding:2px 0; }
+    .pager input[type="number"] { width: 68px; padding:6px 8px; border:1px solid #ddd; border-radius:4px; text-align:center; }
+  </style>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header>
+    <div class="banner" style="background-color: #282828;">
+    <div class="banner-content">
+      <h1><strong>Active Transportation Infrastructure Data Compendium</strong></h1>
+      <p>
+        This page shows summary statistics for bike, pedestrian, and accessibility infrastructure datasets from state, regional, and local government open data sites. 
+      </p>
+      <p><strong>NOTE: This is not a collection of GATIS datasets</strong></p>
+    </div>
+    <div id="banner-image" class="banner-image"></div>
+  </div>
+  </header>
+  
+  <main>
+  
+  <div id="return_to_main_page"></div>
+
+  
+  <div style="padding-top:20px">
+    <details>
+      <summary>About the compendium</summary>
+      <p>
+        The compendium was created using scripts that accessed ArcGIS REST or Tyler Technologies Data & Insights (formerly Socrata) API endpoints (see the API Endpoint column in the show/hide columns menu of the references table). The API responses from the endpoints were processed to create the two tables shown here.
+      </p>
+      <p>
+        The purpose of the compendium is to compile existing practices for tracking bicycle, pedestrian, and accessibility infrastructure data. The compendium serves as inspiration for developing data in GATIS and tracking attributes that might not be covered by the specification. This page will be updated periodically as new data sources are acquired.
+      </p>
+    </details>
+    
+    <details>
+      <summary>How to use</summary>
+      <p>
+        There are two tables that are linked by the Dataset ID column.
+        You can show/hide columns with the drop down menu (some columns have been hidden by default for readability).
+        Filters can be applied to each table by right clicking one of the column headers. Upon right clicking, a popup 
+        will appear that gives you options for filtering. Some of the columns can be filtered using checkboxes, some are 
+        filterable with a text search, and the numeric columns are filterable with conditional expressions.
+      </p>
+      <p>
+        Once a filter has been applied the tables will be updated and the columns that currently have a filter will be
+        highlighted. If a particular Dataset ID is filtered out as a result of one or more filters, then it will be
+        removed from both the References and Attributes table. If you wish to remove all of the filters, simply
+        <strong>reload the page</strong>. You can also use "download CSV" to download a CSV of the table in its current filtered state.
+      </p>
+    </details>
+
+    <details>
+      <summary>Data dictionary</summary>
+      <p>Click the table headers to access the source data.</p>
+      <h2><a href="https://github.com/dotbts/BPA/blob/main/resources/compendium/data/references.json">References Table</a></h2>
+      <table>
+        <tr>
+          <th>Column Name</th>
+          <th>Description</th>
+        </th>
+        <tr>
+          <td>Dataset ID</td>
+          <td>Unique value used to name the dataset</td>
+        </tr>
+        <tr>
+          <td><em>Dataset Name</em></td>
+          <td>Scraped name of the dataset</td>
+        </tr>
+        <tr>
+          <td><em>Description</em></td>
+          <td>Scraped description of the dataset if available</td>
+        </tr>
+        <tr>
+          <td>Entity</td>
+          <td>Organization(s) that publish the dataset</td>
+        </tr>
+        <tr>
+          <td>City</td>
+          <td>City/cities that the dataset covers</td>
+        </tr>
+        <tr>
+          <td>State</td>
+          <td>State(s) that the dataset covers</td>
+        </tr>
+        <tr>
+          <td>Info URL</td>
+          <td>URL(s) for information/overview of the dataset</td>
+        </tr>
+        <tr>
+          <td><em>Row Count</em></td>
+          <td>Number of rows in the dataset</td>
+        </tr>
+        <tr>
+          <td><em>Column Count</em></td>
+          <td>Number of columns in the dataset</td>
+        </tr>
+        <tr>
+          <td>Tags</td>
+          <td>Tags to describe the type of infrastructure data covered</td>
+        </tr>
+        <tr>
+          <td>API Endpoint</td>
+          <td>API endpoint that the data were scraped from</td>
+        </tr>
+        <tr>
+          <td>API ID</td>
+          <td>Type of API ('arcgis' for ArcGIS REST API or 'tyler' for Tyler Technologies Data & Insights API)</td>
+        </tr>
+      </table>
+      <em>Values have been scraped from ArcGIS REST or Tyler Technologies Data & Insights APIs</em>
+      
+    <h2><a href="https://github.com/dotbts/BPA/blob/main/resources/compendium/data/attributes.json">Attributes Table</a></h2>
+    <table>
+      <tr>
+        <th>Column Name</th>
+        <th>Description</th>
+      </th>
+      <tr>
+        <td><em>Attribute ID</em></td>
+        <td>Scraped name of the attribute</td>
+      </tr>
+      <tr>
+        <td>Dataset ID</td>
+        <td>Refer to references table</td>
+      </tr>
+      <tr>
+        <td><em>Attribute</em></td>
+        <td>Attribute alias name if available, otherwise same as Attribute ID</td>
+      </tr>
+      <tr>
+        <td><em>Data Type</em></td>
+        <td>Data type used by ESRI/Tyler Technologies</td>
+      </tr>
+      <tr>
+        <td><em>Unique Values</em></td>
+        <td>Up to 20 unique values for attribute listed in ascending order</td>
+      </tr>
+      <tr>
+        <td><em>Unique Count</em></td>
+        <td>Number of unique values for attribute</td>
+      </tr>
+      <tr>
+        <td><em>Null Percent</em></td>
+        <td>Percent of null values for attribute</td>
+      </tr>
+      <tr>
+        <td><em>Statistics</em></td>
+        <td>The minimum, maximum, average, and sum of the attribute (if applicable)</td>
+      </tr>
+    </table>
+    <em>Values have been scraped from ArcGIS REST or Tyler Technologies Data & Insights APIs</em>
+    
+    </details>
+
+    <details>
+      <summary>Contributing new datasets</summary>
+      <p>
+        Are you aware of an open dataset that isn't in the attribute tracker that has an ArcGIS REST or Tyler Technologies Data and Insights API endpoint? Please send a link to the data so that it can be added using this <a href='https://forms.office.com/pages/responsepage.aspx?id=WyTNxPBElUOhqjhI0lj3i344woPRCrRIjiarNIi1Q25UM0ZQUkc5VDg1NzZXQVM1WVZGTjBJOEYxWS4u&route=shorturl'>form</a>.
+      </p>
+    </details>
+  </div>
+
+  </main>
+
+  <div id="tables-container" style="padding-left: 20px; padding-right: 20px"></div>
+
+  <footer><div id="std_footer"></div></footer>
+
+  <script src="../script.js"></script>
+  <script src="../compendium.js"></script>
+
+</body>
+</html>

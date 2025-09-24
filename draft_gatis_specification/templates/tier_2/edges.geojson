@@ -11,11 +11,79 @@
                 "to_node": null,
                 "directionality": null,
                 "bridge": null,
-                "incline": null
+                "incline": null,
+                "sidewalk:left:presence": null,
+                "sidewalk:left:width": null,
+                "sidewalk:left:surface_material": null,
+                "sidewalk:left:status": null,
+                "sidewalk:left:pedestrian_lane": null,
+                "sidewalk:left:incline": null,
+                "sidewalk:left:cross_slope": null,
+                "sidewalk:left:ada_compliance": null,
+                "sidewalk:left:ada_compliance_date": null,
+                "sidewalk:left:ada_compliance_standard": null,
+                "sidewalk:left:detectable_warning": null,
+                "sidewalk:left:measured_length": null,
+                "sidewalk:right:presence": null,
+                "sidewalk:right:width": null,
+                "sidewalk:right:surface_material": null,
+                "sidewalk:right:status": null,
+                "sidewalk:right:pedestrian_lane": null,
+                "sidewalk:right:incline": null,
+                "sidewalk:right:cross_slope": null,
+                "sidewalk:right:ada_compliance": null,
+                "sidewalk:right:ada_compliance_date": null,
+                "sidewalk:right:ada_compliance_standard": null,
+                "sidewalk:right:detectable_warning": null,
+                "sidewalk:right:measured_length": null,
+                "bikeway:left:presence": null,
+                "bikeway:left:facility_name": null,
+                "bikeway:left:directionality": null,
+                "bikeway:left:width": null,
+                "bikeway:left:bikeway_type": null,
+                "bikeway:left:bikeway_grade_separation": null,
+                "bikeway:left:separation_elements": null,
+                "bikeway:left:separation_permeable_car": null,
+                "bikeway:left:street_parking_buffer": null,
+                "bikeway:left:surface_material": null,
+                "bikeway:left:status": null,
+                "bikeway:left:incline": null,
+                "bikeway:right:presence": null,
+                "bikeway:right:facility_name": null,
+                "bikeway:right:directionality": null,
+                "bikeway:right:width": null,
+                "bikeway:right:bikeway_type": null,
+                "bikeway:right:bikeway_grade_separation": null,
+                "bikeway:right:separation_elements": null,
+                "bikeway:right:separation_permeable_car": null,
+                "bikeway:right:street_parking_buffer": null,
+                "bikeway:right:surface_material": null,
+                "bikeway:right:status": null,
+                "bikeway:right:incline": null,
+                "multi_use_path:left:presence": null,
+                "multi_use_path:left:facility_name": null,
+                "multi_use_path:left:width": null,
+                "multi_use_path:left:mup_modal_delineation": null,
+                "multi_use_path:left:surface_material": null,
+                "multi_use_path:left:status": null,
+                "multi_use_path:left:incline": null,
+                "multi_use_path:left:ada_compliance": null,
+                "multi_use_path:left:ada_compliance_date": null,
+                "multi_use_path:left:ada_compliance_standard": null,
+                "multi_use_path:right:presence": null,
+                "multi_use_path:right:facility_name": null,
+                "multi_use_path:right:width": null,
+                "multi_use_path:right:mup_modal_delineation": null,
+                "multi_use_path:right:surface_material": null,
+                "multi_use_path:right:status": null,
+                "multi_use_path:right:incline": null,
+                "multi_use_path:right:ada_compliance": null,
+                "multi_use_path:right:ada_compliance_date": null,
+                "multi_use_path:right:ada_compliance_standard": null
             },
             "geometry": {
                 "coordinates": null,
-                "type": "Point"
+                "type": "LineString"
             }
         },
         {
@@ -38,7 +106,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "Point"
+                "type": "LineString"
             }
         },
         {
@@ -54,7 +122,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "Point"
+                "type": "LineString"
             }
         },
         {
@@ -77,7 +145,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "Point"
+                "type": "LineString"
             }
         },
         {
@@ -93,7 +161,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "Point"
+                "type": "LineString"
             }
         },
         {
@@ -108,7 +176,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "Point"
+                "type": "LineString"
             }
         },
         {
@@ -124,7 +192,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "Point"
+                "type": "LineString"
             }
         },
         {
@@ -150,7 +218,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "Point"
+                "type": "LineString"
             }
         },
         {
@@ -174,7 +242,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "Point"
+                "type": "LineString"
             }
         },
         {
@@ -194,7 +262,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "Point"
+                "type": "LineString"
             }
         },
         {
@@ -212,7 +280,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "Point"
+                "type": "LineString"
             }
         },
         {
@@ -226,7 +294,7 @@
             },
             "geometry": {
                 "coordinates": null,
-                "type": "Point"
+                "type": "LineString"
             }
         }
     ]
