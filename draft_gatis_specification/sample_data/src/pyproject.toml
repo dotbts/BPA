@@ -1,0 +1,5 @@
+[project]
+name = "gatis_sample_data"
+version = "0.1.0"
+authors = [{name = "Reid Passmore", email = "tanner.passmore.ctr@dot.gov"}]
+description = "Code for creating sample GATIS datasets"
