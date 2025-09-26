@@ -1,23 +1,22 @@
 [
     {
-        "dataset_id": "San Francisco Traffic Signals",
+        "dataset_id": "Pittsburgh Steps",
         "entity": [
-            "San Francisco Municipal Transportation Agency"
+            "City of Pittsburgh"
         ],
         "tags": [
-            "bike",
             "pedestrian"
         ],
         "city": [
-            "San Francisco"
+            "Pittsburgh"
         ],
         "state": [
-            "CA"
+            "PA"
         ],
         "info_url": [
-            "https://data.sfgov.org/Transportation/Traffic-Signals/ybh5-27n2/about_data"
+            "https://pghgishub-pittsburghpa.opendata.arcgis.com/datasets/pittsburghpa::pittsburgh-steps-1/about"
         ],
-        "api_endpoint": "https://data.sfgov.org/api/v3/views/ybh5-27n2.json",
-        "api_id": "tyler"
+        "api_endpoint": "https://services1.arcgis.com/YZCmUqbcsUpOKfj7/arcgis/rest/services/PittsburghSteps/FeatureServer/0",
+        "api_id": "arcgis"
     }
 ]

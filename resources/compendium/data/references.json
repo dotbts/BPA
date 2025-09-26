@@ -8588,5 +8588,37 @@
         "row_count": null,
         "bbox": null,
         "last_updated": "2025-05-23"
+    },
+    {
+        "dataset_id": "Pittsburgh Steps",
+        "entity": [
+            "City of Pittsburgh"
+        ],
+        "tags": [
+            "pedestrian"
+        ],
+        "city": [
+            "Pittsburgh"
+        ],
+        "state": [
+            "PA"
+        ],
+        "info_url": [
+            "https://pghgishub-pittsburghpa.opendata.arcgis.com/datasets/pittsburghpa::pittsburgh-steps-1/about"
+        ],
+        "api_endpoint": "https://services1.arcgis.com/YZCmUqbcsUpOKfj7/arcgis/rest/services/PittsburghSteps/FeatureServer/0",
+        "api_id": "arcgis",
+        "status": "success",
+        "status_date": "2025-09-26T13:26-07:00",
+        "column_count": 31,
+        "row_count": 739,
+        "bbox": {
+            "xmin": -80.07528,
+            "ymin": 40.3676,
+            "xmax": -79.87397,
+            "ymax": 40.49753
+        },
+        "description": null,
+        "last_updated": null
     }
 ]
