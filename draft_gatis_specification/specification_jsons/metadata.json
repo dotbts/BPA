@@ -1,361 +1,240 @@
 {
-    "$schema": "http://json-schema.org/draft/2020-12/schema",
-    "$id": "https://raw.githubusercontent.com/dotbts/BPA/main/draft_gatis_specification/json_schemas/metadata_schema.json",
-    "title": "Draft GATIS metadata.json JSON-Schema",
-    "description": "Draft JSON-Schema for GATIS metadata",
-    "type": "object",
-    "properties": {
-        "title": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "version": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "description": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "publisher": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "schema_version": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "date_created": {
-            "oneOf": [
-                {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "contact_name": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "contact_info": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "license": {
-            "oneOf": [
-                {
-                    "type": "string",
-                    "format": "uri"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "geo_bounding_box": {
-            "type": "array",
-            "items": {
-                "type": "number"
-            }
-        },
-        "keywords": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "attribution": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "data_download_url": {
-            "oneOf": [
-                {
-                    "type": "string",
-                    "format": "uri"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "data_docs_url": {
-            "oneOf": [
-                {
-                    "type": "string",
-                    "format": "uri"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "data_dictionary_url": {
-            "oneOf": [
-                {
-                    "type": "string",
-                    "format": "uri"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "data_service_endpoint_url": {
-            "oneOf": [
-                {
-                    "type": "string",
-                    "format": "uri"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "rights_usage_limits_restricts": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "quality_validation": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "date_modified": {
-            "oneOf": [
-                {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "checksum": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "freq_cadence": {
-            "type": "string",
-            "enum": []
-        },
-        "modification_notes": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "collection_period_start": {
-            "oneOf": [
-                {
-                    "type": "string",
-                    "format": "date"
-                },
-                {
-                    "type": "string",
-                    "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
-                },
-                {
-                    "type": "string",
-                    "pattern": "^[1-9]\\d{3}$"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "collection_period_end": {
-            "oneOf": [
-                {
-                    "type": "string",
-                    "format": "date"
-                },
-                {
-                    "type": "string",
-                    "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
-                },
-                {
-                    "type": "string",
-                    "pattern": "^[1-9]\\d{3}$"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "collection_method": {
-            "type": "array",
-            "items": {
-                "type": "string",
-                "enum": [
-                    "Satellite / aerial; LIDAR; field survey / manual; GPS survey; hand traced or tagged; AI interpretation; transformation from another format / database"
-                ]
-            }
-        },
-        "collection_notes": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "conforms_to": {
-            "type": "array",
-            "items": {
-                "type": "string",
-                "format": "uri"
-            }
-        },
-        "source_dataset": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "source_dataset_type": {
-            "type": "string",
-            "enum": [
-                "aerial / satellite",
-                "LIDAR",
-                "GPS",
-                "field / manual",
-                "other"
-            ]
-        },
-        "addl_sources": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "source_notes": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "contributor_consulted": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "used_by": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        },
-        "funding_organization": {
-            "oneOf": [
-                {
-                    "type": "string"
-                },
-                {
-                    "type": "null"
-                }
-            ]
-        }
-    },
-    "additionalProperties": false
+  "title": {
+    "presence": ["required",null,null,null],
+    "description": "The title of the dataset",
+    "type": "Text",
+    "listed_values": null,
+    "example": null
+  },
+  "version": {
+    "presence": ["optional","required",null,null],
+    "description": "Version number for the current dataset using semantic versioning.\nFormat: MAJOR.MINOR.PATCH",
+    "type": "Text",
+    "listed_values": null,
+    "example": null
+  },
+  "description": {
+    "presence": ["required",null,null,null],
+    "description": "A brief (1-2 sentence or similar) description of what\u2019s in the dataset",
+    "type": "Text",
+    "listed_values": null,
+    "example": null
+  },
+  "publisher": {
+    "presence": ["required",null,null,null],
+    "description": "Organization responsible for collecting and maintaining the data",
+    "type": "Text",
+    "listed_values": null,
+    "example": null
+  },
+  "schema_version": {
+    "presence": ["required",null,null,null],
+    "description": "The version of the NC-BPAID schema in use. Use current version here as default value.",
+    "type": "Text",
+    "listed_values": null,
+    "example": null
+  },
+  "date_created": {
+    "presence": ["required",null,null,null],
+    "description": "The date when this dataset was initially created",
+    "type": "Datetime",
+    "listed_values": null,
+    "example": null
+  },
+  "contact_name": {
+    "presence": ["optional",null,null,null],
+    "description": "The name of a person who can be contacted with questions or for further information about the data",
+    "type": "Text",
+    "listed_values": null,
+    "example": null
+  },
+  "contact_info": {
+    "presence": ["required",null,null,null],
+    "description": "The email address or phone number to reach someone who can answer questions or provide further information about the data",
+    "type": "Text",
+    "listed_values": null,
+    "example": null
+  },
+  "license": {
+    "presence": ["required",null,null,null],
+    "description": "The license under which the data is published for use. URL linking to the license agreement; default value https://creativecommons.org/publicdomain/zero/1.0/.",
+    "type": "URL",
+    "listed_values": null,
+    "example": null
+  },
+  "geo_bounding_box": {
+    "presence": ["optional",null,"recommended",null],
+    "description": "Geospatial data describing the upper and lower latitudes and longitudes within which the data falls. Provide in format [min_longitude, min_latitude, max_longitude, max_latitude].",
+    "type": "Array<Float>",
+    "listed_values": null,
+    "example": null
+  },
+  "keywords": {
+    "presence": ["required",null,null,null],
+    "description": "A set of single words or short phrases that describe the content of the data\nFor sidewalk network data: \"Sidewalks, sidewalk network, pedestrian infrastructure, accessibility, pedestrian.\"\nFor bike network data: \"Bicycle lanes, bicycle network, biking, bike infrastructure.\"",
+    "type": "Text",
+    "listed_values": null,
+    "example": null
+  },
+  "attribution": {
+    "presence": ["optional","recommended",null,null],
+    "description": "Line of text that a data user can copy to properly cite the dataset. TASL format (Title, Author, Source, License) or academic format (ALA, Chicago) recommended.",
+    "type": "Text",
+    "listed_values": null,
+    "example": null
+  },
+  "data_download_url": {
+    "presence": ["optional",null,"recommended",null],
+    "description": "Direct URL to begin downloading the data; should not require additional clicks or steps besides visiting the URL to begin download",
+    "type": "URL",
+    "listed_values": null,
+    "example": null
+  },
+  "data_docs_url": {
+    "presence": ["optional",null,"recommended",null],
+    "description": "URL to access a data documentation booklet or site covering methodologies and other technical aspects of the data",
+    "type": "URL",
+    "listed_values": null,
+    "example": null
+  },
+  "data_dictionary_url": {
+    "presence": ["optional",null,"recommended",null],
+    "description": "URL to access the data dictionary for the dataset, in PDF, HTML or JSON format",
+    "type": "URL",
+    "listed_values": null,
+    "example": null
+  },
+  "data_service_endpoint_url": {
+    "presence": ["optional",null,"recommended",null],
+    "description": "URL to access the data via a data service, such as Data.gov (catalog.data.gov/dataset/\u2026), ArcGIS Online (ex. Feature service or feature layer link) or Socrata",
+    "type": "URL",
+    "listed_values": null,
+    "example": null
+  },
+  "rights_usage_limits_restricts": {
+    "presence": ["optional",null,null,null],
+    "description": "Text or a URL providing greater detail on how the data can and should be used, what rights are reserved, the scope of the data and any other useful information. Populate with either a text statement or with a URL linking to a text statement or policy",
+    "type": "Text",
+    "listed_values": null,
+    "example": null
+  },
+  "quality_validation": {
+    "presence": ["optional",null,null,null],
+    "description": "Statement describing the methods used to ensure quality and to validate the data, providing quantitative results where possible; can be a link to a web page or tool containing more information.",
+    "type": "Text",
+    "listed_values": null,
+    "example": null
+  },
+  "date_modified": {
+    "presence": ["required",null,null,null],
+    "description": "The date when this dataset was last updated",
+    "type": "Datetime",
+    "listed_values": null,
+    "example": null
+  },
+  "checksum": {
+    "presence": ["optional",null,"recommended",null],
+    "description": "An MD5 sum associated with the dataset in its current state, used to check if the data has changed since last accessed; new checksums should be generated each time the data is updated.",
+    "type": "Text",
+    "listed_values": null,
+    "example": null
+  },
+  "freq_cadence": {
+    "presence": ["optional",null,"recommended",null],
+    "description": "How often the full data is updated \u2013 for example, when new lidar is collected or a new field study is conducted; do not use for minor updates (ex. Correcting a few rows). Use values from the Dublin Core frequency specification.",
+    "type": "Enum",
+    "listed_values": null,
+    "example": null
+  },
+  "modification_notes": {
+    "presence": ["optional",null,null,null],
+    "description": "Text statement describing recent updates or modifications that regular users might want to know about.",
+    "type": "Text",
+    "listed_values": null,
+    "example": null
+  },
+  "collection_period_start": {
+    "presence": ["optional",null,"recommended",null],
+    "description": "Beginning date of the period during which data was collected; approximation is acceptable. Include at least the month and the year if possible.\nIf frequency / cadence = \u2018continuous,\u2019 leave blank",
+    "type": "Date",
+    "listed_values": null,
+    "example": null
+  },
+  "collection_period_end": {
+    "presence": ["optional",null,"recommended",null],
+    "description": "Ending date of the period during which data was collected; approximation is acceptable. Include at least the month and the year if possible.\nIf frequency / cadence = \u2018continuous,\u2019 leave blank",
+    "type": "Date",
+    "listed_values": null,
+    "example": null
+  },
+  "collection_method": {
+    "presence": ["optional",null,"recommended",null],
+    "description": "List of the methods used to collect and extract the data.",
+    "type": "Array<Enum>",
+    "listed_values": ["Satellite / aerial; LIDAR; field survey / manual; GPS survey; hand traced or tagged; AI interpretation; transformation from another format / database"],
+    "example": null
+  },
+  "collection_notes": {
+    "presence": ["optional",null,null,null],
+    "description": "Text statement providing additional detail about data collection methods and approach, including selection, tools and data processing.",
+    "type": "Text",
+    "listed_values": null,
+    "example": null
+  },
+  "conforms_to": {
+    "presence": ["optional",null,null,null],
+    "description": "List of the URLs of other specifications to which attributes within the data also conform.",
+    "type": "Array<URL>",
+    "listed_values": null,
+    "example": null
+  },
+  "source_dataset": {
+    "presence": ["optional",null,"recommended",null],
+    "description": "Either a link or a citation (title, publisher and publication date) to the primary dataset used to create the data; in many cases, this data will be satellite or LIDAR data used for extracting transportation elements.",
+    "type": "Text",
+    "listed_values": null,
+    "example": null
+  },
+  "source_dataset_type": {
+    "presence": ["optional",null,null,null],
+    "description": "The type of dataset listed under Primary Source Dataset URL or Citation.",
+    "type": "Enum",
+    "listed_values": ["aerial / satellite","LIDAR","GPS","field / manual","other"],
+    "example": null
+  },
+  "addl_sources": {
+    "presence": ["optional",null,null,null],
+    "description": "List of URLs or citations for additional data sources used besides the primary data source \u2013 ie for blending, for extracting additional features, etc.",
+    "type": "Text",
+    "listed_values": null,
+    "example": null
+  },
+  "source_notes": {
+    "presence": ["optional",null,null,null],
+    "description": "Text note describing any additional information about data sources, including how they were collected, any known issues and cleaning and processing.",
+    "type": "Text",
+    "listed_values": null,
+    "example": null
+  },
+  "contributor_consulted": {
+    "presence": ["optional",null,null,null],
+    "description": "Text statement acknowledging people or organizations who contributed or who were consulted in creation of the dataset.",
+    "type": "Text",
+    "listed_values": null,
+    "example": null
+  },
+  "used_by": {
+    "presence": ["optional",null,null,null],
+    "description": "Text statement describing related datasets or projects \u2013 for example, if another organization takes this data and layers on additional features. Include URLs where possible.",
+    "type": "Text",
+    "listed_values": null,
+    "example": null
+  },
+  "funding_organization": {
+    "presence": ["optional",null,null,null],
+    "description": "Name of the organization(s) who provided funding to enable any part of the effort to produce the dataset.",
+    "type": "Text",
+    "listed_values": null,
+    "example": null
+  }
 }

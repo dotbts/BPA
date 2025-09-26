@@ -1,0 +1,361 @@
+{
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/dotbts/BPA/main/draft_gatis_specification/json_schemas/metadata_schema.json",
+    "title": "Draft GATIS metadata.json JSON-Schema",
+    "description": "Draft JSON-Schema for GATIS metadata",
+    "type": "object",
+    "properties": {
+        "title": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "version": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "description": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "publisher": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "schema_version": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "date_created": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "contact_name": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "contact_info": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "license": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "format": "uri"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "geo_bounding_box": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            }
+        },
+        "keywords": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "attribution": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "data_download_url": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "format": "uri"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "data_docs_url": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "format": "uri"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "data_dictionary_url": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "format": "uri"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "data_service_endpoint_url": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "format": "uri"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "rights_usage_limits_restricts": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "quality_validation": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "date_modified": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "checksum": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "freq_cadence": {
+            "type": "string",
+            "enum": []
+        },
+        "modification_notes": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "collection_period_start": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "format": "date"
+                },
+                {
+                    "type": "string",
+                    "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
+                },
+                {
+                    "type": "string",
+                    "pattern": "^[1-9]\\d{3}$"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "collection_period_end": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "format": "date"
+                },
+                {
+                    "type": "string",
+                    "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
+                },
+                {
+                    "type": "string",
+                    "pattern": "^[1-9]\\d{3}$"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "collection_method": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "Satellite / aerial; LIDAR; field survey / manual; GPS survey; hand traced or tagged; AI interpretation; transformation from another format / database"
+                ]
+            }
+        },
+        "collection_notes": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "conforms_to": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "source_dataset": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "source_dataset_type": {
+            "type": "string",
+            "enum": [
+                "aerial / satellite",
+                "LIDAR",
+                "GPS",
+                "field / manual",
+                "other"
+            ]
+        },
+        "addl_sources": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "source_notes": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "contributor_consulted": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "used_by": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        },
+        "funding_organization": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        }
+    },
+    "additionalProperties": false
+}
