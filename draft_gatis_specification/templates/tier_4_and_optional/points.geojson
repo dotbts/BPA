@@ -6,7 +6,8 @@
             "properties": {
                 "point_id": null,
                 "point_type": "object",
-                "object_type": null
+                "object_type": null,
+                "reference_ids": null
             },
             "geometry": {
                 "coordinates": null,

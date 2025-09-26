@@ -6,6 +6,7 @@
             "properties": {
                 "node_id": null,
                 "node_type": "virtual",
+                "reference_ids": null,
                 "curb_type": null,
                 "rail_crossing": null
             },
@@ -20,6 +21,7 @@
                 "node_id": null,
                 "node_type": "curb_ramp",
                 "presence": null,
+                "reference_ids": null,
                 "date_built": null,
                 "check_date": null,
                 "ada_compliance": null,
@@ -45,6 +47,7 @@
                 "node_id": null,
                 "node_type": "elevator",
                 "presence": null,
+                "reference_ids": null,
                 "date_built": null,
                 "check_date": null,
                 "ada_compliance": null,
@@ -62,6 +65,7 @@
             "properties": {
                 "node_id": null,
                 "node_type": "transit_stop",
+                "reference_ids": null,
                 "gtfs_id": null
             },
             "geometry": {
@@ -74,6 +78,7 @@
             "properties": {
                 "node_id": null,
                 "node_type": "issue",
+                "reference_ids": null,
                 "check_date": null,
                 "impediment": null,
                 "surface_issue": null
@@ -89,6 +94,7 @@
                 "node_id": null,
                 "node_type": "traffic_calming",
                 "presence": null,
+                "reference_ids": null,
                 "date_built": null,
                 "check_date": null,
                 "traffic_calming_type": null,

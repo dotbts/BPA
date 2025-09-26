@@ -1,0 +1,52 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "edge_id": "0",
+        "reference_ids": [
+          {
+            "source": "austin",
+            "asmp_street_network_id": "337201"
+          }
+        ],
+        "edge_type": "road",
+        "thru_lanes": 4.0
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -97.750941257269,
+            30.31972398542
+          ],
+          [
+            -97.751730087325,
+            30.320100168184
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "edge_id": "391404",
+        "edge_type": "virtual_link"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -97.9217352832381,
+            30.1865106685037
+          ],
+          [
+            -97.92173465301653,
+            30.18652475875947
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "node_id": "0",
+        "node_type": "curb_ramp",
+        "date_built": "2018-10-11",
+        "check_date": "2018-10-11",
+        "ramp_type": "perpendicular",
+        "detectable_warning": "tactile and contrasted",
+        "status": "open",
+        "reference_ids": [
+          {
+            "source": "austin",
+            "source_url": "",
+            "CURB_RAMPS_ID": 1556149
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.7928439601981,
+          30.2300296230484,
+          0.0
+        ]
+      }
+    }
+  ]
+}

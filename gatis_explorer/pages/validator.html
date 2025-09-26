@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>GATIS Draft Validator</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    pre { background:#f6f8fa; padding:1rem; border-radius:6px; overflow:auto; }
+    .errors { color: #b00020; white-space: pre-wrap; }
+    .ok { color: #0a7d3a; }
+    input[type=file] { margin-bottom: 0.5rem; }
+    /* Spinner */
+    .spinner {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      border: 4px solid rgba(0,0,0,0.12);
+      border-top-color: #0366d6;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      vertical-align: middle;
+      margin-left: 8px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .hidden { display:none; }
+    .controls { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom: 0.5rem; }
+    textarea { font-family: monospace; }
+    /* selected button style */
+    button.feature-selected {
+      background: #0366d6;
+      color: white;
+      border-radius: 4px;
+      padding: 6px 10px;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+    }
+    button { cursor: pointer; }
+  </style>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  
+  <header>
+  <div class="banner" style="background-color: #282828;">
+    <div class="banner-content">
+      <h1><strong>GATIS Draft Validator</strong></h1>
+      <p>
+        Load a GATIS GeoJSON file to validate it locally in your browser (data is not uploaded or retained). Note this prototype is not meant to work with large files. Validation rules are subject to change and not all validation rules have been implemented.
+      </p>
+    </div>
+    <div id="banner-image" class="banner-image"></div>
+  </div>  
+  </header>
+  
+  <main>
+
+  <div class="controls", style="padding-top:20px">
+    <h3 style="margin:0 8px 0 0; font-size:1rem;">Select a feature type:</h3>
+    <div id="featureType" style="display: flex; gap: 8px; flex-wrap: wrap;">
+      <button value="edges">Edges</button>
+      <button value="nodes">Nodes</button>
+      <button value="points">Points</button>
+      <button value="zones">Zones</button>
+      <button value="metadata">Metadata</button>
+    </div>
+  </div>
+
+  <div class="controls">
+    <input id="file" type="file" accept=".json,.geojson,application/json" />
+    <button id="pasteBtn" type="button">Paste JSON</button>
+    <button id="validateBtn" type="button">Validate</button>
+    <div id="spinner" class="spinner hidden" title="Working..."></div>
+  </div>
+
+  <div>
+    <textarea id="jsonInput" placeholder="Or paste GeoJSON here" rows="12" style="width:100%;"></textarea>
+  </div>
+
+  <h2>Result</h2>
+  <div id="result"></div>
+
+  </main>
+
+  <footer><div id="std_footer"></div></footer>
+
+  <!-- ES Module loader: import AJV from esm.sh CDN -->
+  <script type="module">
+    import Ajv from "https://esm.sh/ajv@8";
+    import addFormats from "https://esm.sh/ajv-formats@2";
+
+    // map feature type => schema path (adjust paths to your repo)
+    const SCHEMA_MAP = {
+      nodes: '../../draft_gatis_specification/json_schemas/nodes_schema.json',
+      edges: '../../draft_gatis_specification/json_schemas/edges_schema.json',
+      points: '../../draft_gatis_specification/json_schemas/points_schema.json',
+      zones: '../../draft_gatis_specification/json_schemas/zones_schema.json',
+      metadata: '../../draft_gatis_specification/json_schemas/metadata_schema.json'
+    };
+
+    const fileInput = document.getElementById('file');
+    const validateBtn = document.getElementById('validateBtn');
+    const resultDiv = document.getElementById('result');
+    const jsonInput = document.getElementById('jsonInput');
+    const pasteBtn = document.getElementById('pasteBtn');
+    const spinner = document.getElementById('spinner');
+    const featureTypeContainer = document.getElementById('featureType');
+
+    let selectedFeatureType = null; // current selection (string or null)
+    let ajv = null;
+    let validateFn = null;
+    let schemaLoadedFor = null; // which feature type the compiled schema belongs to
+
+    function showSpinner(show = true) {
+      spinner.classList.toggle('hidden', !show);
+    }
+
+    // highlight selection UI
+    function setSelectedButton(type) {
+      selectedFeatureType = type;
+      Array.from(featureTypeContainer.querySelectorAll('button')).forEach(b => {
+        if ((b.value || b.getAttribute('data-value')) === type) {
+          b.classList.add('feature-selected');
+        } else {
+          b.classList.remove('feature-selected');
+        }
+      });
+      resultDiv.innerHTML = `<div>Selected feature type: <strong>${type}</strong></div>`;
+    }
+
+    // event delegation for user manual selection
+    featureTypeContainer.addEventListener('click', (ev) => {
+      const b = ev.target.closest('button');
+      if (!b || !featureTypeContainer.contains(b)) return;
+      const val = b.value || b.getAttribute('data-value');
+      if (!val) return;
+      setSelectedButton(val);
+      schemaLoadedFor = null; // will force reload for the new type
+    });
+
+    function getSchemaPathForFeature(type) {
+      return SCHEMA_MAP[type] || SCHEMA_MAP['nodes'];
+    }
+
+    async function loadAndCompileSchemaFor(type) {
+      const path = getSchemaPathForFeature(type);
+      showSpinner(true);
+      try {
+        const res = await fetch(path, { cache: "no-cache" });
+        if (!res.ok) throw new Error("Failed to fetch schema: " + res.status + " " + res.statusText);
+        const schemaJson = await res.json();
+        
+        // Remove top-level $schema if it exists (prevents potential errors with some validators)
+        if (Object.prototype.hasOwnProperty.call(schemaJson, '$schema')) {
+          delete schemaJson['$schema'];
+          // or: delete schemaJson.$schema;
+    }
+        ajv = new Ajv();
+        addFormats(ajv);
+        validateFn = ajv.compile(schemaJson);
+        schemaLoadedFor = type;
+        resultDiv.innerHTML = '<div class="ok">Schema loaded for ' + type + '.</div>';
+        return true;
+      } catch (err) {
+        schemaLoadedFor = null;
+        validateFn = null;
+        resultDiv.innerHTML = '<div class="errors">Error loading schema: ' + (err?.message || err) + '</div>';
+        return false;
+      } finally {
+        showSpinner(false);
+      }
+    }
+
+    // heuristics: try detect type from filename
+    function detectFromFilename(name = '') {
+      if (!name) return null;
+      name = name.toLowerCase();
+      for (const k of Object.keys(SCHEMA_MAP)) {
+        if (name.includes(k)) return k;
+      }
+      // common patterns: nodes.geojson or node_*.json etc.
+      if (name.includes('node')) return 'nodes';
+      if (name.includes('edge')) return 'edges';
+      if (name.includes('point')) return 'points';
+      if (name.includes('zone')) return 'zones';
+      return null;
+    }
+
+    // heuristics: inspect JSON text or parsed object for identifying keys
+    function detectFromJsonContent(txtOrObj) {
+      // if not parsed, treat as string and search for keywords first (fast)
+      if (typeof txtOrObj === 'string') {
+        const s = txtOrObj.toLowerCase();
+        // look for typical property names in features/properties
+        if (s.includes('"edge_id"') || s.includes('edge_id')) return 'edges';
+        if (s.includes('"node_id"') || s.includes('node_id')) return 'nodes';
+        if (s.includes('"point_id"') || s.includes('point_id')) return 'points';
+        if (s.includes('"zone_id"') || s.includes('zone_id')) return 'zones';
+        // also search feature type names in properties or file
+        if (s.includes('"nodes"') && s.includes('"features"')) return 'nodes';
+        if (s.includes('"edges"') && s.includes('"features"')) return 'edges';
+        // else try to parse below
+        try {
+          const obj = JSON.parse(txtOrObj);
+          return detectFromJsonContent(obj);
+        } catch (e) {
+          return null;
+        }
+      }
+
+      // if object, search recursively for common keys
+      const obj = txtOrObj;
+      let found = null;
+      function walk(o) {
+        if (!o || found) return;
+        if (Array.isArray(o)) {
+          for (const item of o) {
+            walk(item);
+            if (found) return;
+          }
+        } else if (typeof o === 'object') {
+          for (const key of Object.keys(o)) {
+            const lk = key.toLowerCase();
+            if (lk === 'edge_id') { found = 'edges'; return; }
+            if (lk === 'node_id') { found = 'nodes'; return; }
+            if (lk === 'point_id') { found = 'points'; return; }
+            if (lk === 'zone_id') { found = 'zones'; return; }
+            // sometimes id names might be id with prefix in value; skip heavy checks
+            // recurse
+            walk(o[key]);
+            if (found) return;
+          }
+        }
+      }
+      walk(obj);
+      return found;
+    }
+
+    // file input handling (auto-detect from filename)
+    fileInput.addEventListener('change', () => {
+      const f = fileInput.files && fileInput.files[0];
+      if (!f) return;
+      showSpinner(true);
+      const reader = new FileReader();
+      reader.onload = () => {
+        jsonInput.value = reader.result;
+        showSpinner(false);
+
+        // try filename detection first
+        const guessed = detectFromFilename(f.name);
+        if (guessed) {
+          setSelectedButton(guessed);
+          schemaLoadedFor = null; // reload schema when validating
+          resultDiv.innerHTML = `<div class="ok">Auto-detected feature type "${guessed}" from filename: ${f.name}</div>`;
+        } else {
+          // try detect from content
+          const guessedFromContent = detectFromJsonContent(reader.result);
+          if (guessedFromContent) {
+            setSelectedButton(guessedFromContent);
+            schemaLoadedFor = null;
+            resultDiv.innerHTML = `<div class="ok">Auto-detected feature type "${guessedFromContent}" from file content</div>`;
+          } else {
+            // no detection: force user to select
+            resultDiv.innerHTML = `<div class="errors">Could not infer feature type from filename or content. Please select the feature type manually.</div>`;
+            setSelectedButton(null); // clears any UI highlight
+          }
+        }
+      };
+      reader.onerror = () => {
+        alert('Failed to read file.');
+        showSpinner(false);
+      };
+      reader.readAsText(f);
+    });
+
+    // paste button: read clipboard into textarea, then try detect from content
+    pasteBtn.addEventListener('click', async () => {
+      try {
+        const text = await navigator.clipboard.readText();
+        if (!text) {
+          alert('Clipboard empty or no text available.');
+          return;
+        }
+        jsonInput.value = text;
+        // try to detect from content
+        const guessed = detectFromJsonContent(text);
+        if (guessed) {
+          setSelectedButton(guessed);
+          schemaLoadedFor = null;
+          resultDiv.innerHTML = `<div class="ok">Auto-detected feature type "${guessed}" from pasted JSON</div>`;
+        } else {
+          resultDiv.innerHTML = `<div class="errors">Could not infer feature type from pasted JSON. Please select the feature type manually.</div>`;
+          setSelectedButton(null);
+        }
+      } catch (err) {
+        alert('Clipboard access failed. Please paste manually into the textarea.');
+      }
+    });
+
+    // also attempt detecting on manual textarea edits (user might paste directly into textarea)
+    let detectTimeout = null;
+    jsonInput.addEventListener('input', () => {
+      // clear last auto-detection highlight if user already selected manually
+      // we'll only auto-detect if no selection yet
+      if (selectedFeatureType) return;
+      clearTimeout(detectTimeout);
+      detectTimeout = setTimeout(() => {
+        const txt = jsonInput.value || '';
+        if (!txt.trim()) return;
+        const guessed = detectFromJsonContent(txt);
+        if (guessed) {
+          setSelectedButton(guessed);
+          schemaLoadedFor = null;
+          resultDiv.innerHTML = `<div class="ok">Auto-detected feature type "${guessed}" from JSON content</div>`;
+        }
+      }, 400);
+    });
+
+    validateBtn.addEventListener('click', async () => {
+      // require a selected feature type. If none, try one last time to infer
+      if (!selectedFeatureType) {
+        const txt = jsonInput.value.trim();
+        const finalGuess = txt ? (detectFromJsonContent(txt) || null) : null;
+        if (finalGuess) {
+          setSelectedButton(finalGuess);
+        } else {
+          resultDiv.innerHTML = '<div class="errors">Feature type not selected and could not be inferred. Please choose a feature type above.</div>';
+          return;
+        }
+      }
+
+      // ensure correct schema is loaded
+      if (schemaLoadedFor !== selectedFeatureType || !validateFn) {
+        const ok = await loadAndCompileSchemaFor(selectedFeatureType);
+        if (!ok) return;
+      }
+
+      const txt = jsonInput.value.trim();
+      if (!txt) {
+        resultDiv.innerHTML = '<div class="errors">No GeoJSON or JSON provided.</div>';
+        return;
+      }
+      let data;
+      try {
+        data = JSON.parse(txt);
+      } catch (err) {
+        resultDiv.innerHTML = '<div class="errors">Invalid GeoJSON or JSON: ' + escapeHtml(err.message) + '</div>';
+        return;
+      }
+
+      showSpinner(true);
+      await new Promise(r => setTimeout(r, 10));
+      try {
+        const valid = validateFn(data);
+        if (valid) {
+          resultDiv.innerHTML = '<div class="ok">Valid GATIS File ✔</div><pre>' +
+            escapeHtml(JSON.stringify(data, null, 2)) + '</pre>';
+        } else {
+          const out = (validateFn.errors || []).map(e => {
+            return 'At ' + (e.instancePath || '/') + ': ' + (e.message || '') +
+              (e.params ? ' (' + JSON.stringify(e.params) + ')' : '');
+          }).join('\n');
+          resultDiv.innerHTML = '<div class="errors">Validation failed:<br><pre>' + escapeHtml(out) + '</pre></div>';
+        }
+      } catch (err) {
+        resultDiv.innerHTML = '<div class="errors">Validation error: ' + escapeHtml(err.message || err) + '</div>';
+      } finally {
+        showSpinner(false);
+      }
+    });
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+  </script>
+
+  <script src="../script.js"></script>
+</body>
+</html>

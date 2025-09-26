@@ -8,7 +8,8 @@
                 "zone_type": "pedestrian",
                 "surface_material": null,
                 "facility_name": null,
-                "status": null
+                "status": null,
+                "reference_ids": null
             },
             "geometry": {
                 "coordinates": null,

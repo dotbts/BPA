@@ -35,6 +35,16 @@
       "presence": {
         "object": ["optional",null,"recommended",null]
       }
+    },
+    {
+      "name": "reference_ids",
+      "description": "Can be used to add reference IDs to other datasources such as OSM, OpenLR, ARNOLD, HMPS, TIGER, Census road network, OSM, etc.). Should be an array of JSONs with the source name and ID pair. Each JSON should contain an ID field and source field at minimum. Can add other attributes such as the beginning and ending milepost from a linear referencing system.",
+      "type": "Array<Object>",
+      "listed_values": null,
+      "example": "[ \n{ \"source\": \"OpenStreetMap\", \"id\": \"w1234\" }, \n{ \"source\": \"TIGER\", \"id\": \"110739476769\" } \n{ \"source\": \"ARNOLD\", \"id\": \"140\", \"begin_mi\": 2.3, \"end_mi\": 4.5}\n] ",
+      "presence": {
+        "object": ["optional",null,null,null]
+      }
     }
   ]
 }
