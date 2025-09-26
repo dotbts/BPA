@@ -1,6 +1,6 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://github.com/dotbts/BPA/tree/main/draft_gatis_specification/zones_schema.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/dotbts/BPA/main/draft_gatis_specification/json_schemas/zones_schema.json",
     "title": "Draft GATIS zones.geojson JSON-Schema",
     "type": "object",
     "required": [
@@ -42,44 +42,62 @@
                         ]
                     },
                     "properties": {
-                        "zone_id": {
-                            "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "zone_id": {
+                                "type": "string"
+                            },
+                            "zone_type": {
+                                "type": "string",
+                                "enum": [
+                                    "pedestrian"
+                                ]
+                            },
+                            "surface_material": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "facility_name": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "status": {
+                                "type": "string",
+                                "enum": [
+                                    "open",
+                                    "closed",
+                                    "under construction",
+                                    "other"
+                                ]
+                            },
+                            "reference_ids": {
+                                "oneOf": [
+                                    {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {}
+                                        }
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            }
                         },
-                        "zone_type": {
-                            "type": "string",
-                            "enum": [
-                                "pedestrian"
-                            ]
-                        },
-                        "surface_material": {
-                            "oneOf": [
-                                {
-                                    "type": "string"
-                                },
-                                {
-                                    "type": "null"
-                                }
-                            ]
-                        },
-                        "facility_name": {
-                            "oneOf": [
-                                {
-                                    "type": "string"
-                                },
-                                {
-                                    "type": "null"
-                                }
-                            ]
-                        },
-                        "status": {
-                            "type": "string",
-                            "enum": [
-                                "open",
-                                "closed",
-                                "under construction",
-                                "other"
-                            ]
-                        }
+                        "additionalProperties": false
                     },
                     "geometry": {
                         "title": "GeoJSON Polygon",

@@ -1,6 +1,6 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://github.com/dotbts/BPA/tree/main/draft_gatis_specification/nodes_schema.json",
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/dotbts/BPA/main/draft_gatis_specification/json_schemas/nodes_schema.json",
     "title": "Draft GATIS nodes.geojson JSON-Schema",
     "type": "object",
     "required": [
@@ -42,25 +42,43 @@
                         ]
                     },
                     "properties": {
-                        "point_id": {
-                            "type": "string"
+                        "type": "object",
+                        "properties": {
+                            "point_id": {
+                                "type": "string"
+                            },
+                            "point_type": {
+                                "type": "string",
+                                "enum": [
+                                    "object"
+                                ]
+                            },
+                            "object_type": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "reference_ids": {
+                                "oneOf": [
+                                    {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {}
+                                        }
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            }
                         },
-                        "point_type": {
-                            "type": "string",
-                            "enum": [
-                                "object"
-                            ]
-                        },
-                        "object_type": {
-                            "oneOf": [
-                                {
-                                    "type": "string"
-                                },
-                                {
-                                    "type": "null"
-                                }
-                            ]
-                        }
+                        "additionalProperties": false
                     },
                     "geometry": {
                         "title": "GeoJSON Point",
