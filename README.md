@@ -26,7 +26,7 @@ The National Collaboration on Bicycle, Pedestrian, and Accessibility Infrastruct
 Your participation in this collaboration is welcome. Anyone can join, whether you’re with a government agency, university, for-profit, nonprofit or a private citizen. Here are some ways to get involved:
 1.	Join our [mailing list](https://forms.office.com/g/34975BEAkF) to receive invitations to upcoming collaboration meetings and major announcements. 
 2.	Attend an upcoming meeting of the collaboration (listed below).
-3.	Contribute your knowledge by [joining a subgroup](https://forms.office.com/Pages/ResponsePage.aspx?id=WyTNxPBElUOhqjhI0lj3i2kiSGH_4l5MuKXImYxBW4NUQUpDVUZYVE5HSDNMS1g2VFdFRDZXMFlUSS4u) (meeting times listed below).
+3.	Contribute your knowledge by [joining a subgroup](https://forms.office.com/g/fnccNdugBN). (meeting times listed below).
 
 To contact us or ask a question, please fill out [this form](https://forms.office.com/g/c6gsQbB2VH). 
 
@@ -35,7 +35,7 @@ We typically meet every other month. All meetings are held on Microsoft Teams. P
 - [Thursday, October 30, 2025 @ 3:00pm ET](https://github.com/dotbts/BPA/wiki/2025-10-30)
 - Thursday, December 4, 2025 @ 3:00pm ET
 
-We also have three subgroups that meet regularly and have opportunities to work asynchronously, too. To get connected with these groups, please fill out [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=WyTNxPBElUOhqjhI0lj3i2kiSGH_4l5MuKXImYxBW4NUQUpDVUZYVE5HSDNMS1g2VFdFRDZXMFlUSS4u):
+We also have three subgroups that meet regularly and have opportunities to work asynchronously, too. To get connected with these groups, please fill out [this form](https://forms.office.com/g/fnccNdugBN):
 - Subgroup on Data Practices: Working to facilitate the adoption of specifications and practices. Meets every first Thursday @ 3:00pm ET.
 - Subgroup on Outreach: Working to ensure the specifications are increasingly adopted/recognized by data producers and consumers. Meets every first Thursday @ 4:00pm ET.
 - Subgroup on Specification Development: Working on drafting the specifications and guiding them through review. Meets every other Wednesday @ 4:00pm ET.
