@@ -1,21 +1,3 @@
-# At TRB? Join us on Wednesday!
-
-Please join us at this year’s TRB Annual Meeting, on Wednesday, January 14th at 5pm EST (Walter E. Washington Convention Center, Conference Room #305) for a GATIS meet-up and networking event!
-
-This event is a chance to get up to speed with the process of drafting the General Active Transportation Infrastructure Specification (GATIS)<https://github.com/dotbts/BPA>, as well as connect with colleagues across the space and take a break from the hustle and bustle of TRB.
-
-We’ll have a ~30-minute panel discussion with a couple of the people who have field tested the specification, as well as one of the leaders of the Specification Development Subgroup:
-* Panelists: Shirley Shiqin Liu, Accessibility Observatory, Center for Transportation Studies, University of Minnesota; Will Rogers, Greater Nashville Regional Council; Paul Moser, Delaware DOT
-* Facilitator: Carl Fredlund, Strategic Director, MobilityData
-
-We’ll also hear an update from Jennifer Dill, Portland State University, on the progress of the NCHRP 07-31 State DOT and Tribal Use of Active Transportation Data: Practices, Sources, Needs, and Gaps project.
-
-Then we’ll have some time to connect with each other, talk about our research and future work, and think ahead to our impact in 2026.
-
-This will be an in-person meeting, with no virtual option due to room logistics. But there will be other opportunities to connect in the coming months, including our next collaboration meeting on January 29th at 3pm ET.
-
-We hope to see you there, and we wish you a great TRB!
-
 # General Active Transportation Infrastructure Specification (GATIS)
 Draft #2 of the General Active Transportation Infrastructure Specification (GATIS) is now available for public review and comment. This draft was developed by the Specification Development Subgroup of the [National Collaboration on Bicycle, Pedestrian, and Accessibility Infrastructure Data (NC-BPAID)](https://github.com/dotbts/BPA?tab=readme-ov-file#the-national-collaboration-on-bicycle-pedestrian-and-accessibility-infrastructure-data-nc-bpaid).
 
