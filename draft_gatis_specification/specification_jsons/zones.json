@@ -1,69 +1,134 @@
 {
   "types": {
-    "pedestrian": {
-      "description": "Indicates a zone where pedestrians may travel freely in a range of paths they choose. Common areas to represent as pedestrian zones include parks and plazas. Pedestrian zones are represented as polygons that show the physical space taken up by the zone. If sidewalks or footpaths are present, map them separately as edges.",
+    "open": {
+      "description": "Indicates a zone where travelers may travel freely in a range of paths they choose. Common areas to represent as zones include parks and plazas. Open zones are represented as polygons that show the physical space taken up by the zone. If sidewalks, footways or bike facilities are present, map them separately as edges.",
+      "tier": 3
+    },
+    "traffic_calming": {
+      "description": "Used to identify where traffic calming features are located where these features are an area (versus a point). If possible, use the traffic_calming zone type to show the area affected by the feature. The traffic_calming point is available for when mapping of the area is not available.",
       "tier": 3
     }
   },
   "attributes": [
     {
       "name": "zone_id",
-      "description": "A unique identifier for the zone. [NOTE: We will fill in instructions here on how to generate IDs, and we will also provide a data validator that may be capable of validating and helping to fill in these IDs.] ",
+      "description": "A unique identifier for the zone. \n\n[NOTE: We will fill in instructions here on how to generate IDs, and we will also provide a data validator that may be capable of validating and helping to fill in these IDs.] ",
       "type": "ID",
       "listed_values": null,
       "example": null,
       "presence": {
-        "pedestrian": ["required",null,null,null]
+        "open": ["required",null,null,null],
+        "traffic_calming": ["required",null,null,null]
       }
     },
     {
       "name": "zone_type",
       "description": "Indicates the type of zone.",
       "type": "Enum",
-      "listed_values": ["pedestrian"],
+      "listed_values": ["open","traffic_calming"],
       "example": null,
       "presence": {
-        "pedestrian": ["required",null,null,null]
+        "open": ["required",null,null,null],
+        "traffic_calming": ["required",null,null,null]
       }
     },
     {
       "name": "surface_material",
       "description": "Specifies the surface type. Select only one. Where the surface material changes, create a new zone.",
       "type": "Text",
-      "listed_values": ["Asphalt; concrete; gravel; grass; dirt; paved; unpaved; grass_paver; paving_stones"],
+      "listed_values": ["asphalt","concrete","gravel","grass","dirt","paved","unpaved","grass paver","paving stones","other"],
       "example": null,
       "presence": {
-        "pedestrian": ["optional",null,"recommended",null]
+        "open": ["optional",null,"recommended",null],
+        "traffic_calming": ["optional",null,null,null]
       }
     },
     {
       "name": "facility_name",
-      "description": "Common or formal name for the zone. Can also include descriptions of a portion of a larger pedestrian zone if the zone is being segmented.  ",
+      "description": "Common or formal name for the zone. Can also include descriptions of a portion of a larger open zone (like a park or a plaza) if the zone is being segmented.  ",
       "type": "Text",
       "listed_values": null,
       "example": "\"Market Square\", \"21st Street Promenade\", \"Echo Park - West Side\"",
       "presence": {
-        "pedestrian": ["optional",null,"recommended",null]
+        "open": ["optional",null,"recommended",null],
+        "traffic_calming": ["forbidden",null,null,null]
       }
     },
     {
       "name": "status",
-      "description": "Most recent operating status of the zone. Whether the infrastructure is open and available for use.",
+      "description": "Most recent operating status of the zone. Whether the infrastructure is open and available for use. If blank, the assumed value is \"open.\"",
       "type": "Enum",
       "listed_values": ["open","closed","under construction","other"],
       "example": null,
       "presence": {
-        "pedestrian": ["optional",null,null,null]
+        "open": ["optional",null,null,null],
+        "traffic_calming": ["optional",null,null,null]
       }
     },
     {
       "name": "reference_ids",
-      "description": "Can be used to add reference IDs to other datasources such as OSM, OpenLR, ARNOLD, HMPS, TIGER, Census road network, OSM, etc.). Should be an array of JSONs with the source name and ID pair. Each JSON should contain an ID field and source field at minimum. Can add other attributes such as the beginning and ending milepost from a linear referencing system.",
+      "description": "Can be used to add reference IDs to other datasources such as OSM, Overture, ARNOLD, HMPS, TIGER, Census road network, etc.). Should be an array of JSONs with the source name and ID pair. Each JSON should contain an ID field and source field at minimum. Can add other attributes such as the beginning and ending milepost from a linear referencing system.",
       "type": "Array<Object>",
       "listed_values": null,
       "example": "[ \n{ \"source\": \"OpenStreetMap\", \"id\": \"w1234\" }, \n{ \"source\": \"TIGER\", \"id\": \"110739476769\" } \n{ \"source\": \"ARNOLD\", \"id\": \"140\", \"begin_mi\": 2.3, \"end_mi\": 4.5}\n] ",
       "presence": {
-        "pedestrian": ["optional",null,null,null]
+        "open": ["optional",null,null,null],
+        "traffic_calming": ["optional",null,null,null]
+      }
+    },
+    {
+      "name": "prohibited_uses",
+      "description": "Specifies which types of users are legally prohibited from using the facility, based on the laws, policy, or signage on a facility (ex. \u201cE-bikes prohibited on this trail\u201d). Can provide one or multiple in list form.",
+      "type": "Array<Text>",
+      "listed_values": ["walk","bike","ebike class 1","ebike class 2","ebike class 3","scooter","NEV","motor_vehicle","other"],
+      "example": null,
+      "presence": {
+        "open": ["optional",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "allowed_uses",
+      "description": "Specifies exceptions to the usually prohibited users. Intended for designating whether bikes are allowed to use sidewalks, footways, and crossings for routing purposes.",
+      "type": "Array<Text>",
+      "listed_values": ["walk","bike","ebike class 1","ebike class 2","ebike class 3","scooter","NEV","motor_vehicle","other"],
+      "example": null,
+      "presence": {
+        "open": ["optional",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "last_inspection_date",
+      "description": "The date that this infrastructure was last inspected. Report in RFC 3339 format containing day, month and year, or just month and year or year if day or month is not available.",
+      "type": "Date",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "open": ["optional",null,null,null],
+        "traffic_calming": ["optional",null,null,null]
+      }
+    },
+    {
+      "name": "date_built",
+      "description": "Indicates when the facility was officially opened for use. If the facility has had a major remodeling where the structure, shape or another fundamental aspect was changed, the date of remodeling can be placed here. Report in RFC 3339 format containing day, month and year, or just month and year or year if day or month is not available.",
+      "type": "Date",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "open": ["optional",null,null,null],
+        "traffic_calming": ["recommended",null,null,null]
+      }
+    },
+    {
+      "name": "traffic_calming_type",
+      "description": "The type of traffic calming measure that is present in a traffic_calming zone. Recommended values are from https://www.ite.org/technical-resources/traffic-calming/traffic-calming-measures/ and https://wiki.openstreetmap.org/wiki/Key:traffic_calming.",
+      "type": "Enum",
+      "listed_values": ["bulbout","choker","chicane","mini roundabout","diagonal diverter","median barrier/forced turn island","raised intersection","realigned intersection","speed bump","speed hump","speed table","traffic circle"],
+      "example": null,
+      "presence": {
+        "open": ["forbidden",null,null,null],
+        "traffic_calming": ["required",null,null,null]
       }
     }
   ]

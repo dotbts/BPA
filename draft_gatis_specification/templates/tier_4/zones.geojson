@@ -5,9 +5,22 @@
             "type": "Feature",
             "properties": {
                 "zone_id": null,
-                "zone_type": "pedestrian",
+                "zone_type": "open",
                 "surface_material": null,
                 "facility_name": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "zone_id": null,
+                "zone_type": "traffic_calming",
+                "date_built": null,
+                "traffic_calming_type": null
             },
             "geometry": {
                 "coordinates": null,

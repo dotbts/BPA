@@ -50,7 +50,8 @@
                             "zone_type": {
                                 "type": "string",
                                 "enum": [
-                                    "pedestrian"
+                                    "open",
+                                    "traffic_calming"
                                 ]
                             },
                             "surface_material": {
@@ -94,6 +95,73 @@
                                     {
                                         "type": "null"
                                     }
+                                ]
+                            },
+                            "prohibited_uses": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "allowed_uses": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "last_inspection_date": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}$"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "date_built": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}$"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "traffic_calming_type": {
+                                "type": "string",
+                                "enum": [
+                                    "bulbout",
+                                    "choker",
+                                    "chicane",
+                                    "mini roundabout",
+                                    "diagonal diverter",
+                                    "median barrier/forced turn island",
+                                    "raised intersection",
+                                    "realigned intersection",
+                                    "speed bump",
+                                    "speed hump",
+                                    "speed table",
+                                    "traffic circle"
                                 ]
                             }
                         },

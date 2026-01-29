@@ -62,12 +62,12 @@
     "listed_values": null,
     "example": null
   },
-  "geo_bounding_box": {
+  "geo_bounding_area": {
     "presence": ["optional",null,"recommended",null],
-    "description": "Geospatial data describing the upper and lower latitudes and longitudes within which the data falls. Provide in format [min_longitude, min_latitude, max_longitude, max_latitude].",
-    "type": "Array<Float>",
+    "description": "Geospatial zone describing the area into which the data falls. This area may be an irregularly shaped polygon or a simple bounding box.",
+    "type": "Array<Object>",
     "listed_values": null,
-    "example": null
+    "example": "Polygon"
   },
   "keywords": {
     "presence": ["required",null,null,null],

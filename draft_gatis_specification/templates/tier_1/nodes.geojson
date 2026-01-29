@@ -5,7 +5,7 @@
             "type": "Feature",
             "properties": {
                 "node_id": null,
-                "node_type": "virtual"
+                "node_type": "generic"
             },
             "geometry": {
                 "coordinates": null,
@@ -18,7 +18,7 @@
                 "node_id": null,
                 "node_type": "curb_ramp",
                 "ada_compliance_date": null,
-                "ada_compliance_standard": null
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -29,9 +29,10 @@
             "type": "Feature",
             "properties": {
                 "node_id": null,
-                "node_type": "elevator",
+                "node_type": "sidewalk_to_ramp_transition",
+                "curb_ramp_system_id": null,
                 "ada_compliance_date": null,
-                "ada_compliance_standard": null
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -42,29 +43,10 @@
             "type": "Feature",
             "properties": {
                 "node_id": null,
-                "node_type": "transit_stop"
-            },
-            "geometry": {
-                "coordinates": null,
-                "type": "Point"
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "node_id": null,
-                "node_type": "issue"
-            },
-            "geometry": {
-                "coordinates": null,
-                "type": "Point"
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "node_id": null,
-                "node_type": "traffic_calming"
+                "node_type": "ramp_to_street_transition",
+                "curb_ramp_system_id": null,
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,

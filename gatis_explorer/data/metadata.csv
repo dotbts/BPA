@@ -9,7 +9,10 @@ date_created,Datetime,The date when this dataset was initially created,Tier 1,re
 contact_name,Text,The name of a person who can be contacted with questions or for further information about the data,Tier 4,optional
 contact_info,Text,The email address or phone number to reach someone who can answer questions or provide further information about the data,Tier 1,required
 license,URL,The license under which the data is published for use. URL linking to the license agreement; default value https://creativecommons.org/publicdomain/zero/1.0/.,Tier 1,required
-geo_bounding_box,Array<Float>,"Geospatial data describing the upper and lower latitudes and longitudes within which the data falls. Provide in format [min_longitude, min_latitude, max_longitude, max_latitude].",Tier 3,recommended
+geo_bounding_area,Array<Object>,"Geospatial zone describing the area into which the data falls. This area may be an irregularly shaped polygon or a simple bounding box.
+
+Example:
+Polygon",Tier 3,recommended
 keywords,Text,"A set of single words or short phrases that describe the content of the data
 For sidewalk network data: ""Sidewalks, sidewalk network, pedestrian infrastructure, accessibility, pedestrian.""
 For bike network data: ""Bicycle lanes, bicycle network, biking, bike infrastructure.""",Tier 1,required

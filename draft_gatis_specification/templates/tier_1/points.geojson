@@ -5,7 +5,115 @@
             "type": "Feature",
             "properties": {
                 "point_id": null,
-                "point_type": "object"
+                "point_type": "object",
+                "object_type": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "point_id": null,
+                "point_type": "sign"
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "point_id": null,
+                "point_type": "transit_stop",
+                "gtfs_agency_id": null,
+                "gtfs_stop_id": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "point_id": null,
+                "point_type": "issue"
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "point_id": null,
+                "point_type": "counter",
+                "counter_site_id": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "point_id": null,
+                "point_type": "bike_parking",
+                "parking_type": null,
+                "parking_id": null,
+                "parking_provider": null,
+                "parking_data_URL": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "point_id": null,
+                "point_type": "traffic_calming"
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "point_id": null,
+                "point_type": "pushbutton",
+                "last_inspection_date": null,
+                "date_built": null,
+                "ada_compliance_date": null,
+                "ada_compliant_with": null,
+                "actuation_type": null,
+                "crossing_time_sec": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "point_id": null,
+                "point_type": "detector",
+                "last_inspection_date": null,
+                "date_built": null,
+                "ada_compliance_date": null,
+                "ada_compliant_with": null,
+                "actuation_type": null,
+                "crossing_time_sec": null
             },
             "geometry": {
                 "coordinates": null,

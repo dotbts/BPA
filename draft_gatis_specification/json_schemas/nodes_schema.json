@@ -50,21 +50,24 @@
                             "node_type": {
                                 "type": "string",
                                 "enum": [
-                                    "virtual",
-                                    "curb_ramp",
-                                    "ramp",
-                                    "elevator",
-                                    "transit_stop",
-                                    "issue",
-                                    "traffic_calming"
+                                    "(Same as Node Types)"
+                                ]
+                            },
+                            "curb_ramp_system_id": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
                                 ]
                             },
                             "presence": {
                                 "type": "string",
                                 "enum": [
                                     "yes",
-                                    "no",
-                                    "missing",
+                                    "no | missing",
                                     "unknown"
                                 ]
                             },
@@ -101,7 +104,7 @@
                                     }
                                 ]
                             },
-                            "check_date": {
+                            "last_inspection_date": {
                                 "oneOf": [
                                     {
                                         "type": "string",
@@ -126,17 +129,8 @@
                                     "raised",
                                     "rolled",
                                     "flush",
-                                    "generic",
                                     "driveway",
                                     "other"
-                                ]
-                            },
-                            "ada_compliance": {
-                                "type": "string",
-                                "enum": [
-                                    "yes",
-                                    "no",
-                                    "unknown"
                                 ]
                             },
                             "ada_compliance_date": {
@@ -158,7 +152,7 @@
                                     }
                                 ]
                             },
-                            "ada_compliance_standard": {
+                            "ada_compliant_with": {
                                 "type": "string",
                                 "enum": [
                                     "2010",
@@ -172,7 +166,7 @@
                             "cross_slope": {
                                 "type": "number"
                             },
-                            "width": {
+                            "width_in": {
                                 "type": "number"
                             },
                             "ramp_type": {
@@ -199,10 +193,45 @@
                                 "items": {
                                     "type": "string",
                                     "enum": [
-                                        "Gates and flashing lights",
-                                        "flashing lights only",
-                                        "crossbucks or stop sign only",
-                                        "tactile markings",
+                                        "yes",
+                                        "no",
+                                        "cracking",
+                                        "scaling",
+                                        "spalling",
+                                        "uneven joints",
+                                        "displacement",
+                                        "frequent water pooling",
+                                        "heaving",
+                                        "missing bricks/stones",
+                                        "potholes/holes",
+                                        "slickness",
+                                        "detectable warning surface damage",
+                                        "longitudinal cracks and seams",
+                                        "metal plates",
+                                        "other"
+                                    ]
+                                }
+                            },
+                            "rail_crossing_control": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "yes",
+                                        "no",
+                                        "cracking",
+                                        "scaling",
+                                        "spalling",
+                                        "uneven joints",
+                                        "displacement",
+                                        "frequent water pooling",
+                                        "heaving",
+                                        "missing bricks/stones",
+                                        "potholes/holes",
+                                        "slickness",
+                                        "detectable warning surface damage",
+                                        "longitudinal cracks and seams",
+                                        "metal plates",
                                         "other"
                                     ]
                                 }
@@ -212,57 +241,24 @@
                                 "items": {
                                     "type": "string",
                                     "enum": [
-                                        "Gates and flashing lights",
-                                        "flashing lights only",
-                                        "crossbucks or stop sign only",
-                                        "tactile markings",
+                                        "yes",
+                                        "no",
+                                        "cracking",
+                                        "scaling",
+                                        "spalling",
+                                        "uneven joints",
+                                        "displacement",
+                                        "frequent water pooling",
+                                        "heaving",
+                                        "missing bricks/stones",
+                                        "potholes/holes",
+                                        "slickness",
+                                        "detectable warning surface damage",
+                                        "longitudinal cracks and seams",
+                                        "metal plates",
                                         "other"
                                     ]
                                 }
-                            },
-                            "rail_crossing": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "enum": [
-                                        "Gates and flashing lights",
-                                        "flashing lights only",
-                                        "crossbucks or stop sign only",
-                                        "tactile markings",
-                                        "other"
-                                    ]
-                                }
-                            },
-                            "gtfs_id": {
-                                "oneOf": [
-                                    {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "object",
-                                            "properties": {}
-                                        }
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
-                            },
-                            "traffic_calming_type": {
-                                "type": "string",
-                                "enum": [
-                                    "chicane",
-                                    "choker",
-                                    "closer",
-                                    "diagonal diverter",
-                                    "lateral shift",
-                                    "median barrier/forced turn island",
-                                    "median island",
-                                    "mini roundabout",
-                                    "raised intersection",
-                                    "realigned intersection",
-                                    "road diet",
-                                    "roundabout"
-                                ]
                             },
                             "status": {
                                 "type": "string",
@@ -270,7 +266,81 @@
                                     "open",
                                     "closed",
                                     "under construction",
+                                    "planned",
+                                    "unknown"
+                                ]
+                            },
+                            "other_issue": {
+                                "type": "string",
+                                "enum": [
+                                    "yes",
+                                    "no",
+                                    "detectable warning not aligned with crossing",
+                                    "push button not working",
+                                    "markings worn",
+                                    "markings missing",
+                                    "turning space missing",
                                     "other"
+                                ]
+                            },
+                            "last_inspection_type": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "lifecycle_stage": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "maintenance_schedule": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "planned_work": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "owner": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "maintainer": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
                                 ]
                             }
                         },

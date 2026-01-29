@@ -3,37 +3,93 @@
     "object": {
       "description": "A physical object that is likely to be of interest to travelers. Depending on the traveler, an object may be an amenity or an obstruction. Objects are represented as points and are not connected to the graph network. A buffer may be drawn around objects relevant to routing to create a node in the network at their location.",
       "tier": 3
+    },
+    "sign": {
+      "description": "A sign that conveys information about travel or infrastructure to bicyclists or pedestrians. The point shows the precise location of the sign.",
+      "tier": 4
+    },
+    "transit_stop": {
+      "description": "A point indicating the location of a transit stop of any kind.",
+      "tier": 3
+    },
+    "issue": {
+      "description": "A point indicating a particular spot that has an issue relevant to routing for some travelers. Issue points primarily mark points along edges that may be of concern, although they may be used in other locations. Note that the curb_ramp node type in Tiers 1 and 2 has the same impediment, surface_issue and other_issue attributes that can be used on issue points, so indicating these issues on the node itself is preferable. In Tiers 3 and 4, indicate curb ramp issues on the curb_ramp_runslope and curb_ramp_toplanding edges.",
+      "tier": 4
+    },
+    "counter": {
+      "description": "A point indicating the location of a camera, sensor, pneumatic tube, inductive loop, magnetometer or other mechanism for counting the number of bicyclists or pedestrians passing through a counting site. Only add a point of type \"counter\" to GATIS data when there is data available for that site through a count-specific dataset or specification. GATIS does not contain fields for properly describing counts data. If the data from the count-specific dataset or specification is in any format other than point, such as polygon or line, place the GATIS point in the middle of the polygon or line in the other specification. The counter_site_id field is the primary means of mapping the data between its source and GATIS.",
+      "tier": 3
+    },
+    "bike_parking": {
+      "description": "A point indicating the location of a bicycle or micromobility parking facility. This point type is provided primarily for integration with data from the General Bicycle Feed Specification or other third party specifications, though it may also be used to add data from any other dataset to GATIS.",
+      "tier": 4
+    },
+    "traffic_calming": {
+      "description": "Used to identify where traffic calming features are located. If possible, use the traffic_calming zone type to show the area affected by the feature. The traffic_calming point is available for when mapping of the area is not available.",
+      "tier": 3
+    },
+    "pushbutton": {
+      "description": "Identifies the location of a signal button, accessible pedestrian signal, or pedestrian or cyclist detector. The pushbutton point identifies the location of infrastructure that a traveler either can or must interact with to trigger a signal -- not the signal head. Within GATIS, signal heads are not mapped. See the Relations Table for more information on associating a pushbutton point with the crossing edge or edges it affects.",
+      "tier": 3
+    },
+    "detector": {
+      "description": "Identifies the location of a pedestrian or cyclist detector. The detector point identifies the location of the sensor -- not the signal head. Within GATIS, signal heads are not mapped. See the Relations Table for more information on associating a detector point with the crossing edge or edges it affects.",
+      "tier": 3
     }
   },
   "attributes": [
     {
       "name": "point_id",
-      "description": "A unique identifier for the point. [NOTE: We will fill in instructions here on how to generate IDs, and we will also provide a data validator that may be capable of validating and helping to fill in these IDs.] ",
+      "description": "A unique identifier for the point. \n\n[NOTE: We will fill in instructions here on how to generate IDs, and we will also provide a data validator that may be capable of validating and helping to fill in these IDs.] ",
       "type": "ID",
       "listed_values": null,
       "example": null,
       "presence": {
-        "object": ["required",null,null,null]
+        "object": ["required",null,null,null],
+        "sign": ["required",null,null,null],
+        "transit_stop": ["required",null,null,null],
+        "issue": ["required",null,null,null],
+        "counter": ["required",null,null,null],
+        "bike_parking": ["required",null,null,null],
+        "traffic_calming": ["required",null,null,null],
+        "pushbutton": ["required",null,null,null],
+        "detector": ["required",null,null,null]
       }
     },
     {
       "name": "point_type",
       "description": "Indicates the type of point.",
       "type": "Enum",
-      "listed_values": ["object"],
+      "listed_values": ["[Same as Point Types]"],
       "example": null,
       "presence": {
-        "object": ["required",null,null,null]
+        "object": ["required",null,null,null],
+        "sign": ["required",null,null,null],
+        "transit_stop": ["required",null,null,null],
+        "issue": ["required",null,null,null],
+        "counter": ["required",null,null,null],
+        "bike_parking": ["required",null,null,null],
+        "traffic_calming": ["required",null,null,null],
+        "pushbutton": ["required",null,null,null],
+        "detector": ["required",null,null,null]
       }
     },
     {
       "name": "object_type",
       "description": "Used to indicate objects that appear near the sidewalk or street space that, depending on the traveler, may be an amenity or an obstruction. Buffers around these points can be used to factor them into routing algorithms. If an object is on the pedestrian way, consider marking it with an issue node instead.",
       "type": "Text",
-      "listed_values": ["Bench","street lamp / lighting","waste basket","accessible restroom","inaccessible restroom","water fountain","parklet / kiosk","pet station"],
+      "listed_values": ["bench","lighting","wastebasket","restroom","water fountain","parklet / kiosk","pet station","transit stop bench","transit stop shelter","bicycle shop / repair","permanent bollards","removable bollards","gate","fencing"],
       "example": null,
       "presence": {
-        "object": ["optional",null,"recommended",null]
+        "object": ["required",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["forbidden",null,null,null],
+        "detector": ["forbidden",null,null,null]
       }
     },
     {
@@ -43,7 +99,537 @@
       "listed_values": null,
       "example": "[ \n{ \"source\": \"OpenStreetMap\", \"id\": \"w1234\" }, \n{ \"source\": \"TIGER\", \"id\": \"110739476769\" } \n{ \"source\": \"ARNOLD\", \"id\": \"140\", \"begin_mi\": 2.3, \"end_mi\": 4.5}\n] ",
       "presence": {
-        "object": ["optional",null,null,null]
+        "object": ["optional",null,null,null],
+        "sign": ["optional",null,null,null],
+        "transit_stop": ["optional",null,null,null],
+        "issue": ["optional",null,null,null],
+        "counter": ["optional",null,null,null],
+        "bike_parking": ["optional",null,null,null],
+        "traffic_calming": ["optional",null,null,null],
+        "pushbutton": ["optional",null,null,null],
+        "detector": ["optional",null,null,null]
+      }
+    },
+    {
+      "name": "accessibility_features",
+      "description": "Features available as part of this infrastructure for accessibility related to signage, digital signage, benches, kiosks, transit stops, etc.",
+      "type": "Array<Enum>",
+      "listed_values": ["braille_message","detectable_base","auditory_message","multilingual"],
+      "example": null,
+      "presence": {
+        "object": ["optional",null,null,null],
+        "sign": ["optional",null,null,null],
+        "transit_stop": ["optional",null,null,null],
+        "issue": ["optional",null,null,null],
+        "counter": ["optional",null,null,null],
+        "bike_parking": ["optional",null,null,null],
+        "traffic_calming": ["optional",null,null,null],
+        "pushbutton": ["optional",null,null,null],
+        "detector": ["optional",null,null,null]
+      }
+    },
+    {
+      "name": "sign_message",
+      "description": "Provides the text that appears on the sign. Include only the visible text, and do not wrap it in quotation marks or other punctuation. If this attribute is blank, ensure that the sign_name attribute is filled out, and vice versa.",
+      "type": "Text",
+      "listed_values": null,
+      "example": "State law: Stop for pedestrians in crosswalk",
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["optional",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["forbidden",null,null,null],
+        "detector": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "sign_association",
+      "description": "Indicates the GATIS ID of any infrastructure this sign refers to. For example, if a sign tells pedestrians that state law requires vehicles to yield to them in the crosswalk, this attribute can be used to indicate the GATIS ID of the specific crosswalk or crosswalks.",
+      "type": "Array<Object>",
+      "listed_values": null,
+      "example": "[12345, 23456]",
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["optional",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["forbidden",null,null,null],
+        "detector": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "sign_designation",
+      "description": "Indicates the type of sign as described within the MUTCD, within the \"Sign Designation\" field (https://mutcd.fhwa.dot.gov/kno-shs_2024-release-status/index.htm).",
+      "type": "Text",
+      "listed_values": null,
+      "example": "R9-5",
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["optional",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["forbidden",null,null,null],
+        "detector": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "sign_name",
+      "description": "Indicates the type of sign as described within the MUTCD, within the \"Sign Name\" field (https://mutcd.fhwa.dot.gov/kno-shs_2024-release-status/index.htm). Match the text exactly to what appears in MUTCD, including punctuation and spaces. If this attribute is blank, ensure that the sign_verbiage attribute is filled out, and vice versa.",
+      "type": "Text",
+      "listed_values": null,
+      "example": "Bicycles Use Pedestrian Signal",
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["optional",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["forbidden",null,null,null],
+        "detector": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "surface_issue",
+      "description": "Identifies the type of damage or surface quality issue that may pose a challenge for travelers.  ",
+      "type": "Array<Enum>",
+      "listed_values": ["cracking","scaling","spalling","uneven / displacement","frequent water pooling","heaving","missing bricks / stones","grates / utility covers / other surface impediments","potholes / holes","slickness","uneven joints","markings worn / missing","detectable warning surface damage","other"],
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["optional",null,null,null],
+        "issue": ["optional",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["optional",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["forbidden",null,null,null],
+        "detector": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "impediment",
+      "description": "Identifies the type of object that may pose a challenge for travelers passing through the area. Mark an issue with a node only if it is close enough to the footway or pedestrian way to potentially pose a challenge. \u201cHorizontal overgrowth\u201d refers to temporary obstruction at ground level, such as bushes or plants. \u201cVertical overgrowth\u201d refers to temporary obstruction between 25-80\" high, such as a branch or limb. \u201cFixed vertical obstruction\u201d refers to a permanent obstruction between 25-80\" high, such as a sign. \u201cSolid fixed object\u201d includes street furniture, planters and other objects that cannot be difficult to navigate around and are within the pedestrian way. \u201cFlexible fixed object\u201d refers to bollards and other objects that some travelers may be able to navigate around and that are within the pedestrian way. \u201cProtrusion\u201d refers to objects of any type that are primarily located out of the pedestrian way but have some portion of them that sticks out into the pedestrian space.",
+      "type": "Array<Text>",
+      "listed_values": ["yes","no","horizontal overgrowth","vertical overgrowth","fixed vertical obstruction","solid fixed object","flexible fixed object","protrusion","turning space missing or issue","detectable warning not aligned with crossing","push button not working","other"],
+      "example": null,
+      "presence": {
+        "object": ["optional",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["optional",null,null,null],
+        "issue": ["optional",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["optional",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["forbidden",null,null,null],
+        "detector": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "gtfs_agency_id",
+      "description": "The agency_id from the General Transit Feed Specification for the agency that maintains data about this stop. Both agency_id and stop_id must be provided. These IDs can be crosswalked with GTFS and TIDES data to obtain additional stop attributes and connect to the broader transit network. See GTFS documentation for more information.",
+      "type": "Text",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["required",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["forbidden",null,null,null],
+        "detector": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "gtfs_stop_id",
+      "description": "The stop_id from the General Transit Feed Specification for the agency that maintains data about this stop. Both agency_id and stop_id must be provided. These IDs can be crosswalked with GTFS and TIDES data to obtain additional stop attributes and connect to the broader transit network. See GTFS documentation for more information.",
+      "type": "Text",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["required",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["forbidden",null,null,null],
+        "detector": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "other_issue",
+      "description": "Identifies whether this point marks another type of issue that may pose a challenge for travelers, besides impediments and surface damage. Includes design, construction and other issue types.",
+      "type": "Enum",
+      "listed_values": ["yes","no","detectable warning not aligned with crossing","push button not working","markings worn","markings missing","turning space missing","other"],
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["optional",null,null,null],
+        "transit_stop": ["optional",null,null,null],
+        "issue": ["optional",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["optional",null,null,null],
+        "traffic_calming": ["optional",null,null,null],
+        "pushbutton": ["optional",null,null,null],
+        "detector": ["optional",null,null,null]
+      }
+    },
+    {
+      "name": "counter_site_id",
+      "description": "The identification number for this counter site within the source dataset.",
+      "type": "Text",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["required",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["forbidden",null,null,null],
+        "detector": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "counter_site_name",
+      "description": "The name for this counter site within the source dataset.",
+      "type": "Text",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["optional",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["forbidden",null,null,null],
+        "detector": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "counter_data_source",
+      "description": "The name of the specification or dataset from which data can be obtained about the counter and its results. For any point of type \"counter\", please ensure that either counter_data_source or counter_data_URL is filled out.",
+      "type": "Text",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["optional",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["forbidden",null,null,null],
+        "detector": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "counter_data_URL",
+      "description": "The URL for the dataset from which data can be obtained about the counter and its results. For any point of type \"counter,\" please ensure that either counter_data_source or counter_data_URL is filled out.",
+      "type": "URL",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["optional",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["forbidden",null,null,null],
+        "detector": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "counter_comments",
+      "description": "Any comments about the data or its source that are important for understanding how to access and crosswalk data about the counter site. For example, this field may be used to list multiple detector IDs located at the site. ",
+      "type": "Text",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["optional",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["forbidden",null,null,null],
+        "detector": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "parking_type",
+      "description": "The type of parking facility. ",
+      "type": "Enum",
+      "listed_values": ["bicycle","scooter","ebike","shared scooter","shared bicycle","shared ebike","other","other shared"],
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["required",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["forbidden",null,null,null],
+        "detector": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "parking_id",
+      "description": "The identification number for this parking site within the source dataset.",
+      "type": "Text",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["recommended",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["forbidden",null,null,null],
+        "detector": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "parking_provider",
+      "description": "The name of the provider of the parking services at this parking site. This attribute is most useful for shared micromobility, to identify the provider of the micromobility service.",
+      "type": "Text",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["recommended",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["forbidden",null,null,null],
+        "detector": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "parking_data_URL",
+      "description": "The URL for the dataset from which data can be obtained about this parking site.",
+      "type": "URL",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["recommended",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["forbidden",null,null,null],
+        "detector": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "last_inspection_date",
+      "description": "The date that this infrastructure was last inspected. Report in RFC 3339 format containing day, month and year, or just month and year or year if day or month is not available.",
+      "type": "Date",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["optional",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["optional",null,null,null],
+        "pushbutton": ["recommended",null,null,null],
+        "detector": ["recommended",null,null,null]
+      }
+    },
+    {
+      "name": "date_built",
+      "description": "Indicates when the facility was officially opened for use. If the facility has had a major remodeling where the structure, shape or another fundamental aspect was changed, the date of remodeling can be placed here. Report in RFC 3339 format containing day, month and year, or just month and year or year if day or month is not available.",
+      "type": "Date",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["optional",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["optional",null,null,null],
+        "traffic_calming": ["optional",null,null,null],
+        "pushbutton": ["recommended",null,null,null],
+        "detector": ["recommended",null,null,null]
+      }
+    },
+    {
+      "name": "ada_compliance_date",
+      "description": "Indicates the date when ADA compliance was assessed. Report in RFC 3339 format containing day, month and year, or just month and year or year if day or month is not available.. This field is conditionally required if \"ada_compliant_with\" is filled out.",
+      "type": "Date",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["recommended",null,null,null],
+        "detector": ["recommended",null,null,null]
+      }
+    },
+    {
+      "name": "ada_compliant_with",
+      "description": "If this infrastructure has been assessed for ADA compliance, the specific ADA guidelines or standards used in the assessment. Also fill out \"ada_compliance_date.\" If no ADA assessment is being reported, leave blank.",
+      "type": "Enum",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["recommended",null,null,null],
+        "detector": ["recommended",null,null,null]
+      }
+    },
+    {
+      "name": "button",
+      "description": "Whether or not a push button is present at the signal location. The button may or may not be functional; use the other_issue attribute to track if a button is not working.",
+      "type": "Enum",
+      "listed_values": ["yes","no","unknown"],
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["optional",null,null,null],
+        "detector": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "button_vert_height_in",
+      "description": "If a button is present, the vertical height in inches of the push button, measured from the ground to the bottom of the button.",
+      "type": "Integer",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["optional",null,null,null],
+        "detector": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "tactile_message",
+      "description": "What types of tactile information are available at the signal location to help pedestrians cross.",
+      "type": "Text",
+      "listed_values": ["arrow","vibration walk signal","minimap","other"],
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["optional",null,null,null],
+        "detector": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "auditory_message",
+      "description": "What auditory messages are available at the signal location. \u201cInformation message\u201d means any message that names the street being crossed or provides other geographical details. ",
+      "type": "Text",
+      "listed_values": ["auditory walk signal","information message","button locator tone","other"],
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["optional",null,null,null],
+        "detector": ["forbidden",null,null,null]
+      }
+    },
+    {
+      "name": "actuation_type",
+      "description": "What type of mechanism, if any, helps to identify that a pedestrian is at the crossing and wishes to cross. \u201cPedestrian actuated\u201d indicates that a push button can or must be pushed to call the signal. \u201cPedestrian auto-detected\u201d includes any kind of device that identifies the presence of a pedestrian and triggers the signal.",
+      "type": "Text",
+      "listed_values": ["Pedestrian actuated","pedestrian auto-detected","bike actuated","bike auto-detected","recall (no actuation or detection)","unknown"],
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["recommended",null,null,null],
+        "detector": ["recommended",null,null,null]
+      }
+    },
+    {
+      "name": "crossing_time_sec",
+      "description": "The time in whole seconds that the signal provides for pedestrians to cross the crossing. For signals that do not have a fixed crossing time, list the minimum time provided.",
+      "type": "Integer",
+      "listed_values": null,
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["forbidden",null,null,null],
+        "pushbutton": ["recommended",null,null,null],
+        "detector": ["recommended",null,null,null]
       }
     }
   ]

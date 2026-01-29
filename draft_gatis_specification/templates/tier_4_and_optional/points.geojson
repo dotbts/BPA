@@ -7,7 +7,162 @@
                 "point_id": null,
                 "point_type": "object",
                 "object_type": null,
-                "reference_ids": null
+                "reference_ids": null,
+                "accessibility_features": null,
+                "impediment": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "point_id": null,
+                "point_type": "sign",
+                "reference_ids": null,
+                "accessibility_features": null,
+                "sign_message": null,
+                "sign_association": null,
+                "sign_designation": null,
+                "sign_name": null,
+                "other_issue": null,
+                "last_inspection_date": null,
+                "date_built": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "point_id": null,
+                "point_type": "transit_stop",
+                "reference_ids": null,
+                "accessibility_features": null,
+                "surface_issue": null,
+                "impediment": null,
+                "gtfs_agency_id": null,
+                "gtfs_stop_id": null,
+                "other_issue": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "point_id": null,
+                "point_type": "issue",
+                "reference_ids": null,
+                "accessibility_features": null,
+                "surface_issue": null,
+                "impediment": null,
+                "other_issue": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "point_id": null,
+                "point_type": "counter",
+                "reference_ids": null,
+                "accessibility_features": null,
+                "counter_site_id": null,
+                "counter_site_name": null,
+                "counter_data_source": null,
+                "counter_data_URL": null,
+                "counter_comments": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "point_id": null,
+                "point_type": "bike_parking",
+                "reference_ids": null,
+                "accessibility_features": null,
+                "surface_issue": null,
+                "impediment": null,
+                "other_issue": null,
+                "parking_type": null,
+                "parking_id": null,
+                "parking_provider": null,
+                "parking_data_URL": null,
+                "date_built": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "point_id": null,
+                "point_type": "traffic_calming",
+                "reference_ids": null,
+                "accessibility_features": null,
+                "other_issue": null,
+                "last_inspection_date": null,
+                "date_built": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "point_id": null,
+                "point_type": "pushbutton",
+                "reference_ids": null,
+                "accessibility_features": null,
+                "other_issue": null,
+                "last_inspection_date": null,
+                "date_built": null,
+                "ada_compliance_date": null,
+                "ada_compliant_with": null,
+                "button": null,
+                "button_vert_height_in": null,
+                "tactile_message": null,
+                "auditory_message": null,
+                "actuation_type": null,
+                "crossing_time_sec": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "point_id": null,
+                "point_type": "detector",
+                "reference_ids": null,
+                "accessibility_features": null,
+                "other_issue": null,
+                "last_inspection_date": null,
+                "date_built": null,
+                "ada_compliance_date": null,
+                "ada_compliant_with": null,
+                "actuation_type": null,
+                "crossing_time_sec": null
             },
             "geometry": {
                 "coordinates": null,

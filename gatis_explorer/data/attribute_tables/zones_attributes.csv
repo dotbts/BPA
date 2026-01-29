@@ -1,25 +1,37 @@
 Name,Type,Description
-zone_id,ID,"A unique identifier for the zone. [NOTE: We will fill in instructions here on how to generate IDs, and we will also provide a data validator that may be capable of validating and helping to fill in these IDs.] "
+zone_id,ID,"A unique identifier for the zone. 
+
+[NOTE: We will fill in instructions here on how to generate IDs, and we will also provide a data validator that may be capable of validating and helping to fill in these IDs.] "
 zone_type,Enum,"Indicates the type of zone.
 
 Valid options:
-pedestrian"
+open
+traffic_calming"
 surface_material,Text,"Specifies the surface type. Select only one. Where the surface material changes, create a new zone.
 
 Recommended options:
-Asphalt; concrete; gravel; grass; dirt; paved; unpaved; grass_paver; paving_stones"
-facility_name,Text,"Common or formal name for the zone. Can also include descriptions of a portion of a larger pedestrian zone if the zone is being segmented.  
+asphalt
+concrete
+gravel
+grass
+dirt
+paved
+unpaved
+grass paver
+paving stones
+other"
+facility_name,Text,"Common or formal name for the zone. Can also include descriptions of a portion of a larger open zone (like a park or a plaza) if the zone is being segmented.  
 
 Example:
 ""Market Square"", ""21st Street Promenade"", ""Echo Park - West Side"""
-status,Enum,"Most recent operating status of the zone. Whether the infrastructure is open and available for use.
+status,Enum,"Most recent operating status of the zone. Whether the infrastructure is open and available for use. If blank, the assumed value is ""open.""
 
 Valid options:
 open
 closed
 under construction
 other"
-reference_ids,Array&lt;Object>,"Can be used to add reference IDs to other datasources such as OSM, OpenLR, ARNOLD, HMPS, TIGER, Census road network, OSM, etc.). Should be an array of JSONs with the source name and ID pair. Each JSON should contain an ID field and source field at minimum. Can add other attributes such as the beginning and ending milepost from a linear referencing system.
+reference_ids,Array&lt;Object>,"Can be used to add reference IDs to other datasources such as OSM, Overture, ARNOLD, HMPS, TIGER, Census road network, etc.). Should be an array of JSONs with the source name and ID pair. Each JSON should contain an ID field and source field at minimum. Can add other attributes such as the beginning and ending milepost from a linear referencing system.
 
 Example:
 [ 
@@ -27,3 +39,44 @@ Example:
 { ""source"": ""TIGER"", ""id"": ""110739476769"" } 
 { ""source"": ""ARNOLD"", ""id"": ""140"", ""begin_mi"": 2.3, ""end_mi"": 4.5}
 ] "
+prohibited_uses,Array&lt;Text>,"Specifies which types of users are legally prohibited from using the facility, based on the laws, policy, or signage on a facility (ex. “E-bikes prohibited on this trail”). Can provide one or multiple in list form.
+
+Recommended options:
+walk
+bike
+ebike class 1
+ebike class 2
+ebike class 3
+scooter
+NEV
+motor_vehicle
+other"
+allowed_uses,Array&lt;Text>,"Specifies exceptions to the usually prohibited users. Intended for designating whether bikes are allowed to use sidewalks, footways, and crossings for routing purposes.
+
+Recommended options:
+walk
+bike
+ebike class 1
+ebike class 2
+ebike class 3
+scooter
+NEV
+motor_vehicle
+other"
+last_inspection_date,Date,"The date that this infrastructure was last inspected. Report in RFC 3339 format containing day, month and year, or just month and year or year if day or month is not available."
+date_built,Date,"Indicates when the facility was officially opened for use. If the facility has had a major remodeling where the structure, shape or another fundamental aspect was changed, the date of remodeling can be placed here. Report in RFC 3339 format containing day, month and year, or just month and year or year if day or month is not available."
+traffic_calming_type,Enum,"The type of traffic calming measure that is present in a traffic_calming zone. Recommended values are from https://www.ite.org/technical-resources/traffic-calming/traffic-calming-measures/ and https://wiki.openstreetmap.org/wiki/Key:traffic_calming.
+
+Valid options:
+bulbout
+choker
+chicane
+mini roundabout
+diagonal diverter
+median barrier/forced turn island
+raised intersection
+realigned intersection
+speed bump
+speed hump
+speed table
+traffic circle"

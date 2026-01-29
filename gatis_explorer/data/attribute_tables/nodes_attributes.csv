@@ -1,23 +1,25 @@
 Name,Type,Description
-node_id,ID,"A unique identifier for the node. [NOTE: We will fill in instructions here on how to generate IDs, and we will also provide a data validator that may be capable of validating and helping to fill in these IDs.] "
+node_id,ID,"A unique identifier for the node. 
+
+[NOTE: We will fill in instructions here on how to generate IDs, and we will also provide a data validator that may be capable of validating and helping to fill in these IDs.] "
 node_type,Enum,"Indicates the type of node.
 
 Valid options:
-virtual
-curb_ramp
-ramp
-elevator
-transit_stop
-issue
-traffic_calming"
+(Same as Node Types)"
+curb_ramp_system_id,Text,"An identifier to link any nodes and/or edges that are involved in the same ""curb ramp system"", which we define as the network of elements that sidewalk users use to transition from a sidewalk to a crossing or other pedestrian edge. For clarity, use the same curb_ramp_system_id for all elements of the same ramp system. The ID can be any unique number to the system.  
+
+Curb ramp systems may include sidewalk edges, curb_ramp_toplanding, curb_ramp_runslope, and crosswalk edges; as well as sidewalk_to_ramp_transition, ramp_to_street_transition or generic nodes. 
+
+Example:
+ramp348971
+33"
 presence,Enum,"Indicates whether the piece of infrastructure exists or is present. When other attributes are provided, the existence of the infrastructure can be assumed. This attribute is useful for identifying where a curb ramp or other infrastructure might be missing or where its presence is unknown. Conditionally required if no other identifying attributes provided.
 
 Valid options:
 yes
-no
-missing
+no | missing
 unknown"
-reference_ids,Array&lt;Object>,"Can be used to add reference IDs to other datasources such as OSM, OpenLR, ARNOLD, HMPS, TIGER, Census road network, OSM, etc.). Should be an array of JSONs with the source name and ID pair. Each JSON should contain an ID field and source field at minimum. Can add other attributes such as the beginning and ending milepost from a linear referencing system.
+reference_ids,Array&lt;Object>,"Can be used to add reference IDs to other datasources such as OSM, OpenLR, ARNOLD, HMPS, TIGER, Census road network, OSM, etc.). Should be an array of JSONs with the source name and ID pair. Each JSON should contain an ID field and source field at minimum. 
 
 Example:
 [ 
@@ -25,12 +27,14 @@ Example:
 { ""source"": ""TIGER"", ""id"": ""110739476769"" } 
 { ""source"": ""ARNOLD"", ""id"": ""140"", ""begin_mi"": 2.3, ""end_mi"": 4.5}
 ] "
-date_built,Date,"When the facility was officially opened for use. If the facility has had a major remodeling where the structure, shape or another fundamental aspect was changed, the date of remodeling can be placed here. Report in RFC 3339 format containing day, month and year, or just month and year or year if day or month is not available.
+date_built,Date,"When the facility was officially opened for use. date_built represents the original opening date. Use the Events extension to record details about construction history, remodeling, removal and other physical changes.
+
+Report in RFC 3339 format containing day, month and year, or just month and year or year if day or month is not available.
 
 Example:
 2025-03
 2014"
-check_date,Date,"The date that this infrastructure was last inspected. Report in RFC 3339 format containing day, month and year, or just month and year or year if day or month is not available.
+last_inspection_date,Date,"The date that this infrastructure was last inspected. Report in RFC 3339 format containing day, month and year, or just month and year or year if day or month is not available.
 
 Example:
 2025-03
@@ -41,21 +45,14 @@ Valid options:
 raised
 rolled
 flush
-generic
 driveway
 other"
-ada_compliance,Enum,"States whether the piece of infrastructure was considered to be ADA compliant the last time it was officially assessed. This attribute should come from formal assessments and not be created using other available data (ex. Width, cross slope, etc.), since compliance status is based on many detailed, interacting factors. If ada_compliance is filled out, ada_compliance_date and ada_compliance_standard should also be filled out.
-
-Valid options:
-yes
-no
-unknown"
-ada_compliance_date,Date,"Indicates the date when ADA compliance was assessed. Report in RFC 3339 format containing day, month and year, or just month and year or year if day or month is not available. This field is conditionally required if ""ada_compliance"" is filled out.
+ada_compliance_date,Date,"Indicates the date when ADA compliance was assessed. Report in RFC 3339 format containing day, month and year, or just month and year or year if day or month is not available. This field is conditionally required if ""ada_compliant_with"" is filled out.
 
 Example:
 2025-03
 2014"
-ada_compliance_standard,Enum,"The specific ADA guidelines or standards used in the assessment of this infrastructure.  This field is conditionally required if ""ada_compliance_standard"" is filled out.
+ada_compliant_with,Enum,"If this infrastructure has been assessed for ADA compliance, the specific ADA guidelines or standards used in the assessment. Also fill out ""ada_compliance_date."" If no ADA assessment is being reported, leave blank.
 
 Valid options:
 2010
@@ -69,13 +66,20 @@ cross_slope,Float,"Indicates the cross slope of the ramp, which runs perpendicul
 
 Example:
 0.0325"
-width,Float,"Indicates the minimum width of the ramp, measured between the handrails if handrails are provided. Reported as a whole number rounded to the nearest inch."
+width_in,Float,"Indicates the minimum width of the ramp, measured between the handrails if handrails are provided. Reported as a whole number rounded to the nearest inch.
+
+Note that it is assumed that 80"" of height clearance is available for the full width given in this field."
 ramp_type,Text,"Indicates the orientation of the ramp in relation to the pedestrian direction of travel at the location. Where a double curb ramp exists, map each ramp as a separate curb_ramp node.
 
 Recommended options:
 diagonal
+directional
 parallel
 perpendicular
+built-up
+combination
+transition
+cut-through (median/island ramp)
 unknown"
 detectable_warning,Enum,"Describes whether tactile paving is present, and whether or not it has a constrasting color (which should meet ADA guidelines for the amount of contrast). 
 
@@ -84,39 +88,23 @@ tactile and contrasted
 tactile and not contrasted
 not tactile and contrasted
 no"
-impediment,Array&lt;Enum>,"Identifies the type of object that may pose a challenge for travelers passing through the area. Mark an issue with a node only if it is close enough to the footpath or pedestrian way to potentially pose a challenge. “Horizontal overgrowth” refers to temporary obstruction at ground level, such as bushes or plants. “Vertical overgrowth” refers to temporary obstruction between 25-80"" high, such as a branch or limb. “Fixed vertical obstruction” refers to a permanent obstruction between 25-80"" high, such as a sign. “Solid fixed object” includes street furniture, planters and other objects that cannot be difficult to navigate around and are within the pedestrian way. “Flexible fixed object” refers to bollards and other objects that some travelers may be able to navigate around and that are within the pedestrian way. “Protrusion” refers to objects of any type that are primarily located out of the pedestrian way but have some portion of them that sticks out into the pedestrian space.
+impediment,Array&lt;Enum>,"Identifies the presence of an object that may pose a challenge for travelers passing through this node. Mark a node with this attribute only if the impediment is close enough to the pedestrian way or bike path to potentially pose a challenge. If left blank, the assumed value for this attribute is “unknown.”
 
 Valid options:
 yes
 no
-horizontal overgrowth
-vertical overgrowth
-fixed vertical obstruction
-solid fixed object
-flexible fixed object
-protrusion
-turning space missing or issue
-detectable warning not aligned with crossing
-push button not working
-other"
-surface_issue,Array&lt;Enum>,"Identifies the type of damage or surface quality issue that may pose a challenge for travelers.  
-
-Valid options:
-Cracking
-scaling
-spalling
-uneven / displacement
-frequent water pooling
-heaving
-missing bricks / stones
-grates / utility covers / other surface impediments
-potholes / holes
-slickness
-uneven joints
-markings worn / missing
-detectable warning surface damage
-other"
-rail_crossing,Array&lt;Enum>,"Describes the pedestrian traffic warnings and controls in the approach to the rail crossing. The nodes mark the location of the controls on each side of the tracks. Mark the crossing itself as a virtual link (edge).
+low overgrowth (more than 48"" remaining)
+high overgrowth (less than 48"" remaining)
+sign
+low protrusion (more than 48"" remaining)
+high protrusion (less than 48"" remaining)
+utility cover
+stormwater grate
+metal plate
+metal decking (ex. on bridges)
+other surface impediment
+other impediment"
+rail_crossing_control,Array&lt;Enum>,"Describes the pedestrian traffic warnings and controls in the approach to the rail crossing. The nodes mark the location of the controls on each side of the tracks. Mark the crossing itself as a crossing edge with attribute rail_crossing=yes.
 
 Valid options:
 Gates and flashing lights
@@ -124,29 +112,61 @@ flashing lights only
 crossbucks or stop sign only
 tactile markings
 other"
-gtfs_id,Array&lt;Object>,"An array of objects containing keys for GTFS agency_id and stop_id from an existing GTFS dataset for this transit stop. Represent as string with the format ""{agency_id},{stop_id}"". These IDs can be crosswalked with GTFS and TIDES data to obtain additional stop attributes and connect to the broader transit network. See GTFS documentation for more information.
-
-Example:
-[{""agency_id"": ""1234"", ""stop_id"":""5678""}]"
-traffic_calming_type,Enum,"Used to identify traffic calming features on a road or crossing. Used when it makes more sense to model the traffic calming feature as a node instead of an edge. Recommended values are from https://www.ite.org/pub/?id=2a60c136-b1c0-b231-0522-ccbd075cac84  and https://wiki.openstreetmap.org/wiki/Key:traffic_calming
+surface_issue,Array&lt;Enum>,"Description of surface quality issues that may pose a challenge for travelers passing through this node.
 
 Valid options:
-chicane
-choker
-closer
-diagonal diverter
-lateral shift
-median barrier/forced turn island
-median island
-mini roundabout
-raised intersection
-realigned intersection
-road diet
-roundabout"
-status,Enum,"Most recent operating status of the node. Whether the infrastructure is open and available for use.
+yes
+no
+cracking
+scaling
+spalling
+uneven joints
+displacement
+frequent water pooling
+heaving
+missing bricks/stones
+potholes/holes
+slickness
+detectable warning surface damage
+longitudinal cracks and seams
+metal plates
+other"
+status,Enum,"Most recent operating status of the node. Whether the infrastructure is open and available for use. If left blank, status is assumed ""open""
 
 Valid options:
 open
 closed
 under construction
+planned
+unknown"
+other_issue,Enum,"Identifies whether this node has another type of issue that may pose a challenge for travelers, besides impediments and surface damage. Includes design, construction and other issue types.
+
+Valid options:
+yes
+no
+detectable warning not aligned with crossing
+push button not working
+markings worn
+markings missing
+turning space missing
 other"
+last_inspection_type,Text,"The type of inspection that was carried out on the piece of infrastructure, on the date listed under last_inspection_date.
+
+Recommended options:
+routine maintenance check
+ADA
+safety audit
+construction inspection
+post-crash audit
+other"
+lifecycle_stage,Text,"The lifecycle stage of this piece of infrastructure, as of the last_inspection_date.
+
+Recommended options:
+new
+operational
+nearing replacement
+replacement planned or in planning"
+maintenance_schedule,Text,"Description of the maintenance schedule, frequency of inspection, replacement schedule or other information about when the piece of infrastructure is maintained."
+planned_work,Text,"Description of any planned work ahead for the infrastructure. This may include plans for construction or remodeling, upcoming work orders or other types of planned improvements."
+owner,Text,"The entity that owns this piece of infrastructure. If a department, office or subagency is responsible for the infrastructure, list that department, office or subagency. "
+maintainer,Text,"The entity that is responsible for maintaining this piece of infrastructure. It may or may not be the same as owner. If a department, office or subagency is responsible for the infrastructure, list that department, office or subagency."

@@ -47,7 +47,7 @@ window.addEventListener("DOMContentLoaded", () => {
       csv_fp = "../data/types_index.csv";
       break;
     case "metadata_page":
-      csv_fp = "../data/metadata.csv";
+      csv_fp = "../data/Metadata.csv";
       order_array = true // order by required/recommended
   }
 
@@ -79,7 +79,8 @@ window.addEventListener("DOMContentLoaded", () => {
   // add the footer
   if (document.getElementById("std_footer")) {
     document.getElementById('std_footer').innerHTML = `
-      <p>
+    <div><img src="${img_fp}/resources/GATIS_logo.png" alt="GATIS logo" style="height:120px; align-items: center"></div>  
+    <p>
       Maintained by the
       <a href="https://github.com/dotbts/BPA" style="color:#d9e021">National Collaboration for Bicycle, Pedestrian, and Active Transportation Infrastructure Data (NC-BPAID)</a>
       </p>

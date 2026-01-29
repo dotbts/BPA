@@ -5,11 +5,32 @@
             "type": "Feature",
             "properties": {
                 "zone_id": null,
-                "zone_type": "pedestrian",
+                "zone_type": "open",
                 "surface_material": null,
                 "facility_name": null,
                 "status": null,
-                "reference_ids": null
+                "reference_ids": null,
+                "prohibited_uses": null,
+                "allowed_uses": null,
+                "last_inspection_date": null,
+                "date_built": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "zone_id": null,
+                "zone_type": "traffic_calming",
+                "surface_material": null,
+                "status": null,
+                "reference_ids": null,
+                "last_inspection_date": null,
+                "date_built": null,
+                "traffic_calming_type": null
             },
             "geometry": {
                 "coordinates": null,

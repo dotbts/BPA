@@ -1,0 +1,13 @@
+name: gatis-sample-data
+channels:
+  - conda-forge
+dependencies:
+  - osmnx # only needed for OSM stuff
+  - pandas
+  - geopandas
+  - ipykernel
+  - tqdm
+  - requests
+  - pyprojroot
+  - pip:
+    - esridump

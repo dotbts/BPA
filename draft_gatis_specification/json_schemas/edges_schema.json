@@ -47,20 +47,6 @@
                             "edge_id": {
                                 "type": "string"
                             },
-                            "road_associated": {
-                                "oneOf": [
-                                    {
-                                        "type": "string",
-                                        "enum": [
-                                            "yes",
-                                            "no"
-                                        ]
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
-                            },
                             "reference_ids": {
                                 "oneOf": [
                                     {
@@ -95,20 +81,20 @@
                                     }
                                 ]
                             },
+                            "curb_ramp_system_id": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
                             "edge_type": {
                                 "type": "string",
                                 "enum": [
-                                    "road",
-                                    "sidewalk",
-                                    "footpath",
-                                    "crossing",
-                                    "traffic_island",
-                                    "steps",
-                                    "escalator",
-                                    "bikeway",
-                                    "multi_use_path",
-                                    "trail",
-                                    "virtual_link"
+                                    "(Same as Edge Types)"
                                 ]
                             },
                             "from_node": {
@@ -125,17 +111,154 @@
                                     "both"
                                 ]
                             },
-                            "width": {
+                            "width_in": {
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "width_min": {
+                            "height_max_passable_in": {
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "width_tolerance": {
+                            "width_min_passable_in": {
                                 "type": "number",
                                 "minimum": 0
+                            },
+                            "width_tolerance_in": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "bridge": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "underpass_tunnel": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "overpass_skywalk": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "above_below_grade_ft": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "building_level": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "status": {
+                                "type": "string",
+                                "enum": [
+                                    "open",
+                                    "closed",
+                                    "under construction",
+                                    "proposed and funded",
+                                    "proposed - not yet funded",
+                                    "unknown"
+                                ]
+                            },
+                            "date_built": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}$"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "last_inspection_date": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}$"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "curb_height_in": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "official": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "presence": {
+                                "type": "string",
+                                "enum": [
+                                    "yes",
+                                    "no",
+                                    "missing",
+                                    "unknown"
+                                ]
+                            },
+                            "measured_length_ft": {
+                                "type": "number"
                             },
                             "bikeway_type": {
                                 "oneOf": [
@@ -166,12 +289,14 @@
                                 "enum": [
                                     "hard separator:  the separator cannot be easily bypassed by motor vehicles (jersey barriers",
                                     "curbs)",
+                                    "",
                                     "soft separator: the separator can be easily bypassed by motor vehicles (flex posts",
                                     "k-rail)",
+                                    "",
                                     "none: no separator is present (just paint separation)"
                                 ]
                             },
-                            "buffer_width": {
+                            "buffer_width_ft": {
                                 "type": "number"
                             },
                             "street_parking": {
@@ -182,33 +307,10 @@
                                     "floating: Also known as parking protected. Put this value if present regardless if parking is parallel/angled parking."
                                 ]
                             },
-                            "street_parking_buffer": {
+                            "street_parking_buffer_ft": {
                                 "type": "number"
                             },
-                            "traffic_volume": {
-                                "type": "number",
-                                "minimum": 0
-                            },
-                            "posted_speed_limit": {
-                                "type": "number",
-                                "minimum": 0
-                            },
-                            "car_freeflow_speed": {
-                                "type": "number",
-                                "minimum": 0
-                            },
-                            "thru_lanes": {
-                                "type": "number",
-                                "minimum": 0
-                            },
-                            "aux_lanes": {
-                                "type": "number",
-                                "minimum": 0
-                            },
-                            "shoulder_width": {
-                                "type": "number"
-                            },
-                            "roadway_centerline": {
+                            "wheel_channel": {
                                 "oneOf": [
                                     {
                                         "type": "string",
@@ -222,7 +324,36 @@
                                     }
                                 ]
                             },
-                            "bridge": {
+                            "traffic_volume": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "posted_speed_limit_mph": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "mv_freeflow_speed_mph": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "thru_lanes": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "aux_lanes": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "shoulder_width_in": {
+                                "type": "number"
+                            },
+                            "markings": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "roadway_centerline": {
                                 "oneOf": [
                                     {
                                         "type": "string",
@@ -255,9 +386,16 @@
                                 "items": {
                                     "type": "string",
                                     "enum": [
-                                        "scramble / all pedestrian",
+                                        "scramble / all pedestrian interval",
                                         "leading pedestrian interval",
-                                        "no right on red",
+                                        "no right on red for motor vehicles",
+                                        "automatic pedestrian recall",
+                                        "high visibility crosswalk markings",
+                                        "enhanced crosswalk lighting",
+                                        "advance stop / yield lines",
+                                        "additional signage",
+                                        "supplemental flashing beacon",
+                                        "other",
                                         "none",
                                         "unknown"
                                     ]
@@ -268,47 +406,94 @@
                                 "items": {
                                     "type": "string",
                                     "enum": [
-                                        "scramble / all pedestrian",
+                                        "scramble / all pedestrian interval",
                                         "leading pedestrian interval",
-                                        "no right on red",
+                                        "no right on red for motor vehicles",
+                                        "automatic pedestrian recall",
+                                        "high visibility crosswalk markings",
+                                        "enhanced crosswalk lighting",
+                                        "advance stop / yield lines",
+                                        "additional signage",
+                                        "supplemental flashing beacon",
+                                        "other",
                                         "none",
                                         "unknown"
                                     ]
                                 }
                             },
-                            "surface_material": {
+                            "restricted_access": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "vehicle_traffic_control": {
                                 "type": "string",
                                 "enum": [
-                                    "asphalt",
-                                    "concrete",
-                                    "gravel",
-                                    "grass",
-                                    "dirt",
-                                    "paved",
-                                    "unpaved",
-                                    "grass_paver",
-                                    "paving_stones",
+                                    "no vehicle control",
+                                    "traffic signal",
+                                    "flashing red light",
+                                    "flashing yellow light",
+                                    "yield sign",
+                                    "stop sign",
                                     "other"
                                 ]
                             },
-                            "surface_issue": {
-                                "oneOf": [
-                                    {
-                                        "type": "string"
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
+                            "cross_vehicle_traffic_control": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "scramble / all pedestrian interval",
+                                        "leading pedestrian interval",
+                                        "no right on red for motor vehicles",
+                                        "automatic pedestrian recall",
+                                        "high visibility crosswalk markings",
+                                        "enhanced crosswalk lighting",
+                                        "advance stop / yield lines",
+                                        "additional signage",
+                                        "supplemental flashing beacon",
+                                        "other",
+                                        "none",
+                                        "unknown"
+                                    ]
+                                }
                             },
-                            "status": {
+                            "ped_traffic_control": {
                                 "type": "string",
                                 "enum": [
-                                    "open",
-                                    "closed",
-                                    "under construction",
+                                    "no pedestrian control",
+                                    "pedestrian signal",
+                                    "pedestrian hybrid beacon / HAWK",
+                                    "rectangular rapid flashing beacon",
                                     "unknown"
                                 ]
+                            },
+                            "ped_protection": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "scramble / all pedestrian interval",
+                                        "leading pedestrian interval",
+                                        "no right on red for motor vehicles",
+                                        "automatic pedestrian recall",
+                                        "high visibility crosswalk markings",
+                                        "enhanced crosswalk lighting",
+                                        "advance stop / yield lines",
+                                        "additional signage",
+                                        "supplemental flashing beacon",
+                                        "other",
+                                        "none",
+                                        "unknown"
+                                    ]
+                                }
+                            },
+                            "traffic_calming": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
                             },
                             "seasonal": {
                                 "oneOf": [
@@ -324,19 +509,35 @@
                                     }
                                 ]
                             },
-                            "pedestrian_lane": {
+                            "surface_material": {
+                                "type": "string",
+                                "enum": [
+                                    "asphalt",
+                                    "concrete",
+                                    "gravel",
+                                    "grass",
+                                    "dirt",
+                                    "paved",
+                                    "unpaved",
+                                    "grass_paver",
+                                    "paving_stones",
+                                    "wood",
+                                    "other"
+                                ]
+                            },
+                            "surface_issue": {
                                 "oneOf": [
                                     {
-                                        "type": "string",
-                                        "enum": [
-                                            "yes",
-                                            "no"
-                                        ]
+                                        "type": "string"
                                     },
                                     {
                                         "type": "null"
                                     }
                                 ]
+                            },
+                            "pedestrian_lane": {
+                                "type": "string",
+                                "enum": []
                             },
                             "incline": {
                                 "type": "number"
@@ -346,14 +547,6 @@
                             },
                             "cross_slope_max": {
                                 "type": "number"
-                            },
-                            "ada_compliance": {
-                                "type": "string",
-                                "enum": [
-                                    "yes",
-                                    "no",
-                                    "unknown"
-                                ]
                             },
                             "ada_compliance_date": {
                                 "oneOf": [
@@ -374,7 +567,7 @@
                                     }
                                 ]
                             },
-                            "ada_compliance_standard": {
+                            "ada_compliant_with": {
                                 "type": "string",
                                 "enum": [
                                     "2010",
@@ -405,92 +598,7 @@
                                     }
                                 ]
                             },
-                            "wheel_channel": {
-                                "oneOf": [
-                                    {
-                                        "type": "string",
-                                        "enum": [
-                                            "yes",
-                                            "no"
-                                        ]
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
-                            },
-                            "date_built": {
-                                "oneOf": [
-                                    {
-                                        "type": "string",
-                                        "format": "date"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}$"
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
-                            },
-                            "check_date": {
-                                "oneOf": [
-                                    {
-                                        "type": "string",
-                                        "format": "date"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}$"
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
-                            },
-                            "traffic_calming": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
-                            },
-                            "curb_height": {
-                                "type": "number",
-                                "minimum": 0
-                            },
-                            "official": {
-                                "oneOf": [
-                                    {
-                                        "type": "string",
-                                        "enum": [
-                                            "yes",
-                                            "no"
-                                        ]
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
-                            },
-                            "presence": {
-                                "type": "string",
-                                "enum": [
-                                    "yes",
-                                    "no",
-                                    "missing",
-                                    "unknown"
-                                ]
-                            },
-                            "rail": {
+                            "rail_crossing": {
                                 "oneOf": [
                                     {
                                         "type": "string",
@@ -514,7 +622,7 @@
                                     }
                                 ]
                             },
-                            "detectable_warning": {
+                            "tactile_marking": {
                                 "type": "string",
                                 "enum": [
                                     "yes",
@@ -522,57 +630,130 @@
                                     "unknown"
                                 ]
                             },
-                            "vehicle_traffic_control": {
-                                "type": "string",
-                                "enum": [
-                                    "uncontrolled",
-                                    "standard signal",
-                                    "flashing red signal",
-                                    "flashing yellow signal",
-                                    "yield sign",
-                                    "stop sign"
+                            "other_issue": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
                                 ]
                             },
-                            "cross_vehicle_traffic_control": {
+                            "lrs_references": {
                                 "type": "array",
                                 "items": {
-                                    "type": "string",
-                                    "enum": [
-                                        "scramble / all pedestrian",
-                                        "leading pedestrian interval",
-                                        "no right on red",
-                                        "none",
-                                        "unknown"
-                                    ]
+                                    "type": "string"
                                 }
                             },
-                            "ped_traffic_control": {
-                                "type": "string",
-                                "enum": [
-                                    "Uncontrolled",
-                                    "standard signal",
-                                    "flashing red signal",
-                                    "flashing yellow signal",
-                                    "pedestrian hybrid beacon / HAWK",
-                                    "rectangular rapid flashing beacon",
-                                    "yield sign",
-                                    "stop sign"
+                            "last_inspection_type": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
                                 ]
                             },
-                            "ped_protection": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "enum": [
-                                        "scramble / all pedestrian",
-                                        "leading pedestrian interval",
-                                        "no right on red",
-                                        "none",
-                                        "unknown"
-                                    ]
-                                }
+                            "lifecycle_stage": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
                             },
-                            "measured_length": {
+                            "maintenance_schedule": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "planned_work": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "owner": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "maintainer": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "lighting": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bike_dismount_area": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "detectable_warning": {
+                                "type": "string",
+                                "enum": [
+                                    "tactile and contrasted",
+                                    "tactile and not contrasted",
+                                    "not tactile and contrasted",
+                                    "no"
+                                ]
+                            },
+                            "ramp_type": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "ramp_length": {
                                 "type": "number"
                             },
                             "sidewalk:left:presence": {
@@ -608,6 +789,16 @@
                                     }
                                 ]
                             },
+                            "sidewalk:left:curb_ramp_system_id": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
                             "sidewalk:left:directionality": {
                                 "type": "string",
                                 "enum": [
@@ -616,90 +807,61 @@
                                     "both"
                                 ]
                             },
-                            "sidewalk:left:width": {
+                            "sidewalk:left:width_in": {
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "sidewalk:left:width_min": {
+                            "sidewalk:left:height_max_passable_in": {
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "sidewalk:left:width_tolerance": {
+                            "sidewalk:left:width_min_passable_in": {
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "sidewalk:left:separation_elements": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
+                            "sidewalk:left:width_tolerance_in": {
+                                "type": "number",
+                                "minimum": 0
                             },
-                            "sidewalk:left:separation_permeable_car": {
-                                "type": "string",
-                                "enum": [
-                                    "hard separator:  the separator cannot be easily bypassed by motor vehicles (jersey barriers",
-                                    "curbs)",
-                                    "soft separator: the separator can be easily bypassed by motor vehicles (flex posts",
-                                    "k-rail)",
-                                    "none: no separator is present (just paint separation)"
+                            "sidewalk:left:underpass_tunnel": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
                                 ]
                             },
-                            "sidewalk:left:buffer_width": {
-                                "type": "number"
-                            },
-                            "sidewalk:left:street_parking": {
-                                "type": "string",
-                                "enum": [
-                                    "parallel",
-                                    "angled",
-                                    "floating: Also known as parking protected. Put this value if present regardless if parking is parallel/angled parking."
+                            "sidewalk:left:overpass_skywalk": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
                                 ]
                             },
-                            "sidewalk:left:street_parking_buffer": {
-                                "type": "number"
-                            },
-                            "sidewalk:left:prohibited_uses": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "enum": [
-                                        "scramble / all pedestrian",
-                                        "leading pedestrian interval",
-                                        "no right on red",
-                                        "none",
-                                        "unknown"
-                                    ]
-                                }
-                            },
-                            "sidewalk:left:allowed_uses": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "enum": [
-                                        "scramble / all pedestrian",
-                                        "leading pedestrian interval",
-                                        "no right on red",
-                                        "none",
-                                        "unknown"
-                                    ]
-                                }
-                            },
-                            "sidewalk:left:surface_material": {
-                                "type": "string",
-                                "enum": [
-                                    "asphalt",
-                                    "concrete",
-                                    "gravel",
-                                    "grass",
-                                    "dirt",
-                                    "paved",
-                                    "unpaved",
-                                    "grass_paver",
-                                    "paving_stones",
-                                    "other"
+                            "sidewalk:left:above_below_grade_ft": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
                                 ]
                             },
-                            "sidewalk:left:surface_issue": {
+                            "sidewalk:left:building_level": {
                                 "oneOf": [
                                     {
                                         "type": "string"
@@ -715,85 +877,10 @@
                                     "open",
                                     "closed",
                                     "under construction",
+                                    "proposed and funded",
+                                    "proposed - not yet funded",
                                     "unknown"
                                 ]
-                            },
-                            "sidewalk:left:seasonal": {
-                                "oneOf": [
-                                    {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "object",
-                                            "properties": {}
-                                        }
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
-                            },
-                            "sidewalk:left:pedestrian_lane": {
-                                "oneOf": [
-                                    {
-                                        "type": "string",
-                                        "enum": [
-                                            "yes",
-                                            "no"
-                                        ]
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
-                            },
-                            "sidewalk:left:incline": {
-                                "type": "number"
-                            },
-                            "sidewalk:left:cross_slope": {
-                                "type": "number"
-                            },
-                            "sidewalk:left:cross_slope_max": {
-                                "type": "number"
-                            },
-                            "sidewalk:left:ada_compliance": {
-                                "type": "string",
-                                "enum": [
-                                    "yes",
-                                    "no",
-                                    "unknown"
-                                ]
-                            },
-                            "sidewalk:left:ada_compliance_date": {
-                                "oneOf": [
-                                    {
-                                        "type": "string",
-                                        "format": "date"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}$"
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
-                            },
-                            "sidewalk:left:ada_compliance_standard": {
-                                "type": "string",
-                                "enum": [
-                                    "2010",
-                                    "PROWAG"
-                                ]
-                            },
-                            "sidewalk:left:impediment": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
                             },
                             "sidewalk:left:date_built": {
                                 "oneOf": [
@@ -814,7 +901,7 @@
                                     }
                                 ]
                             },
-                            "sidewalk:left:check_date": {
+                            "sidewalk:left:last_inspection_date": {
                                 "oneOf": [
                                     {
                                         "type": "string",
@@ -833,7 +920,124 @@
                                     }
                                 ]
                             },
-                            "sidewalk:left:visual_markings": {
+                            "sidewalk:left:measured_length_ft": {
+                                "type": "number"
+                            },
+                            "sidewalk:left:separation_elements": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "sidewalk:left:separation_permeable_car": {
+                                "type": "string",
+                                "enum": [
+                                    "hard separator:  the separator cannot be easily bypassed by motor vehicles (jersey barriers",
+                                    "curbs)",
+                                    "",
+                                    "soft separator: the separator can be easily bypassed by motor vehicles (flex posts",
+                                    "k-rail)",
+                                    "",
+                                    "none: no separator is present (just paint separation)"
+                                ]
+                            },
+                            "sidewalk:left:buffer_width_ft": {
+                                "type": "number"
+                            },
+                            "sidewalk:left:street_parking": {
+                                "type": "string",
+                                "enum": [
+                                    "parallel",
+                                    "angled",
+                                    "floating: Also known as parking protected. Put this value if present regardless if parking is parallel/angled parking."
+                                ]
+                            },
+                            "sidewalk:left:street_parking_buffer_ft": {
+                                "type": "number"
+                            },
+                            "sidewalk:left:markings": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "sidewalk:left:prohibited_uses": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "scramble / all pedestrian interval",
+                                        "leading pedestrian interval",
+                                        "no right on red for motor vehicles",
+                                        "automatic pedestrian recall",
+                                        "high visibility crosswalk markings",
+                                        "enhanced crosswalk lighting",
+                                        "advance stop / yield lines",
+                                        "additional signage",
+                                        "supplemental flashing beacon",
+                                        "other",
+                                        "none",
+                                        "unknown"
+                                    ]
+                                }
+                            },
+                            "sidewalk:left:allowed_uses": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "scramble / all pedestrian interval",
+                                        "leading pedestrian interval",
+                                        "no right on red for motor vehicles",
+                                        "automatic pedestrian recall",
+                                        "high visibility crosswalk markings",
+                                        "enhanced crosswalk lighting",
+                                        "advance stop / yield lines",
+                                        "additional signage",
+                                        "supplemental flashing beacon",
+                                        "other",
+                                        "none",
+                                        "unknown"
+                                    ]
+                                }
+                            },
+                            "sidewalk:left:restricted_access": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "sidewalk:left:seasonal": {
+                                "oneOf": [
+                                    {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {}
+                                        }
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:left:surface_material": {
+                                "type": "string",
+                                "enum": [
+                                    "asphalt",
+                                    "concrete",
+                                    "gravel",
+                                    "grass",
+                                    "dirt",
+                                    "paved",
+                                    "unpaved",
+                                    "grass_paver",
+                                    "paving_stones",
+                                    "wood",
+                                    "other"
+                                ]
+                            },
+                            "sidewalk:left:surface_issue": {
                                 "oneOf": [
                                     {
                                         "type": "string"
@@ -843,7 +1047,52 @@
                                     }
                                 ]
                             },
-                            "sidewalk:left:detectable_warning": {
+                            "sidewalk:left:pedestrian_lane": {
+                                "type": "string",
+                                "enum": []
+                            },
+                            "sidewalk:left:incline": {
+                                "type": "number"
+                            },
+                            "sidewalk:left:cross_slope": {
+                                "type": "number"
+                            },
+                            "sidewalk:left:cross_slope_max": {
+                                "type": "number"
+                            },
+                            "sidewalk:left:ada_compliance_date": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}$"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:left:ada_compliant_with": {
+                                "type": "string",
+                                "enum": [
+                                    "2010",
+                                    "PROWAG"
+                                ]
+                            },
+                            "sidewalk:left:impediment": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "sidewalk:left:tactile_marking": {
                                 "type": "string",
                                 "enum": [
                                     "yes",
@@ -851,8 +1100,118 @@
                                     "unknown"
                                 ]
                             },
-                            "sidewalk:left:measured_length": {
-                                "type": "number"
+                            "sidewalk:left:other_issue": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:left:lrs_references": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "sidewalk:left:last_inspection_type": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:left:lifecycle_stage": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:left:maintenance_schedule": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:left:planned_work": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:left:owner": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:left:maintainer": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:left:lighting": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:left:bike_dismount_area": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:left:detectable_warning": {
+                                "type": "string",
+                                "enum": [
+                                    "tactile and contrasted",
+                                    "tactile and not contrasted",
+                                    "not tactile and contrasted",
+                                    "no"
+                                ]
                             },
                             "sidewalk:right:presence": {
                                 "type": "string",
@@ -887,6 +1246,16 @@
                                     }
                                 ]
                             },
+                            "sidewalk:right:curb_ramp_system_id": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
                             "sidewalk:right:directionality": {
                                 "type": "string",
                                 "enum": [
@@ -895,90 +1264,61 @@
                                     "both"
                                 ]
                             },
-                            "sidewalk:right:width": {
+                            "sidewalk:right:width_in": {
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "sidewalk:right:width_min": {
+                            "sidewalk:right:height_max_passable_in": {
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "sidewalk:right:width_tolerance": {
+                            "sidewalk:right:width_min_passable_in": {
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "sidewalk:right:separation_elements": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
+                            "sidewalk:right:width_tolerance_in": {
+                                "type": "number",
+                                "minimum": 0
                             },
-                            "sidewalk:right:separation_permeable_car": {
-                                "type": "string",
-                                "enum": [
-                                    "hard separator:  the separator cannot be easily bypassed by motor vehicles (jersey barriers",
-                                    "curbs)",
-                                    "soft separator: the separator can be easily bypassed by motor vehicles (flex posts",
-                                    "k-rail)",
-                                    "none: no separator is present (just paint separation)"
+                            "sidewalk:right:underpass_tunnel": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
                                 ]
                             },
-                            "sidewalk:right:buffer_width": {
-                                "type": "number"
-                            },
-                            "sidewalk:right:street_parking": {
-                                "type": "string",
-                                "enum": [
-                                    "parallel",
-                                    "angled",
-                                    "floating: Also known as parking protected. Put this value if present regardless if parking is parallel/angled parking."
+                            "sidewalk:right:overpass_skywalk": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
                                 ]
                             },
-                            "sidewalk:right:street_parking_buffer": {
-                                "type": "number"
-                            },
-                            "sidewalk:right:prohibited_uses": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "enum": [
-                                        "scramble / all pedestrian",
-                                        "leading pedestrian interval",
-                                        "no right on red",
-                                        "none",
-                                        "unknown"
-                                    ]
-                                }
-                            },
-                            "sidewalk:right:allowed_uses": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "enum": [
-                                        "scramble / all pedestrian",
-                                        "leading pedestrian interval",
-                                        "no right on red",
-                                        "none",
-                                        "unknown"
-                                    ]
-                                }
-                            },
-                            "sidewalk:right:surface_material": {
-                                "type": "string",
-                                "enum": [
-                                    "asphalt",
-                                    "concrete",
-                                    "gravel",
-                                    "grass",
-                                    "dirt",
-                                    "paved",
-                                    "unpaved",
-                                    "grass_paver",
-                                    "paving_stones",
-                                    "other"
+                            "sidewalk:right:above_below_grade_ft": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
                                 ]
                             },
-                            "sidewalk:right:surface_issue": {
+                            "sidewalk:right:building_level": {
                                 "oneOf": [
                                     {
                                         "type": "string"
@@ -994,85 +1334,10 @@
                                     "open",
                                     "closed",
                                     "under construction",
+                                    "proposed and funded",
+                                    "proposed - not yet funded",
                                     "unknown"
                                 ]
-                            },
-                            "sidewalk:right:seasonal": {
-                                "oneOf": [
-                                    {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "object",
-                                            "properties": {}
-                                        }
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
-                            },
-                            "sidewalk:right:pedestrian_lane": {
-                                "oneOf": [
-                                    {
-                                        "type": "string",
-                                        "enum": [
-                                            "yes",
-                                            "no"
-                                        ]
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
-                            },
-                            "sidewalk:right:incline": {
-                                "type": "number"
-                            },
-                            "sidewalk:right:cross_slope": {
-                                "type": "number"
-                            },
-                            "sidewalk:right:cross_slope_max": {
-                                "type": "number"
-                            },
-                            "sidewalk:right:ada_compliance": {
-                                "type": "string",
-                                "enum": [
-                                    "yes",
-                                    "no",
-                                    "unknown"
-                                ]
-                            },
-                            "sidewalk:right:ada_compliance_date": {
-                                "oneOf": [
-                                    {
-                                        "type": "string",
-                                        "format": "date"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}$"
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
-                            },
-                            "sidewalk:right:ada_compliance_standard": {
-                                "type": "string",
-                                "enum": [
-                                    "2010",
-                                    "PROWAG"
-                                ]
-                            },
-                            "sidewalk:right:impediment": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
                             },
                             "sidewalk:right:date_built": {
                                 "oneOf": [
@@ -1093,7 +1358,7 @@
                                     }
                                 ]
                             },
-                            "sidewalk:right:check_date": {
+                            "sidewalk:right:last_inspection_date": {
                                 "oneOf": [
                                     {
                                         "type": "string",
@@ -1112,7 +1377,124 @@
                                     }
                                 ]
                             },
-                            "sidewalk:right:visual_markings": {
+                            "sidewalk:right:measured_length_ft": {
+                                "type": "number"
+                            },
+                            "sidewalk:right:separation_elements": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "sidewalk:right:separation_permeable_car": {
+                                "type": "string",
+                                "enum": [
+                                    "hard separator:  the separator cannot be easily bypassed by motor vehicles (jersey barriers",
+                                    "curbs)",
+                                    "",
+                                    "soft separator: the separator can be easily bypassed by motor vehicles (flex posts",
+                                    "k-rail)",
+                                    "",
+                                    "none: no separator is present (just paint separation)"
+                                ]
+                            },
+                            "sidewalk:right:buffer_width_ft": {
+                                "type": "number"
+                            },
+                            "sidewalk:right:street_parking": {
+                                "type": "string",
+                                "enum": [
+                                    "parallel",
+                                    "angled",
+                                    "floating: Also known as parking protected. Put this value if present regardless if parking is parallel/angled parking."
+                                ]
+                            },
+                            "sidewalk:right:street_parking_buffer_ft": {
+                                "type": "number"
+                            },
+                            "sidewalk:right:markings": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "sidewalk:right:prohibited_uses": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "scramble / all pedestrian interval",
+                                        "leading pedestrian interval",
+                                        "no right on red for motor vehicles",
+                                        "automatic pedestrian recall",
+                                        "high visibility crosswalk markings",
+                                        "enhanced crosswalk lighting",
+                                        "advance stop / yield lines",
+                                        "additional signage",
+                                        "supplemental flashing beacon",
+                                        "other",
+                                        "none",
+                                        "unknown"
+                                    ]
+                                }
+                            },
+                            "sidewalk:right:allowed_uses": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "scramble / all pedestrian interval",
+                                        "leading pedestrian interval",
+                                        "no right on red for motor vehicles",
+                                        "automatic pedestrian recall",
+                                        "high visibility crosswalk markings",
+                                        "enhanced crosswalk lighting",
+                                        "advance stop / yield lines",
+                                        "additional signage",
+                                        "supplemental flashing beacon",
+                                        "other",
+                                        "none",
+                                        "unknown"
+                                    ]
+                                }
+                            },
+                            "sidewalk:right:restricted_access": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "sidewalk:right:seasonal": {
+                                "oneOf": [
+                                    {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {}
+                                        }
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:right:surface_material": {
+                                "type": "string",
+                                "enum": [
+                                    "asphalt",
+                                    "concrete",
+                                    "gravel",
+                                    "grass",
+                                    "dirt",
+                                    "paved",
+                                    "unpaved",
+                                    "grass_paver",
+                                    "paving_stones",
+                                    "wood",
+                                    "other"
+                                ]
+                            },
+                            "sidewalk:right:surface_issue": {
                                 "oneOf": [
                                     {
                                         "type": "string"
@@ -1122,7 +1504,52 @@
                                     }
                                 ]
                             },
-                            "sidewalk:right:detectable_warning": {
+                            "sidewalk:right:pedestrian_lane": {
+                                "type": "string",
+                                "enum": []
+                            },
+                            "sidewalk:right:incline": {
+                                "type": "number"
+                            },
+                            "sidewalk:right:cross_slope": {
+                                "type": "number"
+                            },
+                            "sidewalk:right:cross_slope_max": {
+                                "type": "number"
+                            },
+                            "sidewalk:right:ada_compliance_date": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}$"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:right:ada_compliant_with": {
+                                "type": "string",
+                                "enum": [
+                                    "2010",
+                                    "PROWAG"
+                                ]
+                            },
+                            "sidewalk:right:impediment": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "sidewalk:right:tactile_marking": {
                                 "type": "string",
                                 "enum": [
                                     "yes",
@@ -1130,8 +1557,118 @@
                                     "unknown"
                                 ]
                             },
-                            "sidewalk:right:measured_length": {
-                                "type": "number"
+                            "sidewalk:right:other_issue": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:right:lrs_references": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "sidewalk:right:last_inspection_type": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:right:lifecycle_stage": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:right:maintenance_schedule": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:right:planned_work": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:right:owner": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:right:maintainer": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:right:lighting": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:right:bike_dismount_area": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sidewalk:right:detectable_warning": {
+                                "type": "string",
+                                "enum": [
+                                    "tactile and contrasted",
+                                    "tactile and not contrasted",
+                                    "not tactile and contrasted",
+                                    "no"
+                                ]
                             },
                             "bikeway:left:presence": {
                                 "type": "string",
@@ -1174,17 +1711,121 @@
                                     "both"
                                 ]
                             },
-                            "bikeway:left:width": {
+                            "bikeway:left:width_in": {
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "bikeway:left:width_min": {
+                            "bikeway:left:height_max_passable_in": {
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "bikeway:left:width_tolerance": {
+                            "bikeway:left:width_min_passable_in": {
                                 "type": "number",
                                 "minimum": 0
+                            },
+                            "bikeway:left:width_tolerance_in": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "bikeway:left:underpass_tunnel": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:left:overpass_skywalk": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:left:above_below_grade_ft": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:left:building_level": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:left:status": {
+                                "type": "string",
+                                "enum": [
+                                    "open",
+                                    "closed",
+                                    "under construction",
+                                    "proposed and funded",
+                                    "proposed - not yet funded",
+                                    "unknown"
+                                ]
+                            },
+                            "bikeway:left:date_built": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}$"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:left:last_inspection_date": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}$"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:left:measured_length_ft": {
+                                "type": "number"
                             },
                             "bikeway:left:bikeway_type": {
                                 "oneOf": [
@@ -1215,12 +1856,14 @@
                                 "enum": [
                                     "hard separator:  the separator cannot be easily bypassed by motor vehicles (jersey barriers",
                                     "curbs)",
+                                    "",
                                     "soft separator: the separator can be easily bypassed by motor vehicles (flex posts",
                                     "k-rail)",
+                                    "",
                                     "none: no separator is present (just paint separation)"
                                 ]
                             },
-                            "bikeway:left:buffer_width": {
+                            "bikeway:left:buffer_width_ft": {
                                 "type": "number"
                             },
                             "bikeway:left:street_parking": {
@@ -1231,21 +1874,34 @@
                                     "floating: Also known as parking protected. Put this value if present regardless if parking is parallel/angled parking."
                                 ]
                             },
-                            "bikeway:left:street_parking_buffer": {
+                            "bikeway:left:street_parking_buffer_ft": {
                                 "type": "number"
                             },
-                            "bikeway:left:posted_speed_limit": {
+                            "bikeway:left:posted_speed_limit_mph": {
                                 "type": "number",
                                 "minimum": 0
+                            },
+                            "bikeway:left:markings": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
                             },
                             "bikeway:left:prohibited_uses": {
                                 "type": "array",
                                 "items": {
                                     "type": "string",
                                     "enum": [
-                                        "scramble / all pedestrian",
+                                        "scramble / all pedestrian interval",
                                         "leading pedestrian interval",
-                                        "no right on red",
+                                        "no right on red for motor vehicles",
+                                        "automatic pedestrian recall",
+                                        "high visibility crosswalk markings",
+                                        "enhanced crosswalk lighting",
+                                        "advance stop / yield lines",
+                                        "additional signage",
+                                        "supplemental flashing beacon",
+                                        "other",
                                         "none",
                                         "unknown"
                                     ]
@@ -1256,13 +1912,40 @@
                                 "items": {
                                     "type": "string",
                                     "enum": [
-                                        "scramble / all pedestrian",
+                                        "scramble / all pedestrian interval",
                                         "leading pedestrian interval",
-                                        "no right on red",
+                                        "no right on red for motor vehicles",
+                                        "automatic pedestrian recall",
+                                        "high visibility crosswalk markings",
+                                        "enhanced crosswalk lighting",
+                                        "advance stop / yield lines",
+                                        "additional signage",
+                                        "supplemental flashing beacon",
+                                        "other",
                                         "none",
                                         "unknown"
                                     ]
                                 }
+                            },
+                            "bikeway:left:restricted_access": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "bikeway:left:seasonal": {
+                                "oneOf": [
+                                    {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {}
+                                        }
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
                             },
                             "bikeway:left:surface_material": {
                                 "type": "string",
@@ -1276,6 +1959,7 @@
                                     "unpaved",
                                     "grass_paver",
                                     "paving_stones",
+                                    "wood",
                                     "other"
                                 ]
                             },
@@ -1283,29 +1967,6 @@
                                 "oneOf": [
                                     {
                                         "type": "string"
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
-                            },
-                            "bikeway:left:status": {
-                                "type": "string",
-                                "enum": [
-                                    "open",
-                                    "closed",
-                                    "under construction",
-                                    "unknown"
-                                ]
-                            },
-                            "bikeway:left:seasonal": {
-                                "oneOf": [
-                                    {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "object",
-                                            "properties": {}
-                                        }
                                     },
                                     {
                                         "type": "null"
@@ -1327,38 +1988,112 @@
                                     "type": "string"
                                 }
                             },
-                            "bikeway:left:date_built": {
+                            "bikeway:left:tactile_marking": {
+                                "type": "string",
+                                "enum": [
+                                    "yes",
+                                    "no",
+                                    "unknown"
+                                ]
+                            },
+                            "bikeway:left:other_issue": {
                                 "oneOf": [
                                     {
-                                        "type": "string",
-                                        "format": "date"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}$"
+                                        "type": "string"
                                     },
                                     {
                                         "type": "null"
                                     }
                                 ]
                             },
-                            "bikeway:left:check_date": {
+                            "bikeway:left:lrs_references": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "bikeway:left:last_inspection_type": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:left:lifecycle_stage": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:left:maintenance_schedule": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:left:planned_work": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:left:owner": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:left:maintainer": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:left:lighting": {
                                 "oneOf": [
                                     {
                                         "type": "string",
-                                        "format": "date"
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
                                     },
                                     {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
-                                    },
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:left:bike_dismount_area": {
+                                "oneOf": [
                                     {
                                         "type": "string",
-                                        "pattern": "^[1-9]\\d{3}$"
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
                                     },
                                     {
                                         "type": "null"
@@ -1368,13 +2103,11 @@
                             "bikeway:left:detectable_warning": {
                                 "type": "string",
                                 "enum": [
-                                    "yes",
-                                    "no",
-                                    "unknown"
+                                    "tactile and contrasted",
+                                    "tactile and not contrasted",
+                                    "not tactile and contrasted",
+                                    "no"
                                 ]
-                            },
-                            "bikeway:left:measured_length": {
-                                "type": "number"
                             },
                             "bikeway:right:presence": {
                                 "type": "string",
@@ -1417,17 +2150,121 @@
                                     "both"
                                 ]
                             },
-                            "bikeway:right:width": {
+                            "bikeway:right:width_in": {
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "bikeway:right:width_min": {
+                            "bikeway:right:height_max_passable_in": {
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "bikeway:right:width_tolerance": {
+                            "bikeway:right:width_min_passable_in": {
                                 "type": "number",
                                 "minimum": 0
+                            },
+                            "bikeway:right:width_tolerance_in": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "bikeway:right:underpass_tunnel": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:right:overpass_skywalk": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:right:above_below_grade_ft": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:right:building_level": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:right:status": {
+                                "type": "string",
+                                "enum": [
+                                    "open",
+                                    "closed",
+                                    "under construction",
+                                    "proposed and funded",
+                                    "proposed - not yet funded",
+                                    "unknown"
+                                ]
+                            },
+                            "bikeway:right:date_built": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}$"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:right:last_inspection_date": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}$"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:right:measured_length_ft": {
+                                "type": "number"
                             },
                             "bikeway:right:bikeway_type": {
                                 "oneOf": [
@@ -1458,12 +2295,14 @@
                                 "enum": [
                                     "hard separator:  the separator cannot be easily bypassed by motor vehicles (jersey barriers",
                                     "curbs)",
+                                    "",
                                     "soft separator: the separator can be easily bypassed by motor vehicles (flex posts",
                                     "k-rail)",
+                                    "",
                                     "none: no separator is present (just paint separation)"
                                 ]
                             },
-                            "bikeway:right:buffer_width": {
+                            "bikeway:right:buffer_width_ft": {
                                 "type": "number"
                             },
                             "bikeway:right:street_parking": {
@@ -1474,21 +2313,34 @@
                                     "floating: Also known as parking protected. Put this value if present regardless if parking is parallel/angled parking."
                                 ]
                             },
-                            "bikeway:right:street_parking_buffer": {
+                            "bikeway:right:street_parking_buffer_ft": {
                                 "type": "number"
                             },
-                            "bikeway:right:posted_speed_limit": {
+                            "bikeway:right:posted_speed_limit_mph": {
                                 "type": "number",
                                 "minimum": 0
+                            },
+                            "bikeway:right:markings": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
                             },
                             "bikeway:right:prohibited_uses": {
                                 "type": "array",
                                 "items": {
                                     "type": "string",
                                     "enum": [
-                                        "scramble / all pedestrian",
+                                        "scramble / all pedestrian interval",
                                         "leading pedestrian interval",
-                                        "no right on red",
+                                        "no right on red for motor vehicles",
+                                        "automatic pedestrian recall",
+                                        "high visibility crosswalk markings",
+                                        "enhanced crosswalk lighting",
+                                        "advance stop / yield lines",
+                                        "additional signage",
+                                        "supplemental flashing beacon",
+                                        "other",
                                         "none",
                                         "unknown"
                                     ]
@@ -1499,13 +2351,40 @@
                                 "items": {
                                     "type": "string",
                                     "enum": [
-                                        "scramble / all pedestrian",
+                                        "scramble / all pedestrian interval",
                                         "leading pedestrian interval",
-                                        "no right on red",
+                                        "no right on red for motor vehicles",
+                                        "automatic pedestrian recall",
+                                        "high visibility crosswalk markings",
+                                        "enhanced crosswalk lighting",
+                                        "advance stop / yield lines",
+                                        "additional signage",
+                                        "supplemental flashing beacon",
+                                        "other",
                                         "none",
                                         "unknown"
                                     ]
                                 }
+                            },
+                            "bikeway:right:restricted_access": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "bikeway:right:seasonal": {
+                                "oneOf": [
+                                    {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {}
+                                        }
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
                             },
                             "bikeway:right:surface_material": {
                                 "type": "string",
@@ -1519,6 +2398,7 @@
                                     "unpaved",
                                     "grass_paver",
                                     "paving_stones",
+                                    "wood",
                                     "other"
                                 ]
                             },
@@ -1526,29 +2406,6 @@
                                 "oneOf": [
                                     {
                                         "type": "string"
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
-                            },
-                            "bikeway:right:status": {
-                                "type": "string",
-                                "enum": [
-                                    "open",
-                                    "closed",
-                                    "under construction",
-                                    "unknown"
-                                ]
-                            },
-                            "bikeway:right:seasonal": {
-                                "oneOf": [
-                                    {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "object",
-                                            "properties": {}
-                                        }
                                     },
                                     {
                                         "type": "null"
@@ -1570,38 +2427,112 @@
                                     "type": "string"
                                 }
                             },
-                            "bikeway:right:date_built": {
+                            "bikeway:right:tactile_marking": {
+                                "type": "string",
+                                "enum": [
+                                    "yes",
+                                    "no",
+                                    "unknown"
+                                ]
+                            },
+                            "bikeway:right:other_issue": {
                                 "oneOf": [
                                     {
-                                        "type": "string",
-                                        "format": "date"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}$"
+                                        "type": "string"
                                     },
                                     {
                                         "type": "null"
                                     }
                                 ]
                             },
-                            "bikeway:right:check_date": {
+                            "bikeway:right:lrs_references": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "bikeway:right:last_inspection_type": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:right:lifecycle_stage": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:right:maintenance_schedule": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:right:planned_work": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:right:owner": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:right:maintainer": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:right:lighting": {
                                 "oneOf": [
                                     {
                                         "type": "string",
-                                        "format": "date"
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
                                     },
                                     {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
-                                    },
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "bikeway:right:bike_dismount_area": {
+                                "oneOf": [
                                     {
                                         "type": "string",
-                                        "pattern": "^[1-9]\\d{3}$"
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
                                     },
                                     {
                                         "type": "null"
@@ -1611,13 +2542,11 @@
                             "bikeway:right:detectable_warning": {
                                 "type": "string",
                                 "enum": [
-                                    "yes",
-                                    "no",
-                                    "unknown"
+                                    "tactile and contrasted",
+                                    "tactile and not contrasted",
+                                    "not tactile and contrasted",
+                                    "no"
                                 ]
-                            },
-                            "bikeway:right:measured_length": {
-                                "type": "number"
                             },
                             "multi_use_path:left:presence": {
                                 "type": "string",
@@ -1652,6 +2581,16 @@
                                     }
                                 ]
                             },
+                            "multi_use_path:left:curb_ramp_system_id": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
                             "multi_use_path:left:directionality": {
                                 "type": "string",
                                 "enum": [
@@ -1660,53 +2599,23 @@
                                     "both"
                                 ]
                             },
-                            "multi_use_path:left:width": {
+                            "multi_use_path:left:width_in": {
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "multi_use_path:left:width_min": {
+                            "multi_use_path:left:height_max_passable_in": {
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "multi_use_path:left:width_tolerance": {
+                            "multi_use_path:left:width_min_passable_in": {
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "multi_use_path:left:separation_elements": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
-                            },
-                            "multi_use_path:left:separation_permeable_car": {
-                                "type": "string",
-                                "enum": [
-                                    "hard separator:  the separator cannot be easily bypassed by motor vehicles (jersey barriers",
-                                    "curbs)",
-                                    "soft separator: the separator can be easily bypassed by motor vehicles (flex posts",
-                                    "k-rail)",
-                                    "none: no separator is present (just paint separation)"
-                                ]
-                            },
-                            "multi_use_path:left:buffer_width": {
-                                "type": "number"
-                            },
-                            "multi_use_path:left:street_parking": {
-                                "type": "string",
-                                "enum": [
-                                    "parallel",
-                                    "angled",
-                                    "floating: Also known as parking protected. Put this value if present regardless if parking is parallel/angled parking."
-                                ]
-                            },
-                            "multi_use_path:left:street_parking_buffer": {
-                                "type": "number"
-                            },
-                            "multi_use_path:left:posted_speed_limit": {
+                            "multi_use_path:left:width_tolerance_in": {
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "multi_use_path:left:mup_modal_delineation": {
+                            "multi_use_path:left:underpass_tunnel": {
                                 "oneOf": [
                                     {
                                         "type": "string",
@@ -1720,48 +2629,31 @@
                                     }
                                 ]
                             },
-                            "multi_use_path:left:prohibited_uses": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "enum": [
-                                        "scramble / all pedestrian",
-                                        "leading pedestrian interval",
-                                        "no right on red",
-                                        "none",
-                                        "unknown"
-                                    ]
-                                }
-                            },
-                            "multi_use_path:left:allowed_uses": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "enum": [
-                                        "scramble / all pedestrian",
-                                        "leading pedestrian interval",
-                                        "no right on red",
-                                        "none",
-                                        "unknown"
-                                    ]
-                                }
-                            },
-                            "multi_use_path:left:surface_material": {
-                                "type": "string",
-                                "enum": [
-                                    "asphalt",
-                                    "concrete",
-                                    "gravel",
-                                    "grass",
-                                    "dirt",
-                                    "paved",
-                                    "unpaved",
-                                    "grass_paver",
-                                    "paving_stones",
-                                    "other"
+                            "multi_use_path:left:overpass_skywalk": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
                                 ]
                             },
-                            "multi_use_path:left:surface_issue": {
+                            "multi_use_path:left:above_below_grade_ft": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:left:building_level": {
                                 "oneOf": [
                                     {
                                         "type": "string"
@@ -1777,71 +2669,10 @@
                                     "open",
                                     "closed",
                                     "under construction",
+                                    "proposed and funded",
+                                    "proposed - not yet funded",
                                     "unknown"
                                 ]
-                            },
-                            "multi_use_path:left:seasonal": {
-                                "oneOf": [
-                                    {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "object",
-                                            "properties": {}
-                                        }
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
-                            },
-                            "multi_use_path:left:incline": {
-                                "type": "number"
-                            },
-                            "multi_use_path:left:cross_slope": {
-                                "type": "number"
-                            },
-                            "multi_use_path:left:cross_slope_max": {
-                                "type": "number"
-                            },
-                            "multi_use_path:left:ada_compliance": {
-                                "type": "string",
-                                "enum": [
-                                    "yes",
-                                    "no",
-                                    "unknown"
-                                ]
-                            },
-                            "multi_use_path:left:ada_compliance_date": {
-                                "oneOf": [
-                                    {
-                                        "type": "string",
-                                        "format": "date"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}$"
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
-                            },
-                            "multi_use_path:left:ada_compliance_standard": {
-                                "type": "string",
-                                "enum": [
-                                    "2010",
-                                    "PROWAG"
-                                ]
-                            },
-                            "multi_use_path:left:impediment": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
                             },
                             "multi_use_path:left:date_built": {
                                 "oneOf": [
@@ -1862,7 +2693,7 @@
                                     }
                                 ]
                             },
-                            "multi_use_path:left:check_date": {
+                            "multi_use_path:left:last_inspection_date": {
                                 "oneOf": [
                                     {
                                         "type": "string",
@@ -1881,7 +2712,142 @@
                                     }
                                 ]
                             },
-                            "multi_use_path:left:visual_markings": {
+                            "multi_use_path:left:measured_length_ft": {
+                                "type": "number"
+                            },
+                            "multi_use_path:left:separation_elements": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "multi_use_path:left:separation_permeable_car": {
+                                "type": "string",
+                                "enum": [
+                                    "hard separator:  the separator cannot be easily bypassed by motor vehicles (jersey barriers",
+                                    "curbs)",
+                                    "",
+                                    "soft separator: the separator can be easily bypassed by motor vehicles (flex posts",
+                                    "k-rail)",
+                                    "",
+                                    "none: no separator is present (just paint separation)"
+                                ]
+                            },
+                            "multi_use_path:left:buffer_width_ft": {
+                                "type": "number"
+                            },
+                            "multi_use_path:left:street_parking": {
+                                "type": "string",
+                                "enum": [
+                                    "parallel",
+                                    "angled",
+                                    "floating: Also known as parking protected. Put this value if present regardless if parking is parallel/angled parking."
+                                ]
+                            },
+                            "multi_use_path:left:street_parking_buffer_ft": {
+                                "type": "number"
+                            },
+                            "multi_use_path:left:posted_speed_limit_mph": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "multi_use_path:left:markings": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "multi_use_path:left:mup_modal_delineation": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:left:prohibited_uses": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "scramble / all pedestrian interval",
+                                        "leading pedestrian interval",
+                                        "no right on red for motor vehicles",
+                                        "automatic pedestrian recall",
+                                        "high visibility crosswalk markings",
+                                        "enhanced crosswalk lighting",
+                                        "advance stop / yield lines",
+                                        "additional signage",
+                                        "supplemental flashing beacon",
+                                        "other",
+                                        "none",
+                                        "unknown"
+                                    ]
+                                }
+                            },
+                            "multi_use_path:left:allowed_uses": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "scramble / all pedestrian interval",
+                                        "leading pedestrian interval",
+                                        "no right on red for motor vehicles",
+                                        "automatic pedestrian recall",
+                                        "high visibility crosswalk markings",
+                                        "enhanced crosswalk lighting",
+                                        "advance stop / yield lines",
+                                        "additional signage",
+                                        "supplemental flashing beacon",
+                                        "other",
+                                        "none",
+                                        "unknown"
+                                    ]
+                                }
+                            },
+                            "multi_use_path:left:restricted_access": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "multi_use_path:left:seasonal": {
+                                "oneOf": [
+                                    {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {}
+                                        }
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:left:surface_material": {
+                                "type": "string",
+                                "enum": [
+                                    "asphalt",
+                                    "concrete",
+                                    "gravel",
+                                    "grass",
+                                    "dirt",
+                                    "paved",
+                                    "unpaved",
+                                    "grass_paver",
+                                    "paving_stones",
+                                    "wood",
+                                    "other"
+                                ]
+                            },
+                            "multi_use_path:left:surface_issue": {
                                 "oneOf": [
                                     {
                                         "type": "string"
@@ -1891,7 +2857,48 @@
                                     }
                                 ]
                             },
-                            "multi_use_path:left:detectable_warning": {
+                            "multi_use_path:left:incline": {
+                                "type": "number"
+                            },
+                            "multi_use_path:left:cross_slope": {
+                                "type": "number"
+                            },
+                            "multi_use_path:left:cross_slope_max": {
+                                "type": "number"
+                            },
+                            "multi_use_path:left:ada_compliance_date": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}$"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:left:ada_compliant_with": {
+                                "type": "string",
+                                "enum": [
+                                    "2010",
+                                    "PROWAG"
+                                ]
+                            },
+                            "multi_use_path:left:impediment": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "multi_use_path:left:tactile_marking": {
                                 "type": "string",
                                 "enum": [
                                     "yes",
@@ -1899,8 +2906,118 @@
                                     "unknown"
                                 ]
                             },
-                            "multi_use_path:left:measured_length": {
-                                "type": "number"
+                            "multi_use_path:left:other_issue": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:left:lrs_references": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "multi_use_path:left:last_inspection_type": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:left:lifecycle_stage": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:left:maintenance_schedule": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:left:planned_work": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:left:owner": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:left:maintainer": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:left:lighting": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:left:bike_dismount_area": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:left:detectable_warning": {
+                                "type": "string",
+                                "enum": [
+                                    "tactile and contrasted",
+                                    "tactile and not contrasted",
+                                    "not tactile and contrasted",
+                                    "no"
+                                ]
                             },
                             "multi_use_path:right:presence": {
                                 "type": "string",
@@ -1935,6 +3052,16 @@
                                     }
                                 ]
                             },
+                            "multi_use_path:right:curb_ramp_system_id": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
                             "multi_use_path:right:directionality": {
                                 "type": "string",
                                 "enum": [
@@ -1943,53 +3070,23 @@
                                     "both"
                                 ]
                             },
-                            "multi_use_path:right:width": {
+                            "multi_use_path:right:width_in": {
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "multi_use_path:right:width_min": {
+                            "multi_use_path:right:height_max_passable_in": {
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "multi_use_path:right:width_tolerance": {
+                            "multi_use_path:right:width_min_passable_in": {
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "multi_use_path:right:separation_elements": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
-                            },
-                            "multi_use_path:right:separation_permeable_car": {
-                                "type": "string",
-                                "enum": [
-                                    "hard separator:  the separator cannot be easily bypassed by motor vehicles (jersey barriers",
-                                    "curbs)",
-                                    "soft separator: the separator can be easily bypassed by motor vehicles (flex posts",
-                                    "k-rail)",
-                                    "none: no separator is present (just paint separation)"
-                                ]
-                            },
-                            "multi_use_path:right:buffer_width": {
-                                "type": "number"
-                            },
-                            "multi_use_path:right:street_parking": {
-                                "type": "string",
-                                "enum": [
-                                    "parallel",
-                                    "angled",
-                                    "floating: Also known as parking protected. Put this value if present regardless if parking is parallel/angled parking."
-                                ]
-                            },
-                            "multi_use_path:right:street_parking_buffer": {
-                                "type": "number"
-                            },
-                            "multi_use_path:right:posted_speed_limit": {
+                            "multi_use_path:right:width_tolerance_in": {
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "multi_use_path:right:mup_modal_delineation": {
+                            "multi_use_path:right:underpass_tunnel": {
                                 "oneOf": [
                                     {
                                         "type": "string",
@@ -2003,48 +3100,31 @@
                                     }
                                 ]
                             },
-                            "multi_use_path:right:prohibited_uses": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "enum": [
-                                        "scramble / all pedestrian",
-                                        "leading pedestrian interval",
-                                        "no right on red",
-                                        "none",
-                                        "unknown"
-                                    ]
-                                }
-                            },
-                            "multi_use_path:right:allowed_uses": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "enum": [
-                                        "scramble / all pedestrian",
-                                        "leading pedestrian interval",
-                                        "no right on red",
-                                        "none",
-                                        "unknown"
-                                    ]
-                                }
-                            },
-                            "multi_use_path:right:surface_material": {
-                                "type": "string",
-                                "enum": [
-                                    "asphalt",
-                                    "concrete",
-                                    "gravel",
-                                    "grass",
-                                    "dirt",
-                                    "paved",
-                                    "unpaved",
-                                    "grass_paver",
-                                    "paving_stones",
-                                    "other"
+                            "multi_use_path:right:overpass_skywalk": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
                                 ]
                             },
-                            "multi_use_path:right:surface_issue": {
+                            "multi_use_path:right:above_below_grade_ft": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:right:building_level": {
                                 "oneOf": [
                                     {
                                         "type": "string"
@@ -2060,71 +3140,10 @@
                                     "open",
                                     "closed",
                                     "under construction",
+                                    "proposed and funded",
+                                    "proposed - not yet funded",
                                     "unknown"
                                 ]
-                            },
-                            "multi_use_path:right:seasonal": {
-                                "oneOf": [
-                                    {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "object",
-                                            "properties": {}
-                                        }
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
-                            },
-                            "multi_use_path:right:incline": {
-                                "type": "number"
-                            },
-                            "multi_use_path:right:cross_slope": {
-                                "type": "number"
-                            },
-                            "multi_use_path:right:cross_slope_max": {
-                                "type": "number"
-                            },
-                            "multi_use_path:right:ada_compliance": {
-                                "type": "string",
-                                "enum": [
-                                    "yes",
-                                    "no",
-                                    "unknown"
-                                ]
-                            },
-                            "multi_use_path:right:ada_compliance_date": {
-                                "oneOf": [
-                                    {
-                                        "type": "string",
-                                        "format": "date"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}$"
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
-                            },
-                            "multi_use_path:right:ada_compliance_standard": {
-                                "type": "string",
-                                "enum": [
-                                    "2010",
-                                    "PROWAG"
-                                ]
-                            },
-                            "multi_use_path:right:impediment": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
                             },
                             "multi_use_path:right:date_built": {
                                 "oneOf": [
@@ -2145,7 +3164,7 @@
                                     }
                                 ]
                             },
-                            "multi_use_path:right:check_date": {
+                            "multi_use_path:right:last_inspection_date": {
                                 "oneOf": [
                                     {
                                         "type": "string",
@@ -2164,7 +3183,142 @@
                                     }
                                 ]
                             },
-                            "multi_use_path:right:visual_markings": {
+                            "multi_use_path:right:measured_length_ft": {
+                                "type": "number"
+                            },
+                            "multi_use_path:right:separation_elements": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "multi_use_path:right:separation_permeable_car": {
+                                "type": "string",
+                                "enum": [
+                                    "hard separator:  the separator cannot be easily bypassed by motor vehicles (jersey barriers",
+                                    "curbs)",
+                                    "",
+                                    "soft separator: the separator can be easily bypassed by motor vehicles (flex posts",
+                                    "k-rail)",
+                                    "",
+                                    "none: no separator is present (just paint separation)"
+                                ]
+                            },
+                            "multi_use_path:right:buffer_width_ft": {
+                                "type": "number"
+                            },
+                            "multi_use_path:right:street_parking": {
+                                "type": "string",
+                                "enum": [
+                                    "parallel",
+                                    "angled",
+                                    "floating: Also known as parking protected. Put this value if present regardless if parking is parallel/angled parking."
+                                ]
+                            },
+                            "multi_use_path:right:street_parking_buffer_ft": {
+                                "type": "number"
+                            },
+                            "multi_use_path:right:posted_speed_limit_mph": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "multi_use_path:right:markings": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "multi_use_path:right:mup_modal_delineation": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:right:prohibited_uses": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "scramble / all pedestrian interval",
+                                        "leading pedestrian interval",
+                                        "no right on red for motor vehicles",
+                                        "automatic pedestrian recall",
+                                        "high visibility crosswalk markings",
+                                        "enhanced crosswalk lighting",
+                                        "advance stop / yield lines",
+                                        "additional signage",
+                                        "supplemental flashing beacon",
+                                        "other",
+                                        "none",
+                                        "unknown"
+                                    ]
+                                }
+                            },
+                            "multi_use_path:right:allowed_uses": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "scramble / all pedestrian interval",
+                                        "leading pedestrian interval",
+                                        "no right on red for motor vehicles",
+                                        "automatic pedestrian recall",
+                                        "high visibility crosswalk markings",
+                                        "enhanced crosswalk lighting",
+                                        "advance stop / yield lines",
+                                        "additional signage",
+                                        "supplemental flashing beacon",
+                                        "other",
+                                        "none",
+                                        "unknown"
+                                    ]
+                                }
+                            },
+                            "multi_use_path:right:restricted_access": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "multi_use_path:right:seasonal": {
+                                "oneOf": [
+                                    {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {}
+                                        }
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:right:surface_material": {
+                                "type": "string",
+                                "enum": [
+                                    "asphalt",
+                                    "concrete",
+                                    "gravel",
+                                    "grass",
+                                    "dirt",
+                                    "paved",
+                                    "unpaved",
+                                    "grass_paver",
+                                    "paving_stones",
+                                    "wood",
+                                    "other"
+                                ]
+                            },
+                            "multi_use_path:right:surface_issue": {
                                 "oneOf": [
                                     {
                                         "type": "string"
@@ -2174,7 +3328,48 @@
                                     }
                                 ]
                             },
-                            "multi_use_path:right:detectable_warning": {
+                            "multi_use_path:right:incline": {
+                                "type": "number"
+                            },
+                            "multi_use_path:right:cross_slope": {
+                                "type": "number"
+                            },
+                            "multi_use_path:right:cross_slope_max": {
+                                "type": "number"
+                            },
+                            "multi_use_path:right:ada_compliance_date": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}$"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:right:ada_compliant_with": {
+                                "type": "string",
+                                "enum": [
+                                    "2010",
+                                    "PROWAG"
+                                ]
+                            },
+                            "multi_use_path:right:impediment": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "multi_use_path:right:tactile_marking": {
                                 "type": "string",
                                 "enum": [
                                     "yes",
@@ -2182,8 +3377,118 @@
                                     "unknown"
                                 ]
                             },
-                            "multi_use_path:right:measured_length": {
-                                "type": "number"
+                            "multi_use_path:right:other_issue": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:right:lrs_references": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "multi_use_path:right:last_inspection_type": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:right:lifecycle_stage": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:right:maintenance_schedule": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:right:planned_work": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:right:owner": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:right:maintainer": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:right:lighting": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:right:bike_dismount_area": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "yes",
+                                            "no"
+                                        ]
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "multi_use_path:right:detectable_warning": {
+                                "type": "string",
+                                "enum": [
+                                    "tactile and contrasted",
+                                    "tactile and not contrasted",
+                                    "not tactile and contrasted",
+                                    "no"
+                                ]
                             }
                         },
                         "additionalProperties": false

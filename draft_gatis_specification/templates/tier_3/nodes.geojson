@@ -5,9 +5,9 @@
             "type": "Feature",
             "properties": {
                 "node_id": null,
-                "node_type": "virtual",
+                "node_type": "generic",
                 "curb_type": null,
-                "rail_crossing": null
+                "rail_crossing_control": null
             },
             "geometry": {
                 "coordinates": null,
@@ -20,18 +20,23 @@
                 "node_id": null,
                 "node_type": "curb_ramp",
                 "date_built": null,
-                "check_date": null,
-                "ada_compliance": null,
+                "last_inspection_date": null,
                 "ada_compliance_date": null,
-                "ada_compliance_standard": null,
+                "ada_compliant_with": null,
                 "incline": null,
                 "cross_slope": null,
-                "width": null,
-                "ramp_type": null,
+                "width_in": null,
                 "detectable_warning": null,
                 "impediment": null,
                 "surface_issue": null,
-                "status": null
+                "status": null,
+                "other_issue": null,
+                "last_inspection_type": null,
+                "lifecycle_stage": null,
+                "maintenance_schedule": null,
+                "planned_work": null,
+                "owner": null,
+                "maintainer": null
             },
             "geometry": {
                 "coordinates": null,
@@ -42,13 +47,12 @@
             "type": "Feature",
             "properties": {
                 "node_id": null,
-                "node_type": "elevator",
+                "node_type": "sidewalk_to_ramp_transition",
+                "curb_ramp_system_id": null,
                 "date_built": null,
-                "check_date": null,
-                "ada_compliance": null,
+                "last_inspection_date": null,
                 "ada_compliance_date": null,
-                "ada_compliance_standard": null,
-                "status": null
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -59,36 +63,12 @@
             "type": "Feature",
             "properties": {
                 "node_id": null,
-                "node_type": "transit_stop",
-                "gtfs_id": null
-            },
-            "geometry": {
-                "coordinates": null,
-                "type": "Point"
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "node_id": null,
-                "node_type": "issue",
-                "check_date": null,
-                "impediment": null,
-                "surface_issue": null
-            },
-            "geometry": {
-                "coordinates": null,
-                "type": "Point"
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "node_id": null,
-                "node_type": "traffic_calming",
+                "node_type": "ramp_to_street_transition",
+                "curb_ramp_system_id": null,
                 "date_built": null,
-                "check_date": null,
-                "traffic_calming_type": null
+                "last_inspection_date": null,
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,

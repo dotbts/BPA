@@ -97,11 +97,19 @@
                 }
             ]
         },
-        "geo_bounding_box": {
-            "type": "array",
-            "items": {
-                "type": "number"
-            }
+        "geo_bounding_area": {
+            "oneOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                {
+                    "type": "null"
+                }
+            ]
         },
         "keywords": {
             "oneOf": [

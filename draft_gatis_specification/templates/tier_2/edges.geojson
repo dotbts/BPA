@@ -13,73 +13,69 @@
                 "bridge": null,
                 "incline": null,
                 "sidewalk:left:presence": null,
-                "sidewalk:left:width": null,
-                "sidewalk:left:surface_material": null,
+                "sidewalk:left:width_in": null,
                 "sidewalk:left:status": null,
+                "sidewalk:left:measured_length_ft": null,
+                "sidewalk:left:surface_material": null,
                 "sidewalk:left:pedestrian_lane": null,
                 "sidewalk:left:incline": null,
                 "sidewalk:left:cross_slope": null,
-                "sidewalk:left:ada_compliance": null,
                 "sidewalk:left:ada_compliance_date": null,
-                "sidewalk:left:ada_compliance_standard": null,
-                "sidewalk:left:detectable_warning": null,
-                "sidewalk:left:measured_length": null,
+                "sidewalk:left:ada_compliant_with": null,
+                "sidewalk:left:tactile_marking": null,
                 "sidewalk:right:presence": null,
-                "sidewalk:right:width": null,
-                "sidewalk:right:surface_material": null,
+                "sidewalk:right:width_in": null,
                 "sidewalk:right:status": null,
+                "sidewalk:right:measured_length_ft": null,
+                "sidewalk:right:surface_material": null,
                 "sidewalk:right:pedestrian_lane": null,
                 "sidewalk:right:incline": null,
                 "sidewalk:right:cross_slope": null,
-                "sidewalk:right:ada_compliance": null,
                 "sidewalk:right:ada_compliance_date": null,
-                "sidewalk:right:ada_compliance_standard": null,
-                "sidewalk:right:detectable_warning": null,
-                "sidewalk:right:measured_length": null,
+                "sidewalk:right:ada_compliant_with": null,
+                "sidewalk:right:tactile_marking": null,
                 "bikeway:left:presence": null,
                 "bikeway:left:facility_name": null,
                 "bikeway:left:directionality": null,
-                "bikeway:left:width": null,
+                "bikeway:left:width_in": null,
+                "bikeway:left:status": null,
                 "bikeway:left:bikeway_type": null,
                 "bikeway:left:bikeway_grade_separation": null,
                 "bikeway:left:separation_elements": null,
                 "bikeway:left:separation_permeable_car": null,
-                "bikeway:left:street_parking_buffer": null,
+                "bikeway:left:street_parking_buffer_ft": null,
                 "bikeway:left:surface_material": null,
-                "bikeway:left:status": null,
                 "bikeway:left:incline": null,
                 "bikeway:right:presence": null,
                 "bikeway:right:facility_name": null,
                 "bikeway:right:directionality": null,
-                "bikeway:right:width": null,
+                "bikeway:right:width_in": null,
+                "bikeway:right:status": null,
                 "bikeway:right:bikeway_type": null,
                 "bikeway:right:bikeway_grade_separation": null,
                 "bikeway:right:separation_elements": null,
                 "bikeway:right:separation_permeable_car": null,
-                "bikeway:right:street_parking_buffer": null,
+                "bikeway:right:street_parking_buffer_ft": null,
                 "bikeway:right:surface_material": null,
-                "bikeway:right:status": null,
                 "bikeway:right:incline": null,
                 "multi_use_path:left:presence": null,
                 "multi_use_path:left:facility_name": null,
-                "multi_use_path:left:width": null,
+                "multi_use_path:left:width_in": null,
+                "multi_use_path:left:status": null,
                 "multi_use_path:left:mup_modal_delineation": null,
                 "multi_use_path:left:surface_material": null,
-                "multi_use_path:left:status": null,
                 "multi_use_path:left:incline": null,
-                "multi_use_path:left:ada_compliance": null,
                 "multi_use_path:left:ada_compliance_date": null,
-                "multi_use_path:left:ada_compliance_standard": null,
+                "multi_use_path:left:ada_compliant_with": null,
                 "multi_use_path:right:presence": null,
                 "multi_use_path:right:facility_name": null,
-                "multi_use_path:right:width": null,
+                "multi_use_path:right:width_in": null,
+                "multi_use_path:right:status": null,
                 "multi_use_path:right:mup_modal_delineation": null,
                 "multi_use_path:right:surface_material": null,
-                "multi_use_path:right:status": null,
                 "multi_use_path:right:incline": null,
-                "multi_use_path:right:ada_compliance": null,
                 "multi_use_path:right:ada_compliance_date": null,
-                "multi_use_path:right:ada_compliance_standard": null
+                "multi_use_path:right:ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -92,17 +88,16 @@
                 "edge_id": null,
                 "street_name": null,
                 "edge_type": "sidewalk",
-                "width": null,
-                "surface_material": null,
+                "width_in": null,
                 "status": null,
+                "measured_length_ft": null,
+                "surface_material": null,
                 "pedestrian_lane": null,
                 "incline": null,
                 "cross_slope": null,
-                "ada_compliance": null,
                 "ada_compliance_date": null,
-                "ada_compliance_standard": null,
-                "detectable_warning": null,
-                "measured_length": null
+                "ada_compliant_with": null,
+                "tactile_marking": null
             },
             "geometry": {
                 "coordinates": null,
@@ -113,12 +108,41 @@
             "type": "Feature",
             "properties": {
                 "edge_id": null,
-                "edge_type": "footpath",
+                "curb_ramp_system_id": null,
+                "edge_type": "curb_ramp_toplanding",
                 "status": null,
-                "ada_compliance": null,
                 "ada_compliance_date": null,
-                "ada_compliance_standard": null,
-                "detectable_warning": null
+                "ada_compliant_with": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "edge_id": null,
+                "curb_ramp_system_id": null,
+                "edge_type": "curb_ramp_runslope",
+                "status": null,
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "edge_id": null,
+                "edge_type": "footway",
+                "status": null,
+                "ada_compliance_date": null,
+                "ada_compliant_with": null,
+                "tactile_marking": null
             },
             "geometry": {
                 "coordinates": null,
@@ -131,17 +155,33 @@
                 "edge_id": null,
                 "street_name": null,
                 "edge_type": "crossing",
-                "width": null,
-                "surface_material": null,
+                "width_in": null,
                 "status": null,
+                "measured_length_ft": null,
+                "surface_material": null,
                 "incline": null,
                 "cross_slope": null,
-                "ada_compliance": null,
                 "ada_compliance_date": null,
-                "ada_compliance_standard": null,
+                "ada_compliant_with": null,
                 "visual_markings": null,
-                "detectable_warning": null,
-                "measured_length": null
+                "tactile_marking": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "edge_id": null,
+                "edge_type": "ramp",
+                "from_node": null,
+                "to_node": null,
+                "status": null,
+                "surface_material": null,
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -154,10 +194,9 @@
                 "edge_id": null,
                 "edge_type": "traffic_island",
                 "status": null,
-                "ada_compliance": null,
                 "ada_compliance_date": null,
-                "ada_compliance_standard": null,
-                "detectable_warning": null
+                "ada_compliant_with": null,
+                "tactile_marking": null
             },
             "geometry": {
                 "coordinates": null,
@@ -170,9 +209,23 @@
                 "edge_id": null,
                 "edge_type": "steps",
                 "status": null,
-                "ada_compliance": null,
                 "ada_compliance_date": null,
-                "ada_compliance_standard": null
+                "ada_compliant_with": null
+            },
+            "geometry": {
+                "coordinates": null,
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "edge_id": null,
+                "edge_type": "elevator",
+                "directionality": null,
+                "status": null,
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -186,9 +239,8 @@
                 "edge_type": "escalator",
                 "directionality": null,
                 "status": null,
-                "ada_compliance": null,
                 "ada_compliance_date": null,
-                "ada_compliance_standard": null
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -199,21 +251,20 @@
             "type": "Feature",
             "properties": {
                 "edge_id": null,
-                "road_associated": null,
                 "street_name": null,
                 "facility_name": null,
                 "edge_type": "bikeway",
                 "from_node": null,
                 "to_node": null,
                 "directionality": null,
-                "width": null,
+                "width_in": null,
+                "status": null,
                 "bikeway_type": null,
                 "bikeway_grade_separation": null,
                 "separation_elements": null,
                 "separation_permeable_car": null,
-                "street_parking_buffer": null,
+                "street_parking_buffer_ft": null,
                 "surface_material": null,
-                "status": null,
                 "incline": null
             },
             "geometry": {
@@ -225,20 +276,18 @@
             "type": "Feature",
             "properties": {
                 "edge_id": null,
-                "road_associated": null,
                 "street_name": null,
                 "facility_name": null,
                 "edge_type": "multi_use_path",
                 "from_node": null,
                 "to_node": null,
-                "width": null,
+                "width_in": null,
+                "status": null,
                 "mup_modal_delineation": null,
                 "surface_material": null,
-                "status": null,
                 "incline": null,
-                "ada_compliance": null,
                 "ada_compliance_date": null,
-                "ada_compliance_standard": null
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -254,43 +303,10 @@
                 "edge_type": "trail",
                 "from_node": null,
                 "to_node": null,
-                "surface_material": null,
                 "status": null,
-                "ada_compliance": null,
-                "ada_compliance_date": null,
-                "ada_compliance_standard": null
-            },
-            "geometry": {
-                "coordinates": null,
-                "type": "LineString"
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "edge_id": null,
-                "edge_type": "ramp",
-                "from_node": null,
-                "to_node": null,
                 "surface_material": null,
-                "status": null,
-                "ada_compliance": null,
                 "ada_compliance_date": null,
-                "ada_compliance_standard": null
-            },
-            "geometry": {
-                "coordinates": null,
-                "type": "LineString"
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "edge_id": null,
-                "road_associated": null,
-                "edge_type": "virtual_link",
-                "from_node": null,
-                "to_node": null
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,

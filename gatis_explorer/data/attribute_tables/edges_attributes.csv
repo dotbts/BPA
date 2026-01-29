@@ -1,11 +1,8 @@
 Name,Type,Description
-edge_id,ID,"A unique identifier for the edge. [NOTE: We will fill in instructions here on how to generate IDs, and we will also provide a data validator that may be capable of validating and helping to fill in these IDs.] "
-road_associated,Boolean,"Specifies if the edge is adjacent or associated to a road.
+edge_id,ID,"A unique identifier for the edge. 
 
-Valid options:
-yes
-no"
-reference_ids,Array&lt;Object>,"Can be used to add reference IDs to other datasources such as OSM, OpenLR, ARNOLD, HMPS, TIGER, Census road network, OSM, etc.). Should be an array of JSONs with the source name and ID pair. Each JSON should contain an ID field and source field at minimum. Can add other attributes such as the beginning and ending milepost from a linear referencing system.
+[NOTE: We will fill in instructions here on how to generate IDs, and we will also provide a data validator that may be capable of validating and helping to fill in these IDs.] "
+reference_ids,Array&lt;Object>,"Can be used to add reference IDs to other data sources such as OSM, Overture, ARNOLD, HMPS, TIGER, Census road network, etc.). Should be an array of JSONs with the source name and ID pair. Each JSON should contain an ID field and source field at minimum. 
 
 Example:
 [ 
@@ -13,39 +10,114 @@ Example:
 { ""source"": ""TIGER"", ""id"": ""110739476769"" } 
 { ""source"": ""ARNOLD"", ""id"": ""140"", ""begin_mi"": 2.3, ""end_mi"": 4.5}
 ] "
-street_name,Text,"Specifies the name of a road or the road associated with the edge, such as the street along which a sidewalk or cycleway runs. In many cases, routing engines can fill in the closest street name for travelers to see. Use this field to specify the associated street explicitly or to correct an error within routing engines. 
+street_name,Text,"Specifies the name of a road associated with the edge, such as the street along which a sidewalk or cycleway runs. In many cases, routing engines can fill in the closest street name for travelers to see. Use this attribute to specify the associated street explicitly or to correct an error within routing engines.
 
 Example:
 ""Maple Avenue"""
-facility_name,Text,"The common name for this edge, by which travelers might recognize it. 
+facility_name,Text,"The common or official name for this edge, by which travelers might recognize it. The same facility_name may be used for multiple edges, such as segments that make up a longer distance multi-use path with a name (ex. ""Atlanta BeltLine"").
 
 Example:
 ""Atlanta Beltline"", ""Washington and Old Dominion Trail"", ""Minutemen Bikeway"", ""Lenape Trail"", ""East Coast Greenway"""
-edge_type,Enum,"Identifies the edge type. Also used for assigning attributes that need to be filled in.
+curb_ramp_system_id,Text,"An identifier to link any nodes and edges that are involved in the same ""curb ramp system,"" which is the network of elements that sidewalk users use to transition from a sidewalk to a crossing. 
+
+This may include sidewalk edges, curb_ramp_toplanding, curb_ramp_runslope, and crosswalk edges, as well as sidewalk_to_ramp, bottom_of_ramp or generic nodes. 
+
+"
+edge_type,Enum,"Indicates the type of edge.
 
 Valid options:
-road
-sidewalk
-footpath
-crossing
-traffic_island
-steps
-escalator
-bikeway
-multi_use_path
-trail
-virtual_link"
-from_node,ID,This field is used to identify the node where an edge begins. This information is needed for routing. Value needs to be from the nodes table in the node ID field.
-to_node,ID,This field is used to identify the node where an edge ends. This information is needed for routing. Value needs to be from the nodes table in the node ID field.
-directionality,Enum,"Specifies the directionality of the edge. If the edge is bidirectional, choose “both.” Used to help identify when bicycle infrastructure allows traffic in both directions. If left blank, then assumes ""both"".
+(Same as Edge Types)"
+from_node,ID,"This attribute is used to identify the node where an edge begins, using the node_id attribute on the nodes table. This information is needed for routing via metadata but is optional for data designed to be routed via fully connected geospatial data."
+to_node,ID,"This attribute is used to identify the node where an edge ends, using the node_id attribute on the nodes table. This information is needed for routing via metadata but is optional for data designed to be routed via fully connected geospatial data."
+directionality,Enum,"Specifies the directionality of the edge. If the edge is bidirectional, choose “both.” Used to help identify when bicycle infrastructure allows traffic in both directions. If left blank, ""both"" is assumed. See the Playbook for a fuller explanation of the directionality of geometric linework and how different GATIS attributes relate.
 
 Valid options:
 forward
 backward
 both"
-width,Integer,The width of the edge at most points along its path. Measured in inches and rounded to the nearest inch. Cannot be negative.
-width_min,Integer,The width of the edge at the point where it is narrowest. Measured in inches and rounded to the nearest inch. Cannot be negative.
-width_tolerance,Integer,Used to specify the tolerance of the width measurement in inches. Everything along the edge should be within +/- of this width.
+width_in,Integer,"Average or typical width of the edge. Measured in inches and rounded to the nearest inch. Cannot be negative. Use width_tolerance_in to describe the variance in the width along this edge. If the width changes substantially, the edge should be segmented into multiple edges with differing width_in values.
+
+Example:
+30"
+height_max_passable_in,Integer,"The passable height of the edge at the point where it is the shortest. Measured in inches and rounded to the nearest inch. Cannot be negative.
+
+Example:
+80"
+width_min_passable_in,Integer,"The passable width of the edge at the point where it is narrowest. Measured in inches and rounded to the nearest inch. Cannot be negative.
+
+Example:
+28"
+width_tolerance_in,Integer,"Used to specify the tolerance of the width measurement in inches. Everything along the edge should be within +/- of this width.
+
+Example:
+1"
+bridge,Boolean,"Indicates if the edge is or is on a bridge. Can be used for any bridge type, including road bridges (with or without bike lanes) and pedestrian and bike bridges. 
+
+Valid options:
+yes
+no"
+underpass_tunnel,Boolean,"Indicates that the edge represents an underground path, such as a tunnel or an underpass. 
+
+Valid options:
+yes
+no"
+overpass_skywalk,Boolean,"Indicates that the edge represents a skywalk, pedestrian or bicycle overpass, or other elevated infrastructure that is not a bridge.
+
+Valid options:
+yes
+no"
+above_below_grade_ft,Text,"Height of the path above/below grade, measured in feet and rounded to the closest foot. If below grade, provide the value as a negative number. (Ex. if the path is 10 feet above grade, this attribute would equal ""10"".)
+
+For uncertain heights, use an appropriate description from the list: ""above"", ""below"", ""at grade""
+
+Example:
+above"
+building_level,Text,"Level of the building or structure the path is on, as labelled for users inside the building. 
+
+Intended to capture the fact that often floor 1 isn't the level at-grade and sometimes buildings skip floors or label below-grade floors ""B"" or ""SB"".
+
+Example:
+B"
+status,Enum,"Most recent operating status of the segment. Whether the infrastructure is open and available for use. If left blank, status is assumed ""unknown.""
+
+Valid options:
+open
+closed
+under construction
+proposed and funded
+proposed - not yet funded
+unknown"
+date_built,Date,"When the facility was officially opened for use. date_built represents the original opening date. Use the Events extension to record details about construction history, remodeling, removal and other physical changes.
+
+Report in RFC 3339 format containing day, month and year, or just month and year or year if day or month is not available.
+
+Example:
+2025-03
+2014"
+last_inspection_date,Date,"The date that this infrastructure was last inspected. Report in RFC 3339 format containing day, month and year, or just month and year or year if day or month is not available.
+
+Example:
+2025-03
+2014"
+curb_height_in,Integer,Indicates typical height of the curb along this segment of the road; can be used in deciding whether to route specific pedestrians off the sidewalk when there are obstructions or discontinuities. Measured and rounded to the nearest inch. Cannot be negative.
+official,Array&lt;Text>,"Text
+
+Example:
+[""https://greenway.org/route-map""]
+[""East Coast Greenway Alliance""]"
+presence,Enum,"Indicates whether the piece of infrastructure exists or is present. When other attributes are provided, the existence of the infrastructure can be assumed. This attribute is useful for identifying where a sidewalk or a crossing might be missing or where its presence is unknown. Conditionally required if no other identfiying fields supplied.
+
+Valid options:
+yes
+no
+missing
+unknown
+
+Example:
+cycleway:left:presence=yes, cycleway:right:buffer:presence=yes"
+measured_length_ft,Float,"The measured length of the edge in feet. Represent partial feet using decimals.
+
+Note that geospatial data also contains a length attribute by default that may be useful in some cases. Measuring the traversable length of the segment is preferable."
 bikeway_type,Text,"Common name used for the bicycle facility type. Should align with the National Bikeway Network, NACTO, or AASHTO facility types.
 
 Recommended options:
@@ -53,6 +125,7 @@ Bike Lane
 Buffered Bike Lane
 Separated Bike Lane
 Counter-Flow Bike Lane
+Bicycle Boulevard
 Paved Shoulder
 Shared Lane"
 bikeway_grade_separation,Enum,"The vertical level of the bikeway with respect to the road. Not meant for bikeways that are not road associated.
@@ -61,125 +134,162 @@ Valid options:
 at_grade
 raised
 sidewalk_level"
-separation_elements,Array&lt;Text>,"The materials used to separate the cycleway or footpath from motor vehicle traffic -- for example, as part of a buffer.
+separation_elements,Array&lt;Text>,"The materials used to separate the cycleway or footway from motor vehicle traffic -- for example, as part of a buffer.
 
 Recommended options:
 bollards
 concrete barrier
 parking
 median
-trees
+trees  unknown
 
 Example:
 [""bollards"",""concrete barrier""]"
-separation_permeable_car,Enum,"Can a vehicle easily access this edge? Primarily intended for bikeways but could be used for pedestrian facilities.
+separation_permeable_car,Enum,"Whether a motor vehicle can easily access this edge. Primarily intended for bikeways but can be used for pedestrian facilities.
 
 Valid options:
 hard separator:  the separator cannot be easily bypassed by motor vehicles (jersey barriers
 curbs)
+
 soft separator: the separator can be easily bypassed by motor vehicles (flex posts
 k-rail)
+
 none: no separator is present (just paint separation)"
-buffer_width,Float,"Distance between the edge of the motor vehicle travel lane and the bike lane or sidewalk. Measured in feet and rounded to the nearest half foot. Cannot be negative.
+buffer_width_ft,Float,"Distance between the edge of the motor vehicle travel lane and the bike lane or sidewalk. Measured in feet, with partial feet represented using decimals. Cannot be negative.
 
 Example:
 4"
-street_parking,Enum,"Field intended to indicate orientation of street parking in relation to a bike facility. Floating street parking is also referred to as parking protected.
+street_parking,Enum,"Indicates the orientation of street parking in relation to a bike facility. The value ""floating"" means the same as ""parking protected.""
 
 Valid options:
 parallel
 angled
 floating: Also known as parking protected. Put this value if present regardless if parking is parallel/angled parking."
-street_parking_buffer,Float,The space between a bicycle facility and the street parking. Measured in feet and rounded to the nearest half foot. Cannot be negative.
-traffic_volume,Integer,"Measures the motor vehicle annual average daily traffic (AADT) for the edge. Reported with no more than two significant figures. Cannot be negative.
+street_parking_buffer_ft,Float,"The space between a bicycle facility and the street parking. Measured in feet, with partial feet represented as decimals. Cannot be negative."
+wheel_channel,Boolean,"Whether there is a wheel channel to allow for pushing a bicycle up the stairs.
+
+Valid options:
+yes
+no"
+traffic_volume,Integer,"Measures the motor vehicle annual average daily traffic (AADT) for the edge. Ideally rounded to the nearest hundred for low-volume roads and the nearest thousand for high-volume roads. Cannot be negative.
 
 Example:
 1,540 would be 1,500"
-posted_speed_limit,Integer,"Used to indicate the posted speed limit. Measured in miles per hour. Cannot be negative. If used on bikeway, multi-use path, or trail, it's assumed that is the speed limit for non-motorized users."
-car_freeflow_speed,Integer,Used to indicate the free-flow motor vehicle speed. Suggest using the 85th percentile. Measured in miles per hour. Cannot be negative.
+posted_speed_limit_mph,Integer,"Used to indicate the posted speed limit. Measured in miles per hour. Cannot be negative. If used on bikeway, multi-use path, or trail, it's assumed that is the speed limit for non-motorized users."
+mv_freeflow_speed_mph,Integer,Used to indicate the free-flow motor vehicle speed. Suggest using the 85th percentile. Measured in miles per hour. Cannot be negative.
 thru_lanes,Integer,Describes the number of vehicle thru lanes on an edge. Does not include turn lanes or shoulders. Cannot be negative.
 aux_lanes,Integer,Describes the number of temporary vehicle lanes like turn lanes. Cannot be negative.
-shoulder_width,Float,"Width of the paved shoulder that can be used by pedestrians or cyclists. Measured in feet with one decimal point of precision. Cannot be negative.
+shoulder_width_in,Float,"Width of the paved shoulder or shoulders along the edge that can be used by pedestrians or cyclists. Measured in inches. Cannot be negative. Left/right/both tags may be used, and the directionality is determined based on how the edge geometry was drawn. See Directionality and Left/Right/Both Tags in the GATIS Playbook for further explanation.
 
 Example:
-1.5"
-roadway_centerline,Boolean,"Indicates if there is a painted road centerline. Might be a useful attribute to track for finding low-stress streets.
+left:36"
+markings,Array&lt;Text>,"Markings that delineate or mark the area of the road or other edge for bicyclists or pedestrians, or for motor vehicle driver awareness of bike and pedestrian infrastructure or space. Left/right/both tagging may be used. See the Playbook for more information on this tagging.
+
+Recommended options:
+green_paint
+sharrows
+edge_lines
+
+centerline
+ped_lane
+bike_lane
+
+Example:
+left:ped_lane, edge_lines, centerline"
+roadway_centerline,Boolean,"Indicates if there is a painted road centerline. This attribute is sometimes used to help identify low-stress streets.
 
 Valid options:
 yes
 no"
-bridge,Boolean,"Indicates if the edge is or is on a bridge. Can be used for any bridge type, including road bridges and pedestrian bridges. Reccomend marking roads with bike lanes that are bridges.
-
-Valid options:
-yes
-no"
-mup_modal_delineation,Boolean,"Designates whether bikes and pedestrians have designated spaces on a multi-use/shared-use path, or whether all travelers use the same space.
+mup_modal_delineation,Boolean,"Designates whether bicyclists and pedestrians have separate designated spaces on a multi-use path, or whether all travelers use the same space.
 
 Valid options:
 yes
 no
 
 Example:
-False"
+no"
 prohibited_uses,Array&lt;Enum>,"Specifies which types of users are legally prohibited from using the facility, based on the laws, policy, or signage on a facility (ex. “E-bikes prohibited on this trail”). Can provide one or multiple in list form.
 
 Valid options:
 walk
 bike
-ebike
+ebike class 1
 scooter
-motor_vehicle"
-allowed_uses,Array&lt;Enum>,"Specifies exceptions to the usually prohibited users. Intended for designating whether bikes are allowed to use sidewalks, footpaths, and crossings for routing purposes.
+NEV
+motor_vehicle ebike class 2 ebike class 3 other"
+allowed_uses,Array&lt;Enum>,"Specifies exceptions to the usually prohibited users. Intended for designating whether bikes are allowed to use sidewalks, footways, and crossings for routing purposes.
 
 Valid options:
 walk
 bike
-ebike
+ebike class 1
 scooter
-motor_vehicle
+NEV
+motor_vehicle ebike class 2 ebike class 3 other
 
 Example:
 Bicycles normally prohibited from using the sidewalk but the sidewalk is a critical edge for connectivity."
-surface_material,Enum,"Specifies the material used for the surface of the segment. 
-
-Valid options:
-asphalt
-concrete
-gravel
-grass
-dirt
-paved
-unpaved
-grass_paver
-paving_stones
-other"
-surface_issue,Text,"Description of surface quality issues for the segment. If the quality is good, leave blank. Use the issue node to indicate quality issues at a single point, and this field to indicate quality issues that span the majority of the segment.
+restricted_access,Array&lt;Text>,"Whether access to the edge is restricted based on membership, passes / permits or access codes. Meant to help travelers easily know if general access is not allowed.
 
 Recommended options:
-yes
-no
-cracking
-scaling
-spalling
-overgrowth
-uneven/displacement
-frequent water pooling
-heaving
-missing bricks / stones
-grates / utility covers / other surface impediments
-potholes / holes
-slickness
-uneven joints
-markings worn / missing
-detectable warning surface damage
-other"
-status,Enum,"Most recent operating status of the segment. Whether the infrastructure is open and available for use.
+private
+access_code_required
+membership_required
+permit_required"
+vehicle_traffic_control,Enum,"Describes how motor vehicle traffic that passes through the crossing edge is controlled. In an intersection where two roads cross, the road that is perpendicular to the crossing edge would be described using this attribute. Use cross_vehicle_traffic_control to describe the road that is parallel to the crossing edge.
 
 Valid options:
-open
-closed
-under construction
+no vehicle control
+traffic signal
+flashing red light
+flashing yellow light
+yield sign
+stop sign
+other"
+cross_vehicle_traffic_control,Array&lt;Enum>,"Describes how motor vehicle traffic coming from cross streets is controlled. This traffic may or may not turn into the crossing space. In an intersection where two roads cross, the road that is parallel to the crossing edge would be described using this attribute. Use vehicle_traffic_control to describe the road that is perpendicular to the crossing edge. For intersections with more than one cross street, list all of the control types present for all of the cross streets in this attribute. 
+
+Valid options:
+no vehicle control
+traffic signal
+flashing red light
+flashing yellow light
+yield sign
+stop sign
+other"
+ped_traffic_control,Enum,"Describes the type of signal that controls pedestrian use of the crossing. If left blank, ""unknown"" is assumed.
+
+Valid options:
+no pedestrian control
+pedestrian signal
+pedestrian hybrid beacon / HAWK
+rectangular rapid flashing beacon
 unknown"
+ped_protection,Array&lt;Enum>,"Any features of traffic control that are intended to improve the protection of pedestrians while crossing. List all that are present. If left blank, ""unknown"" is assumed.
+
+Valid options:
+scramble / all pedestrian interval
+leading pedestrian interval
+no right on red for motor vehicles
+automatic pedestrian recall
+high visibility crosswalk markings
+enhanced crosswalk lighting
+advance stop / yield lines
+additional signage
+supplemental flashing beacon
+other
+none
+unknown"
+traffic_calming,Array&lt;Text>,"Used to identify features along a road or crossing meant to slow the speed of motor vehicle traffic when that feature is present alongside the entirety or majority of the edge. Most traffic calming features are better mapped as zones or points, due to their shape and placement. Please see the traffic_calming zone and point types to map other types of traffic calming. The attributes that the traffic calming element(s) affect should be modified -- for example, a road narrowing should reduce the road's width attribute to match the narrowed width. Recommended values are from https://www.ite.org/technical-resources/traffic-calming/traffic-calming-measures/ and https://wiki.openstreetmap.org/wiki/Key:traffic_calming.
+
+Recommended options:
+for road edge type:
+narrowed road
+closure
+lateral shift
+
+for crossing edge type:
+raised crossing"
 seasonal,Array&lt;Object>,"Indicates whether the segment is commonly affected by seasonal issues. Use this field for recurring (ex. yearly flooding) and not one-time (ex. single flood) events. Include both the seasonal concern and the season when it occurs as a JSON String.
 
 Recommended options:
@@ -198,163 +308,161 @@ wind
 
 Example:
 {""flooding"":""spring"",""fall""}; {""ice"":""winter"",""heavy rain"":""summer""}"
-pedestrian_lane,Boolean,"Indicates whether the stretch of sidewalk is a pedestrian lane, in which a section of the roadway surface is divided out for pedestrian use.
+surface_material,Enum,"Specifies the material used for the surface of the segment.
 
 Valid options:
-yes
-no"
-incline,Float,"The running slope of the full segment. Assume the given incline is in the forward direction of the edge, regardless of edge directionality. Report as percentage of the slope, with two decimal points of precision. Cannot be negative.
-
-Example:
-3.25"
-cross_slope,Float,"The cross slope of the edge at most points along its path. Cross slope is never reported in negative numbers. Report as percentage of the slope, with two decimal points of precision. Cannot be negative."
-cross_slope_max,Float,"The cross slope of the edge at the point along its path where there is the greatest slope. Report as percentage of the slope, with two decimal points of precision. Cannot be negative."
-ada_compliance,Enum,"States whether the piece of infrastructure was considered to be ADA compliant the last time it was officially assessed. This attribute should come from formal assessments and not be created using other available data (ex. Width, cross slope, etc.), since compliance status is based on many detailed, interacting factors. If ada_compliance is filled out, ada_compliance_date and ada_compliance_standard should also be filled out.
-
-Valid options:
-yes
-no
-unknown"
-ada_compliance_date,Date,"Indicates the date when ADA compliance was assessed. Report in RFC 3339 format containing day, month and year, or just month and year or year if day or month is not available.. This field is conditionally required if ""ada_compliance"" is filled out.
-
-Example:
-2025-03
-2014"
-ada_compliance_standard,Enum,"The specific ADA guidelines or standards used in the assessment of this infrastructure.  This field is conditionally required if ""ada_compliance_standard"" is filled out.
-
-Valid options:
-2010
-PROWAG"
-impediment,Array&lt;Text>,"Description of surface quality issues for the segment. If the quality is good, leave blank. In levels 1-2, use this field for any surface quality issues. In level 3, use the issue node to indicate quality issues at a single point, and this field to indicate quality issues that span the majority of the segment. 
+asphalt
+concrete
+gravel
+grass
+dirt
+paved
+unpaved
+grass_paver
+paving_stones
+wood
+other"
+surface_issue,Text,"Description of surface quality issues that may pose a challenge for travelers passing along this edge.
 
 Recommended options:
 yes
 no
-horizontal overgrowth
-vertical overgrowth
-fixed vertical obstruction
-solid fixed object
-flexible fixed object
-protrusion
-turning space missing or issue
-detectable warning not aligned with crossing
-push button not working
+cracking
+scaling
+spalling
+uneven
+frequent water pooling
+heaving
+missing bricks/stones
+potholes/holes
+slickness
+detectable warning surface damage
+longitudinal cracks and seams
+metal plates
 other"
+pedestrian_lane,Enum,"Indicates whether the stretch of sidewalk is a pedestrian lane, in which a section of the roadway surface is divided out for pedestrian use."
+incline,Float,"The running slope of the full edge. The incline should follow the direction in which the geospatial feature was drawn. If the incline increases between the from_node and the to_node, it should be positive. If the incline decreases between the from_node and the to_node, it should be negative. Report as a percentage with two decimal points of precision. See the Playbook for more information on directionality.
+
+Recommended options:
+[JG1]Grabbed from NACTO Bike design guide
+
+Example:
+3.25"
+cross_slope,Float,The cross slope of the edge at most points along its path. Report as percentage with two decimal points of precision. Cannot be negative.
+cross_slope_max,Float,The cross slope of the edge at the point along its path where there is the greatest cross slope. Report as a percentage with two decimal points of precision. Cannot be negative.
+ada_compliance_date,Date,"Indicates the date when ADA compliance was assessed. Report in RFC 3339 format containing day, month and year, or just month and year or year if day or month is not available.. This field is conditionally required if ""ada_compliant_with"" is filled out.
+
+Example:
+2025-03
+2014"
+ada_compliant_with,Enum,"If this infrastructure has been assessed for ADA compliance, the specific ADA guidelines or standards used in the assessment. Also fill out ""ada_compliance_date."" If no ADA assessment is being reported, leave blank.
+
+Valid options:
+2010
+PROWAG"
+impediment,Array&lt;Text>,"Identifies the presence of an object that may pose a challenge for travelers passing along this edge. Mark an edge with this attribute only if the impediment is close enough to the footway/pedestrian way or bike path to potentially pose a challenge. If left blank, the assumed value for this attribute is “unknown.”
+
+Recommended options:
+yes
+no
+low overgrowth (lower than 27"")
+high overgrowth (27"" or higher)
+sign
+low protrusion (lower than 27"")
+high protrusion (27"" or higher)
+utility cover
+stormwater grate
+metal plate
+metal decking (ex. on bridges)
+other surface impediment
+other impediment"
 step_count,Integer,The number of steps that make up this set of stairs. Must be greater than zero.
 handrail,Boolean,"Whether a handrail is available on this set of stairs.
 
 Valid options:
 yes
 no"
-wheel_channel,Boolean,"Whether there is a wheel channel to allow for pushing a bicycle up the stairs.
+rail_crossing,Boolean,"Used to indicate if a pedestrian or bicycle crossing is a railroad crossing. Use generic nodes to connect a rail crossing to the rest of the network. Note that there is also a value of ""rail tracks"" for the other_issue attribute for edges. Use this attribute for track crossings that people walking, rolling or biking will need to cross, and that have active rail traffic. The ""rail tracks"" value for other_issue can be used on other edge types or to identify remaining or unused tracks no longer traveled by trains.
 
 Valid options:
 yes
 no"
-date_built,Date,"Indicates when the facility was officially opened for use. If the facility has had a major remodeling where the structure, shape or another fundamental aspect was changed, the date of remodeling can be placed here. Report in RFC 3339 format containing day, month and year, or just month and year or year if day or month is not available.
-
-Example:
-2025-03
-2014"
-check_date,Date,"The date that this infrastructure was last inspected. Report in RFC 3339 format containing day, month and year, or just month and year or year if day or month is not available.
-
-Example:
-2025-03
-2014"
-traffic_calming,Array&lt;Text>,"Used to identify traffic calming features along a road or crossing. Implies that feature is present alongside the entirety of the edge. The fields that the traffic calming element(s) affect should be modified (i.e., a road narrowing should reduce the road's width field from its typical value). Recommended values are from https://www.ite.org/pub/?id=2a60c136-b1c0-b231-0522-ccbd075cac84  and https://wiki.openstreetmap.org/wiki/Key:traffic_calming  
+visual_markings,Text,"The way the crossing is marked within the roadway space. See the Manual of Uniform Traffic Control Devices (https://mutcd.fhwa.dot.gov/htm/2009/part3/fig3b_19_longdesc.htm) for examples and information.
 
 Recommended options:
-for road edge type:
-corner extension / bulb out
-choker
-narrowed road
-chicane
-closure
-mini roundabout
-diagonal diverter
-lateral shift
-median barrier/forced turn island
-raised intersection
-realigned intersection
-road narrowing
-speed hump
-speed table
-traffic circle
-for crossing edge type:
-raised crossing"
-curb_height,Integer,Indicates typical height of the curb along this segment of the road; can be used in deciding whether to route specific pedestrians off the sidewalk when there are obstructions or discontinuities. Measured and rounded to the nearest inch. Cannot be negative.
-official,Boolean,"Indicates whether a trail has been officially designated by a government body or other recognized organization.
-
-Valid options:
-yes
-no"
-presence,Enum,"Indicates whether the piece of infrastructure exists or is present. When other attributes are provided, the existence of the infrastructure can be assumed. This attribute is useful for identifying where a sidewalk or a crossing might be missing or where its presence is unknown. Conditionally required if no other identfiying fields supplied.
-
-Valid options:
-yes
-no
-missing
-unknown
-
-Example:
-cycleway:left:presence=yes, cycleway:right:buffer:presence=yes"
-rail,Boolean,"Used to indicate if a pedestrian or bicycle crossing is a railroad crossing. Use generic nodes to connect a rail crossing to the rest of the network. 
-
-Valid options:
-yes
-no"
-visual_markings,Text,"The way the crossing is marked within the roadway space. “Standard” means two solid parallel lines that indicate the outline, “dashed lines” means two dashed parallel lines that indicate the outline, “zebra” means regularly spaced diagonal bars along its length, “continental” means regularly spaced horizontal bars along its length, and “ladder” means standard plus either zebra or continental.  
-
-Recommended options:
-yes
-no
-dashed lines
-zebra
-continental
-ladder
+marked - type unknown
+unmarked
 transverse
+continental / ladder
+zebra / diagonal
 other"
-detectable_warning,Enum,"Indicates when tactile guidestrips or other markings are present to help identify the edge of a crosswalk or traffic island, the beginning or end of steps, or the presence of other infrastructure nearby, such as bike lanes. It is recommended to segment the edge so that this field is only equal to “yes” for the segment where the detectable warning appears. Do not use this field for tactile markings on curb ramps; instead, use the detectable_warning field for curb ramps.  
+tactile_marking,Enum,"Indicates when tactile guidestrips or other markings are present to help identify the edge of a crosswalk or traffic island, the beginning or end of steps, or the presence of other infrastructure nearby, such as bike lanes. It is recommended to segment the edge so that this field is only equal to “yes” for the segment where the detectable warning appears. Do not use this field for tactile markings on curb ramps; instead, use the detectable_warning attribute for curb_ramp nodes in Tiers 1 and 2, and the detectable_warning attribute for the curb_ramp_runslope and curb_ramp_toplanding edges in Tiers 3 and 4.
 
 Valid options:
 yes
 no
 unknown"
-vehicle_traffic_control,Enum,"Describes how motor vehicle traffic that passes through the crossing space is controlled.  
+other_issue,Text,"Identifies whether this edge has another type of issue that may pose a challenge for travelers, besides impediments and surface damage. Includes design, construction and other issue types. Note that there is also an attribute for rail_crossing, which indicates if a crossing edge is a rail crossing. Use rail_crossing for track crossings that people walking, rolling or biking will need to cross, and that have active rail traffic. The ""rail tracks"" value here can be used on other edge types or to identify remaining or unused tracks no longer traveled by trains.
+
+Recommended options:
+yes
+no
+detectable warning not aligned with crossing
+push button not working
+markings worn
+markings missing
+rail tracks
+broken / damaged signal
+auditory signal not working
+vibrotactile signal not working
+poor volume for auditory signal
+signal button height issue
+no visual countdown for signal
+signal distance from walk path
+other"
+lrs_references,Array&lt;Text>,"A JSON list capturing the attributes that appear in the GATIS LRS extension. See the extension for full attribute descriptions. Either this attribute or the extension may be used based on which is more convenient for the data producer and likely users. This attribute should be placed on each separate piece of infrastructure that is being mapped to LRS, with its specific milepoints. 
+
+Example:
+[{""gatis_id"": ""1234"", ""geometry_type"": ""edge"", ""type"": ""sidewalk"", ""reference_ids"": {""source"": ""NAME HERE"", ""id"": ""123456789""}, ""lrs_source_url"": ""https://link.gov/dataset"", ""lrs_starting_mp"": ""1.5"", ""lrs_ending_mp"": ""2.3"", ""lrs_side"": ""left""}, {""gatis_id"": ""1235"", ""geometry_type"": ""edge"", ""type"": ""sidewalk"", ""reference_ids"": {""source"": ""NAME HERE"", ""id"": ""123456789""}, ""lrs_source_url"": ""https://link.gov/dataset"", ""lrs_starting_mp"": ""1.5"", ""lrs_ending_mp"": ""2.3"", ""lrs_side"": ""right""}]"
+last_inspection_type,Text,"The type of inspection that was carried out on the piece of infrastructure, on the date listed under last_inspection_date.
+
+Recommended options:
+routine maintenance check
+ADA
+safety audit
+construction inspection
+post-crash audit
+other"
+lifecycle_stage,Text,"The lifecycle stage of this piece of infrastructure, as of the last_inspection_date.
+
+Recommended options:
+new
+operational
+nearing replacement
+replacement planned or in planning"
+maintenance_schedule,Text,"Description of the maintenance schedule, frequency of inspection, replacement schedule or other information about when the piece of infrastructure is maintained."
+planned_work,Text,"Description of any planned work ahead for the infrastructure. This may include plans for construction or remodeling, upcoming work orders or other types of planned improvements."
+owner,Text,"The entity that owns this piece of infrastructure. If a department, office or subagency is responsible for the infrastructure, list that department, office or subagency. "
+maintainer,Text,"The entity that is responsible for maintaining this piece of infrastructure. It may or may not be the same as owner. If a department, office or subagency is responsible for the infrastructure, list that department, office or subagency."
+lighting,Boolean,"Whether or not this edge has lighting along its entirety or majority. For single points where lighting appears, use the object point type with object_type = lighting. For enhanced lighting of crosswalks, see the ped_protection attribute on the crossing edge."
+bike_dismount_area,Boolean,Whether this edge contains an area where cyclists are asked to dismount from their cycles. 
+detectable_warning,Enum,"Describes whether tactile paving is present, and whether or not it has a constrasting color (which should meet ADA guidelines for the amount of contrast). 
 
 Valid options:
-uncontrolled
-standard signal
-flashing red signal
-flashing yellow signal
-yield sign
-stop sign"
-cross_vehicle_traffic_control,Array&lt;Enum>,"Describes how motor vehicle traffic coming from cross streets is controlled. This traffic may or may not turn into the crossing space. For intersections with more than one cross street, list all of the control types present. 
+tactile and contrasted
+tactile and not contrasted
+not tactile and contrasted
+no"
+ramp_type,Text,"Indicates the orientation of the ramp in relation to the pedestrian direction of travel at the location. Where a double curb ramp exists, map each ramp as a separate curb_ramp_runslope.
 
-Valid options:
-uncontrolled
-standard signal
-flashing red signal
-flashing yellow signal
-yield sign
-stop sign"
-ped_traffic_control,Enum,"Describes the type of signal that controls the timing of pedestrian use of the crossing.  
-
-Valid options:
-Uncontrolled
-standard signal
-flashing red signal
-flashing yellow signal
-pedestrian hybrid beacon / HAWK
-rectangular rapid flashing beacon
-yield sign
-stop sign"
-ped_protection,Array&lt;Enum>,"Lists any features of traffic control that are intended to improve the protection of pedestrians while crossing. 
-
-Valid options:
-scramble / all pedestrian
-leading pedestrian interval
-no right on red
-none
+Recommended options:
+diagonal
+directional
+parallel
+perpendicular
+built-up
+combination
+transition
+cut-through (median/island ramp)
 unknown"
-measured_length,Float,The measured length of the edge. Note that geospatial data also contains a length attribute by default that may be useful in some cases. Measuring the traversable length of the segment is preferable.
+ramp_length,Float,Indicates the length of the incline portion of the curb ramp. 

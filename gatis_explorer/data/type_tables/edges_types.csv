@@ -1,23 +1,34 @@
 Name,Description,Tier
 road,"A public road primarily intended for automobile travel.
 
-Sidewalk and bikeway edges can be represented as part of a road edge using the left/right/both modifiers. See the Specification Document for more information.",Tier 1
+Sidewalk and bikeway edges can be represented as part of a road edge using the left/right/both modifiers. See the GATIS Playbook for more information. ",Tier 1
 sidewalk,"A designated pedestrian path along the side of a roadway.
 
-This edge type includes pedestrian lanes, in which a section of the roadway surface is divided out for pedestrian use; use pedestrian_lane attribute to indicate.
+This edge type includes roadway pedestrian lanes, in which a section of the roadway surface is divided out for pedestrian use. 
 
-Can use the left/right/both field modifiers to represent this edge type on a road edge.",Tier 1
-footpath,A dedicated pedestrian path that does not fall into another category. Primarily used for connecting sidewalks to crossings.,Tier 2
-crossing,"A location where infrastructure or a designation exists to help pedestrians and/or cyclists cross traffic lanes or other areas designated for traffic. In many locations, a crossing is a crosswalk. ",Tier 1
-traffic_island,A median or other raised or protected area between traffic lanes on the road surface meant to provide a safe space for pedestrians to stop. A traffic island may or may not have a midblock entrance. Can be used to indicate transit islands.,Tier 2
-steps,Fixed steps or stairs that appear along a pedestrian way. NC-BPAID maps outdoor infrastructure; switch to GTFS Pathways or IMDF conventions for indoor infrastructure.,Tier 3
-escalator,Escalators or any other construction of moving stairs meant to carry a pedestrian from one level of physical infrastructure to another. NC-BPAID maps outdoor infrastructure; switch to GTFS Pathways or IMDF conventions for indoor infrastructure.,Tier 3
+The easiest way to model these pedestrian lanes that follow a roadway is as an attribute on the roadway (""left/right/both""); where the geometry diverges and you wish to model that diversion, create an edge that models the diverged path and associate it with the road with the pedestrian_lane attribute.
+",Tier 1
+curb_ramp_toplanding,"An edge that represents the transition area from sidewalk space to a curb ramp (curb_ramp_runslope). This area is sometimes called a ""top landing"" or ""turning area."" It represents the area where a user would likely stand or wait to be seen by vehicles while crossing or waiting to cross, or the place to stand to signal their intent to cross where crossing signals may not exist. 
+
+See the Playbook https://docs.google.com/presentation/d/1NJIyzpRFZYbStU7Esa5gB3ZS8yMq78rL/edit?slide=id.g3ae97a94198_1_7#slide=id.g3ae97a94198_1_7 for guidance and examples.",Tier 3
+curb_ramp_runslope,"An edge that represents the sloped surface (curb ramp) that aids a user in transitioning from the sidewalk space down to the street level for crossing, where a curb cut exists. 
+
+See the Playbook https://docs.google.com/presentation/d/1NJIyzpRFZYbStU7Esa5gB3ZS8yMq78rL/edit?slide=id.g3ae97a94198_1_7#slide=id.g3ae97a94198_1_7 for guidance and examples.",Tier 3
+footway,"A dedicated pedestrian path/route that does not fall into another category. Some common examples of footways include pedestrian routes at outdoor venues or in outdoor spaces (shopping center lots, campuses, parks, sports fields, etc.), alleyways that don’t appear within the road network, and official connector paths (for example, near freeway ramps or other infrastructure). May be used to map data from OpenStreetMap with their “footway” tag that does not align well with another GATIS edge type; see the Playbook for more details.",Tier 1
+crossing,"A location where infrastructure or a designation exists to help pedestrians and/or cyclists cross motor vehicle traffic lanes or other areas designated for traffic. In many locations, a crossing is a crosswalk. ",Tier 1
+ramp,"Indicates any type of ramp, other than a curb ramp, where the footway is built to deliberately slope up or down to improve access. In Tiers 1 and 2, use the curb_ramp node to indicate curb ramps; in Tiers 3+, use the curb_ramp_runslope edge.  ",Tier 2
+traffic_island,"A median or other raised or protected area between traffic lanes on the road surface, sometimes meant to provide a safe space for pedestrians to stop. A traffic island may or may not have a midblock entrance. Can be used to indicate transit islands.",Tier 2
+steps,"Fixed steps or stairs that appear along a pedestrian way. 
+
+GATIS maps outdoor infrastructure; switch to GTFS Pathways or IMDF conventions for indoor infrastructure.",Tier 3
+elevator,"Elevators, funiculars, or other car- or enclosure-based constructions meant to vertically carry a pedestrian from one level of physical infrastructure to another. 
+
+GATIS maps outdoor infrastructure; switch to GTFS Pathways or IMDF conventions for indoor infrastructure.",Tier 3
+escalator,"Escalators or any other construction of moving stairs meant to carry a pedestrian from one level of physical infrastructure to another. 
+
+GATIS maps outdoor infrastructure; switch to GTFS Pathways or IMDF conventions for indoor infrastructure.",Tier 3
 bikeway,"A designated cycling lane or path that can be on, next to or away from a road.
 
-If pedestrian usage is designated then use multi_use_path edge type instead.
-
-Can use the left/right/both modifiers to represent this edge type on a road edge.",Tier 1
-multi_use_path,A generic link that allows both bike and pedestrian travel. It can take on both sidewalk and cycleway attributes.,Tier 2
-trail,"Any kind of path or trail that allows bicycle or pedestrian travel that wouldn't fall into the multi_use_path designation. Includes official and unofficial unpaved trails, social trails, goatpaths and desire lines.",Tier 2
-ramp,"Indicates any type of ramp besides a curb ramp, where the footpath is built to deliberately slope up or down to improve access.  ",Tier 2
-virtual_link,"Links added for topology, connectivity, or crossing reasons by the analyst. Does not relate to a piece of physical infrastructure in the real world.",Tier 2
+If pedestrians may also use the path, use multi_use_path edge instead.",Tier 1
+multi_use_path,"A path that allows more than one use (i.e. bike and pedestrian travel or pedestrian and equestrian travel). A multi-use path is likely to be a formal or official path, may be paved or have a constructed surface, and may contain infrastructure such as signage or buffer zones. Compared to a ""trail,"" its surface is generally more level, wider and meant to be accessible to a range of users. Some transportation guides use the term ""shared use paths"" rather than ""multi-use paths""; within GATIS both would be categorized with the multi_use_path edge.",Tier 2
+trail,"Any kind of path or trail that allows bicycle and/or pedestrian travel that does not fall into the multi_use_path designation. Includes official and unofficial unpaved trails, social trails, goatpaths and desire lines (https://en.wikipedia.org/wiki/Desire_path).",Tier 2

@@ -50,7 +50,7 @@
                             "point_type": {
                                 "type": "string",
                                 "enum": [
-                                    "object"
+                                    "[Same as Point Types]"
                                 ]
                             },
                             "object_type": {
@@ -76,6 +76,335 @@
                                         "type": "null"
                                     }
                                 ]
+                            },
+                            "accessibility_features": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "cracking",
+                                        "scaling",
+                                        "spalling",
+                                        "uneven / displacement",
+                                        "frequent water pooling",
+                                        "heaving",
+                                        "missing bricks / stones",
+                                        "grates / utility covers / other surface impediments",
+                                        "potholes / holes",
+                                        "slickness",
+                                        "uneven joints",
+                                        "markings worn / missing",
+                                        "detectable warning surface damage",
+                                        "other"
+                                    ]
+                                }
+                            },
+                            "sign_message": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sign_association": {
+                                "oneOf": [
+                                    {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {}
+                                        }
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sign_designation": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "sign_name": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "surface_issue": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "cracking",
+                                        "scaling",
+                                        "spalling",
+                                        "uneven / displacement",
+                                        "frequent water pooling",
+                                        "heaving",
+                                        "missing bricks / stones",
+                                        "grates / utility covers / other surface impediments",
+                                        "potholes / holes",
+                                        "slickness",
+                                        "uneven joints",
+                                        "markings worn / missing",
+                                        "detectable warning surface damage",
+                                        "other"
+                                    ]
+                                }
+                            },
+                            "impediment": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "gtfs_agency_id": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "gtfs_stop_id": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "other_issue": {
+                                "type": "string",
+                                "enum": [
+                                    "yes",
+                                    "no",
+                                    "detectable warning not aligned with crossing",
+                                    "push button not working",
+                                    "markings worn",
+                                    "markings missing",
+                                    "turning space missing",
+                                    "other"
+                                ]
+                            },
+                            "counter_site_id": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "counter_site_name": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "counter_data_source": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "counter_data_URL": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "format": "uri"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "counter_comments": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "parking_type": {
+                                "type": "string",
+                                "enum": [
+                                    "bicycle",
+                                    "scooter",
+                                    "ebike",
+                                    "shared scooter",
+                                    "shared bicycle",
+                                    "shared ebike",
+                                    "other",
+                                    "other shared"
+                                ]
+                            },
+                            "parking_id": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "parking_provider": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "parking_data_URL": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "format": "uri"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "last_inspection_date": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}$"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "date_built": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}$"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "ada_compliance_date": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "pattern": "^[1-9]\\d{3}$"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "ada_compliant_with": {
+                                "type": "string",
+                                "enum": []
+                            },
+                            "button": {
+                                "type": "string",
+                                "enum": [
+                                    "yes",
+                                    "no",
+                                    "unknown"
+                                ]
+                            },
+                            "button_vert_height_in": {
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "tactile_message": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "auditory_message": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "actuation_type": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    }
+                                ]
+                            },
+                            "crossing_time_sec": {
+                                "type": "number",
+                                "minimum": 0
                             }
                         },
                         "additionalProperties": false
