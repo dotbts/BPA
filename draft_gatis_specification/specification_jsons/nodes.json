@@ -130,9 +130,9 @@
       "example": "2025-03\n2014",
       "presence": {
         "generic": ["forbidden",null,null,null],
-        "curb_ramp": ["conditionally_required",null,null,null],
-        "sidewalk_to_ramp_transition": ["conditionally_required",null,null,null],
-        "ramp_to_street_transition": ["conditionally_required",null,null,null]
+        "curb_ramp": ["recommended",null,null,null],
+        "sidewalk_to_ramp_transition": ["recommended",null,null,null],
+        "ramp_to_street_transition": ["recommended",null,null,null]
       }
     },
     {
@@ -143,9 +143,9 @@
       "example": null,
       "presence": {
         "generic": ["forbidden",null,null,null],
-        "curb_ramp": ["conditionally_required",null,null,null],
-        "sidewalk_to_ramp_transition": ["conditionally_required",null,null,null],
-        "ramp_to_street_transition": ["conditionally_required",null,null,null]
+        "curb_ramp": ["recommended",null,null,null],
+        "sidewalk_to_ramp_transition": ["recommended",null,null,null],
+        "ramp_to_street_transition": ["recommended",null,null,null]
       }
     },
     {

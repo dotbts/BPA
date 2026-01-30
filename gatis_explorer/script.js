@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
   switch (page) {
     case "presence_tables_page":
       csv_fp = "../data/presence_index.csv";
-      optional_columns = ["optional","forbidden","conditionally_required","conditionally_forbidden"]
+      optional_columns = ["optional","forbidden"]
       break;
     case "attributes_tables_page":
       csv_fp = "../data/attributes_index.csv";
@@ -442,7 +442,6 @@ function applyFiltersAndRender(containerId, tableId, typeKey) {
         // use this to add hyperlinks to the attributes, just put in the column name
         renderTagsByColumnName(tableId,capitalizeFirstLetter("required"));
         renderTagsByColumnName(tableId,capitalizeFirstLetter("recommended"));
-        renderTagsByColumnName(tableId,capitalizeFirstLetter("conditionally_required"));
         renderTagsByColumnName(tableId,capitalizeFirstLetter("optional"));
         renderTagsByColumnName(tableId,capitalizeFirstLetter("forbidden"));
       }, 0);
