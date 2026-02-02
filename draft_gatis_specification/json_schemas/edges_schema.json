@@ -1982,32 +1982,6 @@
                             "bikeway:left:cross_slope_max": {
                                 "type": "number"
                             },
-                            "bikeway:left:ada_compliance_date": {
-                                "oneOf": [
-                                    {
-                                        "type": "string",
-                                        "format": "date"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}$"
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
-                            },
-                            "bikeway:left:ada_compliant_with": {
-                                "type": "string",
-                                "enum": [
-                                    "2010",
-                                    "PROWAG"
-                                ]
-                            },
                             "bikeway:left:impediment": {
                                 "type": "array",
                                 "items": {
@@ -2446,32 +2420,6 @@
                             },
                             "bikeway:right:cross_slope_max": {
                                 "type": "number"
-                            },
-                            "bikeway:right:ada_compliance_date": {
-                                "oneOf": [
-                                    {
-                                        "type": "string",
-                                        "format": "date"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])$"
-                                    },
-                                    {
-                                        "type": "string",
-                                        "pattern": "^[1-9]\\d{3}$"
-                                    },
-                                    {
-                                        "type": "null"
-                                    }
-                                ]
-                            },
-                            "bikeway:right:ada_compliant_with": {
-                                "type": "string",
-                                "enum": [
-                                    "2010",
-                                    "PROWAG"
-                                ]
                             },
                             "bikeway:right:impediment": {
                                 "type": "array",

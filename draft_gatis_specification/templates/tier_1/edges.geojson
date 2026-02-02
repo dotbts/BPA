@@ -9,7 +9,11 @@
                 "edge_type": "road",
                 "directionality": null,
                 "sidewalk:left:presence": null,
+                "sidewalk:left:ada_compliance_date": null,
+                "sidewalk:left:ada_compliant_with": null,
                 "sidewalk:right:presence": null,
+                "sidewalk:right:ada_compliance_date": null,
+                "sidewalk:right:ada_compliant_with": null,
                 "bikeway:left:presence": null,
                 "bikeway:left:directionality": null,
                 "bikeway:left:bikeway_type": null,
@@ -21,7 +25,11 @@
                 "bikeway:right:separation_elements": null,
                 "bikeway:right:separation_permeable_car": null,
                 "multi_use_path:left:presence": null,
-                "multi_use_path:right:presence": null
+                "multi_use_path:left:ada_compliance_date": null,
+                "multi_use_path:left:ada_compliant_with": null,
+                "multi_use_path:right:presence": null,
+                "multi_use_path:right:ada_compliance_date": null,
+                "multi_use_path:right:ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -32,7 +40,9 @@
             "type": "Feature",
             "properties": {
                 "edge_id": null,
-                "edge_type": "sidewalk"
+                "edge_type": "sidewalk",
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -44,7 +54,9 @@
             "properties": {
                 "edge_id": null,
                 "curb_ramp_system_id": null,
-                "edge_type": "curb_ramp_toplanding"
+                "edge_type": "curb_ramp_toplanding",
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -56,7 +68,9 @@
             "properties": {
                 "edge_id": null,
                 "curb_ramp_system_id": null,
-                "edge_type": "curb_ramp_runslope"
+                "edge_type": "curb_ramp_runslope",
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -67,7 +81,9 @@
             "type": "Feature",
             "properties": {
                 "edge_id": null,
-                "edge_type": "footway"
+                "edge_type": "footway",
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -78,7 +94,9 @@
             "type": "Feature",
             "properties": {
                 "edge_id": null,
-                "edge_type": "crossing"
+                "edge_type": "crossing",
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -89,7 +107,9 @@
             "type": "Feature",
             "properties": {
                 "edge_id": null,
-                "edge_type": "ramp"
+                "edge_type": "ramp",
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -100,7 +120,9 @@
             "type": "Feature",
             "properties": {
                 "edge_id": null,
-                "edge_type": "traffic_island"
+                "edge_type": "traffic_island",
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -111,7 +133,9 @@
             "type": "Feature",
             "properties": {
                 "edge_id": null,
-                "edge_type": "steps"
+                "edge_type": "steps",
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -123,7 +147,9 @@
             "properties": {
                 "edge_id": null,
                 "edge_type": "elevator",
-                "directionality": null
+                "directionality": null,
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -135,7 +161,9 @@
             "properties": {
                 "edge_id": null,
                 "edge_type": "escalator",
-                "directionality": null
+                "directionality": null,
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -161,7 +189,9 @@
             "type": "Feature",
             "properties": {
                 "edge_id": null,
-                "edge_type": "multi_use_path"
+                "edge_type": "multi_use_path",
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -172,7 +202,9 @@
             "type": "Feature",
             "properties": {
                 "edge_id": null,
-                "edge_type": "trail"
+                "edge_type": "trail",
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,

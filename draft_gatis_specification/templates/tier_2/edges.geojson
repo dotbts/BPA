@@ -65,13 +65,17 @@
                 "multi_use_path:left:mup_modal_delineation": null,
                 "multi_use_path:left:surface_material": null,
                 "multi_use_path:left:incline": null,
+                "multi_use_path:left:ada_compliance_date": null,
+                "multi_use_path:left:ada_compliant_with": null,
                 "multi_use_path:right:presence": null,
                 "multi_use_path:right:facility_name": null,
                 "multi_use_path:right:width_in": null,
                 "multi_use_path:right:status": null,
                 "multi_use_path:right:mup_modal_delineation": null,
                 "multi_use_path:right:surface_material": null,
-                "multi_use_path:right:incline": null
+                "multi_use_path:right:incline": null,
+                "multi_use_path:right:ada_compliance_date": null,
+                "multi_use_path:right:ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -106,7 +110,9 @@
                 "edge_id": null,
                 "curb_ramp_system_id": null,
                 "edge_type": "curb_ramp_toplanding",
-                "status": null
+                "status": null,
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -119,7 +125,9 @@
                 "edge_id": null,
                 "curb_ramp_system_id": null,
                 "edge_type": "curb_ramp_runslope",
-                "status": null
+                "status": null,
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -171,7 +179,9 @@
                 "from_node": null,
                 "to_node": null,
                 "status": null,
-                "surface_material": null
+                "surface_material": null,
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -184,6 +194,8 @@
                 "edge_id": null,
                 "edge_type": "traffic_island",
                 "status": null,
+                "ada_compliance_date": null,
+                "ada_compliant_with": null,
                 "tactile_marking": null
             },
             "geometry": {
@@ -196,7 +208,9 @@
             "properties": {
                 "edge_id": null,
                 "edge_type": "steps",
-                "status": null
+                "status": null,
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -209,7 +223,9 @@
                 "edge_id": null,
                 "edge_type": "elevator",
                 "directionality": null,
-                "status": null
+                "status": null,
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -222,7 +238,9 @@
                 "edge_id": null,
                 "edge_type": "escalator",
                 "directionality": null,
-                "status": null
+                "status": null,
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -267,7 +285,9 @@
                 "status": null,
                 "mup_modal_delineation": null,
                 "surface_material": null,
-                "incline": null
+                "incline": null,
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
@@ -284,7 +304,9 @@
                 "from_node": null,
                 "to_node": null,
                 "status": null,
-                "surface_material": null
+                "surface_material": null,
+                "ada_compliance_date": null,
+                "ada_compliant_with": null
             },
             "geometry": {
                 "coordinates": null,
