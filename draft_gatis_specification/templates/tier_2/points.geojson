@@ -79,7 +79,9 @@
             "type": "Feature",
             "properties": {
                 "point_id": null,
-                "point_type": "traffic_calming"
+                "point_type": "traffic_calming",
+                "date_built": null,
+                "traffic_calming_type": null
             },
             "geometry": {
                 "coordinates": null,

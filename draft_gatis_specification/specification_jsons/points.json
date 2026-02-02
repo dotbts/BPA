@@ -120,8 +120,8 @@
         "object": ["optional",null,null,null],
         "sign": ["optional",null,null,null],
         "transit_stop": ["optional",null,null,null],
-        "issue": ["optional",null,null,null],
-        "counter": ["optional",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
         "bike_parking": ["optional",null,null,null],
         "traffic_calming": ["optional",null,null,null],
         "pushbutton": ["optional",null,null,null],
@@ -166,7 +166,7 @@
     },
     {
       "name": "sign_designation",
-      "description": "Indicates the type of sign as described within the MUTCD, within the \"Sign Designation\" field (https://mutcd.fhwa.dot.gov/kno-shs_2024-release-status/index.htm).",
+      "description": "Indicates the type of sign as described within the MUTCD, within the \"Sign Designation\" field (https://mutcd.fhwa.dot.gov/kno-shs_2024-release-status/index.htm). Use the MUTCD value provided under \"Sign Designation\" in the Regulatory Signs table.",
       "type": "Text",
       "listed_values": null,
       "example": "R9-5",
@@ -483,7 +483,7 @@
         "issue": ["forbidden",null,null,null],
         "counter": ["forbidden",null,null,null],
         "bike_parking": ["optional",null,null,null],
-        "traffic_calming": ["optional",null,null,null],
+        "traffic_calming": ["recommended",null,null,null],
         "pushbutton": ["recommended",null,null,null],
         "detector": ["recommended",null,null,null]
       }
@@ -630,6 +630,24 @@
         "traffic_calming": ["forbidden",null,null,null],
         "pushbutton": ["recommended",null,null,null],
         "detector": ["recommended",null,null,null]
+      }
+    },
+    {
+      "name": "traffic_calming_type",
+      "description": "The type of traffic calming measure that is present in a traffic_calming zone. Recommended values are from https://www.ite.org/technical-resources/traffic-calming/traffic-calming-measures/ and https://wiki.openstreetmap.org/wiki/Key:traffic_calming.",
+      "type": "Enum",
+      "listed_values": ["bulbout","choker","chicane","mini roundabout","diagonal diverter","median barrier/forced turn island","raised intersection","realigned intersection","speed bump","speed hump","speed table","traffic circle"],
+      "example": null,
+      "presence": {
+        "object": ["forbidden",null,null,null],
+        "sign": ["forbidden",null,null,null],
+        "transit_stop": ["forbidden",null,null,null],
+        "issue": ["forbidden",null,null,null],
+        "counter": ["forbidden",null,null,null],
+        "bike_parking": ["forbidden",null,null,null],
+        "traffic_calming": ["required",null,null,null],
+        "pushbutton": ["forbidden",null,null,null],
+        "detector": ["forbidden",null,null,null]
       }
     }
   ]
