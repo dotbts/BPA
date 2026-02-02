@@ -1,5 +1,5 @@
-zones Type,Tier,required,recommended,optional,forbidden
-open,Tier 3,"zone_id, zone_type","surface_material, facility_name","status, reference_ids, prohibited_uses, allowed_uses, last_inspection_date, date_built",traffic_calming_type
-open,Tier 4,"zone_id, zone_type","surface_material, facility_name","status, reference_ids, prohibited_uses, allowed_uses, last_inspection_date, date_built",traffic_calming_type
-traffic_calming,Tier 3,"zone_id, zone_type, traffic_calming_type",date_built,"surface_material, status, reference_ids, last_inspection_date","facility_name, prohibited_uses, allowed_uses"
-traffic_calming,Tier 4,"zone_id, zone_type, traffic_calming_type",date_built,"surface_material, status, reference_ids, last_inspection_date","facility_name, prohibited_uses, allowed_uses"
+zones Type,Tier,required,recommended,conditionally_required,conditionally_forbidden,optional,forbidden
+open,Tier 3,"zone_id, zone_type","surface_material, facility_name",--,--,"status, reference_ids, prohibited_uses, allowed_uses, last_inspection_date, date_built",traffic_calming_type
+open,Tier 4,"zone_id, zone_type","surface_material, facility_name",--,--,"status, reference_ids, prohibited_uses, allowed_uses, last_inspection_date, date_built",traffic_calming_type
+traffic_calming,Tier 3,"zone_id, zone_type, traffic_calming_type",date_built,--,--,"surface_material, status, reference_ids, last_inspection_date","facility_name, prohibited_uses, allowed_uses"
+traffic_calming,Tier 4,"zone_id, zone_type, traffic_calming_type",date_built,--,--,"surface_material, status, reference_ids, last_inspection_date","facility_name, prohibited_uses, allowed_uses"
