@@ -100,7 +100,7 @@ Example:
 2025-03
 2014"
 curb_height_in,Integer,Indicates typical height of the curb along this segment of the road; can be used in deciding whether to route specific pedestrians off the sidewalk when there are obstructions or discontinuities. Measured and rounded to the nearest inch. Cannot be negative.
-official,Array&lt;Text>,"Indicates whether a trail has been officially designated by a government body or other recognized organization, with a string of the name of the recognizing body and/or a URL to the source/reference to the recognition for users to verify and see additional information. If not an official trail, the value should be ""no."" If left blank, the trail is assumed official and managed by a local government agency.
+official,Array&lt;Text>,"Text
 
 Example:
 [""https://greenway.org/route-map""]
@@ -387,16 +387,14 @@ rail_crossing,Boolean,"Used to indicate if a pedestrian or bicycle crossing is a
 Valid options:
 yes
 no"
-visual_markings,Text,"The way the crossing is marked within the roadway space. See the Manual of Uniform Traffic Control Devices (https://mutcd.fhwa.dot.gov/pdfs/11th_Edition/part3.pdf) Chapter 3C and Figure 3C-1 for more information. This attribute can accept a list of values. Include all that apply.
+visual_markings,Text,"The way the crossing is marked within the roadway space. See the Manual of Uniform Traffic Control Devices (https://mutcd.fhwa.dot.gov/htm/2009/part3/fig3b_19_longdesc.htm) for examples and information.
 
 Recommended options:
 marked - type unknown
 unmarked
 transverse
-longitudinal bar
-ladder
-bar pair
-high visibility
+continental / ladder
+zebra / diagonal
 other"
 tactile_marking,Enum,"Indicates when tactile guidestrips or other markings are present to help identify the edge of a crosswalk or traffic island, the beginning or end of steps, or the presence of other infrastructure nearby, such as bike lanes. It is recommended to segment the edge so that this field is only equal to “yes” for the segment where the detectable warning appears. Do not use this field for tactile markings on curb ramps; instead, use the detectable_warning attribute for curb_ramp nodes in Tiers 1 and 2, and the detectable_warning attribute for the curb_ramp_runslope and curb_ramp_toplanding edges in Tiers 3 and 4.
 
