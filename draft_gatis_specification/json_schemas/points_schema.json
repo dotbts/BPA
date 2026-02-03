@@ -405,6 +405,23 @@
                             "crossing_time_sec": {
                                 "type": "number",
                                 "minimum": 0
+                            },
+                            "traffic_calming_type": {
+                                "type": "string",
+                                "enum": [
+                                    "bulbout",
+                                    "choker",
+                                    "chicane",
+                                    "mini roundabout",
+                                    "diagonal diverter",
+                                    "median barrier/forced turn island",
+                                    "raised intersection",
+                                    "realigned intersection",
+                                    "speed bump",
+                                    "speed hump",
+                                    "speed table",
+                                    "traffic circle"
+                                ]
                             }
                         },
                         "additionalProperties": false

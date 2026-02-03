@@ -46,7 +46,7 @@ sign_association,Array&lt;Object>,"Indicates the GATIS ID of any infrastructure 
 
 Example:
 [12345, 23456]"
-sign_designation,Text,"Indicates the type of sign as described within the MUTCD, within the ""Sign Designation"" field (https://mutcd.fhwa.dot.gov/kno-shs_2024-release-status/index.htm).
+sign_designation,Text,"Indicates the type of sign as described within the MUTCD, within the ""Sign Designation"" field (https://mutcd.fhwa.dot.gov/kno-shs_2024-release-status/index.htm). Use the MUTCD value provided under ""Sign Designation"" in the Regulatory Signs table.
 
 Example:
 R9-5"
@@ -153,3 +153,18 @@ bike auto-detected
 recall (no actuation or detection)
 unknown"
 crossing_time_sec,Integer,"The time in whole seconds that the signal provides for pedestrians to cross the crossing. For signals that do not have a fixed crossing time, list the minimum time provided."
+traffic_calming_type,Enum,"The type of traffic calming measure that is present in a traffic_calming zone. Recommended values are from https://www.ite.org/technical-resources/traffic-calming/traffic-calming-measures/ and https://wiki.openstreetmap.org/wiki/Key:traffic_calming.
+
+Valid options:
+bulbout
+choker
+chicane
+mini roundabout
+diagonal diverter
+median barrier/forced turn island
+raised intersection
+realigned intersection
+speed bump
+speed hump
+speed table
+traffic circle"

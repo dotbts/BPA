@@ -30,9 +30,7 @@
             "properties": {
                 "node_id": null,
                 "node_type": "sidewalk_to_ramp_transition",
-                "curb_ramp_system_id": null,
-                "ada_compliance_date": null,
-                "ada_compliant_with": null
+                "curb_ramp_system_id": null
             },
             "geometry": {
                 "coordinates": null,
@@ -44,9 +42,7 @@
             "properties": {
                 "node_id": null,
                 "node_type": "ramp_to_street_transition",
-                "curb_ramp_system_id": null,
-                "ada_compliance_date": null,
-                "ada_compliant_with": null
+                "curb_ramp_system_id": null
             },
             "geometry": {
                 "coordinates": null,

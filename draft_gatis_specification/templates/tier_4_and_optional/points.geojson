@@ -60,7 +60,6 @@
                 "point_id": null,
                 "point_type": "issue",
                 "reference_ids": null,
-                "accessibility_features": null,
                 "surface_issue": null,
                 "impediment": null,
                 "other_issue": null
@@ -76,7 +75,6 @@
                 "point_id": null,
                 "point_type": "counter",
                 "reference_ids": null,
-                "accessibility_features": null,
                 "counter_site_id": null,
                 "counter_site_name": null,
                 "counter_data_source": null,
@@ -118,7 +116,8 @@
                 "accessibility_features": null,
                 "other_issue": null,
                 "last_inspection_date": null,
-                "date_built": null
+                "date_built": null,
+                "traffic_calming_type": null
             },
             "geometry": {
                 "coordinates": null,
