@@ -1,12 +1,12 @@
 # General Active Transportation Infrastructure Specification (GATIS)
-Draft #2 of the General Active Transportation Infrastructure Specification (GATIS) is now available for public review and comment. This draft was developed by the Specification Development Subgroup of the [National Collaboration on Bicycle, Pedestrian, and Accessibility Infrastructure Data (NC-BPAID)](https://github.com/dotbts/BPA?tab=readme-ov-file#the-national-collaboration-on-bicycle-pedestrian-and-accessibility-infrastructure-data-nc-bpaid).
+Voting is currently open to advance the first formal version of the General Active Transportation Infrastructure Specification (GATIS)! If your organization is a member of NC-BPAID, you can [VOTE HERE](https://forms.office.com/g/NcLfAe2R86). **Voting will be open until February 27th, 11:59 pm PT.**
 
-## Draft Specification Links
-- [Google Document of Draft #2](https://docs.google.com/document/d/1cNpTRCuOB3vxFeGjYrlMsXo855OtfCvipv57dcBcu9w/edit?pli=1&tab=t.0)
-- [Google Sheet of Draft #2 features and attributes](https://docs.google.com/spreadsheets/d/1qs0x58V-Gcikm70AKxsXxKH7D4TL6z8FlBgf4P4kqJQ/edit?gid=2090301280#gid=2090301280)
-- [GATIS Explorer (website for navigating the specification)](https://dotbts.github.io/BPA/)
+Review the draft specification on the [GATIS Explorer](https://dotbts.github.io/BPA/). All of the materials under the “View Draft Specification” button on the Explorer are part of the vote. You can also review, edit and comment on the [GATIS Playbook draft](https://docs.google.com/document/d/1z_iwS-F72bcdDIspbXcNryHii1Yu2p9P7p8rmdS9fs8/edit?tab=t.0). The Playbook is not a part of the vote and will go to its own vote in the spring after the draft is finalized. 
 
-[Draft #1](https://github.com/dotbts/BPA/blob/main/documents/drafts/BikePed%20(GATIS)%20Specification%20v1%20DRAFT_20250701.pdf) is still accessible in PDF format for reference.
+Previous drafts of the specification are available for viewing at these links:
+- Draft #3: [Google Document](https://docs.google.com/document/d/1pzMQbQcTJ6QNTx53aFimS_9Dko8c3HPh/edit) and [Google Sheet of features and attributes](https://docs.google.com/spreadsheets/d/1j-CuaOruFdZDBNaKEW1J3-mdMLdl3pY_K_xRJRcMo8I/edit?gid=99439912#gid=99439912) (This draft mostly matches the version of the specification currently being voted on)
+- Draft #2: [Google Document](https://docs.google.com/document/d/1cNpTRCuOB3vxFeGjYrlMsXo855OtfCvipv57dcBcu9w/edit?pli=1&tab=t.0) and [Google Sheet of features and attributes](https://docs.google.com/spreadsheets/d/1qs0x58V-Gcikm70AKxsXxKH7D4TL6z8FlBgf4P4kqJQ/edit?gid=2090301280#gid=2090301280)
+- Draft #1: [PDF](https://github.com/dotbts/BPA/blob/main/documents/drafts/BikePed (GATIS) Specification v1 DRAFT_20250701.pdf)
 
 ## Draft Specification Files
 The [draft_gatis_specification/specification_jsons](https://github.com/dotbts/BPA/tree/main/draft_gatis_specification/specification_jsons) folder contains JSON files that describe the different types and allowed attributes for each GATIS feature type. The [draft_gatis_specification/templates](https://github.com/dotbts/BPA/tree/main/draft_gatis_specification/templates) folder contains GeoJSON files that reflect the recommended and required types and attributes for each feature type at each tier level plus one that includes all optional attributes. Lastly, the [draft_gatis_specification/sample_data](https://github.com/dotbts/BPA/tree/main/draft_gatis_specification/sample_data) contains Jupyter Notebooks showing example pipelines for converting existing municipal data into GATIS. The notebook also contains links to download the sample data.
