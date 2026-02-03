@@ -47,7 +47,7 @@ window.addEventListener("DOMContentLoaded", () => {
       csv_fp = "../data/types_index.csv";
       break;
     case "metadata_page":
-      csv_fp = "../data/Metadata.csv";
+      csv_fp = "../data/metadata.csv";
       order_array = true // order by required/recommended
   }
 
