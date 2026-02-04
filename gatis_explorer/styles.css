@@ -185,7 +185,7 @@ button.active {
 
 .link-button {
   display: inline-block;
-  padding: 10px 10px;
+  padding: 10px 20px;
   background-color: #d9e021;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -193,7 +193,6 @@ button.active {
   color: #333;
   font-weight: bold;
   transition: background-color 0.3s ease;
-  width: 200px;
   text-align: center;
 }
 
