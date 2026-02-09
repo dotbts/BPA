@@ -32,8 +32,7 @@ To contact us or ask a question, please fill out [this form](https://forms.offic
 
 ## Upcoming Meetings
 We typically meet every other month. All meetings are held on Microsoft Teams. Please [join the list](https://forms.office.com/g/34975BEAkF) to have the invites sent to you. The next collaboration meetings will be held:  
-- [Thursday, October 30, 2025 @ 3:00pm ET](https://github.com/dotbts/BPA/wiki/2025-10-30)
-- Thursday, December 4, 2025 @ 3:00pm ET
+- Thursday, March 5, 2026 @ 3:00pm ET
 
 We also have three subgroups that meet regularly and have opportunities to work asynchronously, too. To get connected with these groups, please fill out [this form](https://forms.office.com/g/fnccNdugBN):
 - Subgroup on Data Practices: Working to facilitate the adoption of specifications and practices. Meets every first Thursday @ 3:00pm ET.
