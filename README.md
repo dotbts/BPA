@@ -1,7 +1,7 @@
 # General Active Transportation Infrastructure Specification (GATIS)
-Voting is currently open to advance the first formal version of the General Active Transportation Infrastructure Specification (GATIS)! If your organization is a member of NC-BPAID, you can [VOTE HERE](https://forms.office.com/g/NcLfAe2R86). **Voting will be open until February 27th, 11:59 pm PT.**
+Voting  to advance the first formal version of the General Active Transportation Infrastructure Specification (GATIS) concluded on February 27th, with unanimous support from the Collaboration! 
 
-Review the draft specification on the [GATIS Explorer](https://dotbts.github.io/BPA/). All of the materials under the “View Draft Specification” button on the Explorer are part of the vote. You can also review, edit and comment on the [GATIS Playbook draft](https://docs.google.com/document/d/1z_iwS-F72bcdDIspbXcNryHii1Yu2p9P7p8rmdS9fs8/edit?tab=t.0). The Playbook is not a part of the vote and will go to its own vote in the spring after the draft is finalized. 
+Access version 1.0 of the specification on the [GATIS Explorer](https://dotbts.github.io/BPA/). You can also review, edit and comment on the [GATIS Playbook draft](https://docs.google.com/document/d/1z_iwS-F72bcdDIspbXcNryHii1Yu2p9P7p8rmdS9fs8/edit?tab=t.0). The Playbook was not part of the specification vote, and will go to its own vote in the spring. 
 
 Previous drafts of the specification are available for viewing at these links:
 - Draft #3: [Google Document](https://docs.google.com/document/d/1pzMQbQcTJ6QNTx53aFimS_9Dko8c3HPh/edit) and [Google Sheet of features and attributes](https://docs.google.com/spreadsheets/d/1j-CuaOruFdZDBNaKEW1J3-mdMLdl3pY_K_xRJRcMo8I/edit?gid=99439912#gid=99439912) (This draft mostly matches the version of the specification currently being voted on)
