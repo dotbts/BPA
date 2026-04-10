@@ -41,11 +41,9 @@ A set of Bureau of Transportation Statistics and other U.S. Department of Transp
 
 The administrative team SHALL collaborate with the co-chairs on some decisions as outlined in this framework. Where decisions are made collaboratively, the majority of co-chairs SHALL have equal weight with the majority of the administrative team. 
 
-As of May 7, 2025, the members of the administrative team are:   
-* Jay Davis, Bureau of Transportation Statistics 
+As of April 10, 2026, the members of the administrative team are:   
 * Justyna Goworowska, Bureau of Transportation Statistics
-* Reid Passmore, Bureau of Transportation Statistics
-* Sara Secunda, Volpe Center, USDOT
+* Nineveh O'Connell, Volpe Center, USDOT
 * Carl Fredlund, MobilityData
 
 This document SHALL be updated with current administrative team members when changes occur. 
