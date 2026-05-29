@@ -18,7 +18,7 @@ def geojson_to_geopandas(geojson,feature_type=None,subfeature_type=None):
     if subfeature_type is not None:
         accepted_subfeature_types = [x['properties'][f'{feature_type}_type'] for x in geojson['features']]
         if subfeature_type not in accepted_subfeature_types:
-            raise Exception(f"subfeature type is not one of {accepted_subfeature_types}")
+            raise Exception(f"subfeature type {subfeature_type} is not one of the accepted features: {accepted_subfeature_types}")
 
     for record in geojson['features']:
         record = record['properties']

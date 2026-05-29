@@ -49,30 +49,48 @@ def download_osmnx(xmin,ymin,xmax,ymax):
     return nodes, edges
 
 
-def overpass_download(xmin,ymin,xmax,ymax):
-    def query(feature_type):    
-      query = f"""
-      [out:json]
-      [timeout:120]
-      ;
-      {feature_type}
-      ["highway"]
-      ({ymin},{xmin},{ymax},{xmax});
-      out geom;
-      """
-      return query
+def overpass_download(ymin, xmin, ymax, xmax):
+    """
+    ymin: min latitude, xmin: min longitude
+    ymax: max latitude, xmax: max longitude
+    """
+    def build_query(feature_type):    
+        return f"""
+        [out:json][timeout:120];
+        (
+          {feature_type}["highway"~"footway|sidewalk|cycleway|path|crossing"]({ymin},{xmin},{ymax},{xmax});
+          {feature_type}["footway"~"sidewalk"]({ymin},{xmin},{ymax},{xmax});
+        );
+        out geom;
+        """
     
-    url = "http://overpass-api.de/api/interpreter"
-    r = requests.get(url, params={'data': query("node")})
-    nodes = r.json()
-    r = requests.get(url, params={'data': query("way")})
-    edges = r.json()
+    url = "https://overpass.openstreetmap.fr/api/interpreter"
     
-    #simplify for dataframe
-    nodes = process_overpass_response(nodes)
-    edges = process_overpass_response(edges)
-    
-    return nodes, edges
+    # Use POST to avoid URL length issues and improve reliability
+    try:
+        # Fetch Nodes
+        print("giving it the ol college try ... ")
+        r_nodes = requests.post(url, data={'data': build_query("node")})
+        r_nodes.raise_for_status() # This catches 400, 429, 500 errors immediately
+        print(r_nodes)
+        nodes_json = r_nodes.json()
+
+        # Fetch Ways
+        r_ways = requests.post(url, data={'data': build_query("way")})
+        r_ways.raise_for_status()
+        ways_json = r_ways.json()
+        
+        return nodes_json, ways_json
+
+    except requests.exceptions.HTTPError as e:
+        print(f"HTTP Error: {e}")
+        if r_nodes.status_code == 429:
+            print("Tip: You are being rate limited. Wait 30 seconds.")
+        print(f"Server Response: {e.response.text}")
+        raise
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+        raise
 
 def overpass_nodes(xmin,ymin,xmax,ymax):
     '''
@@ -89,7 +107,7 @@ def overpass_nodes(xmin,ymin,xmax,ymax):
     out geom;
     """
     
-    url = "http://overpass-api.de/api/interpreter"
+    url = "https://overpass.openstreetmap.fr/api/interpreter"
     r = requests.get(url, params={'data': query})
 
     if r.status_code != 200:
