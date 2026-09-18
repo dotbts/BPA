@@ -1,7 +1,7 @@
 # General Active Transportation Infrastructure Specification (GATIS)
 Voting  to advance the first formal version of the General Active Transportation Infrastructure Specification (GATIS) concluded on February 27th, with unanimous support from the Collaboration! 
 
-Access version 1.0 of the specification on the [GATIS Explorer](https://dotbts.github.io/BPA/). You can also review, edit and comment on the [GATIS Playbook draft](https://docs.google.com/document/d/1z_iwS-F72bcdDIspbXcNryHii1Yu2p9P7p8rmdS9fs8/edit?tab=t.0). The Playbook was not part of the specification vote, and will go to its own vote in the spring. 
+Access version 1.0 of the specification on the [GATIS Explorer](https://dotbts.github.io/BPA/). You can also review, edit and comment on the [GATIS Playbook](https://docs.google.com/document/d/1_3Zz1hudUCunHNpgFDY74ybvNgjttcTdQ9c9LTYm3uE/edit?tab=t.0). The Playbook was not part of the specification vote, and will go to its own vote in the spring. 
 
 Previous drafts of the specification are available for viewing at these links:
 - Draft #3: [Google Document](https://docs.google.com/document/d/1pzMQbQcTJ6QNTx53aFimS_9Dko8c3HPh/edit) and [Google Sheet of features and attributes](https://docs.google.com/spreadsheets/d/1j-CuaOruFdZDBNaKEW1J3-mdMLdl3pY_K_xRJRcMo8I/edit?gid=99439912#gid=99439912) (This draft mostly matches the version of the specification currently being voted on)
