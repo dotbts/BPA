@@ -557,3 +557,61 @@ function capitalizeFirstLetter(val) {
 
     return val;
 }
+
+////////////////////////////////////////////////////////////////////////////////
+// Usage analytics /////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+//
+// Page views are recorded by the GoatCounter tag in each page's HTML. This
+// block adds the interactions that produce no page view and would otherwise be
+// invisible: validator runs, file downloads, and clicks that leave the site.
+// Ordinary navigation between pages is deliberately not tracked here, since
+// page views already cover it.
+
+(function () {
+  function recordEvent(path, title) {
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: path, title: title || "", event: true });
+    }
+  }
+
+  function label(el) {
+    return (el.textContent || "").trim().slice(0, 80);
+  }
+
+  document.addEventListener("click", function (e) {
+    var target = e.target;
+    if (!target || !target.closest) {
+      return;
+    }
+
+    // Validator runs happen entirely in the browser, so nothing else sees them.
+    if (target.closest("#validateBtn")) {
+      recordEvent("validator: run");
+      return;
+    }
+
+    var a = target.closest("a");
+    if (!a || !a.href) {
+      return;
+    }
+
+    var isDownload = a.hasAttribute("download") ||
+                     /\.(csv|zip|pdf|geojson|xlsx|json)$/i.test(a.pathname);
+
+    if (isDownload) {
+      // Files built in the browser (the compendium CSV export) get a blob: URL
+      // that is different on every export, so label those by filename instead.
+      // Otherwise each download would register as its own single-hit path.
+      var name = a.protocol === "blob:"
+        ? (a.getAttribute("download") || "file")
+        : a.href;
+      recordEvent("download: " + name, label(a));
+      return;
+    }
+
+    if (a.hostname && a.hostname !== location.hostname) {
+      recordEvent("outbound: " + a.href, label(a));
+    }
+  });
+})();
